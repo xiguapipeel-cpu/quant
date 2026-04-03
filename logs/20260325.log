@@ -1,0 +1,2257 @@
+16:46:39 [INFO] bt_runner: 回测启动 | 策略=dual_ma | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:46:39 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:46:39 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:46:39 [INFO] bt_runner: 构建验证门控数据（从AKShare拉取基本面）...
+16:46:39 [INFO] bt_runner: [回测] 从AKShare拉取基本面数据，构建简化验证门控...
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，600519验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，300750验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，600036验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，002594验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，601318验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，000858验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，002371验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，601088验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，603288验证失败（不接受降级）
+16:46:39 [ERROR] bt_runner: [回测验证] akshare未安装，300760验证失败（不接受降级）
+16:46:39 [INFO] bt_runner: [回测验证] 完成 | 通过: 0 | 排除: 10 | 降级: 0
+16:46:39 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:46:39 [INFO] bt_runner: 验证门控结果 | 通过: 0只 [] | 排除: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760']
+16:46:39 [INFO] bt_runner: 开始逐日撮合模拟...
+16:46:39 [INFO] strategies: [双均线] 600519 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 600519 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 300750 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 300750 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 600036 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 600036 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 002594 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 002594 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 601318 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 601318 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 000858 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 000858 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 002371 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 002371 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 601088 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 601088 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 603288 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 603288 生成0条信号
+16:46:39 [INFO] strategies: [双均线] 300760 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: akshare未安装
+16:46:39 [INFO] bt_engine: [双均线] 300760 生成0条信号
+16:46:39 [INFO] bt_report: 回测报告已写入: backtest_reports/双均线_2022-01-04_2024-12-31_20260325_164639.txt
+16:46:39 [INFO] bt_runner: 回测完成 | 年化=+0.00% 夏普=-1.1620356504259526e+17 胜率=0.0%
+16:46:39 [INFO] bt_runner: [回测] 结果已持久化 id=7 → backtest_results.json
+16:49:38 [INFO] bt_runner: 回测启动 | 策略=dual_ma | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:49:38 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:49:38 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:49:38 [INFO] bt_runner: 构建验证门控数据...
+16:49:38 [WARNING] bt_runner: [回测] akshare未安装，将从缓存日线数据推断验证状态
+16:49:38 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+16:49:38 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+16:49:38 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:49:38 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+16:49:38 [INFO] bt_runner: 开始逐日撮合模拟...
+16:49:38 [INFO] strategies: [双均线] 600519 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 600519 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 300750 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 300750 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 600036 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 600036 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 002594 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 002594 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 601318 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 601318 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 000858 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 000858 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 002371 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 002371 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 601088 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 601088 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 603288 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 603288 生成0条信号
+16:49:38 [INFO] strategies: [双均线] 300760 未通过验证门控，跳过 | 原因: 市值数据缺失，无法评估标的规模
+16:49:38 [INFO] bt_engine: [双均线] 300760 生成0条信号
+16:49:38 [INFO] bt_report: 回测报告已写入: backtest_reports/双均线_2022-01-04_2024-12-31_20260325_164938.txt
+16:49:38 [INFO] bt_runner: 回测完成 | 年化=+0.00% 夏普=0 胜率=0.0%
+16:49:38 [INFO] bt_runner: [回测] 结果已持久化 id=8 → backtest_results.json
+16:50:37 [INFO] bt_runner: 回测启动 | 策略=dual_ma | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:50:37 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:50:37 [INFO] bt_runner: 构建验证门控数据...
+16:50:37 [WARNING] bt_runner: [回测] akshare未安装，将从缓存日线数据推断验证状态
+16:50:37 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+16:50:37 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+16:50:37 [INFO] bt_runner: 开始逐日撮合模拟...
+16:50:37 [DEBUG] strategies: [双均线] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 600519 生成0条信号
+16:50:37 [DEBUG] strategies: [双均线] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 300750 生成2条信号
+16:50:37 [DEBUG] strategies: [双均线] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 600036 生成2条信号
+16:50:37 [DEBUG] strategies: [双均线] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 002594 生成0条信号
+16:50:37 [DEBUG] strategies: [双均线] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 601318 生成0条信号
+16:50:37 [DEBUG] strategies: [双均线] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 000858 生成4条信号
+16:50:37 [DEBUG] strategies: [双均线] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 002371 生成2条信号
+16:50:37 [DEBUG] strategies: [双均线] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 601088 生成4条信号
+16:50:37 [DEBUG] strategies: [双均线] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 603288 生成2条信号
+16:50:37 [DEBUG] strategies: [双均线] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [双均线] 300760 生成4条信号
+16:50:37 [INFO] bt_report: 回测报告已写入: backtest_reports/双均线_2022-01-04_2024-12-31_20260325_165037.txt
+16:50:37 [INFO] bt_runner: 回测完成 | 年化=-6.81% 夏普=-1.47 胜率=20.0%
+16:50:37 [INFO] bt_runner: [回测] 结果已持久化 id=9 → backtest_results.json
+16:50:37 [INFO] bt_runner: 回测启动 | 策略=rsi | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:50:37 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:50:37 [INFO] bt_runner: 构建验证门控数据...
+16:50:37 [WARNING] bt_runner: [回测] akshare未安装，将从缓存日线数据推断验证状态
+16:50:37 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+16:50:37 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+16:50:37 [INFO] bt_runner: 开始逐日撮合模拟...
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 600519 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 300750 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 600036 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 002594 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 601318 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 000858 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 002371 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 601088 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 603288 生成0条信号
+16:50:37 [DEBUG] strategies: [RSI超买超卖] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:50:37 [INFO] bt_engine: [RSI超买超卖] 300760 生成0条信号
+16:50:37 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI超买超卖_2022-01-04_2024-12-31_20260325_165037.txt
+16:50:37 [INFO] bt_runner: 回测完成 | 年化=+0.00% 夏普=0 胜率=0.0%
+16:50:37 [INFO] bt_runner: [回测] 结果已持久化 id=10 → backtest_results.json
+16:50:37 [INFO] bt_runner: 回测启动 | 策略=pe_mean_reversion | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:50:37 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:50:37 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:50:37 [INFO] bt_runner: 构建验证门控数据...
+16:50:37 [WARNING] bt_runner: [回测] akshare未安装，将从缓存日线数据推断验证状态
+16:50:37 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+16:50:37 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+16:50:37 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:50:37 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+16:50:37 [INFO] bt_runner: 开始逐日撮合模拟...
+16:50:37 [INFO] strategies: [PE均值回归] 600519 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 600519 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 300750 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 300750 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 600036 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 600036 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 002594 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 002594 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 601318 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 601318 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 000858 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 000858 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 002371 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 002371 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 601088 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 601088 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 603288 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 603288 生成0条信号
+16:50:37 [INFO] strategies: [PE均值回归] 300760 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+16:50:37 [INFO] bt_engine: [PE均值回归] 300760 生成0条信号
+16:50:37 [INFO] bt_report: 回测报告已写入: backtest_reports/PE均值回归_2022-01-04_2024-12-31_20260325_165037.txt
+16:50:37 [INFO] bt_runner: 回测完成 | 年化=+0.00% 夏普=0 胜率=0.0%
+16:50:37 [INFO] bt_runner: [回测] 结果已持久化 id=11 → backtest_results.json
+16:51:15 [INFO] bt_runner: 回测启动 | 策略=dual_ma | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:51:15 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:51:15 [INFO] bt_runner: 构建验证门控数据...
+16:51:15 [WARNING] bt_runner: [回测] akshare未安装，将从缓存日线数据推断验证状态
+16:51:15 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+16:51:15 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+16:51:15 [INFO] bt_runner: 开始逐日撮合模拟...
+16:51:15 [DEBUG] strategies: [双均线] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 600519 生成0条信号
+16:51:15 [DEBUG] strategies: [双均线] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 300750 生成2条信号
+16:51:15 [DEBUG] strategies: [双均线] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 600036 生成2条信号
+16:51:15 [DEBUG] strategies: [双均线] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 002594 生成0条信号
+16:51:15 [DEBUG] strategies: [双均线] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 601318 生成0条信号
+16:51:15 [DEBUG] strategies: [双均线] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 000858 生成4条信号
+16:51:15 [DEBUG] strategies: [双均线] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 002371 生成2条信号
+16:51:15 [DEBUG] strategies: [双均线] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 601088 生成4条信号
+16:51:15 [DEBUG] strategies: [双均线] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 603288 生成2条信号
+16:51:15 [DEBUG] strategies: [双均线] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [双均线] 300760 生成4条信号
+16:51:15 [INFO] bt_report: 回测报告已写入: backtest_reports/双均线_2022-01-04_2024-12-31_20260325_165115.txt
+16:51:15 [INFO] bt_runner: 回测完成 | 年化=-6.81% 夏普=-1.47 胜率=20.0%
+16:51:15 [INFO] bt_runner: [回测] 结果已持久化 id=12 → backtest_results.json
+16:51:15 [INFO] bt_runner: 回测启动 | 策略=rsi | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:51:15 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+16:51:15 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:51:15 [INFO] bt_runner: 构建验证门控数据...
+16:51:15 [WARNING] bt_runner: [回测] akshare未安装，将从缓存日线数据推断验证状态
+16:51:15 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+16:51:15 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+16:51:15 [WARNING] bt_data: [数据] 600519 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 300750 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 600036 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 002594 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 601318 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 000858 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 002371 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 601088 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 603288 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [WARNING] bt_data: [数据] 300760 PE序列获取失败: No module named 'akshare' (将跳过PE过滤)
+16:51:15 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+16:51:15 [INFO] bt_runner: 开始逐日撮合模拟...
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 600519 生成2条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 300750 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 600036 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 002594 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 601318 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 000858 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 002371 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 601088 生成0条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 603288 生成2条信号
+16:51:15 [DEBUG] strategies: [RSI超买超卖] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+16:51:15 [INFO] bt_engine: [RSI超买超卖] 300760 生成2条信号
+16:51:15 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI超买超卖_2022-01-04_2024-12-31_20260325_165115.txt
+16:51:15 [INFO] bt_runner: 回测完成 | 年化=-0.27% 夏普=-0.73 胜率=33.3%
+16:51:15 [INFO] bt_runner: [回测] 结果已持久化 id=13 → backtest_results.json
+17:15:02 [INFO] bt_runner: 回测启动 | 策略=dual_ma | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+17:15:02 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:15:02 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:15:02 [INFO] bt_runner: 构建验证门控数据...
+17:15:14 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=4&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))，将从缓存日线数据推断验证状态
+17:15:14 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (726条日线)
+17:15:14 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+17:15:14 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:15:14 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+17:15:14 [INFO] bt_runner: 开始逐日撮合模拟...
+17:15:14 [DEBUG] strategies: [双均线] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 600519 生成0条信号
+17:15:14 [DEBUG] strategies: [双均线] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 300750 生成2条信号
+17:15:14 [DEBUG] strategies: [双均线] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 600036 生成2条信号
+17:15:14 [DEBUG] strategies: [双均线] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 002594 生成0条信号
+17:15:14 [DEBUG] strategies: [双均线] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 601318 生成0条信号
+17:15:14 [DEBUG] strategies: [双均线] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 000858 生成4条信号
+17:15:14 [DEBUG] strategies: [双均线] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 002371 生成2条信号
+17:15:14 [DEBUG] strategies: [双均线] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 601088 生成4条信号
+17:15:14 [DEBUG] strategies: [双均线] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 603288 生成2条信号
+17:15:14 [DEBUG] strategies: [双均线] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:15:14 [INFO] bt_engine: [双均线] 300760 生成4条信号
+17:15:14 [INFO] bt_report: 回测报告已写入: backtest_reports/双均线_2022-01-04_2024-12-31_20260325_171514.txt
+17:15:14 [INFO] bt_runner: 回测完成 | 年化=-6.81% 夏普=-1.47 胜率=20.0%
+17:15:14 [INFO] bt_runner: [回测] 结果已持久化 id=9 → backtest_results.json
+17:16:59 [INFO] bt_runner: 回测启动 | 策略=rsi | 2024-08-01~2025-12-31 | 初始资金¥200,000
+17:17:00 [INFO] bt_data: [数据] 600519 加载345条日线 (2024-08-01~2025-12-31)
+17:17:00 [INFO] bt_data: [数据] 300750 加载345条日线 (2024-08-01~2025-12-31)
+17:17:00 [INFO] bt_data: [数据] 600036 加载345条日线 (2024-08-01~2025-12-31)
+17:17:00 [INFO] bt_data: [数据] 002594 加载345条日线 (2024-08-01~2025-12-31)
+17:17:00 [INFO] bt_data: [数据] 601318 加载345条日线 (2024-08-01~2025-12-31)
+17:17:01 [INFO] bt_data: [数据] 000858 加载345条日线 (2024-08-01~2025-12-31)
+17:17:01 [INFO] bt_data: [数据] 002371 加载345条日线 (2024-08-01~2025-12-31)
+17:17:01 [INFO] bt_data: [数据] 601088 加载335条日线 (2024-08-01~2025-12-31)
+17:17:01 [INFO] bt_data: [数据] 603288 加载345条日线 (2024-08-01~2025-12-31)
+17:17:01 [INFO] bt_data: [数据] 300760 加载345条日线 (2024-08-01~2025-12-31)
+17:17:01 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:17:01 [INFO] bt_runner: 构建验证门控数据...
+17:17:06 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))，将从缓存日线数据推断验证状态
+17:17:06 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (335条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (345条日线)
+17:17:06 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+17:17:06 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:06 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+17:17:06 [INFO] bt_runner: 开始逐日撮合模拟...
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 600519 生成2条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 300750 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 600036 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 002594 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 601318 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 000858 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 002371 生成2条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 601088 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 603288 生成0条信号
+17:17:06 [DEBUG] strategies: [RSI超买超卖] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:06 [INFO] bt_engine: [RSI超买超卖] 300760 生成3条信号
+17:17:06 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI超买超卖_2024-08-01_2025-12-31_20260325_171706.txt
+17:17:06 [INFO] bt_runner: 回测完成 | 年化=-3.45% 夏普=-3.41 胜率=50.0%
+17:17:06 [INFO] bt_runner: [回测] 结果已持久化 id=10 → backtest_results.json
+17:17:27 [INFO] bt_runner: 回测启动 | 策略=pe_mean_reversion | 2024-08-01~2025-12-31 | 初始资金¥200,000
+17:17:27 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:17:27 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:17:27 [INFO] bt_runner: 构建验证门控数据...
+17:17:32 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))，将从缓存日线数据推断验证状态
+17:17:32 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (335条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (345条日线)
+17:17:32 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+17:17:32 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:32 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+17:17:32 [INFO] bt_runner: 开始逐日撮合模拟...
+17:17:32 [INFO] strategies: [PE均值回归] 600519 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 600519 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 300750 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 300750 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 600036 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 600036 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 002594 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 002594 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 601318 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 601318 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 000858 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 000858 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 002371 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 002371 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 601088 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 601088 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 603288 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 603288 生成0条信号
+17:17:32 [INFO] strategies: [PE均值回归] 300760 未通过验证门控，跳过 | 原因: 策略依赖PE，但PE数据缺失（来源：AKShare/多源验证均无有效值）
+17:17:32 [INFO] bt_engine: [PE均值回归] 300760 生成0条信号
+17:17:32 [INFO] bt_report: 回测报告已写入: backtest_reports/PE均值回归_2024-08-01_2025-12-31_20260325_171732.txt
+17:17:32 [INFO] bt_runner: 回测完成 | 年化=+0.00% 夏普=0 胜率=0.0%
+17:17:32 [INFO] bt_runner: [回测] 结果已持久化 id=11 → backtest_results.json
+17:17:41 [INFO] bt_runner: 回测启动 | 策略=dual_ma | 2024-08-01~2025-12-31 | 初始资金¥200,000
+17:17:41 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:17:41 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:17:41 [INFO] bt_runner: 构建验证门控数据...
+17:17:46 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))，将从缓存日线数据推断验证状态
+17:17:46 [INFO] bt_runner: [回测验证] 贵州茅台(600519) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 宁德时代(300750) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 招商银行(600036) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 比亚迪(002594) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 中国平安(601318) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 五粮液(000858) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 北方华创(002371) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 中国神华(601088) ✓ 本地缓存验证通过 (335条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 海天味业(603288) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 迈瑞医疗(300760) ✓ 本地缓存验证通过 (345条日线)
+17:17:46 [INFO] bt_runner: [回测验证] 完成 | 通过: 10 | 排除: 0
+17:17:46 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:17:46 [INFO] bt_runner: 验证门控结果 | 通过: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760'] | 排除: 0只 []
+17:17:46 [INFO] bt_runner: 开始逐日撮合模拟...
+17:17:46 [DEBUG] strategies: [双均线] 600519 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 600519 生成0条信号
+17:17:46 [DEBUG] strategies: [双均线] 300750 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 300750 生成2条信号
+17:17:46 [DEBUG] strategies: [双均线] 600036 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 600036 生成2条信号
+17:17:46 [DEBUG] strategies: [双均线] 002594 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 002594 生成0条信号
+17:17:46 [DEBUG] strategies: [双均线] 601318 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 601318 生成0条信号
+17:17:46 [DEBUG] strategies: [双均线] 000858 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 000858 生成2条信号
+17:17:46 [DEBUG] strategies: [双均线] 002371 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 002371 生成2条信号
+17:17:46 [DEBUG] strategies: [双均线] 601088 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 601088 生成2条信号
+17:17:46 [DEBUG] strategies: [双均线] 603288 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 603288 生成0条信号
+17:17:46 [DEBUG] strategies: [双均线] 300760 验证通过 | 多源验证通过 | 来源: 本地缓存日线
+17:17:46 [INFO] bt_engine: [双均线] 300760 生成0条信号
+17:17:46 [INFO] bt_report: 回测报告已写入: backtest_reports/双均线_2024-08-01_2025-12-31_20260325_171746.txt
+17:17:46 [INFO] bt_runner: 回测完成 | 年化=-6.76% 夏普=-1.23 胜率=0.0%
+17:17:46 [INFO] bt_runner: [回测] 结果已持久化 id=12 → backtest_results.json
+17:18:17 [INFO] analyzer: 开始并行分析 10 只股票...
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 贵州茅台(600519) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 宁德时代(300750) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 招商银行(600036) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 比亚迪(002594) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 中国平安(601318) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 五粮液(000858) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 北方华创(002371) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 中国神华(601088) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 海天味业(603288) ---
+17:18:17 [INFO] analyzer: 
+--- 开始分析: 迈瑞医疗(300760) ---
+17:18:17 [WARNING] data_fetcher: [AKShare] 600519 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 600519 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 贵州茅台 600519 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 600519 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 600519 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 贵州茅台 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 贵州茅台 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 贵州茅台 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [WARNING] data_fetcher: [AKShare] 300750 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 宁德时代 300750 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 宁德时代 300750 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 300750 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 300750 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 宁德时代 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 宁德时代 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 宁德时代 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 宁德时代 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 宁德时代 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 宁德时代 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [WARNING] data_fetcher: [AKShare] 600036 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 招商银行 600036 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 招商银行 600036 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 600036 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 600036 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 招商银行 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 招商银行 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 招商银行 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 招商银行 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 招商银行 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 招商银行 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [WARNING] data_fetcher: [AKShare] 002594 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 比亚迪 002594 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 比亚迪 002594 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 002594 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 002594 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 比亚迪 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 比亚迪 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 比亚迪 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 比亚迪 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 比亚迪 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 比亚迪 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [WARNING] data_fetcher: [AKShare] 601318 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国平安 601318 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国平安 601318 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 601318 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 601318 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国平安 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国平安 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国平安 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国平安 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国平安 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国平安 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [WARNING] data_fetcher: [AKShare] 000858 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 五粮液 000858 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 五粮液 000858 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 000858 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 000858 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 五粮液 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 五粮液 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 五粮液 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 五粮液 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 五粮液 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 五粮液 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [WARNING] data_fetcher: [AKShare] 002371 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 北方华创 002371 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 北方华创 002371 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 002371 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 002371 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 北方华创 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 北方华创 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 北方华创 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 北方华创 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 北方华创 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 北方华创 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国神华 601088 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国神华 601088 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 601088 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 601088 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国神华 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国神华 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国神华 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国神华 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 中国神华 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 中国神华 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 海天味业 603288 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 海天味业 603288 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 603288 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 603288 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 海天味业 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 海天味业 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 海天味业 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 海天味业 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 海天味业 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 海天味业 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 300760 市盈率 PE 理杏仁 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 300760 市盈率 PE 理杏仁 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 300760 市盈率 PE 理杏仁 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 300760 市盈率 PE 理杏仁 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 stock PE ratio Yahoo Finance (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 stock PE ratio Yahoo Finance (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 stock PE ratio Yahoo Finance (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 市盈率 搜狐财经 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 市盈率 搜狐财经 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 市盈率 搜狐财经 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 市盈率 搜狐财经 → 此数据点标记为缺失
+17:18:17 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+17:18:17 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+17:18:17 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+17:18:17 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+17:18:17 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+17:18:17 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+17:18:17 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+17:18:17 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 最新消息 研报 2025 → 此数据点标记为缺失
+17:18:21 [ERROR] data_fetcher: [AKShare] 000858 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:21 [WARNING] data_fetcher: [AKShare] 601088 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:22 [ERROR] data_fetcher: [AKShare] 002371 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [ERROR] data_fetcher: [AKShare] 002594 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] data_fetcher: [AKShare] 603288 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:22 [ERROR] data_fetcher: [AKShare] 601318 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [ERROR] data_fetcher: [AKShare] 600519 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] data_fetcher: [AKShare] 300760 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+17:18:22 [ERROR] data_fetcher: [AKShare] 300750 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [ERROR] data_fetcher: [AKShare] 600036 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [ERROR] data_fetcher: [AKShare] 600519 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:22 [ERROR] data_fetcher: [AKShare] 300750 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:22 [ERROR] data_fetcher: [AKShare] 002594 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:22 [ERROR] data_fetcher: [AKShare] 601088 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [ERROR] data_fetcher: [AKShare] 601088 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:22 [ERROR] data_fetcher: [AKShare] 000858 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:22 [ERROR] data_fetcher: [AKShare] 002371 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:22 [ERROR] data_fetcher: [AKShare] 600036 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:22 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:22 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:22 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:23 [ERROR] data_fetcher: [AKShare] 601318 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:23 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:23 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:23 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:23 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:23 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:23 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:23 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:23 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:26 [ERROR] data_fetcher: [AKShare] 603288 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:27 [ERROR] data_fetcher: [AKShare] 603288 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:27 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:27 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:27 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:27 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:27 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:27 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:27 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:27 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:28 [ERROR] data_fetcher: [AKShare] 300760 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:28 [ERROR] data_fetcher: [AKShare] 300760 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:18:28 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+17:18:28 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+17:18:28 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+17:18:28 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+17:18:28 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+17:18:28 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+17:18:28 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+17:18:28 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+17:18:28 [ERROR] analyzer: [贵州茅台] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [宁德时代] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [招商银行] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [比亚迪] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [中国平安] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [五粮液] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [北方华创] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [中国神华] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [海天味业] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:18:28 [ERROR] analyzer: [迈瑞医疗] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+17:40:20 [ERROR] screener: [选股] AKShare拉取异常: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=4&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:40:20 [WARNING] screener: [选股] AKShare拉取失败，尝试使用缓存
+17:40:20 [WARNING] screener: [选股] 无缓存，降级使用固定WATCHLIST
+17:47:08 [ERROR] screener: [选股] AKShare拉取异常: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:47:08 [WARNING] screener: [选股] AKShare拉取失败，尝试使用缓存
+17:47:08 [WARNING] screener: [选股] 无缓存，降级使用固定WATCHLIST
+17:49:38 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:49:38 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:49:38 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:49:38 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:49:38 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:49:39 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:49:39 [INFO] bt_runner: 构建验证门控数据...
+17:49:45 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:49:45 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:49:45 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:45 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:49:45 [INFO] bt_runner: 开始逐日撮合模拟...
+17:49:45 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 600519 生成23条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 300750 生成24条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 600036 生成17条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 002594 生成24条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 601318 生成34条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 000858 生成18条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 002371 生成28条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 601088 生成31条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 603288 生成20条信号
+17:49:45 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:45 [INFO] bt_engine: [趋势跟踪] 300760 生成36条信号
+17:49:45 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2022-01-04_2024-12-31_20260325_174945.txt
+17:49:45 [INFO] bt_runner: 回测完成 | 年化=-0.48% 夏普=-0.11 胜率=31.3% 交易=234次
+17:49:45 [INFO] bt_runner: [回测] 结果已持久化 id=1
+17:49:45 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:49:45 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:49:45 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:49:45 [INFO] bt_runner: 构建验证门控数据...
+17:49:51 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:49:51 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:49:51 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:51 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:49:51 [INFO] bt_runner: 开始逐日撮合模拟...
+17:49:51 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 600519 生成8条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 300750 生成8条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 600036 生成8条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 002594 生成8条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 601318 生成8条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 000858 生成14条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 002371 生成4条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 601088 生成0条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 603288 生成12条信号
+17:49:51 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:51 [INFO] bt_engine: [RSI反转] 300760 生成8条信号
+17:49:51 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2022-01-04_2024-12-31_20260325_174951.txt
+17:49:51 [INFO] bt_runner: 回测完成 | 年化=+1.62% 夏普=-0.05 胜率=76.9% 交易=78次
+17:49:51 [INFO] bt_runner: [回测] 结果已持久化 id=2
+17:49:51 [INFO] bt_runner: 回测启动 | 策略=breakout_momentum | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:49:51 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:49:51 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:49:51 [INFO] bt_runner: 构建验证门控数据...
+17:49:57 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:49:57 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:49:57 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:49:57 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:49:57 [INFO] bt_runner: 开始逐日撮合模拟...
+17:49:57 [DEBUG] strategies: [突破动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 600519 生成14条信号
+17:49:57 [DEBUG] strategies: [突破动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 300750 生成20条信号
+17:49:57 [DEBUG] strategies: [突破动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 600036 生成21条信号
+17:49:57 [DEBUG] strategies: [突破动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 002594 生成20条信号
+17:49:57 [DEBUG] strategies: [突破动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 601318 生成26条信号
+17:49:57 [DEBUG] strategies: [突破动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 000858 生成20条信号
+17:49:57 [DEBUG] strategies: [突破动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 002371 生成34条信号
+17:49:57 [DEBUG] strategies: [突破动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 601088 生成28条信号
+17:49:57 [DEBUG] strategies: [突破动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 603288 生成18条信号
+17:49:57 [DEBUG] strategies: [突破动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:49:57 [INFO] bt_engine: [突破动量] 300760 生成18条信号
+17:49:57 [INFO] bt_report: 回测报告已写入: backtest_reports/突破动量_2022-01-04_2024-12-31_20260325_174957.txt
+17:49:57 [INFO] bt_runner: 回测完成 | 年化=-7.20% 夏普=-0.54 胜率=21.1% 交易=209次
+17:49:57 [INFO] bt_runner: [回测] 结果已持久化 id=3
+17:51:16 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:51:16 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:51:16 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:51:16 [INFO] bt_runner: 构建验证门控数据...
+17:51:23 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:51:23 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:51:23 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:23 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:51:23 [INFO] bt_runner: 开始逐日撮合模拟...
+17:51:23 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 600519 生成23条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 300750 生成24条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 600036 生成17条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 002594 生成24条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 601318 生成34条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 000858 生成18条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 002371 生成28条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 601088 生成31条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 603288 生成20条信号
+17:51:23 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:23 [INFO] bt_engine: [趋势跟踪] 300760 生成36条信号
+17:51:23 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2022-01-04_2024-12-31_20260325_175123.txt
+17:51:23 [INFO] bt_runner: 回测完成 | 年化=-0.48% 夏普=-0.11 胜率=27.8% 交易=234次
+17:51:23 [INFO] bt_runner: [回测] 结果已持久化 id=1
+17:51:23 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:51:23 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:51:23 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:51:23 [INFO] bt_runner: 构建验证门控数据...
+17:51:29 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:51:29 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:51:29 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:29 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:51:29 [INFO] bt_runner: 开始逐日撮合模拟...
+17:51:29 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 600519 生成8条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 300750 生成8条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 600036 生成8条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 002594 生成8条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 601318 生成8条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 000858 生成14条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 002371 生成4条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 601088 生成0条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 603288 生成12条信号
+17:51:29 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:29 [INFO] bt_engine: [RSI反转] 300760 生成8条信号
+17:51:29 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2022-01-04_2024-12-31_20260325_175129.txt
+17:51:29 [INFO] bt_runner: 回测完成 | 年化=+1.62% 夏普=-0.05 胜率=51.3% 交易=78次
+17:51:29 [INFO] bt_runner: [回测] 结果已持久化 id=2
+17:51:29 [INFO] bt_runner: 回测启动 | 策略=breakout_momentum | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:51:29 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:51:29 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:51:29 [INFO] bt_runner: 构建验证门控数据...
+17:51:34 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:51:34 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:51:34 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:51:34 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:51:34 [INFO] bt_runner: 开始逐日撮合模拟...
+17:51:34 [DEBUG] strategies: [突破动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 600519 生成14条信号
+17:51:34 [DEBUG] strategies: [突破动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 300750 生成20条信号
+17:51:34 [DEBUG] strategies: [突破动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 600036 生成19条信号
+17:51:34 [DEBUG] strategies: [突破动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 002594 生成20条信号
+17:51:34 [DEBUG] strategies: [突破动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 601318 生成24条信号
+17:51:34 [DEBUG] strategies: [突破动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 000858 生成18条信号
+17:51:34 [DEBUG] strategies: [突破动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 002371 生成32条信号
+17:51:34 [DEBUG] strategies: [突破动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 601088 生成24条信号
+17:51:34 [DEBUG] strategies: [突破动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 603288 生成16条信号
+17:51:34 [DEBUG] strategies: [突破动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:51:34 [INFO] bt_engine: [突破动量] 300760 生成18条信号
+17:51:34 [INFO] bt_report: 回测报告已写入: backtest_reports/突破动量_2022-01-04_2024-12-31_20260325_175134.txt
+17:51:34 [INFO] bt_runner: 回测完成 | 年化=-4.78% 夏普=-0.4 胜率=35.4% 交易=193次
+17:51:34 [INFO] bt_runner: [回测] 结果已持久化 id=3
+17:51:56 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:51:56 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:51:56 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:51:56 [INFO] bt_runner: 构建验证门控数据...
+17:52:03 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:52:03 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:52:03 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:03 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:52:03 [INFO] bt_runner: 开始逐日撮合模拟...
+17:52:03 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 600519 生成16条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 300750 生成14条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 600036 生成10条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 002594 生成15条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 601318 生成7条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 000858 生成12条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 002371 生成11条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 601088 生成14条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 603288 生成8条信号
+17:52:03 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:03 [INFO] bt_engine: [趋势跟踪] 300760 生成12条信号
+17:52:03 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2024-08-01_2025-12-31_20260325_175203.txt
+17:52:03 [INFO] bt_runner: 回测完成 | 年化=+15.04% 夏普=0.82 胜率=35.3% 交易=105次
+17:52:03 [INFO] bt_runner: [回测] 结果已持久化 id=4
+17:52:03 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:52:03 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:52:03 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:52:03 [INFO] bt_runner: 构建验证门控数据...
+17:52:08 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:52:08 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:52:08 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:08 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:52:08 [INFO] bt_runner: 开始逐日撮合模拟...
+17:52:08 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 600519 生成4条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 300750 生成2条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 600036 生成2条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 002594 生成2条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 601318 生成0条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 000858 生成7条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 002371 生成2条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 601088 生成2条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 603288 生成0条信号
+17:52:08 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:08 [INFO] bt_engine: [RSI反转] 300760 生成6条信号
+17:52:08 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2024-08-01_2025-12-31_20260325_175208.txt
+17:52:08 [INFO] bt_runner: 回测完成 | 年化=+5.39% 夏普=0.53 胜率=75.0% 交易=26次
+17:52:08 [INFO] bt_runner: [回测] 结果已持久化 id=5
+17:52:08 [INFO] bt_runner: 回测启动 | 策略=breakout_momentum | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:52:08 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:52:08 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:52:08 [INFO] bt_runner: 构建验证门控数据...
+17:52:14 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:52:14 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:52:14 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:52:14 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:52:14 [INFO] bt_runner: 开始逐日撮合模拟...
+17:52:14 [DEBUG] strategies: [突破动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 600519 生成8条信号
+17:52:14 [DEBUG] strategies: [突破动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 300750 生成12条信号
+17:52:14 [DEBUG] strategies: [突破动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 600036 生成10条信号
+17:52:14 [DEBUG] strategies: [突破动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 002594 生成7条信号
+17:52:14 [DEBUG] strategies: [突破动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 601318 生成11条信号
+17:52:14 [DEBUG] strategies: [突破动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 000858 生成10条信号
+17:52:14 [DEBUG] strategies: [突破动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 002371 生成13条信号
+17:52:14 [DEBUG] strategies: [突破动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 601088 生成8条信号
+17:52:14 [DEBUG] strategies: [突破动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 603288 生成6条信号
+17:52:14 [DEBUG] strategies: [突破动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:52:14 [INFO] bt_engine: [突破动量] 300760 生成6条信号
+17:52:14 [INFO] bt_report: 回测报告已写入: backtest_reports/突破动量_2024-08-01_2025-12-31_20260325_175214.txt
+17:52:14 [INFO] bt_runner: 回测完成 | 年化=-6.99% 夏普=-1.06 胜率=21.9% 交易=85次
+17:52:14 [INFO] bt_runner: [回测] 结果已持久化 id=6
+17:53:21 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:53:21 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:53:21 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:53:21 [INFO] bt_runner: 构建验证门控数据...
+17:53:28 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:53:28 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:53:28 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:28 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:53:28 [INFO] bt_runner: 开始逐日撮合模拟...
+17:53:28 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 600519 生成23条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 300750 生成24条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 600036 生成17条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 002594 生成24条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 601318 生成34条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 000858 生成18条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 002371 生成28条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 601088 生成31条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 603288 生成20条信号
+17:53:28 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:28 [INFO] bt_engine: [趋势跟踪] 300760 生成36条信号
+17:53:28 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2022-01-04_2024-12-31_20260325_175328.txt
+17:53:28 [INFO] bt_runner: 回测完成 | 年化=-0.48% 夏普=-0.11 胜率=27.8% 交易=234次
+17:53:28 [INFO] bt_runner: [回测] 结果已持久化 id=1
+17:53:28 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:53:28 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:53:28 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:53:28 [INFO] bt_runner: 构建验证门控数据...
+17:53:34 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:53:34 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:53:34 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:34 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:53:34 [INFO] bt_runner: 开始逐日撮合模拟...
+17:53:34 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 600519 生成8条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 300750 生成8条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 600036 生成8条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 002594 生成8条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 601318 生成8条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 000858 生成14条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 002371 生成4条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 601088 生成0条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 603288 生成12条信号
+17:53:34 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:34 [INFO] bt_engine: [RSI反转] 300760 生成8条信号
+17:53:34 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2022-01-04_2024-12-31_20260325_175334.txt
+17:53:34 [INFO] bt_runner: 回测完成 | 年化=+1.62% 夏普=-0.05 胜率=51.3% 交易=78次
+17:53:34 [INFO] bt_runner: [回测] 结果已持久化 id=2
+17:53:34 [INFO] bt_runner: 回测启动 | 策略=breakout_momentum | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:53:34 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:53:34 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:53:34 [INFO] bt_runner: 构建验证门控数据...
+17:53:39 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:53:39 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:53:39 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:39 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:53:39 [INFO] bt_runner: 开始逐日撮合模拟...
+17:53:39 [DEBUG] strategies: [突破动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 600519 生成12条信号
+17:53:39 [DEBUG] strategies: [突破动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 300750 生成10条信号
+17:53:39 [DEBUG] strategies: [突破动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 600036 生成10条信号
+17:53:39 [DEBUG] strategies: [突破动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 002594 生成14条信号
+17:53:39 [DEBUG] strategies: [突破动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 601318 生成12条信号
+17:53:39 [DEBUG] strategies: [突破动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 000858 生成10条信号
+17:53:39 [DEBUG] strategies: [突破动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 002371 生成18条信号
+17:53:39 [DEBUG] strategies: [突破动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 601088 生成8条信号
+17:53:39 [DEBUG] strategies: [突破动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 603288 生成6条信号
+17:53:39 [DEBUG] strategies: [突破动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:39 [INFO] bt_engine: [突破动量] 300760 生成12条信号
+17:53:39 [INFO] bt_report: 回测报告已写入: backtest_reports/突破动量_2022-01-04_2024-12-31_20260325_175339.txt
+17:53:39 [INFO] bt_runner: 回测完成 | 年化=-2.08% 夏普=-0.25 胜率=36.0% 交易=100次
+17:53:39 [INFO] bt_runner: [回测] 结果已持久化 id=3
+17:53:39 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:53:39 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:53:39 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:53:39 [INFO] bt_runner: 构建验证门控数据...
+17:53:45 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:53:45 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:53:45 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:45 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:53:45 [INFO] bt_runner: 开始逐日撮合模拟...
+17:53:45 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 600519 生成16条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 300750 生成14条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 600036 生成10条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 002594 生成15条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 601318 生成7条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 000858 生成12条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 002371 生成11条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 601088 生成14条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 603288 生成8条信号
+17:53:45 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:45 [INFO] bt_engine: [趋势跟踪] 300760 生成12条信号
+17:53:45 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2024-08-01_2025-12-31_20260325_175345.txt
+17:53:45 [INFO] bt_runner: 回测完成 | 年化=+15.04% 夏普=0.82 胜率=35.3% 交易=105次
+17:53:45 [INFO] bt_runner: [回测] 结果已持久化 id=4
+17:53:45 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:53:45 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:53:45 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:53:45 [INFO] bt_runner: 构建验证门控数据...
+17:53:50 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:53:50 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:53:50 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:50 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:53:50 [INFO] bt_runner: 开始逐日撮合模拟...
+17:53:50 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 600519 生成4条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 300750 生成2条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 600036 生成2条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 002594 生成2条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 601318 生成0条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 000858 生成7条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 002371 生成2条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 601088 生成2条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 603288 生成0条信号
+17:53:50 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:50 [INFO] bt_engine: [RSI反转] 300760 生成6条信号
+17:53:50 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2024-08-01_2025-12-31_20260325_175350.txt
+17:53:50 [INFO] bt_runner: 回测完成 | 年化=+5.39% 夏普=0.53 胜率=75.0% 交易=26次
+17:53:50 [INFO] bt_runner: [回测] 结果已持久化 id=5
+17:53:50 [INFO] bt_runner: 回测启动 | 策略=breakout_momentum | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:53:50 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:53:50 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:53:50 [INFO] bt_runner: 构建验证门控数据...
+17:53:55 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:53:55 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:53:55 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:53:55 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:53:55 [INFO] bt_runner: 开始逐日撮合模拟...
+17:53:55 [DEBUG] strategies: [突破动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 600519 生成2条信号
+17:53:55 [DEBUG] strategies: [突破动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 300750 生成4条信号
+17:53:55 [DEBUG] strategies: [突破动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 600036 生成4条信号
+17:53:55 [DEBUG] strategies: [突破动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 002594 生成2条信号
+17:53:55 [DEBUG] strategies: [突破动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 601318 生成5条信号
+17:53:55 [DEBUG] strategies: [突破动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 000858 生成4条信号
+17:53:55 [DEBUG] strategies: [突破动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 002371 生成10条信号
+17:53:55 [DEBUG] strategies: [突破动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 601088 生成4条信号
+17:53:55 [DEBUG] strategies: [突破动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 603288 生成2条信号
+17:53:55 [DEBUG] strategies: [突破动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:53:55 [INFO] bt_engine: [突破动量] 300760 生成2条信号
+17:53:55 [INFO] bt_report: 回测报告已写入: backtest_reports/突破动量_2024-08-01_2025-12-31_20260325_175355.txt
+17:53:55 [INFO] bt_runner: 回测完成 | 年化=-3.94% 夏普=-0.66 胜率=21.1% 交易=39次
+17:53:55 [INFO] bt_runner: [回测] 结果已持久化 id=6
+17:56:15 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:56:15 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:56:15 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:56:15 [INFO] bt_runner: 构建验证门控数据...
+17:56:21 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:56:21 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:56:21 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:21 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:56:21 [INFO] bt_runner: 开始逐日撮合模拟...
+17:56:21 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 600519 生成23条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 300750 生成24条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 600036 生成17条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 002594 生成24条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 601318 生成34条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 000858 生成18条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 002371 生成28条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 601088 生成31条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 603288 生成20条信号
+17:56:21 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:21 [INFO] bt_engine: [趋势跟踪] 300760 生成36条信号
+17:56:21 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2022-01-04_2024-12-31_20260325_175621.txt
+17:56:21 [INFO] bt_runner: 回测完成 | 年化=-0.48% 夏普=-0.11 胜率=27.8% 交易=234次
+17:56:21 [INFO] bt_runner: [回测] 结果已持久化 id=1
+17:56:21 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:56:21 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:56:21 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:56:21 [INFO] bt_runner: 构建验证门控数据...
+17:56:27 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:56:27 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:56:27 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:27 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:56:27 [INFO] bt_runner: 开始逐日撮合模拟...
+17:56:27 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 600519 生成8条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 300750 生成8条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 600036 生成8条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 002594 生成8条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 601318 生成8条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 000858 生成14条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 002371 生成4条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 601088 生成0条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 603288 生成12条信号
+17:56:27 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:27 [INFO] bt_engine: [RSI反转] 300760 生成8条信号
+17:56:27 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2022-01-04_2024-12-31_20260325_175627.txt
+17:56:27 [INFO] bt_runner: 回测完成 | 年化=+1.62% 夏普=-0.05 胜率=51.3% 交易=78次
+17:56:27 [INFO] bt_runner: [回测] 结果已持久化 id=2
+17:56:27 [INFO] bt_runner: 回测启动 | 策略=macd_momentum | 2022-01-01~2024-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:56:27 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2022-01-01_2024-12-31_qfq.json
+17:56:27 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:56:27 [INFO] bt_runner: 构建验证门控数据...
+17:56:32 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:56:32 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:56:32 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:32 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:56:32 [INFO] bt_runner: 开始逐日撮合模拟...
+17:56:32 [DEBUG] strategies: [MACD动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 600519 生成23条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 300750 生成26条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 600036 生成21条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 002594 生成33条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 601318 生成28条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 000858 生成18条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 002371 生成35条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 601088 生成41条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 603288 生成14条信号
+17:56:32 [DEBUG] strategies: [MACD动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:32 [INFO] bt_engine: [MACD动量] 300760 生成34条信号
+17:56:32 [INFO] bt_report: 回测报告已写入: backtest_reports/MACD动量_2022-01-04_2024-12-31_20260325_175632.txt
+17:56:32 [INFO] bt_runner: 回测完成 | 年化=-1.40% 夏普=-0.24 胜率=27.6% 交易=258次
+17:56:32 [INFO] bt_runner: [回测] 结果已持久化 id=3
+17:56:32 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:56:32 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:56:32 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:56:32 [INFO] bt_runner: 构建验证门控数据...
+17:56:37 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:56:37 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:56:37 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:37 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:56:37 [INFO] bt_runner: 开始逐日撮合模拟...
+17:56:37 [DEBUG] strategies: [趋势跟踪] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 600519 生成16条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 300750 生成14条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 600036 生成10条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 002594 生成15条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 601318 生成7条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 000858 生成12条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 002371 生成11条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 601088 生成14条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 603288 生成8条信号
+17:56:37 [DEBUG] strategies: [趋势跟踪] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:37 [INFO] bt_engine: [趋势跟踪] 300760 生成12条信号
+17:56:37 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2024-08-01_2025-12-31_20260325_175637.txt
+17:56:37 [INFO] bt_runner: 回测完成 | 年化=+15.04% 夏普=0.82 胜率=35.3% 交易=105次
+17:56:37 [INFO] bt_runner: [回测] 结果已持久化 id=4
+17:56:37 [INFO] bt_runner: 回测启动 | 策略=rsi_reversal | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:56:37 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:56:37 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:56:37 [INFO] bt_runner: 构建验证门控数据...
+17:56:42 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:56:42 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:56:42 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:42 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:56:42 [INFO] bt_runner: 开始逐日撮合模拟...
+17:56:42 [DEBUG] strategies: [RSI反转] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 600519 生成4条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 300750 生成2条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 600036 生成2条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 002594 生成2条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 601318 生成0条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 000858 生成7条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 002371 生成2条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 601088 生成2条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 603288 生成0条信号
+17:56:42 [DEBUG] strategies: [RSI反转] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:42 [INFO] bt_engine: [RSI反转] 300760 生成6条信号
+17:56:42 [INFO] bt_report: 回测报告已写入: backtest_reports/RSI反转_2024-08-01_2025-12-31_20260325_175642.txt
+17:56:42 [INFO] bt_runner: 回测完成 | 年化=+5.39% 夏普=0.53 胜率=75.0% 交易=26次
+17:56:42 [INFO] bt_runner: [回测] 结果已持久化 id=5
+17:56:42 [INFO] bt_runner: 回测启动 | 策略=macd_momentum | 2024-08-01~2025-12-31 | 初始资金¥1,000,000 | 股票=10只
+17:56:42 [INFO] bt_data: [数据] 600519 使用本地缓存 600519_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 300750 使用本地缓存 300750_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 600036 使用本地缓存 600036_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 002594 使用本地缓存 002594_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 601318 使用本地缓存 601318_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 000858 使用本地缓存 000858_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 002371 使用本地缓存 002371_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 601088 使用本地缓存 601088_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 603288 使用本地缓存 603288_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_data: [数据] 300760 使用本地缓存 300760_2024-08-01_2025-12-31_qfq.json
+17:56:42 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+17:56:42 [INFO] bt_runner: 构建验证门控数据...
+17:56:48 [WARNING] bt_runner: [回测] AKShare拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+17:56:48 [INFO] bt_runner: [回测验证] 通过: 10 | 排除: 0
+17:56:48 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+17:56:48 [INFO] bt_runner: 验证门控 | 通过: 10只 | 排除: 0只
+17:56:48 [INFO] bt_runner: 开始逐日撮合模拟...
+17:56:48 [DEBUG] strategies: [MACD动量] 600519 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 600519 生成14条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 300750 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 300750 生成18条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 600036 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 600036 生成24条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 002594 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 002594 生成10条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 601318 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 601318 生成20条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 000858 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 000858 生成10条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 002371 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 002371 生成22条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 601088 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 601088 生成23条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 603288 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 603288 生成14条信号
+17:56:48 [DEBUG] strategies: [MACD动量] 300760 验证通过 | 验证通过 | 来源: 本地缓存日线
+17:56:48 [INFO] bt_engine: [MACD动量] 300760 生成8条信号
+17:56:48 [INFO] bt_report: 回测报告已写入: backtest_reports/MACD动量_2024-08-01_2025-12-31_20260325_175648.txt
+17:56:48 [INFO] bt_runner: 回测完成 | 年化=-0.32% 夏普=-0.11 胜率=25.6% 交易=157次
+17:56:48 [INFO] bt_runner: [回测] 结果已持久化 id=6

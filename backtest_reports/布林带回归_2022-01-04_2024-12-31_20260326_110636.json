@@ -1,0 +1,7370 @@
+{
+  "strategy": "布林带回归",
+  "start_date": "2022-01-04",
+  "end_date": "2024-12-31",
+  "initial_cash": 1000000.0,
+  "final_value": 631699.65,
+  "total_return": -0.3683,
+  "annualized_return": -0.1474,
+  "max_drawdown": 0.4017,
+  "sharpe_ratio": -1.29,
+  "win_rate": 0.4138,
+  "profit_factor": 0.61,
+  "total_trades": 348,
+  "per_stock": {
+    "002475": {
+      "trades": 10,
+      "pnl": -42699.97,
+      "pnl_pct": -4.61
+    },
+    "603659": {
+      "trades": 6,
+      "pnl": 41961.66,
+      "pnl_pct": 7.53
+    },
+    "300059": {
+      "trades": 10,
+      "pnl": -29799.86,
+      "pnl_pct": -4.52
+    },
+    "300014": {
+      "trades": 8,
+      "pnl": -43386.8,
+      "pnl_pct": -6.15
+    },
+    "300394": {
+      "trades": 6,
+      "pnl": -17821.27,
+      "pnl_pct": -2.95
+    },
+    "300502": {
+      "trades": 6,
+      "pnl": -48681.89,
+      "pnl_pct": -11.07
+    },
+    "601138": {
+      "trades": 18,
+      "pnl": -47961.18,
+      "pnl_pct": -3.86
+    },
+    "002015": {
+      "trades": 8,
+      "pnl": -51318.66,
+      "pnl_pct": -5.93
+    },
+    "603993": {
+      "trades": 10,
+      "pnl": -2449.09,
+      "pnl_pct": -0.36
+    },
+    "601016": {
+      "trades": 12,
+      "pnl": -42888.46,
+      "pnl_pct": -4.5
+    },
+    "001896": {
+      "trades": 10,
+      "pnl": 45626.69,
+      "pnl_pct": 8.66
+    },
+    "002565": {
+      "trades": 8,
+      "pnl": 42471.83,
+      "pnl_pct": 7.1
+    },
+    "300274": {
+      "trades": 10,
+      "pnl": -32171.61,
+      "pnl_pct": -3.44
+    },
+    "300383": {
+      "trades": 4,
+      "pnl": -15874.05,
+      "pnl_pct": -8.84
+    },
+    "688313": {
+      "trades": 4,
+      "pnl": 5848.77,
+      "pnl_pct": 2.88
+    },
+    "002384": {
+      "trades": 8,
+      "pnl": 16540.8,
+      "pnl_pct": 2.78
+    },
+    "601318": {
+      "trades": 10,
+      "pnl": -17279.11,
+      "pnl_pct": -3.09
+    },
+    "600726": {
+      "trades": 6,
+      "pnl": 28323.31,
+      "pnl_pct": 8.6
+    },
+    "603601": {
+      "trades": 10,
+      "pnl": 5837.71,
+      "pnl_pct": 1.0
+    },
+    "002594": {
+      "trades": 12,
+      "pnl": 3603.23,
+      "pnl_pct": 0.5
+    },
+    "000988": {
+      "trades": 8,
+      "pnl": 20691.97,
+      "pnl_pct": 2.69
+    },
+    "001309": {
+      "trades": 8,
+      "pnl": -6817.2,
+      "pnl_pct": -2.0
+    },
+    "300476": {
+      "trades": 8,
+      "pnl": 20399.53,
+      "pnl_pct": 3.99
+    },
+    "603259": {
+      "trades": 12,
+      "pnl": -29831.53,
+      "pnl_pct": -3.39
+    },
+    "002202": {
+      "trades": 8,
+      "pnl": -6689.93,
+      "pnl_pct": -1.82
+    },
+    "600089": {
+      "trades": 8,
+      "pnl": -8715.59,
+      "pnl_pct": -2.73
+    },
+    "600989": {
+      "trades": 12,
+      "pnl": 11404.87,
+      "pnl_pct": 3.48
+    },
+    "603986": {
+      "trades": 8,
+      "pnl": -29596.66,
+      "pnl_pct": -6.95
+    },
+    "601899": {
+      "trades": 12,
+      "pnl": -11998.84,
+      "pnl_pct": -1.48
+    },
+    "000792": {
+      "trades": 12,
+      "pnl": -20472.85,
+      "pnl_pct": -3.06
+    },
+    "002050": {
+      "trades": 8,
+      "pnl": -2602.84,
+      "pnl_pct": -0.43
+    },
+    "600549": {
+      "trades": 6,
+      "pnl": -1913.53,
+      "pnl_pct": -0.5
+    },
+    "300438": {
+      "trades": 4,
+      "pnl": 3062.12,
+      "pnl_pct": 3.95
+    },
+    "300136": {
+      "trades": 2,
+      "pnl": 8559.75,
+      "pnl_pct": 3.09
+    },
+    "600821": {
+      "trades": 10,
+      "pnl": -26686.27,
+      "pnl_pct": -3.41
+    },
+    "300763": {
+      "trades": 6,
+      "pnl": -25050.55,
+      "pnl_pct": -7.07
+    },
+    "300207": {
+      "trades": 2,
+      "pnl": 1824.23,
+      "pnl_pct": 2.17
+    },
+    "002709": {
+      "trades": 6,
+      "pnl": -8784.99,
+      "pnl_pct": -2.69
+    },
+    "300750": {
+      "trades": 4,
+      "pnl": -19687.83,
+      "pnl_pct": -5.13
+    },
+    "300827": {
+      "trades": 2,
+      "pnl": -8154.19,
+      "pnl_pct": -6.52
+    },
+    "002192": {
+      "trades": 4,
+      "pnl": -21664.49,
+      "pnl_pct": -6.46
+    },
+    "301308": {
+      "trades": 2,
+      "pnl": 9743.68,
+      "pnl_pct": 5.74
+    },
+    "600487": {
+      "trades": 6,
+      "pnl": 4137.87,
+      "pnl_pct": 1.27
+    },
+    "600666": {
+      "trades": 4,
+      "pnl": 9650.63,
+      "pnl_pct": 4.84
+    },
+    "600498": {
+      "trades": 2,
+      "pnl": -6435.97,
+      "pnl_pct": -6.36
+    },
+    "300475": {
+      "trades": 4,
+      "pnl": -11840.37,
+      "pnl_pct": -10.56
+    },
+    "002281": {
+      "trades": 2,
+      "pnl": -6625.27,
+      "pnl_pct": -6.83
+    },
+    "688525": {
+      "trades": 2,
+      "pnl": -2088.15,
+      "pnl_pct": -4.37
+    }
+  },
+  "trades": [
+    {
+      "date": "2022-02-09",
+      "code": "002475",
+      "action": "BUY",
+      "price": 42.9858,
+      "shares": 6900,
+      "amount": 296691.0,
+      "commission": 88.98,
+      "reason": "触碰布林下轨43.05 收阳确认"
+    },
+    {
+      "date": "2022-02-11",
+      "code": "002475",
+      "action": "SELL",
+      "price": 40.83816,
+      "shares": 6900,
+      "amount": 281416.99,
+      "commission": 366.32,
+      "reason": "止损 跌幅-6.5%"
+    },
+    {
+      "date": "2022-02-11",
+      "code": "603659",
+      "action": "BUY",
+      "price": 43.91766,
+      "shares": 6700,
+      "amount": 294336.6,
+      "commission": 88.27,
+      "reason": "触碰布林下轨44.10 收阳确认"
+    },
+    {
+      "date": "2022-02-15",
+      "code": "300059",
+      "action": "BUY",
+      "price": 19.02798,
+      "shares": 10800,
+      "amount": 205563.83,
+      "commission": 61.65,
+      "reason": "触碰布林下轨19.73 收阳确认"
+    },
+    {
+      "date": "2022-02-22",
+      "code": "300059",
+      "action": "SELL",
+      "price": 17.58476,
+      "shares": 10800,
+      "amount": 189668.52,
+      "commission": 246.89,
+      "reason": "止损 跌幅-7.3%"
+    },
+    {
+      "date": "2022-02-23",
+      "code": "603659",
+      "action": "SELL",
+      "price": 47.454899999999995,
+      "shares": 6700,
+      "amount": 317534.5,
+      "commission": 413.33,
+      "reason": "回归中轨 收益8.7%"
+    },
+    {
+      "date": "2022-03-04",
+      "code": "300014",
+      "action": "BUY",
+      "price": 76.58286000000001,
+      "shares": 3800,
+      "amount": 291102.17,
+      "commission": 87.3,
+      "reason": "触碰布林下轨77.72 收阳确认"
+    },
+    {
+      "date": "2022-03-08",
+      "code": "300394",
+      "action": "BUY",
+      "price": 14.44884,
+      "shares": 14500,
+      "amount": 209571.03,
+      "commission": 62.85,
+      "reason": "触碰布林下轨14.43 收阳确认"
+    },
+    {
+      "date": "2022-03-08",
+      "code": "300502",
+      "action": "BUY",
+      "price": 16.763460000000002,
+      "shares": 8700,
+      "amount": 145885.85,
+      "commission": 43.75,
+      "reason": "触碰布林下轨16.87 收阳确认"
+    },
+    {
+      "date": "2022-03-08",
+      "code": "002475",
+      "action": "BUY",
+      "price": 36.13212,
+      "shares": 2800,
+      "amount": 101200.29,
+      "commission": 30.35,
+      "reason": "触碰布林下轨36.12 收阳确认"
+    },
+    {
+      "date": "2022-03-08",
+      "code": "300014",
+      "action": "SELL",
+      "price": 70.29912,
+      "shares": 3800,
+      "amount": 266789.38,
+      "commission": 347.28,
+      "reason": "止损 跌幅-8.9%"
+    },
+    {
+      "date": "2022-03-09",
+      "code": "300394",
+      "action": "SELL",
+      "price": 14.05184,
+      "shares": 14500,
+      "amount": 203486.8,
+      "commission": 264.88,
+      "reason": "止损 跌幅-5.5%"
+    },
+    {
+      "date": "2022-03-11",
+      "code": "601138",
+      "action": "BUY",
+      "price": 7.5651,
+      "shares": 28300,
+      "amount": 214156.56,
+      "commission": 64.23,
+      "reason": "触碰布林下轨7.76 收阳确认"
+    },
+    {
+      "date": "2022-03-11",
+      "code": "002015",
+      "action": "BUY",
+      "price": 14.919780000000001,
+      "shares": 10000,
+      "amount": 149242.56,
+      "commission": 44.76,
+      "reason": "触碰布林下轨15.31 收阳确认"
+    },
+    {
+      "date": "2022-03-11",
+      "code": "603993",
+      "action": "BUY",
+      "price": 4.56912,
+      "shares": 23000,
+      "amount": 105121.29,
+      "commission": 31.53,
+      "reason": "触碰布林下轨4.69 收阳确认"
+    },
+    {
+      "date": "2022-03-14",
+      "code": "300502",
+      "action": "SELL",
+      "price": 15.23946,
+      "shares": 8700,
+      "amount": 132410.94,
+      "commission": 172.36,
+      "reason": "止损 跌幅-7.4%"
+    },
+    {
+      "date": "2022-03-14",
+      "code": "002475",
+      "action": "SELL",
+      "price": 33.34318,
+      "shares": 2800,
+      "amount": 93239.53,
+      "commission": 121.37,
+      "reason": "止损 跌幅-7.3%"
+    },
+    {
+      "date": "2022-03-15",
+      "code": "601138",
+      "action": "SELL",
+      "price": 7.2355,
+      "shares": 28300,
+      "amount": 204498.46,
+      "commission": 266.19,
+      "reason": "止损 跌幅-6.9%"
+    },
+    {
+      "date": "2022-03-15",
+      "code": "002015",
+      "action": "SELL",
+      "price": 13.51292,
+      "shares": 10000,
+      "amount": 134953.53,
+      "commission": 175.67,
+      "reason": "止损 跌幅-12.0%"
+    },
+    {
+      "date": "2022-03-15",
+      "code": "603993",
+      "action": "SELL",
+      "price": 4.231520000000001,
+      "shares": 23000,
+      "amount": 97198.44,
+      "commission": 126.52,
+      "reason": "止损 跌幅-12.7%"
+    },
+    {
+      "date": "2022-03-16",
+      "code": "601016",
+      "action": "BUY",
+      "price": 3.9078,
+      "shares": 69700,
+      "amount": 272455.37,
+      "commission": 81.71,
+      "reason": "触碰布林下轨3.86 收阳确认"
+    },
+    {
+      "date": "2022-03-16",
+      "code": "001896",
+      "action": "BUY",
+      "price": 5.511,
+      "shares": 34600,
+      "amount": 190737.8,
+      "commission": 57.2,
+      "reason": "触碰布林下轨5.54 收阳确认"
+    },
+    {
+      "date": "2022-03-16",
+      "code": "002565",
+      "action": "BUY",
+      "price": 4.12824,
+      "shares": 32300,
+      "amount": 133382.15,
+      "commission": 40.0,
+      "reason": "触碰布林下轨4.13 收阳确认"
+    },
+    {
+      "date": "2022-03-18",
+      "code": "001896",
+      "action": "SELL",
+      "price": 6.20756,
+      "shares": 34600,
+      "amount": 214502.36,
+      "commission": 279.22,
+      "reason": "回归中轨 收益13.0%"
+    },
+    {
+      "date": "2022-03-18",
+      "code": "002565",
+      "action": "SELL",
+      "price": 4.5908,
+      "shares": 32300,
+      "amount": 148090.07,
+      "commission": 192.77,
+      "reason": "回归中轨 收益11.4%"
+    },
+    {
+      "date": "2022-03-28",
+      "code": "300274",
+      "action": "BUY",
+      "price": 74.58888,
+      "shares": 2700,
+      "amount": 201450.39,
+      "commission": 60.42,
+      "reason": "触碰布林下轨74.76 收阳确认"
+    },
+    {
+      "date": "2022-04-07",
+      "code": "300274",
+      "action": "SELL",
+      "price": 70.27916,
+      "shares": 2700,
+      "amount": 189507.05,
+      "commission": 246.68,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2022-04-07",
+      "code": "601016",
+      "action": "SELL",
+      "price": 3.63272,
+      "shares": 69700,
+      "amount": 252871.42,
+      "commission": 329.16,
+      "reason": "止损 跌幅-5.2%"
+    },
+    {
+      "date": "2022-04-12",
+      "code": "300394",
+      "action": "BUY",
+      "price": 9.99996,
+      "shares": 27400,
+      "amount": 274081.1,
+      "commission": 82.2,
+      "reason": "触碰布林下轨10.19 收阳确认"
+    },
+    {
+      "date": "2022-04-12",
+      "code": "300502",
+      "action": "BUY",
+      "price": 13.156260000000001,
+      "shares": 14600,
+      "amount": 192139.02,
+      "commission": 57.62,
+      "reason": "触碰布林下轨13.44 收阳确认"
+    },
+    {
+      "date": "2022-04-12",
+      "code": "601016",
+      "action": "BUY",
+      "price": 3.48696,
+      "shares": 38600,
+      "amount": 134637.03,
+      "commission": 40.38,
+      "reason": "触碰布林下轨3.48 收阳确认"
+    },
+    {
+      "date": "2022-04-12",
+      "code": "300383",
+      "action": "BUY",
+      "price": 11.89374,
+      "shares": 7900,
+      "amount": 93988.73,
+      "commission": 28.19,
+      "reason": "触碰布林下轨12.01 收阳确认"
+    },
+    {
+      "date": "2022-04-12",
+      "code": "688313",
+      "action": "BUY",
+      "price": 9.388739999999999,
+      "shares": 7000,
+      "amount": 65740.9,
+      "commission": 19.72,
+      "reason": "触碰布林下轨9.48 收阳确认"
+    },
+    {
+      "date": "2022-04-13",
+      "code": "300394",
+      "action": "SELL",
+      "price": 9.3812,
+      "shares": 27400,
+      "amount": 256710.72,
+      "commission": 334.16,
+      "reason": "止损 跌幅-8.3%"
+    },
+    {
+      "date": "2022-04-21",
+      "code": "300383",
+      "action": "SELL",
+      "price": 10.46902,
+      "shares": 7900,
+      "amount": 82597.74,
+      "commission": 107.52,
+      "reason": "止损 跌幅-9.1%"
+    },
+    {
+      "date": "2022-04-22",
+      "code": "300502",
+      "action": "SELL",
+      "price": 11.197560000000001,
+      "shares": 14600,
+      "amount": 163271.85,
+      "commission": 212.53,
+      "reason": "止损 跌幅-15.5%"
+    },
+    {
+      "date": "2022-04-22",
+      "code": "300274",
+      "action": "BUY",
+      "price": 41.99382,
+      "shares": 4600,
+      "amount": 193229.52,
+      "commission": 57.95,
+      "reason": "触碰布林下轨44.86 收阳确认"
+    },
+    {
+      "date": "2022-04-22",
+      "code": "688313",
+      "action": "SELL",
+      "price": 9.0319,
+      "shares": 7000,
+      "amount": 63141.11,
+      "commission": 82.19,
+      "reason": "止损 跌幅-6.6%"
+    },
+    {
+      "date": "2022-04-22",
+      "code": "603993",
+      "action": "BUY",
+      "price": 4.27854,
+      "shares": 36900,
+      "amount": 157925.49,
+      "commission": 47.36,
+      "reason": "触碰布林下轨4.42 收阳确认"
+    },
+    {
+      "date": "2022-04-25",
+      "code": "300274",
+      "action": "SELL",
+      "price": 39.61062,
+      "shares": 4600,
+      "amount": 181971.98,
+      "commission": 236.87,
+      "reason": "止损 跌幅-10.2%"
+    },
+    {
+      "date": "2022-04-25",
+      "code": "601016",
+      "action": "SELL",
+      "price": 3.16366,
+      "shares": 38600,
+      "amount": 121958.52,
+      "commission": 158.75,
+      "reason": "止损 跌幅-8.9%"
+    },
+    {
+      "date": "2022-04-25",
+      "code": "603993",
+      "action": "SELL",
+      "price": 4.0419,
+      "shares": 36900,
+      "amount": 148952.22,
+      "commission": 193.89,
+      "reason": "止损 跌幅-7.7%"
+    },
+    {
+      "date": "2022-04-26",
+      "code": "002384",
+      "action": "BUY",
+      "price": 14.19834,
+      "shares": 17300,
+      "amount": 245704.97,
+      "commission": 73.69,
+      "reason": "触碰布林下轨14.70 收阳确认"
+    },
+    {
+      "date": "2022-04-26",
+      "code": "601138",
+      "action": "BUY",
+      "price": 6.50298,
+      "shares": 26500,
+      "amount": 172380.67,
+      "commission": 51.7,
+      "reason": "触碰布林下轨6.75 收阳确认"
+    },
+    {
+      "date": "2022-04-27",
+      "code": "001896",
+      "action": "BUY",
+      "price": 4.4088,
+      "shares": 27400,
+      "amount": 120837.36,
+      "commission": 36.24,
+      "reason": "触碰布林下轨4.71 收阳确认"
+    },
+    {
+      "date": "2022-04-27",
+      "code": "601318",
+      "action": "BUY",
+      "price": 34.047959999999996,
+      "shares": 2400,
+      "amount": 81739.62,
+      "commission": 24.51,
+      "reason": "触碰布林下轨34.12 收阳确认"
+    },
+    {
+      "date": "2022-05-11",
+      "code": "002384",
+      "action": "SELL",
+      "price": 16.55682,
+      "shares": 17300,
+      "amount": 286060.62,
+      "commission": 372.36,
+      "reason": "回归中轨 收益14.2%"
+    },
+    {
+      "date": "2022-05-12",
+      "code": "001896",
+      "action": "SELL",
+      "price": 5.31934,
+      "shares": 27400,
+      "amount": 145560.44,
+      "commission": 189.47,
+      "reason": "回归中轨 收益17.6%"
+    },
+    {
+      "date": "2022-05-16",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.0941799999999997,
+      "shares": 90600,
+      "amount": 189789.63,
+      "commission": 56.92,
+      "reason": "触碰布林下轨2.14 收阳确认"
+    },
+    {
+      "date": "2022-05-20",
+      "code": "601138",
+      "action": "SELL",
+      "price": 6.89618,
+      "shares": 26500,
+      "amount": 182511.2,
+      "commission": 237.57,
+      "reason": "回归中轨 收益4.1%"
+    },
+    {
+      "date": "2022-05-30",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.43512,
+      "shares": 90600,
+      "amount": 220335.06,
+      "commission": 286.81,
+      "reason": "回归中轨 收益17.1%"
+    },
+    {
+      "date": "2022-05-30",
+      "code": "601318",
+      "action": "SELL",
+      "price": 34.35116,
+      "shares": 2400,
+      "amount": 82335.61,
+      "commission": 107.18,
+      "reason": "回归中轨 收益0.7%"
+    },
+    {
+      "date": "2022-07-13",
+      "code": "603601",
+      "action": "BUY",
+      "price": 5.80158,
+      "shares": 48000,
+      "amount": 278559.38,
+      "commission": 83.54,
+      "reason": "触碰布林下轨5.83 收阳确认"
+    },
+    {
+      "date": "2022-07-13",
+      "code": "002594",
+      "action": "BUY",
+      "price": 100.4004,
+      "shares": 1900,
+      "amount": 190817.99,
+      "commission": 57.23,
+      "reason": "触碰布林下轨101.48 收阳确认"
+    },
+    {
+      "date": "2022-07-13",
+      "code": "688313",
+      "action": "BUY",
+      "price": 10.1202,
+      "shares": 13600,
+      "amount": 137676.01,
+      "commission": 41.29,
+      "reason": "触碰布林下轨10.13 收阳确认"
+    },
+    {
+      "date": "2022-07-15",
+      "code": "002594",
+      "action": "SELL",
+      "price": 112.00554000000001,
+      "shares": 1900,
+      "amount": 212533.87,
+      "commission": 276.65,
+      "reason": "回归中轨 收益9.4%"
+    },
+    {
+      "date": "2022-07-19",
+      "code": "603601",
+      "action": "SELL",
+      "price": 6.1177399999999995,
+      "shares": 48000,
+      "amount": 293269.77,
+      "commission": 381.75,
+      "reason": "回归中轨 收益5.3%"
+    },
+    {
+      "date": "2022-07-20",
+      "code": "688313",
+      "action": "SELL",
+      "price": 10.75844,
+      "shares": 13600,
+      "amount": 146124.57,
+      "commission": 190.21,
+      "reason": "回归中轨 收益5.4%"
+    },
+    {
+      "date": "2022-08-04",
+      "code": "002015",
+      "action": "BUY",
+      "price": 15.410760000000002,
+      "shares": 18900,
+      "amount": 291350.74,
+      "commission": 87.38,
+      "reason": "触碰布林下轨15.31 收阳确认"
+    },
+    {
+      "date": "2022-08-26",
+      "code": "000988",
+      "action": "BUY",
+      "price": 21.2424,
+      "shares": 9600,
+      "amount": 203988.22,
+      "commission": 61.18,
+      "reason": "触碰布林下轨21.60 收阳确认"
+    },
+    {
+      "date": "2022-08-29",
+      "code": "001309",
+      "action": "BUY",
+      "price": 21.803520000000002,
+      "shares": 6500,
+      "amount": 141765.4,
+      "commission": 42.52,
+      "reason": "触碰布林下轨21.71 收阳确认"
+    },
+    {
+      "date": "2022-08-29",
+      "code": "002015",
+      "action": "SELL",
+      "price": 14.31132,
+      "shares": 18900,
+      "amount": 270132.32,
+      "commission": 351.63,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2022-08-29",
+      "code": "300476",
+      "action": "BUY",
+      "price": 15.220379999999999,
+      "shares": 11900,
+      "amount": 181176.86,
+      "commission": 54.34,
+      "reason": "触碰布林下轨15.36 收阳确认"
+    },
+    {
+      "date": "2022-08-31",
+      "code": "001309",
+      "action": "SELL",
+      "price": 20.56878,
+      "shares": 6500,
+      "amount": 133523.26,
+      "commission": 173.81,
+      "reason": "止损 跌幅-5.3%"
+    },
+    {
+      "date": "2022-09-01",
+      "code": "000988",
+      "action": "SELL",
+      "price": 20.468980000000002,
+      "shares": 9600,
+      "amount": 196246.76,
+      "commission": 255.45,
+      "reason": "止损 跌幅-5.1%"
+    },
+    {
+      "date": "2022-09-01",
+      "code": "002594",
+      "action": "BUY",
+      "price": 93.687,
+      "shares": 2400,
+      "amount": 224916.25,
+      "commission": 67.45,
+      "reason": "触碰布林下轨94.99 收阳确认"
+    },
+    {
+      "date": "2022-09-01",
+      "code": "603993",
+      "action": "BUY",
+      "price": 4.4589,
+      "shares": 35600,
+      "amount": 158784.46,
+      "commission": 47.62,
+      "reason": "触碰布林下轨4.46 收阳确认"
+    },
+    {
+      "date": "2022-09-05",
+      "code": "002594",
+      "action": "SELL",
+      "price": 86.6763,
+      "shares": 2400,
+      "amount": 207752.69,
+      "commission": 270.43,
+      "reason": "止损 跌幅-6.4%"
+    },
+    {
+      "date": "2022-09-06",
+      "code": "300476",
+      "action": "SELL",
+      "price": 16.38716,
+      "shares": 11900,
+      "amount": 194753.69,
+      "commission": 253.51,
+      "reason": "回归中轨 收益8.1%"
+    },
+    {
+      "date": "2022-09-09",
+      "code": "603993",
+      "action": "SELL",
+      "price": 4.73052,
+      "shares": 35600,
+      "amount": 168187.58,
+      "commission": 218.93,
+      "reason": "回归中轨 收益5.6%"
+    },
+    {
+      "date": "2022-09-14",
+      "code": "603259",
+      "action": "BUY",
+      "price": 73.87746,
+      "shares": 3800,
+      "amount": 280818.57,
+      "commission": 84.22,
+      "reason": "触碰布林下轨74.17 收阳确认"
+    },
+    {
+      "date": "2022-09-19",
+      "code": "002475",
+      "action": "BUY",
+      "price": 33.47682,
+      "shares": 5900,
+      "amount": 197572.49,
+      "commission": 59.25,
+      "reason": "触碰布林下轨33.21 收阳确认"
+    },
+    {
+      "date": "2022-09-19",
+      "code": "002202",
+      "action": "BUY",
+      "price": 11.75346,
+      "shares": 11800,
+      "amount": 138732.44,
+      "commission": 41.61,
+      "reason": "触碰布林下轨11.64 收阳确认"
+    },
+    {
+      "date": "2022-09-19",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.54508,
+      "shares": 38200,
+      "amount": 97251.22,
+      "commission": 29.17,
+      "reason": "触碰布林下轨2.53 收阳确认"
+    },
+    {
+      "date": "2022-09-19",
+      "code": "600089",
+      "action": "BUY",
+      "price": 16.2324,
+      "shares": 4200,
+      "amount": 68196.53,
+      "commission": 20.45,
+      "reason": "触碰布林下轨16.17 收阳确认"
+    },
+    {
+      "date": "2022-09-19",
+      "code": "600989",
+      "action": "BUY",
+      "price": 11.28252,
+      "shares": 4200,
+      "amount": 47400.8,
+      "commission": 14.22,
+      "reason": "触碰布林下轨11.11 收阳确认"
+    },
+    {
+      "date": "2022-09-20",
+      "code": "300059",
+      "action": "BUY",
+      "price": 15.76146,
+      "shares": 2100,
+      "amount": 33109.0,
+      "commission": 9.93,
+      "reason": "触碰布林下轨16.31 收阳确认"
+    },
+    {
+      "date": "2022-09-20",
+      "code": "600989",
+      "action": "SELL",
+      "price": 12.50494,
+      "shares": 4200,
+      "amount": 52452.47,
+      "commission": 68.28,
+      "reason": "回归中轨 收益11.3%"
+    },
+    {
+      "date": "2022-09-21",
+      "code": "601138",
+      "action": "BUY",
+      "price": 6.6132,
+      "shares": 5900,
+      "amount": 39029.59,
+      "commission": 11.71,
+      "reason": "触碰布林下轨6.72 收阳确认"
+    },
+    {
+      "date": "2022-09-22",
+      "code": "603986",
+      "action": "BUY",
+      "price": 99.81924000000001,
+      "shares": 200,
+      "amount": 19969.84,
+      "commission": 5.99,
+      "reason": "触碰布林下轨100.96 收阳确认"
+    },
+    {
+      "date": "2022-09-22",
+      "code": "603259",
+      "action": "SELL",
+      "price": 66.43686,
+      "shares": 3800,
+      "amount": 252131.87,
+      "commission": 328.2,
+      "reason": "止损 跌幅-7.2%"
+    },
+    {
+      "date": "2022-09-23",
+      "code": "002475",
+      "action": "SELL",
+      "price": 30.69848,
+      "shares": 5900,
+      "amount": 180885.57,
+      "commission": 235.46,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2022-09-26",
+      "code": "300059",
+      "action": "SELL",
+      "price": 15.0199,
+      "shares": 2100,
+      "amount": 31500.79,
+      "commission": 41.0,
+      "reason": "止损 跌幅-6.0%"
+    },
+    {
+      "date": "2022-09-26",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.4151599999999998,
+      "shares": 38200,
+      "amount": 92139.18,
+      "commission": 119.94,
+      "reason": "止损 跌幅-5.2%"
+    },
+    {
+      "date": "2022-09-27",
+      "code": "601899",
+      "action": "BUY",
+      "price": 6.743460000000001,
+      "shares": 27900,
+      "amount": 188198.98,
+      "commission": 56.44,
+      "reason": "触碰布林下轨6.95 收阳确认"
+    },
+    {
+      "date": "2022-09-27",
+      "code": "000792",
+      "action": "BUY",
+      "price": 24.45882,
+      "shares": 5400,
+      "amount": 132117.25,
+      "commission": 39.62,
+      "reason": "触碰布林下轨24.58 收阳确认"
+    },
+    {
+      "date": "2022-09-28",
+      "code": "601899",
+      "action": "SELL",
+      "price": 6.586799999999999,
+      "shares": 27900,
+      "amount": 183532.82,
+      "commission": 238.9,
+      "reason": "止损 跌幅-5.4%"
+    },
+    {
+      "date": "2022-09-28",
+      "code": "600089",
+      "action": "SELL",
+      "price": 15.44904,
+      "shares": 4200,
+      "amount": 64801.62,
+      "commission": 84.35,
+      "reason": "止损 跌幅-5.6%"
+    },
+    {
+      "date": "2022-09-29",
+      "code": "601138",
+      "action": "SELL",
+      "price": 6.2973799999999995,
+      "shares": 5900,
+      "amount": 37106.24,
+      "commission": 48.3,
+      "reason": "止损 跌幅-5.6%"
+    },
+    {
+      "date": "2022-09-30",
+      "code": "603986",
+      "action": "SELL",
+      "price": 89.85992,
+      "shares": 200,
+      "amount": 17948.62,
+      "commission": 23.36,
+      "reason": "止损 跌幅-7.3%"
+    },
+    {
+      "date": "2022-09-30",
+      "code": "603659",
+      "action": "BUY",
+      "price": 37.9758,
+      "shares": 4800,
+      "amount": 182338.53,
+      "commission": 54.69,
+      "reason": "触碰布林下轨38.54 收阳确认"
+    },
+    {
+      "date": "2022-09-30",
+      "code": "002202",
+      "action": "SELL",
+      "price": 10.95804,
+      "shares": 11800,
+      "amount": 129136.78,
+      "commission": 168.1,
+      "reason": "止损 跌幅-5.7%"
+    },
+    {
+      "date": "2022-10-10",
+      "code": "000792",
+      "action": "SELL",
+      "price": 22.8542,
+      "shares": 5400,
+      "amount": 123252.24,
+      "commission": 160.44,
+      "reason": "止损 跌幅-6.9%"
+    },
+    {
+      "date": "2022-10-11",
+      "code": "002050",
+      "action": "BUY",
+      "price": 20.66124,
+      "shares": 9900,
+      "amount": 204607.64,
+      "commission": 61.36,
+      "reason": "触碰布林下轨21.59 收阳确认"
+    },
+    {
+      "date": "2022-10-14",
+      "code": "603659",
+      "action": "SELL",
+      "price": 41.436960000000006,
+      "shares": 4800,
+      "amount": 198638.84,
+      "commission": 258.57,
+      "reason": "回归中轨 收益11.8%"
+    },
+    {
+      "date": "2022-10-25",
+      "code": "601318",
+      "action": "BUY",
+      "price": 30.2103,
+      "shares": 6700,
+      "amount": 202469.73,
+      "commission": 60.72,
+      "reason": "触碰布林下轨30.89 收阳确认"
+    },
+    {
+      "date": "2022-10-26",
+      "code": "300059",
+      "action": "BUY",
+      "price": 12.995940000000001,
+      "shares": 10900,
+      "amount": 141698.24,
+      "commission": 42.5,
+      "reason": "触碰布林下轨13.28 收阳确认"
+    },
+    {
+      "date": "2022-10-31",
+      "code": "600549",
+      "action": "BUY",
+      "price": 18.777479999999997,
+      "shares": 5300,
+      "amount": 99550.5,
+      "commission": 29.86,
+      "reason": "触碰布林下轨19.01 收阳确认"
+    },
+    {
+      "date": "2022-10-31",
+      "code": "000792",
+      "action": "BUY",
+      "price": 21.77346,
+      "shares": 3200,
+      "amount": 69695.97,
+      "commission": 20.9,
+      "reason": "触碰布林下轨21.83 收阳确认"
+    },
+    {
+      "date": "2022-10-31",
+      "code": "300438",
+      "action": "BUY",
+      "price": 62.124,
+      "shares": 700,
+      "amount": 43499.85,
+      "commission": 13.05,
+      "reason": "触碰布林下轨63.14 收阳确认"
+    },
+    {
+      "date": "2022-10-31",
+      "code": "601318",
+      "action": "SELL",
+      "price": 29.00188,
+      "shares": 6700,
+      "amount": 194059.99,
+      "commission": 252.61,
+      "reason": "止损 跌幅-5.2%"
+    },
+    {
+      "date": "2022-11-02",
+      "code": "002050",
+      "action": "SELL",
+      "price": 21.995919999999998,
+      "shares": 9900,
+      "amount": 217476.52,
+      "commission": 283.09,
+      "reason": "回归中轨 收益7.7%"
+    },
+    {
+      "date": "2022-11-03",
+      "code": "000792",
+      "action": "SELL",
+      "price": 23.9021,
+      "shares": 3200,
+      "amount": 76387.29,
+      "commission": 99.43,
+      "reason": "回归中轨 收益9.2%"
+    },
+    {
+      "date": "2022-11-03",
+      "code": "300438",
+      "action": "SELL",
+      "price": 70.98774,
+      "shares": 700,
+      "amount": 49626.82,
+      "commission": 64.6,
+      "reason": "回归中轨 收益14.0%"
+    },
+    {
+      "date": "2022-11-04",
+      "code": "600549",
+      "action": "SELL",
+      "price": 21.9061,
+      "shares": 5300,
+      "amount": 115951.4,
+      "commission": 150.93,
+      "reason": "回归中轨 收益16.8%"
+    },
+    {
+      "date": "2022-11-04",
+      "code": "300059",
+      "action": "SELL",
+      "price": 14.00194,
+      "shares": 10900,
+      "amount": 152422.74,
+      "commission": 198.41,
+      "reason": "回归中轨 收益9.3%"
+    },
+    {
+      "date": "2022-11-28",
+      "code": "300136",
+      "action": "BUY",
+      "price": 16.3827,
+      "shares": 16900,
+      "amount": 276950.69,
+      "commission": 83.06,
+      "reason": "触碰布林下轨16.30 收阳确认"
+    },
+    {
+      "date": "2022-11-28",
+      "code": "603259",
+      "action": "BUY",
+      "price": 73.13597999999999,
+      "shares": 2600,
+      "amount": 190210.59,
+      "commission": 57.05,
+      "reason": "触碰布林下轨74.47 收阳确认"
+    },
+    {
+      "date": "2022-11-29",
+      "code": "300136",
+      "action": "SELL",
+      "price": 16.9161,
+      "shares": 16900,
+      "amount": 285510.44,
+      "commission": 371.65,
+      "reason": "回归中轨 收益3.8%"
+    },
+    {
+      "date": "2022-12-08",
+      "code": "600821",
+      "action": "BUY",
+      "price": 6.45288,
+      "shares": 34500,
+      "amount": 222691.15,
+      "commission": 66.79,
+      "reason": "触碰布林下轨6.44 收阳确认"
+    },
+    {
+      "date": "2022-12-14",
+      "code": "600089",
+      "action": "BUY",
+      "price": 14.4288,
+      "shares": 10800,
+      "amount": 155877.79,
+      "commission": 46.75,
+      "reason": "触碰布林下轨14.38 收阳确认"
+    },
+    {
+      "date": "2022-12-14",
+      "code": "300763",
+      "action": "BUY",
+      "price": 172.62456,
+      "shares": 600,
+      "amount": 103605.81,
+      "commission": 31.07,
+      "reason": "触碰布林下轨176.90 收阳确认"
+    },
+    {
+      "date": "2022-12-19",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.97802,
+      "shares": 34500,
+      "amount": 205973.58,
+      "commission": 268.11,
+      "reason": "止损 跌幅-6.8%"
+    },
+    {
+      "date": "2022-12-20",
+      "code": "300476",
+      "action": "BUY",
+      "price": 12.725399999999999,
+      "shares": 11000,
+      "amount": 140021.39,
+      "commission": 41.99,
+      "reason": "触碰布林下轨12.70 收阳确认"
+    },
+    {
+      "date": "2022-12-21",
+      "code": "600089",
+      "action": "SELL",
+      "price": 13.64266,
+      "shares": 10800,
+      "amount": 147149.19,
+      "commission": 191.54,
+      "reason": "止损 跌幅-5.0%"
+    },
+    {
+      "date": "2022-12-21",
+      "code": "300763",
+      "action": "SELL",
+      "price": 164.5702,
+      "shares": 600,
+      "amount": 98613.76,
+      "commission": 128.36,
+      "reason": "止损 跌幅-5.5%"
+    },
+    {
+      "date": "2022-12-23",
+      "code": "000988",
+      "action": "BUY",
+      "price": 16.062060000000002,
+      "shares": 10700,
+      "amount": 171915.6,
+      "commission": 51.56,
+      "reason": "触碰布林下轨16.14 收阳确认"
+    },
+    {
+      "date": "2022-12-23",
+      "code": "300394",
+      "action": "BUY",
+      "price": 10.44084,
+      "shares": 11500,
+      "amount": 120105.68,
+      "commission": 36.02,
+      "reason": "触碰布林下轨10.45 收阳确认"
+    },
+    {
+      "date": "2022-12-23",
+      "code": "300207",
+      "action": "BUY",
+      "price": 21.53298,
+      "shares": 3900,
+      "amount": 84003.82,
+      "commission": 25.19,
+      "reason": "触碰布林下轨21.61 收阳确认"
+    },
+    {
+      "date": "2022-12-27",
+      "code": "300394",
+      "action": "SELL",
+      "price": 10.94806,
+      "shares": 11500,
+      "amount": 125739.02,
+      "commission": 163.67,
+      "reason": "回归中轨 收益5.9%"
+    },
+    {
+      "date": "2022-12-27",
+      "code": "603259",
+      "action": "SELL",
+      "price": 75.06956,
+      "shares": 2600,
+      "amount": 194927.12,
+      "commission": 253.74,
+      "reason": "回归中轨 收益4.0%"
+    },
+    {
+      "date": "2022-12-28",
+      "code": "002015",
+      "action": "BUY",
+      "price": 12.51498,
+      "shares": 12400,
+      "amount": 155232.31,
+      "commission": 46.56,
+      "reason": "触碰布林下轨12.21 收阳确认"
+    },
+    {
+      "date": "2023-01-03",
+      "code": "002709",
+      "action": "BUY",
+      "price": 43.12608,
+      "shares": 2500,
+      "amount": 107847.54,
+      "commission": 32.34,
+      "reason": "触碰布林下轨43.41 收阳确认"
+    },
+    {
+      "date": "2023-01-05",
+      "code": "000988",
+      "action": "SELL",
+      "price": 16.636660000000003,
+      "shares": 10700,
+      "amount": 177780.85,
+      "commission": 231.42,
+      "reason": "回归中轨 收益4.0%"
+    },
+    {
+      "date": "2023-01-06",
+      "code": "002475",
+      "action": "BUY",
+      "price": 28.09608,
+      "shares": 4600,
+      "amount": 129280.74,
+      "commission": 38.77,
+      "reason": "触碰布林下轨28.17 收阳确认"
+    },
+    {
+      "date": "2023-01-06",
+      "code": "300476",
+      "action": "SELL",
+      "price": 12.7245,
+      "shares": 11000,
+      "amount": 139787.54,
+      "commission": 181.96,
+      "reason": "回归中轨 收益0.1%"
+    },
+    {
+      "date": "2023-01-10",
+      "code": "002709",
+      "action": "SELL",
+      "price": 46.01778,
+      "shares": 2500,
+      "amount": 114894.89,
+      "commission": 149.56,
+      "reason": "回归中轨 收益6.3%"
+    },
+    {
+      "date": "2023-01-10",
+      "code": "300207",
+      "action": "SELL",
+      "price": 22.035839999999997,
+      "shares": 3900,
+      "amount": 85828.05,
+      "commission": 111.72,
+      "reason": "回归中轨 收益3.4%"
+    },
+    {
+      "date": "2023-01-17",
+      "code": "002475",
+      "action": "SELL",
+      "price": 30.139599999999998,
+      "shares": 4600,
+      "amount": 138461.93,
+      "commission": 180.23,
+      "reason": "回归中轨 收益7.8%"
+    },
+    {
+      "date": "2023-01-19",
+      "code": "002015",
+      "action": "SELL",
+      "price": 9.77042,
+      "shares": 12400,
+      "amount": 120995.71,
+      "commission": 157.5,
+      "reason": "止损 跌幅-11.3%"
+    },
+    {
+      "date": "2023-01-20",
+      "code": "002015",
+      "action": "BUY",
+      "price": 10.801559999999998,
+      "shares": 25000,
+      "amount": 270120.01,
+      "commission": 81.01,
+      "reason": "触碰布林下轨10.98 收阳确认"
+    },
+    {
+      "date": "2023-02-13",
+      "code": "002015",
+      "action": "SELL",
+      "price": 11.55684,
+      "shares": 25000,
+      "amount": 288545.4,
+      "commission": 375.6,
+      "reason": "回归中轨 收益9.2%"
+    },
+    {
+      "date": "2023-02-20",
+      "code": "300750",
+      "action": "BUY",
+      "price": 219.17748,
+      "shares": 1200,
+      "amount": 263091.88,
+      "commission": 78.9,
+      "reason": "触碰布林下轨222.26 收阳确认"
+    },
+    {
+      "date": "2023-02-21",
+      "code": "300014",
+      "action": "BUY",
+      "price": 73.16604,
+      "shares": 2600,
+      "amount": 190288.77,
+      "commission": 57.07,
+      "reason": "触碰布林下轨74.97 收阳确认"
+    },
+    {
+      "date": "2023-02-27",
+      "code": "300059",
+      "action": "BUY",
+      "price": 17.19432,
+      "shares": 8100,
+      "amount": 139315.77,
+      "commission": 41.78,
+      "reason": "触碰布林下轨17.09 收阳确认"
+    },
+    {
+      "date": "2023-03-02",
+      "code": "300014",
+      "action": "SELL",
+      "price": 69.35101999999999,
+      "shares": 2600,
+      "amount": 180078.25,
+      "commission": 234.41,
+      "reason": "止损 跌幅-5.7%"
+    },
+    {
+      "date": "2023-03-03",
+      "code": "002050",
+      "action": "BUY",
+      "price": 23.15622,
+      "shares": 6500,
+      "amount": 150560.58,
+      "commission": 45.15,
+      "reason": "触碰布林下轨23.19 收阳确认"
+    },
+    {
+      "date": "2023-03-08",
+      "code": "300750",
+      "action": "SELL",
+      "price": 206.50616,
+      "shares": 1200,
+      "amount": 247485.24,
+      "commission": 322.15,
+      "reason": "止损 跌幅-5.7%"
+    },
+    {
+      "date": "2023-03-08",
+      "code": "600549",
+      "action": "BUY",
+      "price": 19.87968,
+      "shares": 9100,
+      "amount": 180959.36,
+      "commission": 54.27,
+      "reason": "触碰布林下轨19.82 收阳确认"
+    },
+    {
+      "date": "2023-03-10",
+      "code": "300827",
+      "action": "BUY",
+      "price": 31.27242,
+      "shares": 4000,
+      "amount": 125127.21,
+      "commission": 37.53,
+      "reason": "触碰布林下轨31.37 收阳确认"
+    },
+    {
+      "date": "2023-03-13",
+      "code": "600821",
+      "action": "BUY",
+      "price": 6.623220000000001,
+      "shares": 13500,
+      "amount": 89440.29,
+      "commission": 26.82,
+      "reason": "触碰布林下轨6.58 收阳确认"
+    },
+    {
+      "date": "2023-03-15",
+      "code": "002709",
+      "action": "BUY",
+      "price": 39.4287,
+      "shares": 1600,
+      "amount": 63104.85,
+      "commission": 18.93,
+      "reason": "触碰布林下轨40.03 收阳确认"
+    },
+    {
+      "date": "2023-03-15",
+      "code": "001896",
+      "action": "BUY",
+      "price": 4.77954,
+      "shares": 9200,
+      "amount": 43984.96,
+      "commission": 13.19,
+      "reason": "触碰布林下轨4.78 收阳确认"
+    },
+    {
+      "date": "2023-03-16",
+      "code": "600549",
+      "action": "SELL",
+      "price": 18.6127,
+      "shares": 9100,
+      "amount": 169155.38,
+      "commission": 220.19,
+      "reason": "止损 跌幅-5.9%"
+    },
+    {
+      "date": "2023-03-16",
+      "code": "603659",
+      "action": "BUY",
+      "price": 32.35458,
+      "shares": 2500,
+      "amount": 80910.72,
+      "commission": 24.27,
+      "reason": "触碰布林下轨32.16 收阳确认"
+    },
+    {
+      "date": "2023-03-16",
+      "code": "300827",
+      "action": "SELL",
+      "price": 29.28132,
+      "shares": 4000,
+      "amount": 116973.02,
+      "commission": 152.26,
+      "reason": "止损 跌幅-7.6%"
+    },
+    {
+      "date": "2023-03-22",
+      "code": "002050",
+      "action": "SELL",
+      "price": 23.33324,
+      "shares": 6500,
+      "amount": 151468.89,
+      "commission": 197.17,
+      "reason": "回归中轨 收益1.2%"
+    },
+    {
+      "date": "2023-03-22",
+      "code": "300059",
+      "action": "SELL",
+      "price": 15.439060000000001,
+      "shares": 8100,
+      "amount": 124893.81,
+      "commission": 162.57,
+      "reason": "止损 跌幅-7.9%"
+    },
+    {
+      "date": "2023-03-28",
+      "code": "600821",
+      "action": "SELL",
+      "price": 6.19758,
+      "shares": 13500,
+      "amount": 83558.56,
+      "commission": 108.77,
+      "reason": "止损 跌幅-5.5%"
+    },
+    {
+      "date": "2023-03-29",
+      "code": "603659",
+      "action": "SELL",
+      "price": 33.39308,
+      "shares": 2500,
+      "amount": 83374.17,
+      "commission": 108.53,
+      "reason": "回归中轨 收益4.4%"
+    },
+    {
+      "date": "2023-03-29",
+      "code": "001896",
+      "action": "SELL",
+      "price": 4.43112,
+      "shares": 9200,
+      "amount": 40713.31,
+      "commission": 53.0,
+      "reason": "止损 跌幅-6.9%"
+    },
+    {
+      "date": "2023-03-30",
+      "code": "002192",
+      "action": "BUY",
+      "price": 76.28226,
+      "shares": 3100,
+      "amount": 236545.95,
+      "commission": 70.94,
+      "reason": "触碰布林下轨77.83 收阳确认"
+    },
+    {
+      "date": "2023-03-31",
+      "code": "002709",
+      "action": "SELL",
+      "price": 40.788259999999994,
+      "shares": 1600,
+      "amount": 65176.38,
+      "commission": 84.84,
+      "reason": "回归中轨 收益2.8%"
+    },
+    {
+      "date": "2023-04-21",
+      "code": "002192",
+      "action": "SELL",
+      "price": 71.73624,
+      "shares": 3100,
+      "amount": 222093.25,
+      "commission": 289.1,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2023-04-24",
+      "code": "000792",
+      "action": "BUY",
+      "price": 21.132179999999998,
+      "shares": 11900,
+      "amount": 251548.38,
+      "commission": 75.44,
+      "reason": "触碰布林下轨21.29 收阳确认"
+    },
+    {
+      "date": "2023-04-24",
+      "code": "002565",
+      "action": "BUY",
+      "price": 3.49698,
+      "shares": 50700,
+      "amount": 177350.08,
+      "commission": 53.19,
+      "reason": "触碰布林下轨3.49 收阳确认"
+    },
+    {
+      "date": "2023-04-24",
+      "code": "600989",
+      "action": "BUY",
+      "price": 12.074100000000001,
+      "shares": 10200,
+      "amount": 123192.77,
+      "commission": 36.95,
+      "reason": "触碰布林下轨12.20 收阳确认"
+    },
+    {
+      "date": "2023-04-25",
+      "code": "000792",
+      "action": "SELL",
+      "price": 20.009900000000002,
+      "shares": 11900,
+      "amount": 237808.26,
+      "commission": 309.55,
+      "reason": "止损 跌幅-5.0%"
+    },
+    {
+      "date": "2023-04-26",
+      "code": "603259",
+      "action": "BUY",
+      "price": 64.89954,
+      "shares": 2400,
+      "amount": 155805.62,
+      "commission": 46.73,
+      "reason": "触碰布林下轨66.03 收阳确认"
+    },
+    {
+      "date": "2023-04-27",
+      "code": "603986",
+      "action": "BUY",
+      "price": 106.31219999999999,
+      "shares": 1000,
+      "amount": 106344.09,
+      "commission": 31.89,
+      "reason": "触碰布林下轨111.53 收阳确认"
+    },
+    {
+      "date": "2023-04-27",
+      "code": "603601",
+      "action": "BUY",
+      "price": 4.238460000000001,
+      "shares": 18800,
+      "amount": 79706.95,
+      "commission": 23.9,
+      "reason": "触碰布林下轨4.37 收阳确认"
+    },
+    {
+      "date": "2023-04-27",
+      "code": "601138",
+      "action": "BUY",
+      "price": 14.05806,
+      "shares": 3900,
+      "amount": 54842.88,
+      "commission": 16.45,
+      "reason": "触碰布林下轨14.13 收阳确认"
+    },
+    {
+      "date": "2023-05-04",
+      "code": "603986",
+      "action": "SELL",
+      "price": 103.58242,
+      "shares": 1000,
+      "amount": 103447.76,
+      "commission": 134.66,
+      "reason": "止损 跌幅-6.7%"
+    },
+    {
+      "date": "2023-05-04",
+      "code": "601138",
+      "action": "SELL",
+      "price": 13.20354,
+      "shares": 3900,
+      "amount": 51426.86,
+      "commission": 66.94,
+      "reason": "止损 跌幅-5.1%"
+    },
+    {
+      "date": "2023-05-04",
+      "code": "002565",
+      "action": "SELL",
+      "price": 3.7125600000000003,
+      "shares": 50700,
+      "amount": 187982.1,
+      "commission": 244.69,
+      "reason": "回归中轨 收益6.1%"
+    },
+    {
+      "date": "2023-05-17",
+      "code": "600989",
+      "action": "SELL",
+      "price": 12.2255,
+      "shares": 10200,
+      "amount": 124537.99,
+      "commission": 162.11,
+      "reason": "回归中轨 收益1.6%"
+    },
+    {
+      "date": "2023-05-23",
+      "code": "603259",
+      "action": "SELL",
+      "price": 65.05962,
+      "shares": 2400,
+      "amount": 155940.1,
+      "commission": 202.99,
+      "reason": "回归中轨 收益1.3%"
+    },
+    {
+      "date": "2023-05-31",
+      "code": "603601",
+      "action": "SELL",
+      "price": 3.992,
+      "shares": 18800,
+      "amount": 74952.04,
+      "commission": 97.56,
+      "reason": "止损 跌幅-5.2%"
+    },
+    {
+      "date": "2023-06-07",
+      "code": "002565",
+      "action": "BUY",
+      "price": 2.8055999999999996,
+      "shares": 88700,
+      "amount": 248931.38,
+      "commission": 74.66,
+      "reason": "触碰布林下轨2.85 收阳确认"
+    },
+    {
+      "date": "2023-06-26",
+      "code": "301308",
+      "action": "BUY",
+      "price": 99.80922,
+      "shares": 1700,
+      "amount": 169726.58,
+      "commission": 50.9,
+      "reason": "触碰布林下轨100.52 收阳确认"
+    },
+    {
+      "date": "2023-06-26",
+      "code": "002202",
+      "action": "BUY",
+      "price": 10.02,
+      "shares": 12300,
+      "amount": 123282.97,
+      "commission": 36.97,
+      "reason": "触碰布林下轨10.10 收阳确认"
+    },
+    {
+      "date": "2023-06-29",
+      "code": "300383",
+      "action": "BUY",
+      "price": 10.44084,
+      "shares": 8200,
+      "amount": 85640.57,
+      "commission": 25.68,
+      "reason": "触碰布林下轨10.61 收阳确认"
+    },
+    {
+      "date": "2023-06-30",
+      "code": "002565",
+      "action": "SELL",
+      "price": 2.92414,
+      "shares": 88700,
+      "amount": 259034.04,
+      "commission": 337.18,
+      "reason": "回归中轨 收益3.9%"
+    },
+    {
+      "date": "2023-07-03",
+      "code": "002202",
+      "action": "SELL",
+      "price": 10.39916,
+      "shares": 12300,
+      "amount": 127743.39,
+      "commission": 166.28,
+      "reason": "回归中轨 收益4.0%"
+    },
+    {
+      "date": "2023-07-11",
+      "code": "301308",
+      "action": "SELL",
+      "price": 105.70816,
+      "shares": 1700,
+      "amount": 179470.26,
+      "commission": 233.62,
+      "reason": "回归中轨 收益7.6%"
+    },
+    {
+      "date": "2023-07-12",
+      "code": "300383",
+      "action": "SELL",
+      "price": 9.91014,
+      "shares": 8200,
+      "amount": 81157.51,
+      "commission": 105.64,
+      "reason": "止损 跌幅-5.5%"
+    },
+    {
+      "date": "2023-07-21",
+      "code": "600821",
+      "action": "BUY",
+      "price": 6.08214,
+      "shares": 41900,
+      "amount": 254918.12,
+      "commission": 76.45,
+      "reason": "触碰布林下轨6.07 收阳确认"
+    },
+    {
+      "date": "2023-07-24",
+      "code": "300274",
+      "action": "BUY",
+      "price": 75.17004,
+      "shares": 2300,
+      "amount": 172942.96,
+      "commission": 51.87,
+      "reason": "触碰布林下轨74.31 收阳确认"
+    },
+    {
+      "date": "2023-08-07",
+      "code": "603986",
+      "action": "BUY",
+      "price": 104.74908,
+      "shares": 1200,
+      "amount": 125736.61,
+      "commission": 37.71,
+      "reason": "触碰布林下轨106.60 收阳确认"
+    },
+    {
+      "date": "2023-08-08",
+      "code": "300274",
+      "action": "SELL",
+      "price": 76.67634,
+      "shares": 2300,
+      "amount": 176126.32,
+      "commission": 229.26,
+      "reason": "回归中轨 收益4.0%"
+    },
+    {
+      "date": "2023-08-14",
+      "code": "002384",
+      "action": "BUY",
+      "price": 20.41074,
+      "shares": 6900,
+      "amount": 140876.36,
+      "commission": 42.25,
+      "reason": "触碰布林下轨20.79 收阳确认"
+    },
+    {
+      "date": "2023-08-14",
+      "code": "002192",
+      "action": "BUY",
+      "price": 58.20618,
+      "shares": 1700,
+      "amount": 98980.19,
+      "commission": 29.69,
+      "reason": "触碰布林下轨58.22 收阳确认"
+    },
+    {
+      "date": "2023-08-15",
+      "code": "603986",
+      "action": "SELL",
+      "price": 96.25710000000001,
+      "shares": 1200,
+      "amount": 115358.36,
+      "commission": 150.16,
+      "reason": "止损 跌幅-7.2%"
+    },
+    {
+      "date": "2023-08-16",
+      "code": "601899",
+      "action": "BUY",
+      "price": 11.232420000000001,
+      "shares": 9300,
+      "amount": 104492.84,
+      "commission": 31.34,
+      "reason": "触碰布林下轨11.36 收阳确认"
+    },
+    {
+      "date": "2023-08-16",
+      "code": "002594",
+      "action": "BUY",
+      "price": 78.92754,
+      "shares": 900,
+      "amount": 71056.1,
+      "commission": 21.31,
+      "reason": "触碰布林下轨79.56 收阳确认"
+    },
+    {
+      "date": "2023-08-17",
+      "code": "600821",
+      "action": "SELL",
+      "price": 6.057860000000001,
+      "shares": 41900,
+      "amount": 253494.36,
+      "commission": 329.97,
+      "reason": "回归中轨 收益0.0%"
+    },
+    {
+      "date": "2023-08-17",
+      "code": "002384",
+      "action": "SELL",
+      "price": 19.0119,
+      "shares": 6900,
+      "amount": 131011.57,
+      "commission": 170.54,
+      "reason": "止损 跌幅-5.9%"
+    },
+    {
+      "date": "2023-08-18",
+      "code": "002192",
+      "action": "SELL",
+      "price": 54.05168,
+      "shares": 1700,
+      "amount": 91768.4,
+      "commission": 119.45,
+      "reason": "止损 跌幅-6.3%"
+    },
+    {
+      "date": "2023-08-21",
+      "code": "000988",
+      "action": "BUY",
+      "price": 31.10208,
+      "shares": 6200,
+      "amount": 192890.75,
+      "commission": 57.85,
+      "reason": "触碰布林下轨30.89 收阳确认"
+    },
+    {
+      "date": "2023-08-23",
+      "code": "002594",
+      "action": "SELL",
+      "price": 74.50070000000001,
+      "shares": 900,
+      "amount": 66963.46,
+      "commission": 87.17,
+      "reason": "止损 跌幅-5.9%"
+    },
+    {
+      "date": "2023-08-24",
+      "code": "002709",
+      "action": "BUY",
+      "price": 32.52492,
+      "shares": 4800,
+      "amount": 156166.45,
+      "commission": 46.84,
+      "reason": "触碰布林下轨32.62 收阳确认"
+    },
+    {
+      "date": "2023-08-25",
+      "code": "000988",
+      "action": "SELL",
+      "price": 30.60866,
+      "shares": 6200,
+      "amount": 189526.99,
+      "commission": 246.71,
+      "reason": "止损 跌幅-6.3%"
+    },
+    {
+      "date": "2023-08-25",
+      "code": "601016",
+      "action": "BUY",
+      "price": 3.22644,
+      "shares": 51700,
+      "amount": 166856.99,
+      "commission": 50.04,
+      "reason": "触碰布林下轨3.08 收阳确认"
+    },
+    {
+      "date": "2023-08-30",
+      "code": "601899",
+      "action": "SELL",
+      "price": 11.61672,
+      "shares": 9300,
+      "amount": 107895.05,
+      "commission": 140.45,
+      "reason": "回归中轨 收益2.3%"
+    },
+    {
+      "date": "2023-09-08",
+      "code": "002709",
+      "action": "SELL",
+      "price": 28.8422,
+      "shares": 4800,
+      "amount": 138262.58,
+      "commission": 179.98,
+      "reason": "止损 跌幅-11.4%"
+    },
+    {
+      "date": "2023-09-08",
+      "code": "601138",
+      "action": "BUY",
+      "price": 17.4849,
+      "shares": 10900,
+      "amount": 190642.59,
+      "commission": 57.18,
+      "reason": "触碰布林下轨17.59 收阳确认"
+    },
+    {
+      "date": "2023-09-14",
+      "code": "300750",
+      "action": "BUY",
+      "price": 200.61042,
+      "shares": 600,
+      "amount": 120402.36,
+      "commission": 36.11,
+      "reason": "触碰布林下轨203.21 收阳确认"
+    },
+    {
+      "date": "2023-09-15",
+      "code": "601138",
+      "action": "SELL",
+      "price": 16.496940000000002,
+      "shares": 10900,
+      "amount": 179582.88,
+      "commission": 233.76,
+      "reason": "止损 跌幅-5.4%"
+    },
+    {
+      "date": "2023-09-20",
+      "code": "600487",
+      "action": "BUY",
+      "price": 13.176300000000001,
+      "shares": 11400,
+      "amount": 150254.88,
+      "commission": 45.06,
+      "reason": "触碰布林下轨13.25 收阳确认"
+    },
+    {
+      "date": "2023-09-26",
+      "code": "300750",
+      "action": "SELL",
+      "price": 194.12098,
+      "shares": 600,
+      "amount": 116321.17,
+      "commission": 151.41,
+      "reason": "止损 跌幅-5.1%"
+    },
+    {
+      "date": "2023-09-27",
+      "code": "600487",
+      "action": "SELL",
+      "price": 13.64266,
+      "shares": 11400,
+      "amount": 155324.14,
+      "commission": 202.18,
+      "reason": "回归中轨 收益3.9%"
+    },
+    {
+      "date": "2023-10-09",
+      "code": "601899",
+      "action": "BUY",
+      "price": 11.45286,
+      "shares": 16300,
+      "amount": 186737.62,
+      "commission": 56.0,
+      "reason": "触碰布林下轨11.42 收阳确认"
+    },
+    {
+      "date": "2023-10-12",
+      "code": "601016",
+      "action": "SELL",
+      "price": 3.0938,
+      "shares": 51700,
+      "amount": 159741.53,
+      "commission": 207.93,
+      "reason": "回归中轨 收益0.6%"
+    },
+    {
+      "date": "2023-10-18",
+      "code": "601138",
+      "action": "BUY",
+      "price": 15.06006,
+      "shares": 11900,
+      "amount": 179268.48,
+      "commission": 53.76,
+      "reason": "触碰布林下轨15.43 收阳确认"
+    },
+    {
+      "date": "2023-10-19",
+      "code": "603601",
+      "action": "BUY",
+      "price": 4.1683200000000005,
+      "shares": 30100,
+      "amount": 125504.07,
+      "commission": 37.64,
+      "reason": "触碰布林下轨4.17 收阳确认"
+    },
+    {
+      "date": "2023-10-20",
+      "code": "601016",
+      "action": "BUY",
+      "price": 2.97594,
+      "shares": 29600,
+      "amount": 88114.25,
+      "commission": 26.43,
+      "reason": "触碰布林下轨2.98 收阳确认"
+    },
+    {
+      "date": "2023-10-20",
+      "code": "000792",
+      "action": "BUY",
+      "price": 16.292520000000003,
+      "shares": 3700,
+      "amount": 60300.41,
+      "commission": 18.08,
+      "reason": "触碰布林下轨16.43 收阳确认"
+    },
+    {
+      "date": "2023-10-20",
+      "code": "601318",
+      "action": "BUY",
+      "price": 39.9798,
+      "shares": 1000,
+      "amount": 39991.79,
+      "commission": 11.99,
+      "reason": "触碰布林下轨40.24 收阳确认"
+    },
+    {
+      "date": "2023-10-20",
+      "code": "600989",
+      "action": "BUY",
+      "price": 12.83562,
+      "shares": 2400,
+      "amount": 30814.73,
+      "commission": 9.24,
+      "reason": "触碰布林下轨12.88 收阳确认"
+    },
+    {
+      "date": "2023-10-23",
+      "code": "601899",
+      "action": "SELL",
+      "price": 10.668619999999999,
+      "shares": 16300,
+      "amount": 173672.44,
+      "commission": 226.07,
+      "reason": "止损 跌幅-6.6%"
+    },
+    {
+      "date": "2023-10-23",
+      "code": "601138",
+      "action": "SELL",
+      "price": 11.73648,
+      "shares": 11900,
+      "amount": 139482.55,
+      "commission": 181.56,
+      "reason": "止损 跌幅-15.4%"
+    },
+    {
+      "date": "2023-10-24",
+      "code": "600487",
+      "action": "BUY",
+      "price": 12.795539999999999,
+      "shares": 9000,
+      "amount": 115194.41,
+      "commission": 34.55,
+      "reason": "触碰布林下轨12.65 收阳确认"
+    },
+    {
+      "date": "2023-10-24",
+      "code": "601138",
+      "action": "BUY",
+      "price": 12.29454,
+      "shares": 6600,
+      "amount": 81168.31,
+      "commission": 24.34,
+      "reason": "触碰布林下轨13.09 收阳确认"
+    },
+    {
+      "date": "2023-10-24",
+      "code": "002202",
+      "action": "BUY",
+      "price": 8.49696,
+      "shares": 6700,
+      "amount": 56946.71,
+      "commission": 17.08,
+      "reason": "触碰布林下轨8.50 收阳确认"
+    },
+    {
+      "date": "2023-10-24",
+      "code": "600089",
+      "action": "BUY",
+      "price": 13.476899999999999,
+      "shares": 2900,
+      "amount": 39094.73,
+      "commission": 11.72,
+      "reason": "触碰布林下轨13.41 收阳确认"
+    },
+    {
+      "date": "2023-10-25",
+      "code": "600989",
+      "action": "SELL",
+      "price": 13.11372,
+      "shares": 2400,
+      "amount": 31432.01,
+      "commission": 40.91,
+      "reason": "回归中轨 收益2.1%"
+    },
+    {
+      "date": "2023-10-27",
+      "code": "603601",
+      "action": "SELL",
+      "price": 4.30138,
+      "shares": 30100,
+      "amount": 129303.23,
+      "commission": 168.31,
+      "reason": "回归中轨 收益4.1%"
+    },
+    {
+      "date": "2023-10-31",
+      "code": "000792",
+      "action": "SELL",
+      "price": 16.82628,
+      "shares": 3700,
+      "amount": 62176.3,
+      "commission": 80.93,
+      "reason": "回归中轨 收益3.3%"
+    },
+    {
+      "date": "2023-11-06",
+      "code": "002202",
+      "action": "SELL",
+      "price": 8.8323,
+      "shares": 6700,
+      "amount": 59099.48,
+      "commission": 76.93,
+      "reason": "回归中轨 收益5.0%"
+    },
+    {
+      "date": "2023-11-06",
+      "code": "601318",
+      "action": "SELL",
+      "price": 40.83816,
+      "shares": 1000,
+      "amount": 40785.07,
+      "commission": 53.09,
+      "reason": "回归中轨 收益2.9%"
+    },
+    {
+      "date": "2023-11-09",
+      "code": "601138",
+      "action": "SELL",
+      "price": 13.8223,
+      "shares": 6600,
+      "amount": 91108.58,
+      "commission": 118.6,
+      "reason": "回归中轨 收益15.0%"
+    },
+    {
+      "date": "2023-11-09",
+      "code": "600089",
+      "action": "SELL",
+      "price": 13.74246,
+      "shares": 2900,
+      "amount": 39801.32,
+      "commission": 51.81,
+      "reason": "回归中轨 收益3.7%"
+    },
+    {
+      "date": "2023-11-13",
+      "code": "601318",
+      "action": "BUY",
+      "price": 37.66518000000001,
+      "shares": 4300,
+      "amount": 162008.86,
+      "commission": 48.59,
+      "reason": "触碰布林下轨37.82 收阳确认"
+    },
+    {
+      "date": "2023-11-14",
+      "code": "600487",
+      "action": "SELL",
+      "price": 13.09376,
+      "shares": 9000,
+      "amount": 117690.64,
+      "commission": 153.2,
+      "reason": "回归中轨 收益3.3%"
+    },
+    {
+      "date": "2023-11-15",
+      "code": "601016",
+      "action": "SELL",
+      "price": 2.97404,
+      "shares": 29600,
+      "amount": 87917.14,
+      "commission": 114.44,
+      "reason": "回归中轨 收益0.3%"
+    },
+    {
+      "date": "2023-11-23",
+      "code": "603986",
+      "action": "BUY",
+      "price": 96.55272,
+      "shares": 1800,
+      "amount": 173847.03,
+      "commission": 52.14,
+      "reason": "触碰布林下轨96.36 收阳确认"
+    },
+    {
+      "date": "2023-11-23",
+      "code": "000792",
+      "action": "BUY",
+      "price": 16.26246,
+      "shares": 7700,
+      "amount": 125258.51,
+      "commission": 37.57,
+      "reason": "触碰布林下轨16.31 收阳确认"
+    },
+    {
+      "date": "2023-11-28",
+      "code": "002594",
+      "action": "BUY",
+      "price": 67.73519999999999,
+      "shares": 1300,
+      "amount": 88082.18,
+      "commission": 26.42,
+      "reason": "触碰布林下轨68.97 收阳确认"
+    },
+    {
+      "date": "2023-11-30",
+      "code": "600487",
+      "action": "BUY",
+      "price": 12.09414,
+      "shares": 5000,
+      "amount": 60488.84,
+      "commission": 18.14,
+      "reason": "触碰布林下轨12.10 收阳确认"
+    },
+    {
+      "date": "2023-11-30",
+      "code": "600666",
+      "action": "BUY",
+      "price": 2.17434,
+      "shares": 20000,
+      "amount": 43499.85,
+      "commission": 13.05,
+      "reason": "触碰布林下轨2.17 收阳确认"
+    },
+    {
+      "date": "2023-11-30",
+      "code": "002594",
+      "action": "SELL",
+      "price": 64.34106,
+      "shares": 1300,
+      "amount": 83534.64,
+      "commission": 108.74,
+      "reason": "止损 跌幅-5.3%"
+    },
+    {
+      "date": "2023-12-04",
+      "code": "601318",
+      "action": "SELL",
+      "price": 35.089679999999994,
+      "shares": 4300,
+      "amount": 150689.47,
+      "commission": 196.15,
+      "reason": "止损 跌幅-5.4%"
+    },
+    {
+      "date": "2023-12-05",
+      "code": "603986",
+      "action": "SELL",
+      "price": 88.75214000000001,
+      "shares": 1800,
+      "amount": 159546.17,
+      "commission": 207.68,
+      "reason": "止损 跌幅-6.9%"
+    },
+    {
+      "date": "2023-12-06",
+      "code": "002384",
+      "action": "BUY",
+      "price": 17.39472,
+      "shares": 8500,
+      "amount": 147899.48,
+      "commission": 44.36,
+      "reason": "触碰布林下轨17.55 收阳确认"
+    },
+    {
+      "date": "2023-12-06",
+      "code": "603259",
+      "action": "BUY",
+      "price": 73.57686000000001,
+      "shares": 1400,
+      "amount": 103038.51,
+      "commission": 30.9,
+      "reason": "触碰布林下轨73.76 收阳确认"
+    },
+    {
+      "date": "2023-12-06",
+      "code": "601318",
+      "action": "BUY",
+      "price": 34.4688,
+      "shares": 2100,
+      "amount": 72406.2,
+      "commission": 21.72,
+      "reason": "触碰布林下轨34.64 收阳确认"
+    },
+    {
+      "date": "2023-12-06",
+      "code": "603993",
+      "action": "BUY",
+      "price": 4.61922,
+      "shares": 11100,
+      "amount": 51288.72,
+      "commission": 15.38,
+      "reason": "触碰布林下轨4.62 收阳确认"
+    },
+    {
+      "date": "2023-12-13",
+      "code": "603993",
+      "action": "SELL",
+      "price": 4.35128,
+      "shares": 11100,
+      "amount": 48236.42,
+      "commission": 62.79,
+      "reason": "止损 跌幅-6.5%"
+    },
+    {
+      "date": "2023-12-14",
+      "code": "600487",
+      "action": "SELL",
+      "price": 11.4271,
+      "shares": 5000,
+      "amount": 57061.22,
+      "commission": 74.28,
+      "reason": "止损 跌幅-5.1%"
+    },
+    {
+      "date": "2023-12-14",
+      "code": "000792",
+      "action": "SELL",
+      "price": 15.269400000000001,
+      "shares": 7700,
+      "amount": 117421.53,
+      "commission": 152.85,
+      "reason": "止损 跌幅-6.1%"
+    },
+    {
+      "date": "2023-12-19",
+      "code": "600666",
+      "action": "SELL",
+      "price": 2.33532,
+      "shares": 20000,
+      "amount": 46645.68,
+      "commission": 60.72,
+      "reason": "回归中轨 收益3.2%"
+    },
+    {
+      "date": "2023-12-20",
+      "code": "603259",
+      "action": "SELL",
+      "price": 69.15142,
+      "shares": 1400,
+      "amount": 96686.13,
+      "commission": 125.86,
+      "reason": "止损 跌幅-5.1%"
+    },
+    {
+      "date": "2023-12-21",
+      "code": "600821",
+      "action": "BUY",
+      "price": 5.72142,
+      "shares": 25500,
+      "amount": 145939.98,
+      "commission": 43.77,
+      "reason": "触碰布林下轨5.74 收阳确认"
+    },
+    {
+      "date": "2023-12-21",
+      "code": "600498",
+      "action": "BUY",
+      "price": 16.32258,
+      "shares": 6200,
+      "amount": 101230.36,
+      "commission": 30.36,
+      "reason": "触碰布林下轨16.38 收阳确认"
+    },
+    {
+      "date": "2023-12-25",
+      "code": "300475",
+      "action": "BUY",
+      "price": 31.7133,
+      "shares": 2200,
+      "amount": 69790.19,
+      "commission": 20.93,
+      "reason": "触碰布林下轨31.84 收阳确认"
+    },
+    {
+      "date": "2023-12-26",
+      "code": "300475",
+      "action": "SELL",
+      "price": 30.439,
+      "shares": 2200,
+      "amount": 66878.74,
+      "commission": 87.06,
+      "reason": "止损 跌幅-5.4%"
+    },
+    {
+      "date": "2023-12-27",
+      "code": "002384",
+      "action": "SELL",
+      "price": 16.52688,
+      "shares": 8500,
+      "amount": 140295.86,
+      "commission": 182.62,
+      "reason": "止损 跌幅-5.0%"
+    },
+    {
+      "date": "2023-12-28",
+      "code": "601318",
+      "action": "SELL",
+      "price": 35.0298,
+      "shares": 2100,
+      "amount": 73466.95,
+      "commission": 95.63,
+      "reason": "回归中轨 收益2.1%"
+    },
+    {
+      "date": "2024-01-04",
+      "code": "002050",
+      "action": "BUY",
+      "price": 26.47284,
+      "shares": 5100,
+      "amount": 135051.99,
+      "commission": 40.5,
+      "reason": "触碰布林下轨26.41 收阳确认"
+    },
+    {
+      "date": "2024-01-05",
+      "code": "600498",
+      "action": "SELL",
+      "price": 15.30932,
+      "shares": 6200,
+      "amount": 94794.39,
+      "commission": 123.39,
+      "reason": "止损 跌幅-5.5%"
+    },
+    {
+      "date": "2024-01-12",
+      "code": "002050",
+      "action": "SELL",
+      "price": 24.73044,
+      "shares": 5100,
+      "amount": 125961.28,
+      "commission": 163.96,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2024-01-16",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.389200000000001,
+      "shares": 25500,
+      "amount": 137245.95,
+      "commission": 178.65,
+      "reason": "止损 跌幅-5.7%"
+    },
+    {
+      "date": "2024-01-18",
+      "code": "002475",
+      "action": "BUY",
+      "price": 27.92574,
+      "shares": 7200,
+      "amount": 201125.65,
+      "commission": 60.32,
+      "reason": "触碰布林下轨28.13 收阳确认"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "601016",
+      "action": "BUY",
+      "price": 2.5751399999999998,
+      "shares": 55000,
+      "amount": 141675.19,
+      "commission": 42.49,
+      "reason": "触碰布林下轨2.58 收阳确认"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "600549",
+      "action": "BUY",
+      "price": 15.150239999999998,
+      "shares": 6500,
+      "amount": 98506.1,
+      "commission": 29.54,
+      "reason": "触碰布林下轨15.10 收阳确认"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "600821",
+      "action": "BUY",
+      "price": 4.9599,
+      "shares": 14000,
+      "amount": 69459.43,
+      "commission": 20.83,
+      "reason": "触碰布林下轨5.01 收阳确认"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "002202",
+      "action": "BUY",
+      "price": 6.97392,
+      "shares": 6900,
+      "amount": 48134.48,
+      "commission": 14.44,
+      "reason": "触碰布林下轨6.92 收阳确认"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "300438",
+      "action": "BUY",
+      "price": 24.33858,
+      "shares": 1400,
+      "amount": 34084.23,
+      "commission": 10.22,
+      "reason": "触碰布林下轨24.58 收阳确认"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "600989",
+      "action": "BUY",
+      "price": 12.80556,
+      "shares": 1800,
+      "amount": 23056.92,
+      "commission": 6.92,
+      "reason": "触碰布林下轨12.79 收阳确认"
+    },
+    {
+      "date": "2024-01-24",
+      "code": "603601",
+      "action": "BUY",
+      "price": 3.5470800000000002,
+      "shares": 4800,
+      "amount": 17031.09,
+      "commission": 5.11,
+      "reason": "触碰布林下轨3.55 收阳确认"
+    },
+    {
+      "date": "2024-01-29",
+      "code": "002475",
+      "action": "SELL",
+      "price": 26.30728,
+      "shares": 7200,
+      "amount": 189166.18,
+      "commission": 246.24,
+      "reason": "止损 跌幅-5.6%"
+    },
+    {
+      "date": "2024-01-29",
+      "code": "300438",
+      "action": "SELL",
+      "price": 22.18554,
+      "shares": 1400,
+      "amount": 31019.38,
+      "commission": 40.38,
+      "reason": "止损 跌幅-8.1%"
+    },
+    {
+      "date": "2024-01-30",
+      "code": "603259",
+      "action": "BUY",
+      "price": 53.436659999999996,
+      "shares": 1400,
+      "amount": 74833.77,
+      "commission": 22.44,
+      "reason": "触碰布林下轨57.68 收阳确认"
+    },
+    {
+      "date": "2024-01-31",
+      "code": "603601",
+      "action": "SELL",
+      "price": 3.18362,
+      "shares": 4800,
+      "amount": 15261.09,
+      "commission": 20.28,
+      "reason": "止损 跌幅-9.1%"
+    },
+    {
+      "date": "2024-01-31",
+      "code": "600549",
+      "action": "SELL",
+      "price": 14.1716,
+      "shares": 6500,
+      "amount": 91995.65,
+      "commission": 119.75,
+      "reason": "止损 跌幅-5.3%"
+    },
+    {
+      "date": "2024-02-01",
+      "code": "002594",
+      "action": "BUY",
+      "price": 54.73926,
+      "shares": 1600,
+      "amount": 87609.09,
+      "commission": 26.27,
+      "reason": "触碰布林下轨54.79 收阳确认"
+    },
+    {
+      "date": "2024-02-01",
+      "code": "002384",
+      "action": "BUY",
+      "price": 12.394739999999999,
+      "shares": 4900,
+      "amount": 60752.45,
+      "commission": 18.22,
+      "reason": "触碰布林下轨12.37 收阳确认"
+    },
+    {
+      "date": "2024-02-01",
+      "code": "300475",
+      "action": "BUY",
+      "price": 24.91974,
+      "shares": 1700,
+      "amount": 42376.27,
+      "commission": 12.71,
+      "reason": "触碰布林下轨25.40 收阳确认"
+    },
+    {
+      "date": "2024-02-01",
+      "code": "000792",
+      "action": "BUY",
+      "price": 14.29854,
+      "shares": 2100,
+      "amount": 30035.94,
+      "commission": 9.01,
+      "reason": "触碰布林下轨14.35 收阳确认"
+    },
+    {
+      "date": "2024-02-02",
+      "code": "002202",
+      "action": "SELL",
+      "price": 6.44708,
+      "shares": 6900,
+      "amount": 44427.02,
+      "commission": 57.83,
+      "reason": "止损 跌幅-6.4%"
+    },
+    {
+      "date": "2024-02-02",
+      "code": "603259",
+      "action": "SELL",
+      "price": 43.52278,
+      "shares": 1400,
+      "amount": 60852.68,
+      "commission": 79.21,
+      "reason": "止损 跌幅-12.2%"
+    },
+    {
+      "date": "2024-02-05",
+      "code": "002384",
+      "action": "SELL",
+      "price": 11.11772,
+      "shares": 4900,
+      "amount": 54406.01,
+      "commission": 70.82,
+      "reason": "止损 跌幅-9.1%"
+    },
+    {
+      "date": "2024-02-05",
+      "code": "300475",
+      "action": "SELL",
+      "price": 19.700519999999997,
+      "shares": 1700,
+      "amount": 33447.35,
+      "commission": 43.54,
+      "reason": "止损 跌幅-16.8%"
+    },
+    {
+      "date": "2024-02-05",
+      "code": "603259",
+      "action": "BUY",
+      "price": 44.27838,
+      "shares": 1700,
+      "amount": 75295.83,
+      "commission": 22.58,
+      "reason": "触碰布林下轨46.44 收阳确认"
+    },
+    {
+      "date": "2024-02-05",
+      "code": "600089",
+      "action": "BUY",
+      "price": 13.326600000000001,
+      "shares": 4200,
+      "amount": 55988.51,
+      "commission": 16.79,
+      "reason": "触碰布林下轨13.31 收阳确认"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "601016",
+      "action": "SELL",
+      "price": 2.68462,
+      "shares": 55000,
+      "amount": 147462.15,
+      "commission": 191.95,
+      "reason": "回归中轨 收益4.7%"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "603601",
+      "action": "BUY",
+      "price": 2.51502,
+      "shares": 33500,
+      "amount": 84278.45,
+      "commission": 25.28,
+      "reason": "触碰布林下轨2.61 收阳确认"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "001309",
+      "action": "BUY",
+      "price": 32.9157,
+      "shares": 1700,
+      "amount": 55973.48,
+      "commission": 16.79,
+      "reason": "触碰布林下轨33.35 收阳确认"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "600726",
+      "action": "BUY",
+      "price": 1.8837599999999999,
+      "shares": 22400,
+      "amount": 42208.88,
+      "commission": 12.66,
+      "reason": "触碰布林下轨1.89 收阳确认"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "001896",
+      "action": "BUY",
+      "price": 3.18636,
+      "shares": 9300,
+      "amount": 29642.04,
+      "commission": 8.89,
+      "reason": "触碰布林下轨3.28 收阳确认"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "600089",
+      "action": "SELL",
+      "price": 13.991959999999999,
+      "shares": 4200,
+      "amount": 58689.84,
+      "commission": 76.4,
+      "reason": "回归中轨 收益4.9%"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "002565",
+      "action": "BUY",
+      "price": 2.2645199999999996,
+      "shares": 16900,
+      "amount": 38281.87,
+      "commission": 11.48,
+      "reason": "触碰布林下轨2.31 收阳确认"
+    },
+    {
+      "date": "2024-02-06",
+      "code": "600989",
+      "action": "SELL",
+      "price": 12.95404,
+      "shares": 1800,
+      "amount": 23286.96,
+      "commission": 30.31,
+      "reason": "回归中轨 收益1.6%"
+    },
+    {
+      "date": "2024-02-07",
+      "code": "603601",
+      "action": "SELL",
+      "price": 2.33532,
+      "shares": 33500,
+      "amount": 78131.52,
+      "commission": 101.7,
+      "reason": "止损 跌幅-5.7%"
+    },
+    {
+      "date": "2024-02-07",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.39918,
+      "shares": 14000,
+      "amount": 75490.25,
+      "commission": 98.27,
+      "reason": "回归中轨 收益9.3%"
+    },
+    {
+      "date": "2024-02-07",
+      "code": "000792",
+      "action": "SELL",
+      "price": 14.98996,
+      "shares": 2100,
+      "amount": 31437.99,
+      "commission": 40.92,
+      "reason": "回归中轨 收益4.9%"
+    },
+    {
+      "date": "2024-02-07",
+      "code": "001896",
+      "action": "SELL",
+      "price": 3.03392,
+      "shares": 9300,
+      "amount": 28178.78,
+      "commission": 36.68,
+      "reason": "止损 跌幅-5.3%"
+    },
+    {
+      "date": "2024-02-19",
+      "code": "002594",
+      "action": "SELL",
+      "price": 58.69238,
+      "shares": 1600,
+      "amount": 93785.73,
+      "commission": 122.08,
+      "reason": "回归中轨 收益7.7%"
+    },
+    {
+      "date": "2024-02-19",
+      "code": "001309",
+      "action": "SELL",
+      "price": 38.582679999999996,
+      "shares": 1700,
+      "amount": 65505.29,
+      "commission": 85.27,
+      "reason": "回归中轨 收益17.9%"
+    },
+    {
+      "date": "2024-02-26",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.01596,
+      "shares": 22400,
+      "amount": 45098.8,
+      "commission": 58.7,
+      "reason": "回归中轨 收益7.4%"
+    },
+    {
+      "date": "2024-02-26",
+      "code": "002565",
+      "action": "SELL",
+      "price": 2.68462,
+      "shares": 16900,
+      "amount": 45311.1,
+      "commission": 58.98,
+      "reason": "回归中轨 收益20.1%"
+    },
+    {
+      "date": "2024-03-01",
+      "code": "603259",
+      "action": "SELL",
+      "price": 52.7942,
+      "shares": 1700,
+      "amount": 89633.46,
+      "commission": 116.68,
+      "reason": "回归中轨 收益14.9%"
+    },
+    {
+      "date": "2024-03-28",
+      "code": "000988",
+      "action": "BUY",
+      "price": 31.17222,
+      "shares": 6400,
+      "amount": 199562.06,
+      "commission": 59.85,
+      "reason": "触碰布林下轨31.40 收阳确认"
+    },
+    {
+      "date": "2024-03-28",
+      "code": "300059",
+      "action": "BUY",
+      "price": 12.755460000000001,
+      "shares": 10900,
+      "amount": 139076.22,
+      "commission": 41.71,
+      "reason": "触碰布林下轨12.83 收阳确认"
+    },
+    {
+      "date": "2024-04-01",
+      "code": "000988",
+      "action": "SELL",
+      "price": 35.2793,
+      "shares": 6400,
+      "amount": 225494.0,
+      "commission": 293.52,
+      "reason": "回归中轨 收益16.4%"
+    },
+    {
+      "date": "2024-04-11",
+      "code": "300274",
+      "action": "BUY",
+      "price": 68.30634,
+      "shares": 2400,
+      "amount": 163984.4,
+      "commission": 49.18,
+      "reason": "触碰布林下轨68.32 收阳确认"
+    },
+    {
+      "date": "2024-04-12",
+      "code": "300059",
+      "action": "SELL",
+      "price": 11.98598,
+      "shares": 10900,
+      "amount": 130477.34,
+      "commission": 169.84,
+      "reason": "止损 跌幅-6.1%"
+    },
+    {
+      "date": "2024-04-17",
+      "code": "600666",
+      "action": "BUY",
+      "price": 1.47294,
+      "shares": 105700,
+      "amount": 155736.46,
+      "commission": 46.71,
+      "reason": "触碰布林下轨1.45 收阳确认"
+    },
+    {
+      "date": "2024-04-22",
+      "code": "300274",
+      "action": "SELL",
+      "price": 67.34504,
+      "shares": 2400,
+      "amount": 161417.98,
+      "commission": 210.12,
+      "reason": "止损 跌幅-5.0%"
+    },
+    {
+      "date": "2024-04-29",
+      "code": "600666",
+      "action": "SELL",
+      "price": 1.53692,
+      "shares": 105700,
+      "amount": 162241.26,
+      "commission": 211.19,
+      "reason": "回归中轨 收益7.0%"
+    },
+    {
+      "date": "2024-05-23",
+      "code": "603993",
+      "action": "BUY",
+      "price": 7.75548,
+      "shares": 26500,
+      "amount": 205581.88,
+      "commission": 61.66,
+      "reason": "触碰布林下轨7.79 收阳确认"
+    },
+    {
+      "date": "2024-06-11",
+      "code": "300763",
+      "action": "BUY",
+      "price": 52.504799999999996,
+      "shares": 2700,
+      "amount": 141805.49,
+      "commission": 42.53,
+      "reason": "触碰布林下轨52.33 收阳确认"
+    },
+    {
+      "date": "2024-06-19",
+      "code": "300763",
+      "action": "SELL",
+      "price": 48.482839999999996,
+      "shares": 2700,
+      "amount": 130733.49,
+      "commission": 170.17,
+      "reason": "止损 跌幅-5.7%"
+    },
+    {
+      "date": "2024-06-19",
+      "code": "603993",
+      "action": "SELL",
+      "price": 8.07382,
+      "shares": 26500,
+      "amount": 213678.09,
+      "commission": 278.14,
+      "reason": "回归中轨 收益3.0%"
+    },
+    {
+      "date": "2024-06-26",
+      "code": "300274",
+      "action": "BUY",
+      "price": 61.542840000000005,
+      "shares": 3300,
+      "amount": 203152.3,
+      "commission": 60.93,
+      "reason": "触碰布林下轨62.27 收阳确认"
+    },
+    {
+      "date": "2024-07-02",
+      "code": "300274",
+      "action": "SELL",
+      "price": 58.7323,
+      "shares": 3300,
+      "amount": 193564.63,
+      "commission": 251.96,
+      "reason": "止损 跌幅-6.2%"
+    },
+    {
+      "date": "2024-07-18",
+      "code": "601138",
+      "action": "BUY",
+      "price": 23.46684,
+      "shares": 8600,
+      "amount": 201875.37,
+      "commission": 60.54,
+      "reason": "触碰布林下轨24.03 收阳确认"
+    },
+    {
+      "date": "2024-07-18",
+      "code": "001896",
+      "action": "BUY",
+      "price": 3.7074000000000003,
+      "shares": 38200,
+      "amount": 141665.17,
+      "commission": 42.49,
+      "reason": "触碰布林下轨3.76 收阳确认"
+    },
+    {
+      "date": "2024-07-19",
+      "code": "002281",
+      "action": "BUY",
+      "price": 34.60908,
+      "shares": 2800,
+      "amount": 96934.5,
+      "commission": 29.07,
+      "reason": "触碰布林下轨34.46 收阳确认"
+    },
+    {
+      "date": "2024-07-24",
+      "code": "601899",
+      "action": "BUY",
+      "price": 15.51096,
+      "shares": 4500,
+      "amount": 69820.26,
+      "commission": 20.94,
+      "reason": "触碰布林下轨16.01 收阳确认"
+    },
+    {
+      "date": "2024-07-25",
+      "code": "688525",
+      "action": "BUY",
+      "price": 53.13606,
+      "shares": 900,
+      "amount": 47836.8,
+      "commission": 14.35,
+      "reason": "触碰布林下轨53.37 收阳确认"
+    },
+    {
+      "date": "2024-07-25",
+      "code": "601899",
+      "action": "SELL",
+      "price": 14.9201,
+      "shares": 4500,
+      "amount": 67053.17,
+      "commission": 87.28,
+      "reason": "止损 跌幅-6.9%"
+    },
+    {
+      "date": "2024-07-25",
+      "code": "601138",
+      "action": "SELL",
+      "price": 21.6067,
+      "shares": 8600,
+      "amount": 185576.06,
+      "commission": 241.56,
+      "reason": "止损 跌幅-9.3%"
+    },
+    {
+      "date": "2024-07-25",
+      "code": "002050",
+      "action": "BUY",
+      "price": 16.97388,
+      "shares": 6500,
+      "amount": 110363.32,
+      "commission": 33.1,
+      "reason": "触碰布林下轨17.21 收阳确认"
+    },
+    {
+      "date": "2024-07-25",
+      "code": "002281",
+      "action": "SELL",
+      "price": 32.29528,
+      "shares": 2800,
+      "amount": 90309.23,
+      "commission": 117.55,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2024-07-26",
+      "code": "300502",
+      "action": "BUY",
+      "price": 67.8855,
+      "shares": 1500,
+      "amount": 101858.8,
+      "commission": 30.55,
+      "reason": "触碰布林下轨68.08 收阳确认"
+    },
+    {
+      "date": "2024-07-26",
+      "code": "601899",
+      "action": "BUY",
+      "price": 15.4308,
+      "shares": 4800,
+      "amount": 74090.06,
+      "commission": 22.22,
+      "reason": "触碰布林下轨15.29 收阳确认"
+    },
+    {
+      "date": "2024-07-26",
+      "code": "001309",
+      "action": "BUY",
+      "price": 54.74928,
+      "shares": 900,
+      "amount": 49289.13,
+      "commission": 14.78,
+      "reason": "触碰布林下轨54.88 收阳确认"
+    },
+    {
+      "date": "2024-07-26",
+      "code": "600989",
+      "action": "BUY",
+      "price": 14.79954,
+      "shares": 2500,
+      "amount": 37009.95,
+      "commission": 11.1,
+      "reason": "触碰布林下轨14.78 收阳确认"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "300502",
+      "action": "SELL",
+      "price": 63.76222,
+      "shares": 1500,
+      "amount": 95518.99,
+      "commission": 124.34,
+      "reason": "止损 跌幅-10.4%"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "688525",
+      "action": "SELL",
+      "price": 50.898,
+      "shares": 900,
+      "amount": 45748.65,
+      "commission": 59.55,
+      "reason": "止损 跌幅-8.6%"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "002594",
+      "action": "BUY",
+      "price": 76.83336000000001,
+      "shares": 800,
+      "amount": 61485.13,
+      "commission": 18.44,
+      "reason": "触碰布林下轨76.82 收阳确认"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "001309",
+      "action": "SELL",
+      "price": 51.83612,
+      "shares": 900,
+      "amount": 46591.86,
+      "commission": 60.65,
+      "reason": "止损 跌幅-8.1%"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "600989",
+      "action": "SELL",
+      "price": 13.80234,
+      "shares": 2500,
+      "amount": 34460.99,
+      "commission": 44.86,
+      "reason": "止损 跌幅-5.8%"
+    },
+    {
+      "date": "2024-08-07",
+      "code": "001896",
+      "action": "SELL",
+      "price": 3.76246,
+      "shares": 38200,
+      "amount": 143539.13,
+      "commission": 186.84,
+      "reason": "回归中轨 收益1.9%"
+    },
+    {
+      "date": "2024-08-08",
+      "code": "300476",
+      "action": "BUY",
+      "price": 31.04196,
+      "shares": 3700,
+      "amount": 114889.71,
+      "commission": 34.46,
+      "reason": "触碰布林下轨29.99 收阳确认"
+    },
+    {
+      "date": "2024-08-13",
+      "code": "002050",
+      "action": "SELL",
+      "price": 15.87818,
+      "shares": 6500,
+      "amount": 103074.0,
+      "commission": 134.17,
+      "reason": "止损 跌幅-5.6%"
+    },
+    {
+      "date": "2024-08-15",
+      "code": "300763",
+      "action": "BUY",
+      "price": 60.48072,
+      "shares": 1800,
+      "amount": 108897.96,
+      "commission": 32.66,
+      "reason": "触碰布林下轨60.34 收阳确认"
+    },
+    {
+      "date": "2024-08-16",
+      "code": "601899",
+      "action": "SELL",
+      "price": 15.528880000000001,
+      "shares": 4800,
+      "amount": 74441.72,
+      "commission": 96.9,
+      "reason": "回归中轨 收益0.8%"
+    },
+    {
+      "date": "2024-08-21",
+      "code": "002594",
+      "action": "SELL",
+      "price": 78.85198000000001,
+      "shares": 800,
+      "amount": 62999.58,
+      "commission": 82.01,
+      "reason": "回归中轨 收益4.3%"
+    },
+    {
+      "date": "2024-08-21",
+      "code": "300014",
+      "action": "BUY",
+      "price": 34.558980000000005,
+      "shares": 3500,
+      "amount": 120992.72,
+      "commission": 36.29,
+      "reason": "触碰布林下轨34.50 收阳确认"
+    },
+    {
+      "date": "2024-08-21",
+      "code": "300763",
+      "action": "SELL",
+      "price": 55.57862,
+      "shares": 1800,
+      "amount": 99911.46,
+      "commission": 130.05,
+      "reason": "止损 跌幅-7.6%"
+    },
+    {
+      "date": "2024-08-23",
+      "code": "300014",
+      "action": "SELL",
+      "price": 31.69648,
+      "shares": 3500,
+      "amount": 110793.46,
+      "commission": 144.22,
+      "reason": "止损 跌幅-8.0%"
+    },
+    {
+      "date": "2024-08-26",
+      "code": "601016",
+      "action": "BUY",
+      "price": 2.69538,
+      "shares": 55300,
+      "amount": 149099.23,
+      "commission": 44.72,
+      "reason": "触碰布林下轨2.70 收阳确认"
+    },
+    {
+      "date": "2024-08-26",
+      "code": "300014",
+      "action": "BUY",
+      "price": 32.32452,
+      "shares": 3200,
+      "amount": 103469.5,
+      "commission": 31.03,
+      "reason": "触碰布林下轨32.55 收阳确认"
+    },
+    {
+      "date": "2024-08-28",
+      "code": "300476",
+      "action": "SELL",
+      "price": 31.25736,
+      "shares": 3700,
+      "amount": 115501.88,
+      "commission": 150.35,
+      "reason": "回归中轨 收益11.6%"
+    },
+    {
+      "date": "2024-09-04",
+      "code": "601138",
+      "action": "BUY",
+      "price": 17.92578,
+      "shares": 6000,
+      "amount": 107586.95,
+      "commission": 32.27,
+      "reason": "触碰布林下轨18.04 收阳确认"
+    },
+    {
+      "date": "2024-09-05",
+      "code": "300476",
+      "action": "BUY",
+      "price": 27.705299999999998,
+      "shares": 2700,
+      "amount": 74826.75,
+      "commission": 22.44,
+      "reason": "触碰布林下轨28.83 收阳确认"
+    },
+    {
+      "date": "2024-09-09",
+      "code": "601016",
+      "action": "SELL",
+      "price": 2.53492,
+      "shares": 55300,
+      "amount": 139998.84,
+      "commission": 182.24,
+      "reason": "止损 跌幅-5.9%"
+    },
+    {
+      "date": "2024-09-09",
+      "code": "001309",
+      "action": "BUY",
+      "price": 47.05392,
+      "shares": 2000,
+      "amount": 94136.07,
+      "commission": 28.23,
+      "reason": "触碰布林下轨47.04 收阳确认"
+    },
+    {
+      "date": "2024-09-10",
+      "code": "600989",
+      "action": "BUY",
+      "price": 13.58712,
+      "shares": 4900,
+      "amount": 66596.86,
+      "commission": 19.97,
+      "reason": "触碰布林下轨13.69 收阳确认"
+    },
+    {
+      "date": "2024-09-12",
+      "code": "300014",
+      "action": "SELL",
+      "price": 32.79428,
+      "shares": 3200,
+      "amount": 104805.27,
+      "commission": 136.42,
+      "reason": "回归中轨 收益2.0%"
+    },
+    {
+      "date": "2024-09-23",
+      "code": "001309",
+      "action": "SELL",
+      "price": 44.42098,
+      "shares": 2000,
+      "amount": 88726.47,
+      "commission": 115.49,
+      "reason": "止损 跌幅-5.4%"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "601138",
+      "action": "SELL",
+      "price": 20.3093,
+      "shares": 6000,
+      "amount": 121697.39,
+      "commission": 158.41,
+      "reason": "回归中轨 收益9.2%"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "300476",
+      "action": "SELL",
+      "price": 30.139599999999998,
+      "shares": 2700,
+      "amount": 81271.13,
+      "commission": 105.79,
+      "reason": "回归中轨 收益5.0%"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "600989",
+      "action": "SELL",
+      "price": 14.97998,
+      "shares": 4900,
+      "amount": 73306.48,
+      "commission": 95.42,
+      "reason": "回归中轨 收益9.2%"
+    },
+    {
+      "date": "2024-11-13",
+      "code": "601899",
+      "action": "BUY",
+      "price": 15.4308,
+      "shares": 12100,
+      "amount": 186768.69,
+      "commission": 56.01,
+      "reason": "触碰布林下轨15.59 收阳确认"
+    },
+    {
+      "date": "2024-12-09",
+      "code": "601899",
+      "action": "SELL",
+      "price": 15.84824,
+      "shares": 12100,
+      "amount": 191514.41,
+      "commission": 249.29,
+      "reason": "回归中轨 收益-0.8%"
+    }
+  ],
+  "daily_equity": [
+    {
+      "date": "2022-01-04",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-05",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-06",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-07",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-10",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-11",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-12",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-13",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-14",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-17",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-18",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-19",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-20",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-21",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-24",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-25",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-26",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-27",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-28",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-07",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-08",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-09",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-10",
+      "total_value": 998698.0,
+      "cumulative_return": -0.001302
+    },
+    {
+      "date": "2022-02-11",
+      "total_value": 980344.0,
+      "cumulative_return": -0.019656
+    },
+    {
+      "date": "2022-02-14",
+      "total_value": 981303.39,
+      "cumulative_return": -0.018697
+    },
+    {
+      "date": "2022-02-15",
+      "total_value": 995038.39,
+      "cumulative_return": -0.004962
+    },
+    {
+      "date": "2022-02-16",
+      "total_value": 993296.56,
+      "cumulative_return": -0.006703
+    },
+    {
+      "date": "2022-02-17",
+      "total_value": 998351.56,
+      "cumulative_return": -0.001648
+    },
+    {
+      "date": "2022-02-18",
+      "total_value": 985757.56,
+      "cumulative_return": -0.014242
+    },
+    {
+      "date": "2022-02-21",
+      "total_value": 980855.56,
+      "cumulative_return": -0.019144
+    },
+    {
+      "date": "2022-02-22",
+      "total_value": 970400.56,
+      "cumulative_return": -0.029599
+    },
+    {
+      "date": "2022-02-23",
+      "total_value": 994352.08,
+      "cumulative_return": -0.005648
+    },
+    {
+      "date": "2022-02-24",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-02-25",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-02-28",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-03-01",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-03-02",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-03-03",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-03-04",
+      "total_value": 992028.58,
+      "cumulative_return": -0.007971
+    },
+    {
+      "date": "2022-03-07",
+      "total_value": 979200.41,
+      "cumulative_return": -0.0208
+    },
+    {
+      "date": "2022-03-08",
+      "total_value": 966204.41,
+      "cumulative_return": -0.033796
+    },
+    {
+      "date": "2022-03-09",
+      "total_value": 958034.62,
+      "cumulative_return": -0.041965
+    },
+    {
+      "date": "2022-03-10",
+      "total_value": 961885.42,
+      "cumulative_return": -0.038115
+    },
+    {
+      "date": "2022-03-11",
+      "total_value": 954075.42,
+      "cumulative_return": -0.045925
+    },
+    {
+      "date": "2022-03-14",
+      "total_value": 935383.01,
+      "cumulative_return": -0.064617
+    },
+    {
+      "date": "2022-03-15",
+      "total_value": 899900.48,
+      "cumulative_return": -0.1001
+    },
+    {
+      "date": "2022-03-16",
+      "total_value": 908325.91,
+      "cumulative_return": -0.091674
+    },
+    {
+      "date": "2022-03-17",
+      "total_value": 912745.59,
+      "cumulative_return": -0.087254
+    },
+    {
+      "date": "2022-03-18",
+      "total_value": 946367.59,
+      "cumulative_return": -0.053632
+    },
+    {
+      "date": "2022-03-21",
+      "total_value": 945476.02,
+      "cumulative_return": -0.054524
+    },
+    {
+      "date": "2022-03-22",
+      "total_value": 944779.02,
+      "cumulative_return": -0.055221
+    },
+    {
+      "date": "2022-03-23",
+      "total_value": 951052.02,
+      "cumulative_return": -0.048948
+    },
+    {
+      "date": "2022-03-24",
+      "total_value": 943385.02,
+      "cumulative_return": -0.056615
+    },
+    {
+      "date": "2022-03-25",
+      "total_value": 937809.02,
+      "cumulative_return": -0.062191
+    },
+    {
+      "date": "2022-03-28",
+      "total_value": 938506.02,
+      "cumulative_return": -0.061494
+    },
+    {
+      "date": "2022-03-29",
+      "total_value": 937901.63,
+      "cumulative_return": -0.062098
+    },
+    {
+      "date": "2022-03-30",
+      "total_value": 946300.63,
+      "cumulative_return": -0.053699
+    },
+    {
+      "date": "2022-03-31",
+      "total_value": 932430.63,
+      "cumulative_return": -0.067569
+    },
+    {
+      "date": "2022-04-01",
+      "total_value": 931870.63,
+      "cumulative_return": -0.068129
+    },
+    {
+      "date": "2022-04-06",
+      "total_value": 923358.63,
+      "cumulative_return": -0.076641
+    },
+    {
+      "date": "2022-04-07",
+      "total_value": 914709.63,
+      "cumulative_return": -0.08529
+    },
+    {
+      "date": "2022-04-08",
+      "total_value": 915271.1,
+      "cumulative_return": -0.084729
+    },
+    {
+      "date": "2022-04-11",
+      "total_value": 915271.1,
+      "cumulative_return": -0.084729
+    },
+    {
+      "date": "2022-04-12",
+      "total_value": 915271.1,
+      "cumulative_return": -0.084729
+    },
+    {
+      "date": "2022-04-13",
+      "total_value": 880651.32,
+      "cumulative_return": -0.119349
+    },
+    {
+      "date": "2022-04-14",
+      "total_value": 893637.04,
+      "cumulative_return": -0.106363
+    },
+    {
+      "date": "2022-04-15",
+      "total_value": 893407.04,
+      "cumulative_return": -0.106593
+    },
+    {
+      "date": "2022-04-18",
+      "total_value": 907355.04,
+      "cumulative_return": -0.092645
+    },
+    {
+      "date": "2022-04-19",
+      "total_value": 909039.04,
+      "cumulative_return": -0.090961
+    },
+    {
+      "date": "2022-04-20",
+      "total_value": 904741.04,
+      "cumulative_return": -0.095259
+    },
+    {
+      "date": "2022-04-21",
+      "total_value": 885392.04,
+      "cumulative_return": -0.114608
+    },
+    {
+      "date": "2022-04-22",
+      "total_value": 852170.78,
+      "cumulative_return": -0.147829
+    },
+    {
+      "date": "2022-04-25",
+      "total_value": 821653.73,
+      "cumulative_return": -0.178346
+    },
+    {
+      "date": "2022-04-26",
+      "total_value": 822133.45,
+      "cumulative_return": -0.177867
+    },
+    {
+      "date": "2022-04-27",
+      "total_value": 842433.81,
+      "cumulative_return": -0.157566
+    },
+    {
+      "date": "2022-04-28",
+      "total_value": 855799.83,
+      "cumulative_return": -0.1442
+    },
+    {
+      "date": "2022-04-29",
+      "total_value": 883707.83,
+      "cumulative_return": -0.116292
+    },
+    {
+      "date": "2022-05-05",
+      "total_value": 885807.83,
+      "cumulative_return": -0.114192
+    },
+    {
+      "date": "2022-05-06",
+      "total_value": 858840.83,
+      "cumulative_return": -0.141159
+    },
+    {
+      "date": "2022-05-09",
+      "total_value": 861652.83,
+      "cumulative_return": -0.138347
+    },
+    {
+      "date": "2022-05-10",
+      "total_value": 872869.83,
+      "cumulative_return": -0.12713
+    },
+    {
+      "date": "2022-05-11",
+      "total_value": 890475.83,
+      "cumulative_return": -0.109524
+    },
+    {
+      "date": "2022-05-12",
+      "total_value": 897217.45,
+      "cumulative_return": -0.102783
+    },
+    {
+      "date": "2022-05-13",
+      "total_value": 894721.89,
+      "cumulative_return": -0.105278
+    },
+    {
+      "date": "2022-05-16",
+      "total_value": 891161.89,
+      "cumulative_return": -0.108838
+    },
+    {
+      "date": "2022-05-17",
+      "total_value": 905087.26,
+      "cumulative_return": -0.094913
+    },
+    {
+      "date": "2022-05-18",
+      "total_value": 905426.26,
+      "cumulative_return": -0.094574
+    },
+    {
+      "date": "2022-05-19",
+      "total_value": 910003.26,
+      "cumulative_return": -0.089997
+    },
+    {
+      "date": "2022-05-20",
+      "total_value": 916272.26,
+      "cumulative_return": -0.083728
+    },
+    {
+      "date": "2022-05-23",
+      "total_value": 913267.46,
+      "cumulative_return": -0.086733
+    },
+    {
+      "date": "2022-05-24",
+      "total_value": 910561.46,
+      "cumulative_return": -0.089439
+    },
+    {
+      "date": "2022-05-25",
+      "total_value": 914401.46,
+      "cumulative_return": -0.085599
+    },
+    {
+      "date": "2022-05-26",
+      "total_value": 919645.46,
+      "cumulative_return": -0.080355
+    },
+    {
+      "date": "2022-05-27",
+      "total_value": 918745.46,
+      "cumulative_return": -0.081255
+    },
+    {
+      "date": "2022-05-30",
+      "total_value": 931105.46,
+      "cumulative_return": -0.068895
+    },
+    {
+      "date": "2022-05-31",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-01",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-02",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-06",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-07",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-08",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-09",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-10",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-13",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-14",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-15",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-16",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-17",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-20",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-21",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-22",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-23",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-24",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-27",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-28",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-29",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-06-30",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-01",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-04",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-05",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-06",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-07",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-08",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-11",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-12",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-13",
+      "total_value": 928484.13,
+      "cumulative_return": -0.071516
+    },
+    {
+      "date": "2022-07-14",
+      "total_value": 945385.75,
+      "cumulative_return": -0.054614
+    },
+    {
+      "date": "2022-07-15",
+      "total_value": 951466.75,
+      "cumulative_return": -0.048533
+    },
+    {
+      "date": "2022-07-18",
+      "total_value": 958284.62,
+      "cumulative_return": -0.041715
+    },
+    {
+      "date": "2022-07-19",
+      "total_value": 971476.62,
+      "cumulative_return": -0.028523
+    },
+    {
+      "date": "2022-07-20",
+      "total_value": 972482.39,
+      "cumulative_return": -0.027518
+    },
+    {
+      "date": "2022-07-21",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-07-22",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-07-25",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-07-26",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-07-27",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-07-28",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-07-29",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-08-01",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-08-02",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-08-03",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-08-04",
+      "total_value": 973358.96,
+      "cumulative_return": -0.026641
+    },
+    {
+      "date": "2022-08-05",
+      "total_value": 973068.22,
+      "cumulative_return": -0.026932
+    },
+    {
+      "date": "2022-08-08",
+      "total_value": 979305.22,
+      "cumulative_return": -0.020695
+    },
+    {
+      "date": "2022-08-09",
+      "total_value": 977037.22,
+      "cumulative_return": -0.022963
+    },
+    {
+      "date": "2022-08-10",
+      "total_value": 974202.22,
+      "cumulative_return": -0.025798
+    },
+    {
+      "date": "2022-08-11",
+      "total_value": 972879.22,
+      "cumulative_return": -0.027121
+    },
+    {
+      "date": "2022-08-12",
+      "total_value": 967776.22,
+      "cumulative_return": -0.032224
+    },
+    {
+      "date": "2022-08-15",
+      "total_value": 974769.22,
+      "cumulative_return": -0.025231
+    },
+    {
+      "date": "2022-08-16",
+      "total_value": 975147.22,
+      "cumulative_return": -0.024853
+    },
+    {
+      "date": "2022-08-17",
+      "total_value": 973824.22,
+      "cumulative_return": -0.026176
+    },
+    {
+      "date": "2022-08-18",
+      "total_value": 969855.22,
+      "cumulative_return": -0.030145
+    },
+    {
+      "date": "2022-08-19",
+      "total_value": 965319.22,
+      "cumulative_return": -0.034681
+    },
+    {
+      "date": "2022-08-22",
+      "total_value": 962295.22,
+      "cumulative_return": -0.037705
+    },
+    {
+      "date": "2022-08-23",
+      "total_value": 963618.22,
+      "cumulative_return": -0.036382
+    },
+    {
+      "date": "2022-08-24",
+      "total_value": 955869.22,
+      "cumulative_return": -0.044131
+    },
+    {
+      "date": "2022-08-25",
+      "total_value": 958704.22,
+      "cumulative_return": -0.041296
+    },
+    {
+      "date": "2022-08-26",
+      "total_value": 958704.22,
+      "cumulative_return": -0.041296
+    },
+    {
+      "date": "2022-08-29",
+      "total_value": 954189.0,
+      "cumulative_return": -0.045811
+    },
+    {
+      "date": "2022-08-30",
+      "total_value": 954157.06,
+      "cumulative_return": -0.045843
+    },
+    {
+      "date": "2022-08-31",
+      "total_value": 942051.06,
+      "cumulative_return": -0.057949
+    },
+    {
+      "date": "2022-09-01",
+      "total_value": 938816.32,
+      "cumulative_return": -0.061184
+    },
+    {
+      "date": "2022-09-02",
+      "total_value": 933058.37,
+      "cumulative_return": -0.066942
+    },
+    {
+      "date": "2022-09-05",
+      "total_value": 919256.37,
+      "cumulative_return": -0.080744
+    },
+    {
+      "date": "2022-09-06",
+      "total_value": 936766.06,
+      "cumulative_return": -0.063234
+    },
+    {
+      "date": "2022-09-07",
+      "total_value": 938613.75,
+      "cumulative_return": -0.061386
+    },
+    {
+      "date": "2022-09-08",
+      "total_value": 938257.75,
+      "cumulative_return": -0.061742
+    },
+    {
+      "date": "2022-09-09",
+      "total_value": 940749.75,
+      "cumulative_return": -0.05925
+    },
+    {
+      "date": "2022-09-13",
+      "total_value": 941973.33,
+      "cumulative_return": -0.058027
+    },
+    {
+      "date": "2022-09-14",
+      "total_value": 941973.33,
+      "cumulative_return": -0.058027
+    },
+    {
+      "date": "2022-09-15",
+      "total_value": 939504.76,
+      "cumulative_return": -0.060495
+    },
+    {
+      "date": "2022-09-16",
+      "total_value": 927838.76,
+      "cumulative_return": -0.072161
+    },
+    {
+      "date": "2022-09-19",
+      "total_value": 927306.76,
+      "cumulative_return": -0.072693
+    },
+    {
+      "date": "2022-09-20",
+      "total_value": 929546.28,
+      "cumulative_return": -0.070454
+    },
+    {
+      "date": "2022-09-21",
+      "total_value": 917742.75,
+      "cumulative_return": -0.082257
+    },
+    {
+      "date": "2022-09-22",
+      "total_value": 905574.16,
+      "cumulative_return": -0.094426
+    },
+    {
+      "date": "2022-09-23",
+      "total_value": 895974.19,
+      "cumulative_return": -0.104026
+    },
+    {
+      "date": "2022-09-26",
+      "total_value": 884645.76,
+      "cumulative_return": -0.115354
+    },
+    {
+      "date": "2022-09-27",
+      "total_value": 890843.73,
+      "cumulative_return": -0.109156
+    },
+    {
+      "date": "2022-09-28",
+      "total_value": 867421.5,
+      "cumulative_return": -0.132578
+    },
+    {
+      "date": "2022-09-29",
+      "total_value": 874186.94,
+      "cumulative_return": -0.125813
+    },
+    {
+      "date": "2022-09-30",
+      "total_value": 871201.18,
+      "cumulative_return": -0.128799
+    },
+    {
+      "date": "2022-10-10",
+      "total_value": 866458.05,
+      "cumulative_return": -0.133542
+    },
+    {
+      "date": "2022-10-11",
+      "total_value": 870526.29,
+      "cumulative_return": -0.129474
+    },
+    {
+      "date": "2022-10-12",
+      "total_value": 884603.65,
+      "cumulative_return": -0.115396
+    },
+    {
+      "date": "2022-10-13",
+      "total_value": 879398.65,
+      "cumulative_return": -0.120601
+    },
+    {
+      "date": "2022-10-14",
+      "total_value": 892946.65,
+      "cumulative_return": -0.107053
+    },
+    {
+      "date": "2022-10-17",
+      "total_value": 883661.49,
+      "cumulative_return": -0.116339
+    },
+    {
+      "date": "2022-10-18",
+      "total_value": 885047.49,
+      "cumulative_return": -0.114953
+    },
+    {
+      "date": "2022-10-19",
+      "total_value": 883859.49,
+      "cumulative_return": -0.116141
+    },
+    {
+      "date": "2022-10-20",
+      "total_value": 870494.49,
+      "cumulative_return": -0.129506
+    },
+    {
+      "date": "2022-10-21",
+      "total_value": 877622.49,
+      "cumulative_return": -0.122378
+    },
+    {
+      "date": "2022-10-24",
+      "total_value": 872573.49,
+      "cumulative_return": -0.127427
+    },
+    {
+      "date": "2022-10-25",
+      "total_value": 878216.49,
+      "cumulative_return": -0.121784
+    },
+    {
+      "date": "2022-10-26",
+      "total_value": 879711.76,
+      "cumulative_return": -0.120288
+    },
+    {
+      "date": "2022-10-27",
+      "total_value": 883925.52,
+      "cumulative_return": -0.116074
+    },
+    {
+      "date": "2022-10-28",
+      "total_value": 861284.52,
+      "cumulative_return": -0.138715
+    },
+    {
+      "date": "2022-10-31",
+      "total_value": 865518.52,
+      "cumulative_return": -0.134481
+    },
+    {
+      "date": "2022-11-01",
+      "total_value": 888421.19,
+      "cumulative_return": -0.111579
+    },
+    {
+      "date": "2022-11-02",
+      "total_value": 909091.19,
+      "cumulative_return": -0.090909
+    },
+    {
+      "date": "2022-11-03",
+      "total_value": 912127.71,
+      "cumulative_return": -0.087872
+    },
+    {
+      "date": "2022-11-04",
+      "total_value": 927210.82,
+      "cumulative_return": -0.072789
+    },
+    {
+      "date": "2022-11-07",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-08",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-09",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-10",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-11",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-14",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-15",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-16",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-17",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-18",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-21",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-22",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-23",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-24",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-25",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-28",
+      "total_value": 925167.96,
+      "cumulative_return": -0.074832
+    },
+    {
+      "date": "2022-11-29",
+      "total_value": 937511.68,
+      "cumulative_return": -0.062488
+    },
+    {
+      "date": "2022-11-30",
+      "total_value": 937061.12,
+      "cumulative_return": -0.062939
+    },
+    {
+      "date": "2022-12-01",
+      "total_value": 942261.12,
+      "cumulative_return": -0.057739
+    },
+    {
+      "date": "2022-12-02",
+      "total_value": 936281.12,
+      "cumulative_return": -0.063719
+    },
+    {
+      "date": "2022-12-05",
+      "total_value": 938101.12,
+      "cumulative_return": -0.061899
+    },
+    {
+      "date": "2022-12-06",
+      "total_value": 937607.12,
+      "cumulative_return": -0.062393
+    },
+    {
+      "date": "2022-12-07",
+      "total_value": 939349.12,
+      "cumulative_return": -0.060651
+    },
+    {
+      "date": "2022-12-08",
+      "total_value": 942365.12,
+      "cumulative_return": -0.057635
+    },
+    {
+      "date": "2022-12-09",
+      "total_value": 938299.97,
+      "cumulative_return": -0.0617
+    },
+    {
+      "date": "2022-12-12",
+      "total_value": 935660.97,
+      "cumulative_return": -0.064339
+    },
+    {
+      "date": "2022-12-13",
+      "total_value": 929659.97,
+      "cumulative_return": -0.07034
+    },
+    {
+      "date": "2022-12-14",
+      "total_value": 927863.97,
+      "cumulative_return": -0.072136
+    },
+    {
+      "date": "2022-12-15",
+      "total_value": 934786.37,
+      "cumulative_return": -0.065214
+    },
+    {
+      "date": "2022-12-16",
+      "total_value": 926309.37,
+      "cumulative_return": -0.073691
+    },
+    {
+      "date": "2022-12-19",
+      "total_value": 911636.37,
+      "cumulative_return": -0.088364
+    },
+    {
+      "date": "2022-12-20",
+      "total_value": 904365.95,
+      "cumulative_return": -0.095634
+    },
+    {
+      "date": "2022-12-21",
+      "total_value": 896840.56,
+      "cumulative_return": -0.103159
+    },
+    {
+      "date": "2022-12-22",
+      "total_value": 898641.51,
+      "cumulative_return": -0.101358
+    },
+    {
+      "date": "2022-12-23",
+      "total_value": 899463.51,
+      "cumulative_return": -0.100536
+    },
+    {
+      "date": "2022-12-26",
+      "total_value": 910120.41,
+      "cumulative_return": -0.08988
+    },
+    {
+      "date": "2022-12-27",
+      "total_value": 913907.41,
+      "cumulative_return": -0.086093
+    },
+    {
+      "date": "2022-12-28",
+      "total_value": 904750.55,
+      "cumulative_return": -0.095249
+    },
+    {
+      "date": "2022-12-29",
+      "total_value": 902585.24,
+      "cumulative_return": -0.097415
+    },
+    {
+      "date": "2022-12-30",
+      "total_value": 906588.24,
+      "cumulative_return": -0.093412
+    },
+    {
+      "date": "2023-01-03",
+      "total_value": 922024.24,
+      "cumulative_return": -0.077976
+    },
+    {
+      "date": "2023-01-04",
+      "total_value": 914568.7,
+      "cumulative_return": -0.085431
+    },
+    {
+      "date": "2023-01-05",
+      "total_value": 923154.7,
+      "cumulative_return": -0.076845
+    },
+    {
+      "date": "2023-01-06",
+      "total_value": 922671.55,
+      "cumulative_return": -0.077328
+    },
+    {
+      "date": "2023-01-09",
+      "total_value": 923396.35,
+      "cumulative_return": -0.076604
+    },
+    {
+      "date": "2023-01-10",
+      "total_value": 929704.35,
+      "cumulative_return": -0.070296
+    },
+    {
+      "date": "2023-01-11",
+      "total_value": 922239.29,
+      "cumulative_return": -0.077761
+    },
+    {
+      "date": "2023-01-12",
+      "total_value": 927535.29,
+      "cumulative_return": -0.072465
+    },
+    {
+      "date": "2023-01-13",
+      "total_value": 926647.29,
+      "cumulative_return": -0.073353
+    },
+    {
+      "date": "2023-01-16",
+      "total_value": 925039.29,
+      "cumulative_return": -0.074961
+    },
+    {
+      "date": "2023-01-17",
+      "total_value": 930835.29,
+      "cumulative_return": -0.069165
+    },
+    {
+      "date": "2023-01-18",
+      "total_value": 929775.22,
+      "cumulative_return": -0.070225
+    },
+    {
+      "date": "2023-01-19",
+      "total_value": 915887.22,
+      "cumulative_return": -0.084113
+    },
+    {
+      "date": "2023-01-20",
+      "total_value": 903086.93,
+      "cumulative_return": -0.096913
+    },
+    {
+      "date": "2023-01-30",
+      "total_value": 898216.92,
+      "cumulative_return": -0.101783
+    },
+    {
+      "date": "2023-01-31",
+      "total_value": 900966.92,
+      "cumulative_return": -0.099033
+    },
+    {
+      "date": "2023-02-01",
+      "total_value": 908466.92,
+      "cumulative_return": -0.091533
+    },
+    {
+      "date": "2023-02-02",
+      "total_value": 908966.92,
+      "cumulative_return": -0.091033
+    },
+    {
+      "date": "2023-02-03",
+      "total_value": 905716.92,
+      "cumulative_return": -0.094283
+    },
+    {
+      "date": "2023-02-06",
+      "total_value": 901216.92,
+      "cumulative_return": -0.098783
+    },
+    {
+      "date": "2023-02-07",
+      "total_value": 905966.92,
+      "cumulative_return": -0.094033
+    },
+    {
+      "date": "2023-02-08",
+      "total_value": 908966.92,
+      "cumulative_return": -0.091033
+    },
+    {
+      "date": "2023-02-09",
+      "total_value": 909216.92,
+      "cumulative_return": -0.090783
+    },
+    {
+      "date": "2023-02-10",
+      "total_value": 914716.92,
+      "cumulative_return": -0.085283
+    },
+    {
+      "date": "2023-02-13",
+      "total_value": 923216.92,
+      "cumulative_return": -0.076783
+    },
+    {
+      "date": "2023-02-14",
+      "total_value": 921512.32,
+      "cumulative_return": -0.078488
+    },
+    {
+      "date": "2023-02-15",
+      "total_value": 921512.32,
+      "cumulative_return": -0.078488
+    },
+    {
+      "date": "2023-02-16",
+      "total_value": 921512.32,
+      "cumulative_return": -0.078488
+    },
+    {
+      "date": "2023-02-17",
+      "total_value": 921512.32,
+      "cumulative_return": -0.078488
+    },
+    {
+      "date": "2023-02-20",
+      "total_value": 921512.32,
+      "cumulative_return": -0.078488
+    },
+    {
+      "date": "2023-02-21",
+      "total_value": 919264.44,
+      "cumulative_return": -0.080736
+    },
+    {
+      "date": "2023-02-22",
+      "total_value": 912921.67,
+      "cumulative_return": -0.087078
+    },
+    {
+      "date": "2023-02-23",
+      "total_value": 917691.67,
+      "cumulative_return": -0.082308
+    },
+    {
+      "date": "2023-02-24",
+      "total_value": 908155.67,
+      "cumulative_return": -0.091844
+    },
+    {
+      "date": "2023-02-27",
+      "total_value": 904091.67,
+      "cumulative_return": -0.095908
+    },
+    {
+      "date": "2023-02-28",
+      "total_value": 907603.9,
+      "cumulative_return": -0.092396
+    },
+    {
+      "date": "2023-03-01",
+      "total_value": 915199.9,
+      "cumulative_return": -0.0848
+    },
+    {
+      "date": "2023-03-02",
+      "total_value": 901689.9,
+      "cumulative_return": -0.09831
+    },
+    {
+      "date": "2023-03-03",
+      "total_value": 904081.15,
+      "cumulative_return": -0.095919
+    },
+    {
+      "date": "2023-03-06",
+      "total_value": 907941.57,
+      "cumulative_return": -0.092058
+    },
+    {
+      "date": "2023-03-07",
+      "total_value": 894334.57,
+      "cumulative_return": -0.105665
+    },
+    {
+      "date": "2023-03-08",
+      "total_value": 891145.57,
+      "cumulative_return": -0.108854
+    },
+    {
+      "date": "2023-03-09",
+      "total_value": 882940.45,
+      "cumulative_return": -0.11706
+    },
+    {
+      "date": "2023-03-10",
+      "total_value": 876735.45,
+      "cumulative_return": -0.123265
+    },
+    {
+      "date": "2023-03-13",
+      "total_value": 883678.24,
+      "cumulative_return": -0.116322
+    },
+    {
+      "date": "2023-03-14",
+      "total_value": 874418.95,
+      "cumulative_return": -0.125581
+    },
+    {
+      "date": "2023-03-15",
+      "total_value": 876938.95,
+      "cumulative_return": -0.123061
+    },
+    {
+      "date": "2023-03-16",
+      "total_value": 857602.14,
+      "cumulative_return": -0.142398
+    },
+    {
+      "date": "2023-03-17",
+      "total_value": 862313.82,
+      "cumulative_return": -0.137686
+    },
+    {
+      "date": "2023-03-20",
+      "total_value": 859395.82,
+      "cumulative_return": -0.140604
+    },
+    {
+      "date": "2023-03-21",
+      "total_value": 868743.82,
+      "cumulative_return": -0.131256
+    },
+    {
+      "date": "2023-03-22",
+      "total_value": 862330.82,
+      "cumulative_return": -0.137669
+    },
+    {
+      "date": "2023-03-23",
+      "total_value": 858662.52,
+      "cumulative_return": -0.141337
+    },
+    {
+      "date": "2023-03-24",
+      "total_value": 863129.52,
+      "cumulative_return": -0.13687
+    },
+    {
+      "date": "2023-03-27",
+      "total_value": 860073.52,
+      "cumulative_return": -0.139926
+    },
+    {
+      "date": "2023-03-28",
+      "total_value": 857428.52,
+      "cumulative_return": -0.142571
+    },
+    {
+      "date": "2023-03-29",
+      "total_value": 856626.08,
+      "cumulative_return": -0.143374
+    },
+    {
+      "date": "2023-03-30",
+      "total_value": 856956.56,
+      "cumulative_return": -0.143043
+    },
+    {
+      "date": "2023-03-31",
+      "total_value": 851730.61,
+      "cumulative_return": -0.148269
+    },
+    {
+      "date": "2023-04-03",
+      "total_value": 860998.99,
+      "cumulative_return": -0.139001
+    },
+    {
+      "date": "2023-04-04",
+      "total_value": 853403.99,
+      "cumulative_return": -0.146596
+    },
+    {
+      "date": "2023-04-06",
+      "total_value": 848846.99,
+      "cumulative_return": -0.151153
+    },
+    {
+      "date": "2023-04-07",
+      "total_value": 849125.99,
+      "cumulative_return": -0.150874
+    },
+    {
+      "date": "2023-04-10",
+      "total_value": 852349.99,
+      "cumulative_return": -0.14765
+    },
+    {
+      "date": "2023-04-11",
+      "total_value": 855759.99,
+      "cumulative_return": -0.14424
+    },
+    {
+      "date": "2023-04-12",
+      "total_value": 853279.99,
+      "cumulative_return": -0.14672
+    },
+    {
+      "date": "2023-04-13",
+      "total_value": 848443.99,
+      "cumulative_return": -0.151556
+    },
+    {
+      "date": "2023-04-14",
+      "total_value": 857464.99,
+      "cumulative_return": -0.142535
+    },
+    {
+      "date": "2023-04-17",
+      "total_value": 857991.99,
+      "cumulative_return": -0.142008
+    },
+    {
+      "date": "2023-04-18",
+      "total_value": 859448.99,
+      "cumulative_return": -0.140551
+    },
+    {
+      "date": "2023-04-19",
+      "total_value": 860967.99,
+      "cumulative_return": -0.139032
+    },
+    {
+      "date": "2023-04-20",
+      "total_value": 850923.99,
+      "cumulative_return": -0.149076
+    },
+    {
+      "date": "2023-04-21",
+      "total_value": 845405.99,
+      "cumulative_return": -0.154594
+    },
+    {
+      "date": "2023-04-24",
+      "total_value": 843152.24,
+      "cumulative_return": -0.156848
+    },
+    {
+      "date": "2023-04-25",
+      "total_value": 824048.01,
+      "cumulative_return": -0.175952
+    },
+    {
+      "date": "2023-04-26",
+      "total_value": 828323.27,
+      "cumulative_return": -0.171677
+    },
+    {
+      "date": "2023-04-27",
+      "total_value": 831553.65,
+      "cumulative_return": -0.168446
+    },
+    {
+      "date": "2023-04-28",
+      "total_value": 835054.73,
+      "cumulative_return": -0.164945
+    },
+    {
+      "date": "2023-05-04",
+      "total_value": 830423.73,
+      "cumulative_return": -0.169576
+    },
+    {
+      "date": "2023-05-05",
+      "total_value": 825410.45,
+      "cumulative_return": -0.17459
+    },
+    {
+      "date": "2023-05-08",
+      "total_value": 828802.45,
+      "cumulative_return": -0.171198
+    },
+    {
+      "date": "2023-05-09",
+      "total_value": 821640.45,
+      "cumulative_return": -0.17836
+    },
+    {
+      "date": "2023-05-10",
+      "total_value": 822178.45,
+      "cumulative_return": -0.177822
+    },
+    {
+      "date": "2023-05-11",
+      "total_value": 825056.45,
+      "cumulative_return": -0.174944
+    },
+    {
+      "date": "2023-05-12",
+      "total_value": 820004.45,
+      "cumulative_return": -0.179996
+    },
+    {
+      "date": "2023-05-15",
+      "total_value": 831806.45,
+      "cumulative_return": -0.168194
+    },
+    {
+      "date": "2023-05-16",
+      "total_value": 833508.45,
+      "cumulative_return": -0.166492
+    },
+    {
+      "date": "2023-05-17",
+      "total_value": 831780.45,
+      "cumulative_return": -0.16822
+    },
+    {
+      "date": "2023-05-18",
+      "total_value": 828844.44,
+      "cumulative_return": -0.171156
+    },
+    {
+      "date": "2023-05-19",
+      "total_value": 829944.44,
+      "cumulative_return": -0.170056
+    },
+    {
+      "date": "2023-05-22",
+      "total_value": 833200.44,
+      "cumulative_return": -0.1668
+    },
+    {
+      "date": "2023-05-23",
+      "total_value": 834508.44,
+      "cumulative_return": -0.165492
+    },
+    {
+      "date": "2023-05-24",
+      "total_value": 832960.54,
+      "cumulative_return": -0.167039
+    },
+    {
+      "date": "2023-05-25",
+      "total_value": 832584.54,
+      "cumulative_return": -0.167415
+    },
+    {
+      "date": "2023-05-26",
+      "total_value": 832960.54,
+      "cumulative_return": -0.167039
+    },
+    {
+      "date": "2023-05-29",
+      "total_value": 832020.54,
+      "cumulative_return": -0.167979
+    },
+    {
+      "date": "2023-05-30",
+      "total_value": 831644.54,
+      "cumulative_return": -0.168355
+    },
+    {
+      "date": "2023-05-31",
+      "total_value": 831080.54,
+      "cumulative_return": -0.168919
+    },
+    {
+      "date": "2023-06-01",
+      "total_value": 830456.58,
+      "cumulative_return": -0.169543
+    },
+    {
+      "date": "2023-06-02",
+      "total_value": 830456.58,
+      "cumulative_return": -0.169543
+    },
+    {
+      "date": "2023-06-05",
+      "total_value": 830456.58,
+      "cumulative_return": -0.169543
+    },
+    {
+      "date": "2023-06-06",
+      "total_value": 830456.58,
+      "cumulative_return": -0.169543
+    },
+    {
+      "date": "2023-06-07",
+      "total_value": 830456.58,
+      "cumulative_return": -0.169543
+    },
+    {
+      "date": "2023-06-08",
+      "total_value": 828111.2,
+      "cumulative_return": -0.171889
+    },
+    {
+      "date": "2023-06-09",
+      "total_value": 831659.2,
+      "cumulative_return": -0.168341
+    },
+    {
+      "date": "2023-06-12",
+      "total_value": 837868.2,
+      "cumulative_return": -0.162132
+    },
+    {
+      "date": "2023-06-13",
+      "total_value": 841416.2,
+      "cumulative_return": -0.158584
+    },
+    {
+      "date": "2023-06-14",
+      "total_value": 841416.2,
+      "cumulative_return": -0.158584
+    },
+    {
+      "date": "2023-06-15",
+      "total_value": 838755.2,
+      "cumulative_return": -0.161245
+    },
+    {
+      "date": "2023-06-16",
+      "total_value": 838755.2,
+      "cumulative_return": -0.161245
+    },
+    {
+      "date": "2023-06-19",
+      "total_value": 836094.2,
+      "cumulative_return": -0.163906
+    },
+    {
+      "date": "2023-06-20",
+      "total_value": 832546.2,
+      "cumulative_return": -0.167454
+    },
+    {
+      "date": "2023-06-21",
+      "total_value": 827224.2,
+      "cumulative_return": -0.172776
+    },
+    {
+      "date": "2023-06-26",
+      "total_value": 826337.2,
+      "cumulative_return": -0.173663
+    },
+    {
+      "date": "2023-06-27",
+      "total_value": 840161.65,
+      "cumulative_return": -0.159838
+    },
+    {
+      "date": "2023-06-28",
+      "total_value": 839032.65,
+      "cumulative_return": -0.160967
+    },
+    {
+      "date": "2023-06-29",
+      "total_value": 845883.65,
+      "cumulative_return": -0.154116
+    },
+    {
+      "date": "2023-06-30",
+      "total_value": 847482.08,
+      "cumulative_return": -0.152518
+    },
+    {
+      "date": "2023-07-03",
+      "total_value": 845298.12,
+      "cumulative_return": -0.154702
+    },
+    {
+      "date": "2023-07-04",
+      "total_value": 850840.51,
+      "cumulative_return": -0.149159
+    },
+    {
+      "date": "2023-07-05",
+      "total_value": 849011.51,
+      "cumulative_return": -0.150988
+    },
+    {
+      "date": "2023-07-06",
+      "total_value": 853273.51,
+      "cumulative_return": -0.146726
+    },
+    {
+      "date": "2023-07-07",
+      "total_value": 842615.51,
+      "cumulative_return": -0.157384
+    },
+    {
+      "date": "2023-07-10",
+      "total_value": 838935.51,
+      "cumulative_return": -0.161064
+    },
+    {
+      "date": "2023-07-11",
+      "total_value": 855013.51,
+      "cumulative_return": -0.144986
+    },
+    {
+      "date": "2023-07-12",
+      "total_value": 850384.77,
+      "cumulative_return": -0.149615
+    },
+    {
+      "date": "2023-07-13",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-14",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-17",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-18",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-19",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-20",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-21",
+      "total_value": 850280.28,
+      "cumulative_return": -0.14972
+    },
+    {
+      "date": "2023-07-24",
+      "total_value": 848019.16,
+      "cumulative_return": -0.151981
+    },
+    {
+      "date": "2023-07-25",
+      "total_value": 851863.2,
+      "cumulative_return": -0.148137
+    },
+    {
+      "date": "2023-07-26",
+      "total_value": 852865.2,
+      "cumulative_return": -0.147135
+    },
+    {
+      "date": "2023-07-27",
+      "total_value": 847474.2,
+      "cumulative_return": -0.152526
+    },
+    {
+      "date": "2023-07-28",
+      "total_value": 850195.2,
+      "cumulative_return": -0.149805
+    },
+    {
+      "date": "2023-07-31",
+      "total_value": 855523.2,
+      "cumulative_return": -0.144477
+    },
+    {
+      "date": "2023-08-01",
+      "total_value": 846622.2,
+      "cumulative_return": -0.153378
+    },
+    {
+      "date": "2023-08-02",
+      "total_value": 842250.2,
+      "cumulative_return": -0.15775
+    },
+    {
+      "date": "2023-08-03",
+      "total_value": 847478.2,
+      "cumulative_return": -0.152522
+    },
+    {
+      "date": "2023-08-04",
+      "total_value": 855515.2,
+      "cumulative_return": -0.144485
+    },
+    {
+      "date": "2023-08-07",
+      "total_value": 850149.2,
+      "cumulative_return": -0.149851
+    },
+    {
+      "date": "2023-08-08",
+      "total_value": 850898.59,
+      "cumulative_return": -0.149101
+    },
+    {
+      "date": "2023-08-09",
+      "total_value": 849091.91,
+      "cumulative_return": -0.150908
+    },
+    {
+      "date": "2023-08-10",
+      "total_value": 848599.91,
+      "cumulative_return": -0.1514
+    },
+    {
+      "date": "2023-08-11",
+      "total_value": 843746.91,
+      "cumulative_return": -0.156253
+    },
+    {
+      "date": "2023-08-14",
+      "total_value": 844809.91,
+      "cumulative_return": -0.15519
+    },
+    {
+      "date": "2023-08-15",
+      "total_value": 834424.36,
+      "cumulative_return": -0.165576
+    },
+    {
+      "date": "2023-08-16",
+      "total_value": 829046.72,
+      "cumulative_return": -0.170953
+    },
+    {
+      "date": "2023-08-17",
+      "total_value": 831816.78,
+      "cumulative_return": -0.168183
+    },
+    {
+      "date": "2023-08-18",
+      "total_value": 824220.71,
+      "cumulative_return": -0.175779
+    },
+    {
+      "date": "2023-08-21",
+      "total_value": 820747.11,
+      "cumulative_return": -0.179253
+    },
+    {
+      "date": "2023-08-22",
+      "total_value": 825455.36,
+      "cumulative_return": -0.174545
+    },
+    {
+      "date": "2023-08-23",
+      "total_value": 815877.36,
+      "cumulative_return": -0.184123
+    },
+    {
+      "date": "2023-08-24",
+      "total_value": 817546.82,
+      "cumulative_return": -0.182453
+    },
+    {
+      "date": "2023-08-25",
+      "total_value": 805703.37,
+      "cumulative_return": -0.194297
+    },
+    {
+      "date": "2023-08-28",
+      "total_value": 808863.37,
+      "cumulative_return": -0.191137
+    },
+    {
+      "date": "2023-08-29",
+      "total_value": 813364.37,
+      "cumulative_return": -0.186636
+    },
+    {
+      "date": "2023-08-30",
+      "total_value": 816790.37,
+      "cumulative_return": -0.18321
+    },
+    {
+      "date": "2023-08-31",
+      "total_value": 816820.42,
+      "cumulative_return": -0.18318
+    },
+    {
+      "date": "2023-09-01",
+      "total_value": 815413.42,
+      "cumulative_return": -0.184587
+    },
+    {
+      "date": "2023-09-04",
+      "total_value": 820915.42,
+      "cumulative_return": -0.179085
+    },
+    {
+      "date": "2023-09-05",
+      "total_value": 820627.42,
+      "cumulative_return": -0.179373
+    },
+    {
+      "date": "2023-09-06",
+      "total_value": 819497.42,
+      "cumulative_return": -0.180503
+    },
+    {
+      "date": "2023-09-07",
+      "total_value": 808235.42,
+      "cumulative_return": -0.191765
+    },
+    {
+      "date": "2023-09-08",
+      "total_value": 797435.42,
+      "cumulative_return": -0.202565
+    },
+    {
+      "date": "2023-09-11",
+      "total_value": 803201.41,
+      "cumulative_return": -0.196799
+    },
+    {
+      "date": "2023-09-12",
+      "total_value": 801239.41,
+      "cumulative_return": -0.198761
+    },
+    {
+      "date": "2023-09-13",
+      "total_value": 795110.41,
+      "cumulative_return": -0.20489
+    },
+    {
+      "date": "2023-09-14",
+      "total_value": 792684.41,
+      "cumulative_return": -0.207316
+    },
+    {
+      "date": "2023-09-15",
+      "total_value": 783816.05,
+      "cumulative_return": -0.216184
+    },
+    {
+      "date": "2023-09-18",
+      "total_value": 786890.93,
+      "cumulative_return": -0.213109
+    },
+    {
+      "date": "2023-09-19",
+      "total_value": 785412.93,
+      "cumulative_return": -0.214587
+    },
+    {
+      "date": "2023-09-20",
+      "total_value": 781892.93,
+      "cumulative_return": -0.218107
+    },
+    {
+      "date": "2023-09-21",
+      "total_value": 778270.05,
+      "cumulative_return": -0.22173
+    },
+    {
+      "date": "2023-09-22",
+      "total_value": 785472.05,
+      "cumulative_return": -0.214528
+    },
+    {
+      "date": "2023-09-25",
+      "total_value": 783395.05,
+      "cumulative_return": -0.216605
+    },
+    {
+      "date": "2023-09-26",
+      "total_value": 780466.05,
+      "cumulative_return": -0.219534
+    },
+    {
+      "date": "2023-09-27",
+      "total_value": 785159.22,
+      "cumulative_return": -0.214841
+    },
+    {
+      "date": "2023-09-28",
+      "total_value": 784934.36,
+      "cumulative_return": -0.215066
+    },
+    {
+      "date": "2023-10-09",
+      "total_value": 784417.36,
+      "cumulative_return": -0.215583
+    },
+    {
+      "date": "2023-10-10",
+      "total_value": 783010.74,
+      "cumulative_return": -0.216989
+    },
+    {
+      "date": "2023-10-11",
+      "total_value": 781026.74,
+      "cumulative_return": -0.218973
+    },
+    {
+      "date": "2023-10-12",
+      "total_value": 785702.74,
+      "cumulative_return": -0.214297
+    },
+    {
+      "date": "2023-10-13",
+      "total_value": 780773.27,
+      "cumulative_return": -0.219227
+    },
+    {
+      "date": "2023-10-16",
+      "total_value": 782729.27,
+      "cumulative_return": -0.217271
+    },
+    {
+      "date": "2023-10-17",
+      "total_value": 781425.27,
+      "cumulative_return": -0.218575
+    },
+    {
+      "date": "2023-10-18",
+      "total_value": 780121.27,
+      "cumulative_return": -0.219879
+    },
+    {
+      "date": "2023-10-19",
+      "total_value": 775691.79,
+      "cumulative_return": -0.224308
+    },
+    {
+      "date": "2023-10-20",
+      "total_value": 769464.72,
+      "cumulative_return": -0.230535
+    },
+    {
+      "date": "2023-10-23",
+      "total_value": 738691.54,
+      "cumulative_return": -0.261308
+    },
+    {
+      "date": "2023-10-24",
+      "total_value": 729891.53,
+      "cumulative_return": -0.270108
+    },
+    {
+      "date": "2023-10-25",
+      "total_value": 731302.37,
+      "cumulative_return": -0.268698
+    },
+    {
+      "date": "2023-10-26",
+      "total_value": 735142.38,
+      "cumulative_return": -0.264858
+    },
+    {
+      "date": "2023-10-27",
+      "total_value": 744024.38,
+      "cumulative_return": -0.255976
+    },
+    {
+      "date": "2023-10-30",
+      "total_value": 749570.61,
+      "cumulative_return": -0.250429
+    },
+    {
+      "date": "2023-10-31",
+      "total_value": 746216.61,
+      "cumulative_return": -0.253783
+    },
+    {
+      "date": "2023-11-01",
+      "total_value": 744065.91,
+      "cumulative_return": -0.255934
+    },
+    {
+      "date": "2023-11-02",
+      "total_value": 741665.91,
+      "cumulative_return": -0.258334
+    },
+    {
+      "date": "2023-11-03",
+      "total_value": 745832.91,
+      "cumulative_return": -0.254167
+    },
+    {
+      "date": "2023-11-06",
+      "total_value": 752066.91,
+      "cumulative_return": -0.247933
+    },
+    {
+      "date": "2023-11-07",
+      "total_value": 753617.46,
+      "cumulative_return": -0.246383
+    },
+    {
+      "date": "2023-11-08",
+      "total_value": 751636.46,
+      "cumulative_return": -0.248364
+    },
+    {
+      "date": "2023-11-09",
+      "total_value": 754414.46,
+      "cumulative_return": -0.245586
+    },
+    {
+      "date": "2023-11-10",
+      "total_value": 751029.36,
+      "cumulative_return": -0.248971
+    },
+    {
+      "date": "2023-11-13",
+      "total_value": 752521.36,
+      "cumulative_return": -0.247479
+    },
+    {
+      "date": "2023-11-14",
+      "total_value": 753667.5,
+      "cumulative_return": -0.246332
+    },
+    {
+      "date": "2023-11-15",
+      "total_value": 758175.14,
+      "cumulative_return": -0.241825
+    },
+    {
+      "date": "2023-11-16",
+      "total_value": 755777.28,
+      "cumulative_return": -0.244223
+    },
+    {
+      "date": "2023-11-17",
+      "total_value": 754874.28,
+      "cumulative_return": -0.245126
+    },
+    {
+      "date": "2023-11-20",
+      "total_value": 755949.28,
+      "cumulative_return": -0.244051
+    },
+    {
+      "date": "2023-11-21",
+      "total_value": 756637.28,
+      "cumulative_return": -0.243363
+    },
+    {
+      "date": "2023-11-22",
+      "total_value": 755175.28,
+      "cumulative_return": -0.244825
+    },
+    {
+      "date": "2023-11-23",
+      "total_value": 756551.28,
+      "cumulative_return": -0.243449
+    },
+    {
+      "date": "2023-11-24",
+      "total_value": 750054.74,
+      "cumulative_return": -0.249945
+    },
+    {
+      "date": "2023-11-27",
+      "total_value": 745021.74,
+      "cumulative_return": -0.254978
+    },
+    {
+      "date": "2023-11-28",
+      "total_value": 745998.74,
+      "cumulative_return": -0.254001
+    },
+    {
+      "date": "2023-11-29",
+      "total_value": 736643.56,
+      "cumulative_return": -0.263356
+    },
+    {
+      "date": "2023-11-30",
+      "total_value": 733740.56,
+      "cumulative_return": -0.266259
+    },
+    {
+      "date": "2023-12-01",
+      "total_value": 738061.51,
+      "cumulative_return": -0.261938
+    },
+    {
+      "date": "2023-12-04",
+      "total_value": 734900.51,
+      "cumulative_return": -0.265099
+    },
+    {
+      "date": "2023-12-05",
+      "total_value": 722208.98,
+      "cumulative_return": -0.277791
+    },
+    {
+      "date": "2023-12-06",
+      "total_value": 723198.15,
+      "cumulative_return": -0.276802
+    },
+    {
+      "date": "2023-12-07",
+      "total_value": 719276.24,
+      "cumulative_return": -0.280724
+    },
+    {
+      "date": "2023-12-08",
+      "total_value": 718459.24,
+      "cumulative_return": -0.281541
+    },
+    {
+      "date": "2023-12-11",
+      "total_value": 721629.24,
+      "cumulative_return": -0.278371
+    },
+    {
+      "date": "2023-12-12",
+      "total_value": 719267.24,
+      "cumulative_return": -0.280733
+    },
+    {
+      "date": "2023-12-13",
+      "total_value": 707790.24,
+      "cumulative_return": -0.29221
+    },
+    {
+      "date": "2023-12-14",
+      "total_value": 706561.66,
+      "cumulative_return": -0.293438
+    },
+    {
+      "date": "2023-12-15",
+      "total_value": 705881.41,
+      "cumulative_return": -0.294119
+    },
+    {
+      "date": "2023-12-18",
+      "total_value": 700794.41,
+      "cumulative_return": -0.299206
+    },
+    {
+      "date": "2023-12-19",
+      "total_value": 703710.41,
+      "cumulative_return": -0.29629
+    },
+    {
+      "date": "2023-12-20",
+      "total_value": 702810.09,
+      "cumulative_return": -0.29719
+    },
+    {
+      "date": "2023-12-21",
+      "total_value": 702765.22,
+      "cumulative_return": -0.297235
+    },
+    {
+      "date": "2023-12-22",
+      "total_value": 698270.88,
+      "cumulative_return": -0.301729
+    },
+    {
+      "date": "2023-12-25",
+      "total_value": 697590.88,
+      "cumulative_return": -0.302409
+    },
+    {
+      "date": "2023-12-26",
+      "total_value": 686394.69,
+      "cumulative_return": -0.313605
+    },
+    {
+      "date": "2023-12-27",
+      "total_value": 688168.43,
+      "cumulative_return": -0.311832
+    },
+    {
+      "date": "2023-12-28",
+      "total_value": 696152.29,
+      "cumulative_return": -0.303848
+    },
+    {
+      "date": "2023-12-29",
+      "total_value": 698328.24,
+      "cumulative_return": -0.301672
+    },
+    {
+      "date": "2024-01-02",
+      "total_value": 697026.24,
+      "cumulative_return": -0.302974
+    },
+    {
+      "date": "2024-01-03",
+      "total_value": 693933.24,
+      "cumulative_return": -0.306067
+    },
+    {
+      "date": "2024-01-04",
+      "total_value": 693547.24,
+      "cumulative_return": -0.306453
+    },
+    {
+      "date": "2024-01-05",
+      "total_value": 688616.25,
+      "cumulative_return": -0.311384
+    },
+    {
+      "date": "2024-01-08",
+      "total_value": 681264.64,
+      "cumulative_return": -0.318735
+    },
+    {
+      "date": "2024-01-09",
+      "total_value": 682590.64,
+      "cumulative_return": -0.317409
+    },
+    {
+      "date": "2024-01-10",
+      "total_value": 679479.64,
+      "cumulative_return": -0.32052
+    },
+    {
+      "date": "2024-01-11",
+      "total_value": 680448.64,
+      "cumulative_return": -0.319551
+    },
+    {
+      "date": "2024-01-12",
+      "total_value": 679020.64,
+      "cumulative_return": -0.320979
+    },
+    {
+      "date": "2024-01-15",
+      "total_value": 676410.92,
+      "cumulative_return": -0.323589
+    },
+    {
+      "date": "2024-01-16",
+      "total_value": 674115.92,
+      "cumulative_return": -0.325884
+    },
+    {
+      "date": "2024-01-17",
+      "total_value": 673406.87,
+      "cumulative_return": -0.326593
+    },
+    {
+      "date": "2024-01-18",
+      "total_value": 673406.87,
+      "cumulative_return": -0.326593
+    },
+    {
+      "date": "2024-01-19",
+      "total_value": 678777.22,
+      "cumulative_return": -0.321223
+    },
+    {
+      "date": "2024-01-22",
+      "total_value": 675825.22,
+      "cumulative_return": -0.324175
+    },
+    {
+      "date": "2024-01-23",
+      "total_value": 678273.22,
+      "cumulative_return": -0.321727
+    },
+    {
+      "date": "2024-01-24",
+      "total_value": 678839.87,
+      "cumulative_return": -0.32116
+    },
+    {
+      "date": "2024-01-25",
+      "total_value": 693577.78,
+      "cumulative_return": -0.306422
+    },
+    {
+      "date": "2024-01-26",
+      "total_value": 685016.78,
+      "cumulative_return": -0.314983
+    },
+    {
+      "date": "2024-01-29",
+      "total_value": 673377.78,
+      "cumulative_return": -0.326622
+    },
+    {
+      "date": "2024-01-30",
+      "total_value": 663206.34,
+      "cumulative_return": -0.336794
+    },
+    {
+      "date": "2024-01-31",
+      "total_value": 649354.57,
+      "cumulative_return": -0.350645
+    },
+    {
+      "date": "2024-02-01",
+      "total_value": 648170.31,
+      "cumulative_return": -0.35183
+    },
+    {
+      "date": "2024-02-02",
+      "total_value": 625645.56,
+      "cumulative_return": -0.374354
+    },
+    {
+      "date": "2024-02-05",
+      "total_value": 605992.26,
+      "cumulative_return": -0.394008
+    },
+    {
+      "date": "2024-02-06",
+      "total_value": 639168.28,
+      "cumulative_return": -0.360832
+    },
+    {
+      "date": "2024-02-07",
+      "total_value": 639910.51,
+      "cumulative_return": -0.360089
+    },
+    {
+      "date": "2024-02-08",
+      "total_value": 646709.05,
+      "cumulative_return": -0.353291
+    },
+    {
+      "date": "2024-02-19",
+      "total_value": 652245.05,
+      "cumulative_return": -0.347755
+    },
+    {
+      "date": "2024-02-20",
+      "total_value": 654040.07,
+      "cumulative_return": -0.34596
+    },
+    {
+      "date": "2024-02-21",
+      "total_value": 659415.07,
+      "cumulative_return": -0.340585
+    },
+    {
+      "date": "2024-02-22",
+      "total_value": 661675.07,
+      "cumulative_return": -0.338325
+    },
+    {
+      "date": "2024-02-23",
+      "total_value": 662295.07,
+      "cumulative_return": -0.337705
+    },
+    {
+      "date": "2024-02-26",
+      "total_value": 664676.07,
+      "cumulative_return": -0.335324
+    },
+    {
+      "date": "2024-02-27",
+      "total_value": 664937.97,
+      "cumulative_return": -0.335062
+    },
+    {
+      "date": "2024-02-28",
+      "total_value": 661588.97,
+      "cumulative_return": -0.338411
+    },
+    {
+      "date": "2024-02-29",
+      "total_value": 664087.97,
+      "cumulative_return": -0.335912
+    },
+    {
+      "date": "2024-03-01",
+      "total_value": 665005.97,
+      "cumulative_return": -0.334994
+    },
+    {
+      "date": "2024-03-04",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-05",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-06",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-07",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-08",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-11",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-12",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-13",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-14",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-15",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-18",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-19",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-20",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-21",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-22",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-25",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-26",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-27",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-28",
+      "total_value": 665644.43,
+      "cumulative_return": -0.334356
+    },
+    {
+      "date": "2024-03-29",
+      "total_value": 680497.15,
+      "cumulative_return": -0.319503
+    },
+    {
+      "date": "2024-04-01",
+      "total_value": 701877.15,
+      "cumulative_return": -0.298123
+    },
+    {
+      "date": "2024-04-02",
+      "total_value": 692565.15,
+      "cumulative_return": -0.307435
+    },
+    {
+      "date": "2024-04-03",
+      "total_value": 691039.15,
+      "cumulative_return": -0.308961
+    },
+    {
+      "date": "2024-04-08",
+      "total_value": 687987.15,
+      "cumulative_return": -0.312013
+    },
+    {
+      "date": "2024-04-09",
+      "total_value": 688859.15,
+      "cumulative_return": -0.311141
+    },
+    {
+      "date": "2024-04-10",
+      "total_value": 686788.15,
+      "cumulative_return": -0.313212
+    },
+    {
+      "date": "2024-04-11",
+      "total_value": 685698.15,
+      "cumulative_return": -0.314302
+    },
+    {
+      "date": "2024-04-12",
+      "total_value": 678387.75,
+      "cumulative_return": -0.321612
+    },
+    {
+      "date": "2024-04-15",
+      "total_value": 683993.09,
+      "cumulative_return": -0.316007
+    },
+    {
+      "date": "2024-04-16",
+      "total_value": 682913.09,
+      "cumulative_return": -0.317087
+    },
+    {
+      "date": "2024-04-17",
+      "total_value": 682841.09,
+      "cumulative_return": -0.317159
+    },
+    {
+      "date": "2024-04-18",
+      "total_value": 675976.63,
+      "cumulative_return": -0.324023
+    },
+    {
+      "date": "2024-04-19",
+      "total_value": 666250.63,
+      "cumulative_return": -0.333749
+    },
+    {
+      "date": "2024-04-22",
+      "total_value": 671657.63,
+      "cumulative_return": -0.328342
+    },
+    {
+      "date": "2024-04-23",
+      "total_value": 676882.61,
+      "cumulative_return": -0.323117
+    },
+    {
+      "date": "2024-04-24",
+      "total_value": 684281.61,
+      "cumulative_return": -0.315718
+    },
+    {
+      "date": "2024-04-25",
+      "total_value": 685338.61,
+      "cumulative_return": -0.314661
+    },
+    {
+      "date": "2024-04-26",
+      "total_value": 685338.61,
+      "cumulative_return": -0.314661
+    },
+    {
+      "date": "2024-04-29",
+      "total_value": 686395.61,
+      "cumulative_return": -0.313604
+    },
+    {
+      "date": "2024-04-30",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-06",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-07",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-08",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-09",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-10",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-13",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-14",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-15",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-16",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-17",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-20",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-21",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-22",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-23",
+      "total_value": 686915.87,
+      "cumulative_return": -0.313084
+    },
+    {
+      "date": "2024-05-24",
+      "total_value": 687238.99,
+      "cumulative_return": -0.312761
+    },
+    {
+      "date": "2024-05-27",
+      "total_value": 696778.99,
+      "cumulative_return": -0.303221
+    },
+    {
+      "date": "2024-05-28",
+      "total_value": 696778.99,
+      "cumulative_return": -0.303221
+    },
+    {
+      "date": "2024-05-29",
+      "total_value": 702608.99,
+      "cumulative_return": -0.297391
+    },
+    {
+      "date": "2024-05-30",
+      "total_value": 691478.99,
+      "cumulative_return": -0.308521
+    },
+    {
+      "date": "2024-05-31",
+      "total_value": 691478.99,
+      "cumulative_return": -0.308521
+    },
+    {
+      "date": "2024-06-03",
+      "total_value": 686973.99,
+      "cumulative_return": -0.313026
+    },
+    {
+      "date": "2024-06-04",
+      "total_value": 693068.99,
+      "cumulative_return": -0.306931
+    },
+    {
+      "date": "2024-06-05",
+      "total_value": 683263.99,
+      "cumulative_return": -0.316736
+    },
+    {
+      "date": "2024-06-06",
+      "total_value": 689623.99,
+      "cumulative_return": -0.310376
+    },
+    {
+      "date": "2024-06-07",
+      "total_value": 693333.99,
+      "cumulative_return": -0.306666
+    },
+    {
+      "date": "2024-06-11",
+      "total_value": 685913.99,
+      "cumulative_return": -0.314086
+    },
+    {
+      "date": "2024-06-12",
+      "total_value": 685744.5,
+      "cumulative_return": -0.314255
+    },
+    {
+      "date": "2024-06-13",
+      "total_value": 681634.5,
+      "cumulative_return": -0.318365
+    },
+    {
+      "date": "2024-06-14",
+      "total_value": 684892.5,
+      "cumulative_return": -0.315107
+    },
+    {
+      "date": "2024-06-17",
+      "total_value": 682912.5,
+      "cumulative_return": -0.317087
+    },
+    {
+      "date": "2024-06-18",
+      "total_value": 681803.5,
+      "cumulative_return": -0.318196
+    },
+    {
+      "date": "2024-06-19",
+      "total_value": 683698.5,
+      "cumulative_return": -0.316301
+    },
+    {
+      "date": "2024-06-20",
+      "total_value": 683940.08,
+      "cumulative_return": -0.31606
+    },
+    {
+      "date": "2024-06-21",
+      "total_value": 683940.08,
+      "cumulative_return": -0.31606
+    },
+    {
+      "date": "2024-06-24",
+      "total_value": 683940.08,
+      "cumulative_return": -0.31606
+    },
+    {
+      "date": "2024-06-25",
+      "total_value": 683940.08,
+      "cumulative_return": -0.31606
+    },
+    {
+      "date": "2024-06-26",
+      "total_value": 683940.08,
+      "cumulative_return": -0.31606
+    },
+    {
+      "date": "2024-06-27",
+      "total_value": 683308.78,
+      "cumulative_return": -0.316691
+    },
+    {
+      "date": "2024-06-28",
+      "total_value": 678853.78,
+      "cumulative_return": -0.321146
+    },
+    {
+      "date": "2024-07-01",
+      "total_value": 682549.78,
+      "cumulative_return": -0.31745
+    },
+    {
+      "date": "2024-07-02",
+      "total_value": 673210.78,
+      "cumulative_return": -0.326789
+    },
+    {
+      "date": "2024-07-03",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-04",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-05",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-08",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-09",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-10",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-11",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-12",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-15",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-16",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-17",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-18",
+      "total_value": 674352.41,
+      "cumulative_return": -0.325648
+    },
+    {
+      "date": "2024-07-19",
+      "total_value": 672807.87,
+      "cumulative_return": -0.327192
+    },
+    {
+      "date": "2024-07-22",
+      "total_value": 676377.37,
+      "cumulative_return": -0.323623
+    },
+    {
+      "date": "2024-07-23",
+      "total_value": 669415.37,
+      "cumulative_return": -0.330585
+    },
+    {
+      "date": "2024-07-24",
+      "total_value": 662309.37,
+      "cumulative_return": -0.337691
+    },
+    {
+      "date": "2024-07-25",
+      "total_value": 646582.11,
+      "cumulative_return": -0.353418
+    },
+    {
+      "date": "2024-07-26",
+      "total_value": 651814.45,
+      "cumulative_return": -0.348186
+    },
+    {
+      "date": "2024-07-29",
+      "total_value": 650946.51,
+      "cumulative_return": -0.349053
+    },
+    {
+      "date": "2024-07-30",
+      "total_value": 650771.51,
+      "cumulative_return": -0.349228
+    },
+    {
+      "date": "2024-07-31",
+      "total_value": 668968.51,
+      "cumulative_return": -0.331031
+    },
+    {
+      "date": "2024-08-01",
+      "total_value": 667294.51,
+      "cumulative_return": -0.332705
+    },
+    {
+      "date": "2024-08-02",
+      "total_value": 643015.51,
+      "cumulative_return": -0.356984
+    },
+    {
+      "date": "2024-08-05",
+      "total_value": 621239.51,
+      "cumulative_return": -0.37876
+    },
+    {
+      "date": "2024-08-06",
+      "total_value": 628397.87,
+      "cumulative_return": -0.371602
+    },
+    {
+      "date": "2024-08-07",
+      "total_value": 633873.87,
+      "cumulative_return": -0.366126
+    },
+    {
+      "date": "2024-08-08",
+      "total_value": 628148.0,
+      "cumulative_return": -0.371852
+    },
+    {
+      "date": "2024-08-09",
+      "total_value": 630934.29,
+      "cumulative_return": -0.369066
+    },
+    {
+      "date": "2024-08-12",
+      "total_value": 632280.29,
+      "cumulative_return": -0.36772
+    },
+    {
+      "date": "2024-08-13",
+      "total_value": 638188.29,
+      "cumulative_return": -0.361812
+    },
+    {
+      "date": "2024-08-14",
+      "total_value": 633426.29,
+      "cumulative_return": -0.366574
+    },
+    {
+      "date": "2024-08-15",
+      "total_value": 635372.29,
+      "cumulative_return": -0.364628
+    },
+    {
+      "date": "2024-08-16",
+      "total_value": 638805.33,
+      "cumulative_return": -0.361195
+    },
+    {
+      "date": "2024-08-19",
+      "total_value": 639128.05,
+      "cumulative_return": -0.360872
+    },
+    {
+      "date": "2024-08-20",
+      "total_value": 635796.05,
+      "cumulative_return": -0.364204
+    },
+    {
+      "date": "2024-08-21",
+      "total_value": 634658.05,
+      "cumulative_return": -0.365342
+    },
+    {
+      "date": "2024-08-22",
+      "total_value": 629515.37,
+      "cumulative_return": -0.370485
+    },
+    {
+      "date": "2024-08-23",
+      "total_value": 620576.37,
+      "cumulative_return": -0.379424
+    },
+    {
+      "date": "2024-08-26",
+      "total_value": 619461.83,
+      "cumulative_return": -0.380538
+    },
+    {
+      "date": "2024-08-27",
+      "total_value": 611193.1,
+      "cumulative_return": -0.388807
+    },
+    {
+      "date": "2024-08-28",
+      "total_value": 614313.1,
+      "cumulative_return": -0.385687
+    },
+    {
+      "date": "2024-08-29",
+      "total_value": 610788.98,
+      "cumulative_return": -0.389211
+    },
+    {
+      "date": "2024-08-30",
+      "total_value": 613883.98,
+      "cumulative_return": -0.386116
+    },
+    {
+      "date": "2024-09-02",
+      "total_value": 607004.98,
+      "cumulative_return": -0.392995
+    },
+    {
+      "date": "2024-09-03",
+      "total_value": 608947.98,
+      "cumulative_return": -0.391052
+    },
+    {
+      "date": "2024-09-04",
+      "total_value": 608545.98,
+      "cumulative_return": -0.391454
+    },
+    {
+      "date": "2024-09-05",
+      "total_value": 608940.03,
+      "cumulative_return": -0.39106
+    },
+    {
+      "date": "2024-09-06",
+      "total_value": 600147.28,
+      "cumulative_return": -0.399853
+    },
+    {
+      "date": "2024-09-09",
+      "total_value": 598491.28,
+      "cumulative_return": -0.401509
+    },
+    {
+      "date": "2024-09-10",
+      "total_value": 600904.05,
+      "cumulative_return": -0.399096
+    },
+    {
+      "date": "2024-09-11",
+      "total_value": 602410.19,
+      "cumulative_return": -0.39759
+    },
+    {
+      "date": "2024-09-12",
+      "total_value": 602110.19,
+      "cumulative_return": -0.39789
+    },
+    {
+      "date": "2024-09-13",
+      "total_value": 604976.46,
+      "cumulative_return": -0.395024
+    },
+    {
+      "date": "2024-09-18",
+      "total_value": 601522.46,
+      "cumulative_return": -0.398478
+    },
+    {
+      "date": "2024-09-19",
+      "total_value": 602026.46,
+      "cumulative_return": -0.397974
+    },
+    {
+      "date": "2024-09-20",
+      "total_value": 600718.46,
+      "cumulative_return": -0.399282
+    },
+    {
+      "date": "2024-09-23",
+      "total_value": 598291.46,
+      "cumulative_return": -0.401709
+    },
+    {
+      "date": "2024-09-24",
+      "total_value": 620414.93,
+      "cumulative_return": -0.379585
+    },
+    {
+      "date": "2024-09-25",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-09-26",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-09-27",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-09-30",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-08",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-09",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-10",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-11",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-14",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-15",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-16",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-17",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-18",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-21",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-22",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-23",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-24",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-25",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-28",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-29",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-30",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-10-31",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-01",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-04",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-05",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-06",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-07",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-08",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-11",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-12",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-13",
+      "total_value": 626953.93,
+      "cumulative_return": -0.373046
+    },
+    {
+      "date": "2024-11-14",
+      "total_value": 623016.24,
+      "cumulative_return": -0.376984
+    },
+    {
+      "date": "2024-11-15",
+      "total_value": 623137.24,
+      "cumulative_return": -0.376863
+    },
+    {
+      "date": "2024-11-18",
+      "total_value": 624226.24,
+      "cumulative_return": -0.375774
+    },
+    {
+      "date": "2024-11-19",
+      "total_value": 630276.24,
+      "cumulative_return": -0.369724
+    },
+    {
+      "date": "2024-11-20",
+      "total_value": 628098.24,
+      "cumulative_return": -0.371902
+    },
+    {
+      "date": "2024-11-21",
+      "total_value": 629671.24,
+      "cumulative_return": -0.370329
+    },
+    {
+      "date": "2024-11-22",
+      "total_value": 624831.24,
+      "cumulative_return": -0.375169
+    },
+    {
+      "date": "2024-11-25",
+      "total_value": 622290.24,
+      "cumulative_return": -0.37771
+    },
+    {
+      "date": "2024-11-26",
+      "total_value": 622169.24,
+      "cumulative_return": -0.377831
+    },
+    {
+      "date": "2024-11-27",
+      "total_value": 623863.24,
+      "cumulative_return": -0.376137
+    },
+    {
+      "date": "2024-11-28",
+      "total_value": 622048.24,
+      "cumulative_return": -0.377952
+    },
+    {
+      "date": "2024-11-29",
+      "total_value": 624105.24,
+      "cumulative_return": -0.375895
+    },
+    {
+      "date": "2024-12-02",
+      "total_value": 622411.24,
+      "cumulative_return": -0.377589
+    },
+    {
+      "date": "2024-12-03",
+      "total_value": 623016.24,
+      "cumulative_return": -0.376984
+    },
+    {
+      "date": "2024-12-04",
+      "total_value": 625315.24,
+      "cumulative_return": -0.374685
+    },
+    {
+      "date": "2024-12-05",
+      "total_value": 621443.24,
+      "cumulative_return": -0.378557
+    },
+    {
+      "date": "2024-12-06",
+      "total_value": 623984.24,
+      "cumulative_return": -0.376016
+    },
+    {
+      "date": "2024-12-09",
+      "total_value": 626283.24,
+      "cumulative_return": -0.373717
+    },
+    {
+      "date": "2024-12-10",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-11",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-12",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-13",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-16",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-17",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-18",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-19",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-20",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-23",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-24",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-25",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-26",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-27",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-30",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    },
+    {
+      "date": "2024-12-31",
+      "total_value": 631699.65,
+      "cumulative_return": -0.3683
+    }
+  ]
+}

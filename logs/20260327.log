@@ -1,0 +1,567 @@
+15:13:48 [ERROR] screener: [选股] AKShare拉取异常: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+15:13:48 [WARNING] screener: [选股] AKShare拉取失败，尝试使用缓存
+15:13:48 [INFO] screener: [选股] 降级使用缓存 (50只)
+15:38:07 [INFO] screener: [选股][东方财富] 获取 71 只，开始客户端过滤...
+15:38:07 [INFO] screener: [选股][东方财富] 客户端过滤后: 10 只
+15:38:07 [INFO] screener: [选股] 筛选完成: 10只股票，已缓存
+15:38:33 [ERROR] screener: [选股][新浪] 拉取异常: Can not decode value starting with character '<'
+15:39:23 [INFO] screener: [选股][东方财富] 获取 71 只，开始客户端过滤...
+15:39:23 [INFO] screener: [选股][东方财富] 客户端过滤后: 20 只
+15:39:23 [INFO] screener: [选股] 筛选完成: 20只股票，已缓存
+15:41:11 [INFO] screener: [选股][东方财富] 获取 71 只，开始客户端过滤...
+15:41:11 [INFO] screener: [选股][东方财富] 客户端过滤后: 50 只
+15:41:11 [INFO] screener: [选股] 筛选完成: 50只股票，已缓存
+18:42:26 [DEBUG] strategies: [主力拉升] 002361 验证通过 | 验证通过 | 来源: AKShare
+18:42:26 [DEBUG] strategies: [主力拉升] 300456 验证通过 | 验证通过 | 来源: AKShare
+18:42:26 [DEBUG] strategies: [主力拉升] 600310 验证通过 | 验证通过 | 来源: AKShare
+18:54:02 [INFO] bt_runner: 启动动态选股 | 预设: default
+18:54:02 [INFO] screener: [选股] 使用缓存结果 (50只, 2026-03-27T15:41:11.479687)
+18:54:02 [INFO] bt_runner: 动态选股完成 | 筛选出 50 只股票
+18:54:02 [INFO] bt_runner: 回测启动 | 策略=major_capital_pump | 2024-01-01~2025-12-31 | 初始资金¥100,000 | 股票=50只
+18:54:03 [INFO] bt_data: [数据] 688411 加载226条日线 (2024-01-01~2025-12-31)
+18:54:03 [INFO] bt_data: [数据] 000688 加载485条日线 (2024-01-01~2025-12-31)
+18:54:03 [INFO] bt_data: [数据] 002155 加载485条日线 (2024-01-01~2025-12-31)
+18:54:04 [INFO] bt_data: [数据] 300035 加载485条日线 (2024-01-01~2025-12-31)
+18:54:04 [INFO] bt_data: [数据] 600711 加载483条日线 (2024-01-01~2025-12-31)
+18:54:04 [INFO] bt_data: [数据] 002487 加载485条日线 (2024-01-01~2025-12-31)
+18:54:04 [INFO] bt_data: [数据] 603358 加载485条日线 (2024-01-01~2025-12-31)
+18:54:04 [INFO] bt_data: [数据] 002340 加载485条日线 (2024-01-01~2025-12-31)
+18:54:05 [INFO] bt_data: [数据] 002402 加载485条日线 (2024-01-01~2025-12-31)
+18:54:05 [INFO] bt_data: [数据] 000893 加载485条日线 (2024-01-01~2025-12-31)
+18:54:05 [INFO] bt_data: [数据] 600392 加载485条日线 (2024-01-01~2025-12-31)
+18:54:05 [INFO] bt_data: [数据] 600143 加载485条日线 (2024-01-01~2025-12-31)
+18:54:05 [INFO] bt_data: [数据] 002203 加载485条日线 (2024-01-01~2025-12-31)
+18:54:06 [INFO] bt_data: [数据] 601020 加载485条日线 (2024-01-01~2025-12-31)
+18:54:06 [INFO] bt_data: [数据] 603876 加载485条日线 (2024-01-01~2025-12-31)
+18:54:06 [INFO] bt_data: [数据] 002130 加载485条日线 (2024-01-01~2025-12-31)
+18:54:06 [INFO] bt_data: [数据] 601233 加载485条日线 (2024-01-01~2025-12-31)
+18:54:06 [INFO] bt_data: [数据] 301155 加载485条日线 (2024-01-01~2025-12-31)
+18:54:07 [INFO] bt_data: [数据] 603087 加载485条日线 (2024-01-01~2025-12-31)
+18:54:07 [INFO] bt_data: [数据] 000600 加载485条日线 (2024-01-01~2025-12-31)
+18:54:07 [INFO] bt_data: [数据] 300251 加载485条日线 (2024-01-01~2025-12-31)
+18:54:07 [INFO] bt_data: [数据] 300409 加载485条日线 (2024-01-01~2025-12-31)
+18:54:07 [INFO] bt_data: [数据] 002237 加载485条日线 (2024-01-01~2025-12-31)
+18:54:07 [INFO] bt_data: [数据] 689009 加载485条日线 (2024-01-01~2025-12-31)
+18:54:08 [INFO] bt_data: [数据] 600867 加载485条日线 (2024-01-01~2025-12-31)
+18:54:08 [INFO] bt_data: [数据] 002170 加载485条日线 (2024-01-01~2025-12-31)
+18:54:08 [INFO] bt_data: [数据] 688772 加载485条日线 (2024-01-01~2025-12-31)
+18:54:08 [INFO] bt_data: [数据] 002957 加载485条日线 (2024-01-01~2025-12-31)
+18:54:08 [INFO] bt_data: [数据] 002755 加载485条日线 (2024-01-01~2025-12-31)
+18:54:09 [INFO] bt_data: [数据] 601069 加载485条日线 (2024-01-01~2025-12-31)
+18:54:09 [INFO] bt_data: [数据] 688213 加载485条日线 (2024-01-01~2025-12-31)
+18:54:09 [INFO] bt_data: [数据] 002396 加载485条日线 (2024-01-01~2025-12-31)
+18:54:09 [INFO] bt_data: [数据] 002250 加载485条日线 (2024-01-01~2025-12-31)
+18:54:09 [INFO] bt_data: [数据] 002440 加载485条日线 (2024-01-01~2025-12-31)
+18:54:09 [INFO] bt_data: [数据] 001696 加载485条日线 (2024-01-01~2025-12-31)
+18:54:10 [INFO] bt_data: [数据] 600595 加载485条日线 (2024-01-01~2025-12-31)
+18:54:10 [INFO] bt_data: [数据] 600686 加载485条日线 (2024-01-01~2025-12-31)
+18:54:10 [INFO] bt_data: [数据] 300083 加载485条日线 (2024-01-01~2025-12-31)
+18:54:10 [INFO] bt_data: [数据] 300602 加载485条日线 (2024-01-01~2025-12-31)
+18:54:10 [INFO] bt_data: [数据] 603379 加载485条日线 (2024-01-01~2025-12-31)
+18:54:11 [INFO] bt_data: [数据] 300573 加载485条日线 (2024-01-01~2025-12-31)
+18:54:11 [INFO] bt_data: [数据] 002545 加载485条日线 (2024-01-01~2025-12-31)
+18:54:11 [INFO] bt_data: [数据] 603612 加载485条日线 (2024-01-01~2025-12-31)
+18:54:11 [INFO] bt_data: [数据] 600685 加载485条日线 (2024-01-01~2025-12-31)
+18:54:11 [INFO] bt_data: [数据] 002171 加载485条日线 (2024-01-01~2025-12-31)
+18:54:12 [INFO] bt_data: [数据] 600389 加载485条日线 (2024-01-01~2025-12-31)
+18:54:12 [INFO] bt_data: [数据] 300772 加载485条日线 (2024-01-01~2025-12-31)
+18:54:12 [INFO] bt_data: [数据] 603236 加载485条日线 (2024-01-01~2025-12-31)
+18:54:12 [INFO] bt_data: [数据] 601636 加载485条日线 (2024-01-01~2025-12-31)
+18:54:12 [INFO] bt_data: [数据] 688006 加载485条日线 (2024-01-01~2025-12-31)
+18:54:12 [INFO] bt_runner: 日线数据加载完成 | 成功: 50/50 只
+18:54:12 [INFO] bt_runner: 构建验证门控数据...
+18:55:18 [INFO] bt_runner: [回测] AKShare实时数据拉取成功
+18:55:18 [INFO] bt_runner: [回测验证] 通过: 50 | 排除: 0
+18:55:18 [WARNING] bt_data: [数据] 688411 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 000688 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002155 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300035 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600711 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002487 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 603358 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002340 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002402 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 000893 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600392 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600143 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002203 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 601020 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 603876 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002130 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 601233 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 301155 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 603087 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 000600 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300251 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300409 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002237 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 689009 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600867 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002170 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 688772 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002957 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002755 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 601069 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 688213 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002396 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002250 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002440 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 001696 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600595 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600686 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300083 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300602 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 603379 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300573 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002545 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 603612 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600685 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 002171 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 600389 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 300772 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 603236 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 601636 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [WARNING] bt_data: [数据] 688006 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+18:55:18 [INFO] bt_runner: 验证门控 | 通过: 50只 | 排除: 0只
+18:55:18 [INFO] bt_runner: 开始逐日撮合模拟...
+18:55:18 [DEBUG] strategies: [主力拉升] 688411 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 688411 生成10条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 000688 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 000688 生成32条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002155 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002155 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300035 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300035 生成20条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600711 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600711 生成26条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002487 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002487 生成14条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 603358 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 603358 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002340 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002340 生成10条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002402 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002402 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 000893 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 000893 生成24条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600392 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600392 生成24条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600143 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600143 生成15条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002203 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002203 生成14条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 601020 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 601020 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 603876 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 603876 生成14条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002130 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002130 生成32条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 601233 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 601233 生成10条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 301155 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 301155 生成18条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 603087 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 603087 生成14条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 000600 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 000600 生成20条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300251 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300251 生成12条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300409 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300409 生成18条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002237 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002237 生成12条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 689009 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 689009 生成18条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600867 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600867 生成10条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002170 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002170 生成24条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 688772 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 688772 生成16条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002957 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002957 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002755 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002755 生成20条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 601069 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 601069 生成14条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 688213 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 688213 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002396 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002396 生成15条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002250 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002250 生成8条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002440 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002440 生成24条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 001696 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 001696 生成28条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600595 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600595 生成20条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600686 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600686 生成26条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300083 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300083 生成38条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300602 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300602 生成26条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 603379 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 603379 生成14条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300573 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300573 生成12条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002545 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002545 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 603612 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 603612 生成22条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600685 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600685 生成20条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 002171 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 002171 生成13条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 600389 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 600389 生成12条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 300772 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 300772 生成18条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 603236 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 603236 生成18条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 601636 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 601636 生成18条信号
+18:55:18 [DEBUG] strategies: [主力拉升] 688006 验证通过 | 验证通过 | 来源: AKShare/东方财富
+18:55:18 [INFO] bt_engine: [主力拉升] 688006 生成20条信号
+18:55:18 [INFO] bt_report: 回测报告已写入: backtest_reports/主力拉升_2024-01-02_2025-12-31_20260327_185518.txt
+18:55:18 [INFO] bt_runner: 回测完成 | 年化=+22.61% 夏普=0.89 胜率=34.6% 交易=902次
+18:55:18 [INFO] bt_runner: [回测] 结果已持久化 id=7
+19:02:32 [INFO] screener: [选股][东方财富] 获取 138 只，开始客户端过滤...
+19:02:32 [INFO] screener: [选股][东方财富] 客户端过滤后: 80 只
+19:02:32 [INFO] screener: [选股] 筛选完成: 80只股票，已缓存
+19:06:40 [INFO] bt_runner: 启动动态选股 | 预设: default
+19:06:40 [INFO] screener: [选股] 使用缓存结果 (80只, 2026-03-27T19:02:32.585376)
+19:06:40 [INFO] bt_runner: 动态选股完成 | 筛选出 80 只股票
+19:06:40 [INFO] bt_runner: 回测启动 | 策略=trend_follow | 2024-01-01~2026-03-27 | 初始资金¥1,000,000 | 股票=80只
+19:06:41 [INFO] bt_data: [数据] 002155 加载529条日线 (2024-01-01~2026-03-27)
+19:06:41 [INFO] bt_data: [数据] 300035 加载539条日线 (2024-01-01~2026-03-27)
+19:06:42 [INFO] bt_data: [数据] 600711 加载537条日线 (2024-01-01~2026-03-27)
+19:06:42 [INFO] bt_data: [数据] 002487 加载539条日线 (2024-01-01~2026-03-27)
+19:06:42 [INFO] bt_data: [数据] 603358 加载539条日线 (2024-01-01~2026-03-27)
+19:06:42 [INFO] bt_data: [数据] 002340 加载539条日线 (2024-01-01~2026-03-27)
+19:06:42 [INFO] bt_data: [数据] 002402 加载539条日线 (2024-01-01~2026-03-27)
+19:06:42 [INFO] bt_data: [数据] 600392 加载539条日线 (2024-01-01~2026-03-27)
+19:06:43 [INFO] bt_data: [数据] 600143 加载539条日线 (2024-01-01~2026-03-27)
+19:06:43 [INFO] bt_data: [数据] 002203 加载539条日线 (2024-01-01~2026-03-27)
+19:06:43 [INFO] bt_data: [数据] 601020 加载539条日线 (2024-01-01~2026-03-27)
+19:06:43 [INFO] bt_data: [数据] 603876 加载539条日线 (2024-01-01~2026-03-27)
+19:06:43 [INFO] bt_data: [数据] 002130 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 001283 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 601233 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 301155 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 603087 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 000600 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 300251 加载539条日线 (2024-01-01~2026-03-27)
+19:06:44 [INFO] bt_data: [数据] 003010 加载539条日线 (2024-01-01~2026-03-27)
+19:06:45 [INFO] bt_data: [数据] 300409 加载539条日线 (2024-01-01~2026-03-27)
+19:06:45 [INFO] bt_data: [数据] 603186 加载539条日线 (2024-01-01~2026-03-27)
+19:06:45 [INFO] bt_data: [数据] 002237 加载539条日线 (2024-01-01~2026-03-27)
+19:06:45 [INFO] bt_data: [数据] 689009 加载539条日线 (2024-01-01~2026-03-27)
+19:06:45 [INFO] bt_data: [数据] 600867 加载539条日线 (2024-01-01~2026-03-27)
+19:06:46 [INFO] bt_data: [数据] 002170 加载539条日线 (2024-01-01~2026-03-27)
+19:06:46 [INFO] bt_data: [数据] 688772 加载539条日线 (2024-01-01~2026-03-27)
+19:06:46 [INFO] bt_data: [数据] 002957 加载539条日线 (2024-01-01~2026-03-27)
+19:06:46 [INFO] bt_data: [数据] 002755 加载539条日线 (2024-01-01~2026-03-27)
+19:06:46 [INFO] bt_data: [数据] 601069 加载539条日线 (2024-01-01~2026-03-27)
+19:06:46 [INFO] bt_data: [数据] 002209 加载539条日线 (2024-01-01~2026-03-27)
+19:06:47 [INFO] bt_data: [数据] 688213 加载539条日线 (2024-01-01~2026-03-27)
+19:06:47 [INFO] bt_data: [数据] 002396 加载539条日线 (2024-01-01~2026-03-27)
+19:06:47 [INFO] bt_data: [数据] 002250 加载539条日线 (2024-01-01~2026-03-27)
+19:06:47 [INFO] bt_data: [数据] 002734 加载539条日线 (2024-01-01~2026-03-27)
+19:06:47 [INFO] bt_data: [数据] 002440 加载539条日线 (2024-01-01~2026-03-27)
+19:06:47 [INFO] bt_data: [数据] 001696 加载539条日线 (2024-01-01~2026-03-27)
+19:06:48 [INFO] bt_data: [数据] 600595 加载539条日线 (2024-01-01~2026-03-27)
+19:06:48 [INFO] bt_data: [数据] 600686 加载539条日线 (2024-01-01~2026-03-27)
+19:06:48 [INFO] bt_data: [数据] 300083 加载539条日线 (2024-01-01~2026-03-27)
+19:06:48 [INFO] bt_data: [数据] 300602 加载539条日线 (2024-01-01~2026-03-27)
+19:06:48 [INFO] bt_data: [数据] 603379 加载539条日线 (2024-01-01~2026-03-27)
+19:06:48 [INFO] bt_data: [数据] 300573 加载539条日线 (2024-01-01~2026-03-27)
+19:06:49 [INFO] bt_data: [数据] 002545 加载539条日线 (2024-01-01~2026-03-27)
+19:06:49 [INFO] bt_data: [数据] 600251 加载539条日线 (2024-01-01~2026-03-27)
+19:06:49 [INFO] bt_data: [数据] 603612 加载539条日线 (2024-01-01~2026-03-27)
+19:06:49 [INFO] bt_data: [数据] 601162 加载539条日线 (2024-01-01~2026-03-27)
+19:06:49 [INFO] bt_data: [数据] 300611 加载539条日线 (2024-01-01~2026-03-27)
+19:06:49 [INFO] bt_data: [数据] 600685 加载539条日线 (2024-01-01~2026-03-27)
+19:06:50 [INFO] bt_data: [数据] 002171 加载539条日线 (2024-01-01~2026-03-27)
+19:06:50 [INFO] bt_data: [数据] 300389 加载539条日线 (2024-01-01~2026-03-27)
+19:06:50 [INFO] bt_data: [数据] 600389 加载539条日线 (2024-01-01~2026-03-27)
+19:06:50 [INFO] bt_data: [数据] 300772 加载539条日线 (2024-01-01~2026-03-27)
+19:06:50 [INFO] bt_data: [数据] 301235 加载539条日线 (2024-01-01~2026-03-27)
+19:06:50 [INFO] bt_data: [数据] 603236 加载539条日线 (2024-01-01~2026-03-27)
+19:06:51 [INFO] bt_data: [数据] 688049 加载539条日线 (2024-01-01~2026-03-27)
+19:06:51 [INFO] bt_data: [数据] 601636 加载539条日线 (2024-01-01~2026-03-27)
+19:06:51 [INFO] bt_data: [数据] 688006 加载539条日线 (2024-01-01~2026-03-27)
+19:06:51 [INFO] bt_data: [数据] 002637 加载539条日线 (2024-01-01~2026-03-27)
+19:06:51 [INFO] bt_data: [数据] 688518 加载539条日线 (2024-01-01~2026-03-27)
+19:06:51 [INFO] bt_data: [数据] 600649 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 000803 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 002824 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 002928 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 301031 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 002448 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 603486 加载539条日线 (2024-01-01~2026-03-27)
+19:06:52 [INFO] bt_data: [数据] 301607 加载375条日线 (2024-01-01~2026-03-27)
+19:06:53 [INFO] bt_data: [数据] 603267 加载539条日线 (2024-01-01~2026-03-27)
+19:06:53 [INFO] bt_data: [数据] 300990 加载539条日线 (2024-01-01~2026-03-27)
+19:06:53 [INFO] bt_data: [数据] 603678 加载539条日线 (2024-01-01~2026-03-27)
+19:06:53 [INFO] bt_data: [数据] 300702 加载539条日线 (2024-01-01~2026-03-27)
+19:06:53 [INFO] bt_data: [数据] 688117 加载539条日线 (2024-01-01~2026-03-27)
+19:06:53 [INFO] bt_data: [数据] 000876 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_data: [数据] 002258 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_data: [数据] 300130 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_data: [数据] 000576 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_data: [数据] 605020 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_data: [数据] 688136 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_data: [数据] 600576 加载539条日线 (2024-01-01~2026-03-27)
+19:06:54 [INFO] bt_runner: 日线数据加载完成 | 成功: 80/80 只
+19:06:54 [INFO] bt_runner: 构建验证门控数据...
+19:06:54 [INFO] bt_runner: [回测] 使用扫描结果作为验证门控数据
+19:06:54 [WARNING] bt_data: [数据] 002155 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300035 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600711 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002487 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603358 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002340 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002402 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600392 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600143 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002203 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 601020 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603876 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002130 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 001283 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 601233 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 301155 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603087 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 000600 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300251 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 003010 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300409 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603186 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002237 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 689009 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600867 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002170 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 688772 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002957 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002755 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 601069 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002209 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 688213 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002396 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002250 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002734 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002440 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 001696 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600595 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600686 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300083 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300602 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603379 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300573 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002545 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600251 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603612 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 601162 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300611 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600685 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002171 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300389 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600389 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 300772 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 301235 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 603236 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 688049 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 601636 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 688006 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 002637 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 688518 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:54 [WARNING] bt_data: [数据] 600649 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 000803 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 002824 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 002928 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 301031 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 002448 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 603486 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 301607 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 603267 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 300990 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 603678 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 300702 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 688117 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 000876 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 002258 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 300130 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 000576 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 605020 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 688136 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [WARNING] bt_data: [数据] 600576 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+19:06:55 [INFO] bt_runner: 验证门控 | 通过: 80只 | 排除: 0只
+19:06:55 [INFO] bt_runner: 开始逐日撮合模拟...
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002155 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002155 生成22条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300035 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300035 生成13条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600711 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600711 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002487 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002487 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603358 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603358 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002340 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002340 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002402 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002402 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600392 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600392 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600143 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600143 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002203 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002203 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 601020 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 601020 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603876 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603876 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002130 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002130 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 001283 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 001283 生成13条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 601233 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 601233 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 301155 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 301155 生成22条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603087 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603087 生成10条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 000600 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 000600 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300251 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300251 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 003010 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 003010 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300409 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300409 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603186 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603186 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002237 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002237 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 689009 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 689009 生成26条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600867 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600867 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002170 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002170 生成32条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688772 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688772 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002957 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002957 生成10条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002755 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002755 生成22条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 601069 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 601069 生成22条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002209 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002209 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688213 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688213 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002396 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002396 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002250 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002250 生成22条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002734 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002734 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002440 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002440 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 001696 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 001696 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600595 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600595 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600686 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600686 生成22条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300083 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300083 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300602 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300602 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603379 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603379 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300573 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300573 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002545 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002545 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600251 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600251 生成15条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603612 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603612 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 601162 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 601162 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300611 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300611 生成19条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600685 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600685 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002171 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002171 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300389 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300389 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600389 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600389 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300772 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300772 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 301235 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 301235 生成19条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603236 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603236 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688049 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688049 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 601636 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 601636 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688006 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688006 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002637 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002637 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688518 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688518 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600649 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600649 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 000803 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 000803 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002824 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002824 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002928 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002928 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 301031 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 301031 生成12条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002448 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002448 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603486 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603486 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 301607 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 301607 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603267 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603267 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300990 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300990 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 603678 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 603678 生成20条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300702 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300702 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688117 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688117 生成18条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 000876 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 000876 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 002258 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 002258 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 300130 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 300130 生成24条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 000576 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 000576 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 605020 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 605020 生成14条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 688136 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 688136 生成16条信号
+19:06:55 [DEBUG] strategies: [趋势跟踪] 600576 验证通过 | 验证通过 | 来源: AKShare
+19:06:55 [INFO] bt_engine: [趋势跟踪] 600576 生成10条信号
+19:06:55 [INFO] bt_report: 回测报告已写入: backtest_reports/趋势跟踪_2024-01-02_2026-03-27_20260327_190655.txt
+19:06:55 [INFO] bt_runner: 回测完成 | 年化=+9.05% 夏普=0.39 胜率=39.2% 交易=1173次
+19:06:55 [INFO] bt_runner: [回测] 结果已持久化 id=8
+20:39:25 [INFO] web_app: [App] 调度器已启动
+20:39:25 [INFO] web_app: [调度器] 启动
+14:47:58 [INFO] web_app: [App] 调度器已停止

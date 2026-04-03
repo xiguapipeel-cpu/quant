@@ -1,0 +1,30 @@
+# A股量化交易系统 - 依赖列表
+# 安装命令: pip install -r requirements.txt
+
+# ── 核心数据采集 ──────────────────────────────
+akshare>=1.12.0          # AKShare：东方财富/同花顺/新浪等数据聚合
+aiohttp>=3.9.0           # 异步HTTP（调用东方财富API / 搜索引擎）
+aiofiles>=23.2.0         # 异步文件I/O
+
+# ── 数据处理 ──────────────────────────────────
+pandas>=2.1.0            # DataFrame处理
+numpy>=1.26.0            # 数值计算
+
+# ── 搜索引擎API客户端（按需配置API Key）──────
+tavily-python>=0.3.0     # Tavily搜索 (TAVILY_API_KEY)
+# serper: 直接HTTP调用，无需单独包
+# firecrawl: 直接HTTP调用，无需单独包
+
+# ── 工具 ──────────────────────────────────────
+python-dotenv>=1.0.0     # 加载.env文件中的API Key
+schedule>=1.2.0          # 备用定时调度（已内置asyncio版本）
+
+# ── 数据库 ──────────────────────────────────────────────
+aiomysql>=0.2.0          # MySQL异步连接池
+
+# ── Web看板 ───────────────────────────────────────────────
+fastapi>=0.111.0         # Web框架
+uvicorn[standard]>=0.30.0  # ASGI服务器（含websockets）
+websockets>=12.0         # WebSocket支持
+python-multipart>=0.0.9  # 表单数据解析
+jinja2>=3.1.0            # HTML模板引擎（FastAPI依赖）

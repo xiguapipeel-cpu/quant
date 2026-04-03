@@ -1,0 +1,7175 @@
+{
+  "strategy": "双均线",
+  "start_date": "2022-01-04",
+  "end_date": "2024-12-31",
+  "initial_cash": 1000000.0,
+  "final_value": 1036316.22,
+  "total_return": 0.0363,
+  "annualized_return": 0.0119,
+  "max_drawdown": 0.2046,
+  "sharpe_ratio": -0.1,
+  "win_rate": 0.3049,
+  "profit_factor": 0.38,
+  "total_trades": 330,
+  "per_stock": {
+    "002594": {
+      "trades": 48,
+      "pnl": 244027.6,
+      "pnl_pct": 6.87
+    },
+    "601318": {
+      "trades": 50,
+      "pnl": -25576.54,
+      "pnl_pct": -0.57
+    },
+    "000858": {
+      "trades": 53,
+      "pnl": -69349.54,
+      "pnl_pct": -1.68
+    },
+    "300750": {
+      "trades": 44,
+      "pnl": -49269.49,
+      "pnl_pct": -1.25
+    },
+    "300760": {
+      "trades": 42,
+      "pnl": -76112.66,
+      "pnl_pct": -2.48
+    },
+    "600036": {
+      "trades": 44,
+      "pnl": -11070.58,
+      "pnl_pct": -0.3
+    },
+    "603288": {
+      "trades": 39,
+      "pnl": -149422.65,
+      "pnl_pct": -5.05
+    },
+    "600519": {
+      "trades": 10,
+      "pnl": 2069.08,
+      "pnl_pct": 0.24
+    }
+  },
+  "trades": [
+    {
+      "date": "2022-02-02",
+      "code": "002594",
+      "action": "BUY",
+      "price": 219.80874,
+      "shares": 1300,
+      "amount": 285837.09,
+      "commission": 85.73,
+      "reason": "MA5(210.00)上穿MA20(208.65) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-02-03",
+      "code": "601318",
+      "action": "BUY",
+      "price": 47.895599999999995,
+      "shares": 4400,
+      "amount": 210803.86,
+      "commission": 63.22,
+      "reason": "MA5(45.77)上穿MA20(45.55) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-02-14",
+      "code": "000858",
+      "action": "BUY",
+      "price": 134.83914,
+      "shares": 1100,
+      "amount": 148367.55,
+      "commission": 44.5,
+      "reason": "MA5(132.89)上穿MA20(132.58) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-02-25",
+      "code": "300750",
+      "action": "BUY",
+      "price": 360.49956,
+      "shares": 200,
+      "amount": 72121.54,
+      "commission": 21.63,
+      "reason": "MA5(352.58)上穿MA20(351.61) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-02-25",
+      "code": "300760",
+      "action": "BUY",
+      "price": 233.55618,
+      "shares": 300,
+      "amount": 70087.87,
+      "commission": 21.02,
+      "reason": "MA5(237.81)上穿MA20(237.30) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-02-28",
+      "code": "600036",
+      "action": "BUY",
+      "price": 46.82346,
+      "shares": 1300,
+      "amount": 60888.76,
+      "commission": 18.26,
+      "reason": "MA5(46.41)上穿MA20(46.36) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-03-01",
+      "code": "300760",
+      "action": "SELL",
+      "price": 231.60586,
+      "shares": 300,
+      "amount": 69391.43,
+      "commission": 90.33,
+      "reason": "MA5(235.79)下穿MA20(236.63) 死叉"
+    },
+    {
+      "date": "2022-03-08",
+      "code": "600036",
+      "action": "SELL",
+      "price": 46.22736,
+      "shares": 1300,
+      "amount": 60017.44,
+      "commission": 78.12,
+      "reason": "MA5(46.23)下穿MA20(46.23) 死叉"
+    },
+    {
+      "date": "2022-03-10",
+      "code": "601318",
+      "action": "SELL",
+      "price": 50.06966,
+      "shares": 4400,
+      "amount": 220020.11,
+      "commission": 286.4,
+      "reason": "MA5(51.26)下穿MA20(51.40) 死叉"
+    },
+    {
+      "date": "2022-03-11",
+      "code": "000858",
+      "action": "SELL",
+      "price": 129.66016,
+      "shares": 1100,
+      "amount": 142440.76,
+      "commission": 185.41,
+      "reason": "MA5(135.32)下穿MA20(136.39) 死叉"
+    },
+    {
+      "date": "2022-03-14",
+      "code": "603288",
+      "action": "BUY",
+      "price": 67.3845,
+      "shares": 2800,
+      "amount": 188733.2,
+      "commission": 56.6,
+      "reason": "MA5(66.90)上穿MA20(66.80) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-03-18",
+      "code": "300750",
+      "action": "SELL",
+      "price": 356.44568000000004,
+      "shares": 200,
+      "amount": 71196.46,
+      "commission": 92.68,
+      "reason": "MA5(366.34)下穿MA20(366.73) 死叉"
+    },
+    {
+      "date": "2022-03-22",
+      "code": "300760",
+      "action": "BUY",
+      "price": 241.44192,
+      "shares": 600,
+      "amount": 144908.61,
+      "commission": 43.46,
+      "reason": "MA5(233.14)上穿MA20(232.31) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-03-25",
+      "code": "000858",
+      "action": "BUY",
+      "price": 136.28202,
+      "shares": 800,
+      "amount": 109058.32,
+      "commission": 32.71,
+      "reason": "MA5(134.62)上穿MA20(134.45) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-03-28",
+      "code": "000858",
+      "action": "SELL",
+      "price": 139.78986,
+      "shares": 800,
+      "amount": 111686.51,
+      "commission": 145.38,
+      "reason": "MA5(134.54)下穿MA20(134.58) 死叉"
+    },
+    {
+      "date": "2022-03-29",
+      "code": "000858",
+      "action": "BUY",
+      "price": 140.28,
+      "shares": 800,
+      "amount": 112257.67,
+      "commission": 33.67,
+      "reason": "MA5(135.64)上穿MA20(134.62) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-04-15",
+      "code": "603288",
+      "action": "SELL",
+      "price": 66.93585999999999,
+      "shares": 2800,
+      "amount": 187176.76,
+      "commission": 243.65,
+      "reason": "MA5(70.64)下穿MA20(70.85) 死叉"
+    },
+    {
+      "date": "2022-04-21",
+      "code": "300760",
+      "action": "SELL",
+      "price": 242.43416,
+      "shares": 600,
+      "amount": 145271.4,
+      "commission": 189.1,
+      "reason": "MA5(243.06)下穿MA20(243.61) 死叉"
+    },
+    {
+      "date": "2022-05-03",
+      "code": "603288",
+      "action": "BUY",
+      "price": 72.87546,
+      "shares": 2400,
+      "amount": 174953.57,
+      "commission": 52.47,
+      "reason": "MA5(69.92)上穿MA20(69.46) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-05",
+      "code": "300750",
+      "action": "BUY",
+      "price": 319.77828,
+      "shares": 400,
+      "amount": 127949.69,
+      "commission": 38.37,
+      "reason": "MA5(318.61)上穿MA20(317.83) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-09",
+      "code": "300750",
+      "action": "SELL",
+      "price": 295.72736,
+      "shares": 400,
+      "amount": 118137.17,
+      "commission": 153.78,
+      "reason": "MA5(316.89)下穿MA20(317.12) 死叉"
+    },
+    {
+      "date": "2022-05-12",
+      "code": "601318",
+      "action": "BUY",
+      "price": 49.23828,
+      "shares": 2500,
+      "amount": 123132.63,
+      "commission": 36.93,
+      "reason": "MA5(47.88)上穿MA20(47.44) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-18",
+      "code": "603288",
+      "action": "SELL",
+      "price": 68.14344,
+      "shares": 2400,
+      "amount": 163331.65,
+      "commission": 212.61,
+      "reason": "MA5(69.43)下穿MA20(69.50) 死叉"
+    },
+    {
+      "date": "2022-05-19",
+      "code": "300750",
+      "action": "BUY",
+      "price": 330.1089,
+      "shares": 400,
+      "amount": 132083.17,
+      "commission": 39.61,
+      "reason": "MA5(317.92)上穿MA20(314.52) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-23",
+      "code": "600036",
+      "action": "BUY",
+      "price": 49.95972,
+      "shares": 1900,
+      "amount": 94951.95,
+      "commission": 28.48,
+      "reason": "MA5(49.99)上穿MA20(49.93) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-24",
+      "code": "300760",
+      "action": "BUY",
+      "price": 230.03916,
+      "shares": 300,
+      "amount": 69032.45,
+      "commission": 20.7,
+      "reason": "MA5(218.29)上穿MA20(216.68) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-25",
+      "code": "600036",
+      "action": "SELL",
+      "price": 48.76228,
+      "shares": 1900,
+      "amount": 92527.89,
+      "commission": 120.44,
+      "reason": "MA5(49.60)下穿MA20(49.79) 死叉"
+    },
+    {
+      "date": "2022-05-25",
+      "code": "000858",
+      "action": "SELL",
+      "price": 148.32276000000002,
+      "shares": 800,
+      "amount": 118503.95,
+      "commission": 154.26,
+      "reason": "MA5(157.97)下穿MA20(159.73) 死叉"
+    },
+    {
+      "date": "2022-05-26",
+      "code": "603288",
+      "action": "BUY",
+      "price": 74.96964,
+      "shares": 1400,
+      "amount": 104988.98,
+      "commission": 31.49,
+      "reason": "MA5(70.97)上穿MA20(70.30) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-05-30",
+      "code": "601318",
+      "action": "SELL",
+      "price": 48.383039999999994,
+      "shares": 2500,
+      "amount": 120800.36,
+      "commission": 157.24,
+      "reason": "MA5(48.65)下穿MA20(48.66) 死叉"
+    },
+    {
+      "date": "2022-06-01",
+      "code": "002594",
+      "action": "SELL",
+      "price": 423.96038,
+      "shares": 1300,
+      "amount": 550432.0,
+      "commission": 716.49,
+      "reason": "MA5(406.83)下穿MA20(407.65) 死叉"
+    },
+    {
+      "date": "2022-06-02",
+      "code": "300750",
+      "action": "SELL",
+      "price": 315.0686,
+      "shares": 400,
+      "amount": 125863.6,
+      "commission": 163.84,
+      "reason": "MA5(314.66)下穿MA20(317.13) 死叉"
+    },
+    {
+      "date": "2022-06-07",
+      "code": "002594",
+      "action": "BUY",
+      "price": 417.333,
+      "shares": 700,
+      "amount": 292220.74,
+      "commission": 87.64,
+      "reason": "MA5(416.43)上穿MA20(413.60) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-06-10",
+      "code": "002594",
+      "action": "SELL",
+      "price": 402.55328000000003,
+      "shares": 700,
+      "amount": 281420.97,
+      "commission": 366.32,
+      "reason": "MA5(412.67)下穿MA20(416.20) 死叉"
+    },
+    {
+      "date": "2022-06-13",
+      "code": "300750",
+      "action": "BUY",
+      "price": 317.19312,
+      "shares": 900,
+      "amount": 285559.45,
+      "commission": 85.64,
+      "reason": "MA5(322.40)上穿MA20(321.70) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-06-14",
+      "code": "300750",
+      "action": "SELL",
+      "price": 321.63543999999996,
+      "shares": 900,
+      "amount": 289095.58,
+      "commission": 376.31,
+      "reason": "MA5(320.96)下穿MA20(322.07) 死叉"
+    },
+    {
+      "date": "2022-06-15",
+      "code": "300750",
+      "action": "BUY",
+      "price": 324.65801999999996,
+      "shares": 900,
+      "amount": 292279.88,
+      "commission": 87.66,
+      "reason": "MA5(322.07)上穿MA20(322.02) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-06-15",
+      "code": "600036",
+      "action": "BUY",
+      "price": 52.0038,
+      "shares": 4400,
+      "amount": 228885.37,
+      "commission": 68.65,
+      "reason": "MA5(49.36)上穿MA20(49.16) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-06-17",
+      "code": "300750",
+      "action": "SELL",
+      "price": 309.89896,
+      "shares": 900,
+      "amount": 278546.48,
+      "commission": 362.58,
+      "reason": "MA5(320.42)下穿MA20(321.26) 死叉"
+    },
+    {
+      "date": "2022-06-20",
+      "code": "300760",
+      "action": "SELL",
+      "price": 220.78753999999998,
+      "shares": 300,
+      "amount": 66150.15,
+      "commission": 86.11,
+      "reason": "MA5(227.54)下穿MA20(228.51) 死叉"
+    },
+    {
+      "date": "2022-06-24",
+      "code": "601318",
+      "action": "BUY",
+      "price": 48.647099999999995,
+      "shares": 5400,
+      "amount": 262773.15,
+      "commission": 78.81,
+      "reason": "MA5(48.05)上穿MA20(47.86) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-07-06",
+      "code": "601318",
+      "action": "SELL",
+      "price": 46.31717999999999,
+      "shares": 5400,
+      "amount": 249787.63,
+      "commission": 325.15,
+      "reason": "MA5(47.77)下穿MA20(47.98) 死叉"
+    },
+    {
+      "date": "2022-07-07",
+      "code": "600519",
+      "action": "BUY",
+      "price": 2049.55092,
+      "shares": 100,
+      "amount": 205016.58,
+      "commission": 61.49,
+      "reason": "MA5(2011.97)上穿MA20(2011.81) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-07-14",
+      "code": "600036",
+      "action": "SELL",
+      "price": 51.9958,
+      "shares": 4400,
+      "amount": 228484.1,
+      "commission": 297.42,
+      "reason": "MA5(51.20)下穿MA20(51.29) 死叉"
+    },
+    {
+      "date": "2022-07-15",
+      "code": "600036",
+      "action": "BUY",
+      "price": 51.86352,
+      "shares": 5100,
+      "amount": 264583.3,
+      "commission": 79.35,
+      "reason": "MA5(51.36)上穿MA20(51.29) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-07-18",
+      "code": "600036",
+      "action": "SELL",
+      "price": 51.2972,
+      "shares": 5100,
+      "amount": 261275.62,
+      "commission": 340.1,
+      "reason": "MA5(51.32)下穿MA20(51.32) 死叉"
+    },
+    {
+      "date": "2022-07-18",
+      "code": "002594",
+      "action": "BUY",
+      "price": 369.31716,
+      "shares": 700,
+      "amount": 258599.57,
+      "commission": 77.56,
+      "reason": "MA5(369.46)上穿MA20(369.12) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-07-18",
+      "code": "300760",
+      "action": "BUY",
+      "price": 215.9811,
+      "shares": 800,
+      "amount": 172836.72,
+      "commission": 51.84,
+      "reason": "MA5(211.85)上穿MA20(210.27) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-07-19",
+      "code": "600036",
+      "action": "BUY",
+      "price": 51.99378,
+      "shares": 2600,
+      "amount": 135224.38,
+      "commission": 40.56,
+      "reason": "MA5(51.49)上穿MA20(51.35) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-07-26",
+      "code": "300760",
+      "action": "SELL",
+      "price": 200.8974,
+      "shares": 800,
+      "amount": 160508.99,
+      "commission": 208.93,
+      "reason": "MA5(208.47)下穿MA20(208.71) 死叉"
+    },
+    {
+      "date": "2022-07-28",
+      "code": "000858",
+      "action": "BUY",
+      "price": 124.55862,
+      "shares": 1100,
+      "amount": 137055.59,
+      "commission": 41.1,
+      "reason": "MA5(126.77)上穿MA20(126.09) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-08-09",
+      "code": "002594",
+      "action": "SELL",
+      "price": 357.55346,
+      "shares": 700,
+      "amount": 249962.05,
+      "commission": 325.37,
+      "reason": "MA5(368.84)下穿MA20(372.01) 死叉"
+    },
+    {
+      "date": "2022-08-10",
+      "code": "600036",
+      "action": "SELL",
+      "price": 51.9958,
+      "shares": 2600,
+      "amount": 135013.33,
+      "commission": 175.75,
+      "reason": "MA5(52.09)下穿MA20(52.11) 死叉"
+    },
+    {
+      "date": "2022-08-12",
+      "code": "300750",
+      "action": "BUY",
+      "price": 290.15916,
+      "shares": 700,
+      "amount": 203172.35,
+      "commission": 60.93,
+      "reason": "MA5(282.60)上穿MA20(282.34) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-08-12",
+      "code": "601318",
+      "action": "BUY",
+      "price": 46.152120000000004,
+      "shares": 3400,
+      "amount": 156964.28,
+      "commission": 47.08,
+      "reason": "MA5(44.84)上穿MA20(44.76) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-08-17",
+      "code": "600519",
+      "action": "SELL",
+      "price": 2181.29866,
+      "shares": 100,
+      "amount": 217846.3,
+      "commission": 283.57,
+      "reason": "MA5(2126.09)下穿MA20(2130.70) 死叉"
+    },
+    {
+      "date": "2022-08-26",
+      "code": "603288",
+      "action": "SELL",
+      "price": 83.38289999999999,
+      "shares": 1400,
+      "amount": 116584.3,
+      "commission": 151.76,
+      "reason": "MA5(83.54)下穿MA20(83.64) 死叉"
+    },
+    {
+      "date": "2022-08-26",
+      "code": "300760",
+      "action": "BUY",
+      "price": 195.01926,
+      "shares": 1000,
+      "amount": 195077.77,
+      "commission": 58.51,
+      "reason": "MA5(188.43)上穿MA20(186.34) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-01",
+      "code": "600036",
+      "action": "BUY",
+      "price": 51.8034,
+      "shares": 2900,
+      "amount": 150274.93,
+      "commission": 45.07,
+      "reason": "MA5(51.97)上穿MA20(51.70) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-02",
+      "code": "000858",
+      "action": "SELL",
+      "price": 135.3787,
+      "shares": 1100,
+      "amount": 148722.98,
+      "commission": 193.59,
+      "reason": "MA5(135.10)下穿MA20(135.32) 死叉"
+    },
+    {
+      "date": "2022-09-05",
+      "code": "603288",
+      "action": "BUY",
+      "price": 88.21608,
+      "shares": 1700,
+      "amount": 150012.33,
+      "commission": 44.99,
+      "reason": "MA5(84.64)上穿MA20(84.45) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-08",
+      "code": "002594",
+      "action": "BUY",
+      "price": 354.28716,
+      "shares": 300,
+      "amount": 106318.03,
+      "commission": 31.89,
+      "reason": "MA5(350.92)上穿MA20(349.18) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-08",
+      "code": "000858",
+      "action": "BUY",
+      "price": 136.8231,
+      "shares": 500,
+      "amount": 68432.07,
+      "commission": 20.52,
+      "reason": "MA5(136.46)上穿MA20(136.33) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-08",
+      "code": "300760",
+      "action": "SELL",
+      "price": 188.5222,
+      "shares": 1000,
+      "amount": 188277.12,
+      "commission": 245.08,
+      "reason": "MA5(185.13)下穿MA20(186.02) 死叉"
+    },
+    {
+      "date": "2022-09-13",
+      "code": "601318",
+      "action": "SELL",
+      "price": 46.696419999999996,
+      "shares": 3400,
+      "amount": 158561.43,
+      "commission": 206.4,
+      "reason": "MA5(48.60)下穿MA20(48.90) 死叉"
+    },
+    {
+      "date": "2022-09-14",
+      "code": "600036",
+      "action": "SELL",
+      "price": 49.121559999999995,
+      "shares": 2900,
+      "amount": 142267.34,
+      "commission": 185.19,
+      "reason": "MA5(51.49)下穿MA20(51.64) 死叉"
+    },
+    {
+      "date": "2022-09-14",
+      "code": "300760",
+      "action": "BUY",
+      "price": 192.19362,
+      "shares": 1000,
+      "amount": 192251.28,
+      "commission": 57.66,
+      "reason": "MA5(187.16)上穿MA20(187.01) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-16",
+      "code": "300750",
+      "action": "SELL",
+      "price": 304.25028000000003,
+      "shares": 700,
+      "amount": 212698.33,
+      "commission": 276.87,
+      "reason": "MA5(314.11)下穿MA20(315.19) 死叉"
+    },
+    {
+      "date": "2022-09-26",
+      "code": "603288",
+      "action": "SELL",
+      "price": 83.7821,
+      "shares": 1700,
+      "amount": 142244.41,
+      "commission": 185.16,
+      "reason": "MA5(86.78)下穿MA20(86.79) 死叉"
+    },
+    {
+      "date": "2022-09-27",
+      "code": "300750",
+      "action": "BUY",
+      "price": 325.99068,
+      "shares": 700,
+      "amount": 228261.93,
+      "commission": 68.46,
+      "reason": "MA5(316.21)上穿MA20(315.69) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-09-28",
+      "code": "002594",
+      "action": "SELL",
+      "price": 356.33590000000004,
+      "shares": 300,
+      "amount": 106761.8,
+      "commission": 138.97,
+      "reason": "MA5(353.21)下穿MA20(353.75) 死叉"
+    },
+    {
+      "date": "2022-09-30",
+      "code": "300760",
+      "action": "SELL",
+      "price": 183.81164,
+      "shares": 1000,
+      "amount": 183572.68,
+      "commission": 238.96,
+      "reason": "MA5(189.88)下穿MA20(190.76) 死叉"
+    },
+    {
+      "date": "2022-10-04",
+      "code": "002594",
+      "action": "BUY",
+      "price": 381.78204,
+      "shares": 700,
+      "amount": 267327.6,
+      "commission": 80.17,
+      "reason": "MA5(361.89)上穿MA20(358.56) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-10-10",
+      "code": "600036",
+      "action": "BUY",
+      "price": 49.26834,
+      "shares": 3800,
+      "amount": 187275.86,
+      "commission": 56.17,
+      "reason": "MA5(48.67)上穿MA20(48.63) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-10-11",
+      "code": "000858",
+      "action": "SELL",
+      "price": 143.12318,
+      "shares": 500,
+      "amount": 71468.56,
+      "commission": 93.03,
+      "reason": "MA5(142.92)下穿MA20(142.97) 死叉"
+    },
+    {
+      "date": "2022-10-12",
+      "code": "603288",
+      "action": "BUY",
+      "price": 88.176,
+      "shares": 1700,
+      "amount": 149944.17,
+      "commission": 44.97,
+      "reason": "MA5(87.01)上穿MA20(86.47) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-10-21",
+      "code": "601318",
+      "action": "BUY",
+      "price": 44.238299999999995,
+      "shares": 2400,
+      "amount": 106203.77,
+      "commission": 31.85,
+      "reason": "MA5(44.65)上穿MA20(44.52) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-10-24",
+      "code": "000858",
+      "action": "BUY",
+      "price": 150.10962,
+      "shares": 500,
+      "amount": 75077.33,
+      "commission": 22.52,
+      "reason": "MA5(144.77)上穿MA20(143.37) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-11-02",
+      "code": "300750",
+      "action": "SELL",
+      "price": 339.44974,
+      "shares": 700,
+      "amount": 237305.92,
+      "commission": 308.9,
+      "reason": "MA5(348.52)下穿MA20(353.32) 死叉"
+    },
+    {
+      "date": "2022-11-02",
+      "code": "600036",
+      "action": "SELL",
+      "price": 49.3012,
+      "shares": 3800,
+      "amount": 187101.01,
+      "commission": 243.55,
+      "reason": "MA5(49.08)下穿MA20(49.22) 死叉"
+    },
+    {
+      "date": "2022-11-04",
+      "code": "601318",
+      "action": "SELL",
+      "price": 42.55472,
+      "shares": 2400,
+      "amount": 101998.56,
+      "commission": 132.77,
+      "reason": "MA5(44.49)下穿MA20(44.64) 死叉"
+    },
+    {
+      "date": "2022-11-08",
+      "code": "002594",
+      "action": "SELL",
+      "price": 395.59722,
+      "shares": 700,
+      "amount": 276558.06,
+      "commission": 359.99,
+      "reason": "MA5(398.97)下穿MA20(406.94) 死叉"
+    },
+    {
+      "date": "2022-11-15",
+      "code": "000858",
+      "action": "SELL",
+      "price": 155.04928,
+      "shares": 500,
+      "amount": 77423.86,
+      "commission": 100.78,
+      "reason": "MA5(152.70)下穿MA20(153.16) 死叉"
+    },
+    {
+      "date": "2022-11-17",
+      "code": "300750",
+      "action": "BUY",
+      "price": 335.53974,
+      "shares": 900,
+      "amount": 302076.36,
+      "commission": 90.6,
+      "reason": "MA5(347.66)上穿MA20(347.43) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-11-18",
+      "code": "300750",
+      "action": "SELL",
+      "price": 343.29204000000004,
+      "shares": 900,
+      "amount": 308561.18,
+      "commission": 401.65,
+      "reason": "MA5(345.22)下穿MA20(346.35) 死叉"
+    },
+    {
+      "date": "2022-11-18",
+      "code": "603288",
+      "action": "SELL",
+      "price": 94.5106,
+      "shares": 1700,
+      "amount": 160459.15,
+      "commission": 208.87,
+      "reason": "MA5(96.95)下穿MA20(97.11) 死叉"
+    },
+    {
+      "date": "2022-11-21",
+      "code": "601318",
+      "action": "BUY",
+      "price": 45.069959999999995,
+      "shares": 8100,
+      "amount": 365176.2,
+      "commission": 109.52,
+      "reason": "MA5(44.27)上穿MA20(44.18) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-11-21",
+      "code": "000858",
+      "action": "BUY",
+      "price": 157.18374,
+      "shares": 1600,
+      "amount": 251569.43,
+      "commission": 75.45,
+      "reason": "MA5(156.40)上穿MA20(155.64) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-11-28",
+      "code": "600036",
+      "action": "BUY",
+      "price": 49.87956,
+      "shares": 3600,
+      "amount": 179620.29,
+      "commission": 53.87,
+      "reason": "MA5(48.16)上穿MA20(47.57) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-11-30",
+      "code": "601318",
+      "action": "SELL",
+      "price": 42.69444,
+      "shares": 8100,
+      "amount": 345375.39,
+      "commission": 449.57,
+      "reason": "MA5(43.53)下穿MA20(43.69) 死叉"
+    },
+    {
+      "date": "2022-12-06",
+      "code": "300760",
+      "action": "BUY",
+      "price": 169.55844,
+      "shares": 1300,
+      "amount": 220492.1,
+      "commission": 66.13,
+      "reason": "MA5(168.27)上穿MA20(167.55) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-12-08",
+      "code": "000858",
+      "action": "SELL",
+      "price": 151.5962,
+      "shares": 1600,
+      "amount": 242238.6,
+      "commission": 315.32,
+      "reason": "MA5(155.63)下穿MA20(156.22) 死叉"
+    },
+    {
+      "date": "2022-12-13",
+      "code": "002594",
+      "action": "BUY",
+      "price": 338.90646000000004,
+      "shares": 700,
+      "amount": 237305.69,
+      "commission": 71.17,
+      "reason": "MA5(330.30)上穿MA20(327.72) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-12-13",
+      "code": "601318",
+      "action": "BUY",
+      "price": 44.39862,
+      "shares": 3800,
+      "amount": 168765.37,
+      "commission": 50.61,
+      "reason": "MA5(43.90)上穿MA20(43.81) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-12-15",
+      "code": "000858",
+      "action": "BUY",
+      "price": 161.99334,
+      "shares": 700,
+      "amount": 113429.36,
+      "commission": 34.02,
+      "reason": "MA5(157.34)上穿MA20(157.19) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-12-16",
+      "code": "600036",
+      "action": "SELL",
+      "price": 47.87406,
+      "shares": 3600,
+      "amount": 172122.57,
+      "commission": 224.05,
+      "reason": "MA5(48.86)下穿MA20(49.02) 死叉"
+    },
+    {
+      "date": "2022-12-21",
+      "code": "002594",
+      "action": "SELL",
+      "price": 300.06866,
+      "shares": 700,
+      "amount": 209775.0,
+      "commission": 273.06,
+      "reason": "MA5(324.71)下穿MA20(325.64) 死叉"
+    },
+    {
+      "date": "2022-12-22",
+      "code": "601318",
+      "action": "SELL",
+      "price": 42.29524,
+      "shares": 3800,
+      "amount": 160512.97,
+      "commission": 208.94,
+      "reason": "MA5(43.51)下穿MA20(43.55) 死叉"
+    },
+    {
+      "date": "2022-12-27",
+      "code": "300760",
+      "action": "SELL",
+      "price": 175.62804,
+      "shares": 1300,
+      "amount": 228019.64,
+      "commission": 296.81,
+      "reason": "MA5(175.50)下穿MA20(175.87) 死叉"
+    },
+    {
+      "date": "2022-12-28",
+      "code": "300750",
+      "action": "BUY",
+      "price": 327.9546,
+      "shares": 900,
+      "amount": 295247.69,
+      "commission": 88.55,
+      "reason": "MA5(320.21)上穿MA20(319.74) 金叉 | 验证通过"
+    },
+    {
+      "date": "2022-12-28",
+      "code": "603288",
+      "action": "BUY",
+      "price": 97.15392,
+      "shares": 2300,
+      "amount": 223521.05,
+      "commission": 67.04,
+      "reason": "MA5(94.63)上穿MA20(94.02) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-01-05",
+      "code": "300750",
+      "action": "SELL",
+      "price": 307.09457999999995,
+      "shares": 900,
+      "amount": 276025.82,
+      "commission": 359.3,
+      "reason": "MA5(318.93)下穿MA20(319.51) 死叉"
+    },
+    {
+      "date": "2023-01-05",
+      "code": "000858",
+      "action": "SELL",
+      "price": 161.36661999999998,
+      "shares": 700,
+      "amount": 112809.79,
+      "commission": 146.84,
+      "reason": "MA5(163.29)下穿MA20(163.33) 死叉"
+    },
+    {
+      "date": "2023-01-05",
+      "code": "300760",
+      "action": "BUY",
+      "price": 177.19368,
+      "shares": 1500,
+      "amount": 265870.26,
+      "commission": 79.74,
+      "reason": "MA5(179.49)上穿MA20(178.90) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-01-09",
+      "code": "601318",
+      "action": "BUY",
+      "price": 42.96576,
+      "shares": 4500,
+      "amount": 193403.92,
+      "commission": 58.0,
+      "reason": "MA5(43.37)上穿MA20(43.32) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-01-12",
+      "code": "603288",
+      "action": "SELL",
+      "price": 93.55252,
+      "shares": 2300,
+      "amount": 214891.07,
+      "commission": 279.72,
+      "reason": "MA5(94.48)下穿MA20(94.65) 死叉"
+    },
+    {
+      "date": "2023-01-19",
+      "code": "000858",
+      "action": "BUY",
+      "price": 169.62858,
+      "shares": 1200,
+      "amount": 203615.36,
+      "commission": 61.07,
+      "reason": "MA5(165.36)上穿MA20(165.07) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-01-24",
+      "code": "300750",
+      "action": "BUY",
+      "price": 328.23516,
+      "shares": 400,
+      "amount": 131333.45,
+      "commission": 39.39,
+      "reason": "MA5(319.74)上穿MA20(316.02) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-01-31",
+      "code": "002594",
+      "action": "BUY",
+      "price": 301.98276,
+      "shares": 300,
+      "amount": 90622.01,
+      "commission": 27.18,
+      "reason": "MA5(287.83)上穿MA20(287.31) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-02-03",
+      "code": "601318",
+      "action": "SELL",
+      "price": 41.89604,
+      "shares": 4500,
+      "amount": 188287.09,
+      "commission": 245.09,
+      "reason": "MA5(43.70)下穿MA20(43.72) 死叉"
+    },
+    {
+      "date": "2023-02-06",
+      "code": "000858",
+      "action": "SELL",
+      "price": 167.0652,
+      "shares": 1200,
+      "amount": 200217.62,
+      "commission": 260.62,
+      "reason": "MA5(165.63)下穿MA20(165.91) 死叉"
+    },
+    {
+      "date": "2023-02-07",
+      "code": "300760",
+      "action": "SELL",
+      "price": 177.46436,
+      "shares": 1500,
+      "amount": 265850.48,
+      "commission": 346.06,
+      "reason": "MA5(180.22)下穿MA20(181.32) 死叉"
+    },
+    {
+      "date": "2023-02-08",
+      "code": "300750",
+      "action": "SELL",
+      "price": 309.91892,
+      "shares": 400,
+      "amount": 123806.41,
+      "commission": 161.16,
+      "reason": "MA5(317.47)下穿MA20(319.16) 死叉"
+    },
+    {
+      "date": "2023-02-10",
+      "code": "000858",
+      "action": "BUY",
+      "price": 170.58048000000002,
+      "shares": 1800,
+      "amount": 307136.98,
+      "commission": 92.11,
+      "reason": "MA5(167.10)上穿MA20(167.04) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-02-15",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1893.61968,
+      "shares": 100,
+      "amount": 189418.78,
+      "commission": 56.81,
+      "reason": "MA5(1810.80)上穿MA20(1806.55) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-02-20",
+      "code": "300750",
+      "action": "BUY",
+      "price": 337.38342,
+      "shares": 400,
+      "amount": 134993.85,
+      "commission": 40.49,
+      "reason": "MA5(325.33)上穿MA20(322.03) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-02-23",
+      "code": "601318",
+      "action": "BUY",
+      "price": 42.82548,
+      "shares": 2800,
+      "amount": 119947.32,
+      "commission": 35.97,
+      "reason": "MA5(42.67)上穿MA20(42.58) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-02-27",
+      "code": "002594",
+      "action": "SELL",
+      "price": 320.59752000000003,
+      "shares": 300,
+      "amount": 96054.22,
+      "commission": 125.03,
+      "reason": "MA5(313.33)下穿MA20(314.91) 死叉"
+    },
+    {
+      "date": "2023-03-02",
+      "code": "300750",
+      "action": "SELL",
+      "price": 307.52371999999997,
+      "shares": 400,
+      "amount": 122849.58,
+      "commission": 159.91,
+      "reason": "MA5(318.06)下穿MA20(320.33) 死叉"
+    },
+    {
+      "date": "2023-03-02",
+      "code": "002594",
+      "action": "BUY",
+      "price": 316.8324,
+      "shares": 400,
+      "amount": 126770.98,
+      "commission": 38.02,
+      "reason": "MA5(319.32)上穿MA20(317.86) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-03-02",
+      "code": "300760",
+      "action": "BUY",
+      "price": 177.57444,
+      "shares": 600,
+      "amount": 106576.63,
+      "commission": 31.96,
+      "reason": "MA5(173.12)上穿MA20(171.31) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-03-06",
+      "code": "600036",
+      "action": "BUY",
+      "price": 42.74532,
+      "shares": 1800,
+      "amount": 76964.66,
+      "commission": 23.08,
+      "reason": "MA5(43.01)上穿MA20(42.90) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-03-09",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1940.2517200000002,
+      "shares": 100,
+      "amount": 193772.94,
+      "commission": 252.23,
+      "reason": "MA5(1856.18)下穿MA20(1856.34) 死叉"
+    },
+    {
+      "date": "2023-03-09",
+      "code": "600036",
+      "action": "SELL",
+      "price": 42.35512,
+      "shares": 1800,
+      "amount": 76140.11,
+      "commission": 99.11,
+      "reason": "MA5(42.60)下穿MA20(42.75) 死叉"
+    },
+    {
+      "date": "2023-03-10",
+      "code": "000858",
+      "action": "SELL",
+      "price": 171.87556,
+      "shares": 1800,
+      "amount": 308973.82,
+      "commission": 402.19,
+      "reason": "MA5(174.13)下穿MA20(174.78) 死叉"
+    },
+    {
+      "date": "2023-03-16",
+      "code": "600036",
+      "action": "BUY",
+      "price": 44.208239999999996,
+      "shares": 5200,
+      "amount": 229951.81,
+      "commission": 68.96,
+      "reason": "MA5(43.13)上穿MA20(42.78) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-03-16",
+      "code": "000858",
+      "action": "BUY",
+      "price": 173.75682,
+      "shares": 900,
+      "amount": 156428.05,
+      "commission": 46.91,
+      "reason": "MA5(176.21)上穿MA20(175.59) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-03-21",
+      "code": "000858",
+      "action": "SELL",
+      "price": 168.56220000000002,
+      "shares": 900,
+      "amount": 151508.76,
+      "commission": 197.22,
+      "reason": "MA5(174.39)下穿MA20(175.03) 死叉"
+    },
+    {
+      "date": "2023-03-29",
+      "code": "300760",
+      "action": "SELL",
+      "price": 175.66796000000002,
+      "shares": 600,
+      "amount": 105263.75,
+      "commission": 137.02,
+      "reason": "MA5(178.14)下穿MA20(178.50) 死叉"
+    },
+    {
+      "date": "2023-04-07",
+      "code": "601318",
+      "action": "SELL",
+      "price": 42.27528,
+      "shares": 2800,
+      "amount": 118216.9,
+      "commission": 153.88,
+      "reason": "MA5(44.76)下穿MA20(45.29) 死叉"
+    },
+    {
+      "date": "2023-04-12",
+      "code": "002594",
+      "action": "SELL",
+      "price": 317.04464,
+      "shares": 400,
+      "amount": 126652.99,
+      "commission": 164.86,
+      "reason": "MA5(339.54)下穿MA20(342.31) 死叉"
+    },
+    {
+      "date": "2023-04-18",
+      "code": "300760",
+      "action": "BUY",
+      "price": 178.03536,
+      "shares": 1400,
+      "amount": 249324.28,
+      "commission": 74.77,
+      "reason": "MA5(177.47)上穿MA20(176.81) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-04-24",
+      "code": "000858",
+      "action": "BUY",
+      "price": 167.91516000000001,
+      "shares": 1100,
+      "amount": 184762.09,
+      "commission": 55.41,
+      "reason": "MA5(166.58)上穿MA20(166.56) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-04-25",
+      "code": "601318",
+      "action": "BUY",
+      "price": 46.86354,
+      "shares": 2800,
+      "amount": 131257.28,
+      "commission": 39.37,
+      "reason": "MA5(44.60)上穿MA20(44.18) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-04-27",
+      "code": "002594",
+      "action": "BUY",
+      "price": 346.4415,
+      "shares": 200,
+      "amount": 69309.09,
+      "commission": 20.79,
+      "reason": "MA5(339.33)上穿MA20(339.09) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-05-04",
+      "code": "300760",
+      "action": "SELL",
+      "price": 165.94744,
+      "shares": 1400,
+      "amount": 232024.39,
+      "commission": 302.02,
+      "reason": "MA5(177.26)下穿MA20(177.49) 死叉"
+    },
+    {
+      "date": "2023-05-10",
+      "code": "600036",
+      "action": "SELL",
+      "price": 49.061679999999996,
+      "shares": 5200,
+      "amount": 254789.08,
+      "commission": 331.66,
+      "reason": "MA5(49.80)下穿MA20(50.25) 死叉"
+    },
+    {
+      "date": "2023-05-11",
+      "code": "002594",
+      "action": "SELL",
+      "price": 321.43584,
+      "shares": 200,
+      "amount": 64203.59,
+      "commission": 83.57,
+      "reason": "MA5(331.10)下穿MA20(333.36) 死叉"
+    },
+    {
+      "date": "2023-05-12",
+      "code": "603288",
+      "action": "BUY",
+      "price": 70.46064,
+      "shares": 3400,
+      "amount": 239638.05,
+      "commission": 71.87,
+      "reason": "MA5(68.43)上穿MA20(68.24) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-05-16",
+      "code": "000858",
+      "action": "SELL",
+      "price": 166.17698,
+      "shares": 1100,
+      "amount": 182557.04,
+      "commission": 237.63,
+      "reason": "MA5(168.25)下穿MA20(170.15) 死叉"
+    },
+    {
+      "date": "2023-05-19",
+      "code": "601318",
+      "action": "SELL",
+      "price": 46.2074,
+      "shares": 2800,
+      "amount": 129212.53,
+      "commission": 168.19,
+      "reason": "MA5(45.93)下穿MA20(45.98) 死叉"
+    },
+    {
+      "date": "2023-05-19",
+      "code": "603288",
+      "action": "SELL",
+      "price": 63.90194,
+      "shares": 3400,
+      "amount": 216984.15,
+      "commission": 282.45,
+      "reason": "MA5(67.37)下穿MA20(67.46) 死叉"
+    },
+    {
+      "date": "2023-05-23",
+      "code": "600036",
+      "action": "BUY",
+      "price": 49.8996,
+      "shares": 6500,
+      "amount": 324444.7,
+      "commission": 97.3,
+      "reason": "MA5(50.67)上穿MA20(50.54) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-05-25",
+      "code": "601318",
+      "action": "BUY",
+      "price": 46.52286,
+      "shares": 4900,
+      "amount": 228030.4,
+      "commission": 68.39,
+      "reason": "MA5(46.18)上穿MA20(46.17) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-06-02",
+      "code": "600036",
+      "action": "SELL",
+      "price": 48.642520000000005,
+      "shares": 6500,
+      "amount": 315765.35,
+      "commission": 411.03,
+      "reason": "MA5(49.89)下穿MA20(50.05) 死叉"
+    },
+    {
+      "date": "2023-06-06",
+      "code": "000858",
+      "action": "BUY",
+      "price": 167.52438,
+      "shares": 1500,
+      "amount": 251361.96,
+      "commission": 75.39,
+      "reason": "MA5(165.52)上穿MA20(165.28) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-06-16",
+      "code": "002594",
+      "action": "BUY",
+      "price": 322.07286,
+      "shares": 500,
+      "amount": 161084.74,
+      "commission": 48.31,
+      "reason": "MA5(308.26)上穿MA20(305.60) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-06-16",
+      "code": "603288",
+      "action": "BUY",
+      "price": 66.01176,
+      "shares": 1900,
+      "amount": 125459.97,
+      "commission": 37.63,
+      "reason": "MA5(64.81)上穿MA20(64.40) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-06-27",
+      "code": "300760",
+      "action": "BUY",
+      "price": 162.84504,
+      "shares": 500,
+      "amount": 81446.95,
+      "commission": 24.43,
+      "reason": "MA5(162.46)上穿MA20(162.06) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-07-04",
+      "code": "601318",
+      "action": "SELL",
+      "price": 48.073660000000004,
+      "shares": 4900,
+      "amount": 235254.7,
+      "commission": 306.23,
+      "reason": "MA5(48.25)下穿MA20(48.41) 死叉"
+    },
+    {
+      "date": "2023-07-12",
+      "code": "000858",
+      "action": "SELL",
+      "price": 163.80174,
+      "shares": 1500,
+      "amount": 245383.2,
+      "commission": 319.41,
+      "reason": "MA5(170.52)下穿MA20(171.58) 死叉"
+    },
+    {
+      "date": "2023-07-20",
+      "code": "002594",
+      "action": "SELL",
+      "price": 327.16436,
+      "shares": 500,
+      "amount": 163369.52,
+      "commission": 212.66,
+      "reason": "MA5(341.32)下穿MA20(345.32) 死叉"
+    },
+    {
+      "date": "2023-07-21",
+      "code": "603288",
+      "action": "SELL",
+      "price": 67.18535999999999,
+      "shares": 1900,
+      "amount": 127486.24,
+      "commission": 165.95,
+      "reason": "MA5(66.96)下穿MA20(67.23) 死叉"
+    },
+    {
+      "date": "2023-07-25",
+      "code": "000858",
+      "action": "BUY",
+      "price": 173.92716000000001,
+      "shares": 1700,
+      "amount": 295764.87,
+      "commission": 88.7,
+      "reason": "MA5(169.78)上穿MA20(169.45) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-07-31",
+      "code": "600036",
+      "action": "BUY",
+      "price": 46.18218,
+      "shares": 4500,
+      "amount": 207882.16,
+      "commission": 62.35,
+      "reason": "MA5(44.79)上穿MA20(44.37) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-02",
+      "code": "603288",
+      "action": "BUY",
+      "price": 69.7392,
+      "shares": 2100,
+      "amount": 146496.26,
+      "commission": 43.94,
+      "reason": "MA5(67.60)上穿MA20(67.57) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-03",
+      "code": "300760",
+      "action": "SELL",
+      "price": 162.6241,
+      "shares": 500,
+      "amount": 81206.34,
+      "commission": 105.71,
+      "reason": "MA5(166.27)下穿MA20(167.43) 死叉"
+    },
+    {
+      "date": "2023-08-09",
+      "code": "300750",
+      "action": "BUY",
+      "price": 155.17974,
+      "shares": 800,
+      "amount": 124181.04,
+      "commission": 37.24,
+      "reason": "MA5(147.78)上穿MA20(146.88) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-11",
+      "code": "300760",
+      "action": "BUY",
+      "price": 167.5845,
+      "shares": 500,
+      "amount": 83817.39,
+      "commission": 25.14,
+      "reason": "MA5(168.84)上穿MA20(168.61) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-15",
+      "code": "002594",
+      "action": "BUY",
+      "price": 316.97267999999997,
+      "shares": 200,
+      "amount": 63413.55,
+      "commission": 19.02,
+      "reason": "MA5(325.08)上穿MA20(324.63) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-15",
+      "code": "000858",
+      "action": "SELL",
+      "price": 176.95538,
+      "shares": 1700,
+      "amount": 300433.07,
+      "commission": 391.07,
+      "reason": "MA5(175.59)下穿MA20(176.04) 死叉"
+    },
+    {
+      "date": "2023-08-17",
+      "code": "002594",
+      "action": "SELL",
+      "price": 316.77518000000003,
+      "shares": 200,
+      "amount": 63272.67,
+      "commission": 82.36,
+      "reason": "MA5(320.39)下穿MA20(323.44) 死叉"
+    },
+    {
+      "date": "2023-08-17",
+      "code": "300760",
+      "action": "SELL",
+      "price": 157.92352,
+      "shares": 500,
+      "amount": 78859.11,
+      "commission": 102.65,
+      "reason": "MA5(165.76)下穿MA20(167.45) 死叉"
+    },
+    {
+      "date": "2023-08-22",
+      "code": "000858",
+      "action": "BUY",
+      "price": 185.29986,
+      "shares": 900,
+      "amount": 166819.9,
+      "commission": 50.03,
+      "reason": "MA5(178.54)上穿MA20(178.23) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-23",
+      "code": "002594",
+      "action": "BUY",
+      "price": 337.21308000000005,
+      "shares": 300,
+      "amount": 101194.27,
+      "commission": 30.35,
+      "reason": "MA5(327.49)上穿MA20(324.24) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-23",
+      "code": "601318",
+      "action": "BUY",
+      "price": 42.60504,
+      "shares": 2300,
+      "amount": 98020.99,
+      "commission": 29.4,
+      "reason": "MA5(42.67)上穿MA20(42.20) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-08-24",
+      "code": "300750",
+      "action": "SELL",
+      "price": 147.88364,
+      "shares": 800,
+      "amount": 118153.11,
+      "commission": 153.8,
+      "reason": "MA5(151.15)下穿MA20(151.25) 死叉"
+    },
+    {
+      "date": "2023-08-24",
+      "code": "603288",
+      "action": "SELL",
+      "price": 66.6664,
+      "shares": 2100,
+      "amount": 139817.44,
+      "commission": 182.0,
+      "reason": "MA5(68.26)下穿MA20(68.33) 死叉"
+    },
+    {
+      "date": "2023-09-01",
+      "code": "600036",
+      "action": "SELL",
+      "price": 46.32716,
+      "shares": 4500,
+      "amount": 208201.21,
+      "commission": 271.01,
+      "reason": "MA5(47.10)下穿MA20(47.23) 死叉"
+    },
+    {
+      "date": "2023-09-05",
+      "code": "601318",
+      "action": "SELL",
+      "price": 41.916,
+      "shares": 2300,
+      "amount": 96281.47,
+      "commission": 125.33,
+      "reason": "MA5(41.99)下穿MA20(42.05) 死叉"
+    },
+    {
+      "date": "2023-09-12",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1602.55872,
+      "shares": 100,
+      "amount": 160303.95,
+      "commission": 48.08,
+      "reason": "MA5(1570.34)上穿MA20(1567.98) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-09-12",
+      "code": "601318",
+      "action": "BUY",
+      "price": 43.12608,
+      "shares": 4400,
+      "amount": 189811.68,
+      "commission": 56.93,
+      "reason": "MA5(42.76)上穿MA20(42.50) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-09-12",
+      "code": "000858",
+      "action": "SELL",
+      "price": 187.28468,
+      "shares": 900,
+      "amount": 168337.09,
+      "commission": 219.12,
+      "reason": "MA5(183.60)下穿MA20(183.64) 死叉"
+    },
+    {
+      "date": "2023-09-13",
+      "code": "603288",
+      "action": "BUY",
+      "price": 66.3324,
+      "shares": 2800,
+      "amount": 185786.44,
+      "commission": 55.72,
+      "reason": "MA5(67.85)上穿MA20(67.74) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-09-14",
+      "code": "000858",
+      "action": "BUY",
+      "price": 187.75476,
+      "shares": 600,
+      "amount": 112686.65,
+      "commission": 33.8,
+      "reason": "MA5(185.05)上穿MA20(184.55) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-09-15",
+      "code": "603288",
+      "action": "SELL",
+      "price": 65.93785999999999,
+      "shares": 2800,
+      "amount": 184385.99,
+      "commission": 240.01,
+      "reason": "MA5(67.26)下穿MA20(67.38) 死叉"
+    },
+    {
+      "date": "2023-09-22",
+      "code": "601318",
+      "action": "SELL",
+      "price": 41.25732,
+      "shares": 4400,
+      "amount": 181296.22,
+      "commission": 235.99,
+      "reason": "MA5(42.23)下穿MA20(42.54) 死叉"
+    },
+    {
+      "date": "2023-09-26",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1520.3432200000002,
+      "shares": 100,
+      "amount": 151836.68,
+      "commission": 197.64,
+      "reason": "MA5(1573.03)下穿MA20(1573.36) 死叉"
+    },
+    {
+      "date": "2023-09-26",
+      "code": "300750",
+      "action": "BUY",
+      "price": 144.67878,
+      "shares": 1700,
+      "amount": 246027.71,
+      "commission": 73.79,
+      "reason": "MA5(141.80)上穿MA20(139.84) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-09-28",
+      "code": "600036",
+      "action": "BUY",
+      "price": 47.1942,
+      "shares": 3700,
+      "amount": 174670.93,
+      "commission": 52.39,
+      "reason": "MA5(46.15)上穿MA20(45.99) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-09-28",
+      "code": "300760",
+      "action": "BUY",
+      "price": 156.40218000000002,
+      "shares": 800,
+      "amount": 125159.28,
+      "commission": 37.54,
+      "reason": "MA5(155.73)上穿MA20(155.47) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-10-09",
+      "code": "002594",
+      "action": "SELL",
+      "price": 370.04842,
+      "shares": 300,
+      "amount": 110870.21,
+      "commission": 144.32,
+      "reason": "MA5(361.80)下穿MA20(365.11) 死叉"
+    },
+    {
+      "date": "2023-10-11",
+      "code": "000858",
+      "action": "SELL",
+      "price": 189.54016,
+      "shares": 600,
+      "amount": 113576.25,
+      "commission": 147.84,
+      "reason": "MA5(188.08)下穿MA20(188.18) 死叉"
+    },
+    {
+      "date": "2023-10-12",
+      "code": "000858",
+      "action": "BUY",
+      "price": 190.82088,
+      "shares": 800,
+      "amount": 152702.5,
+      "commission": 45.8,
+      "reason": "MA5(188.62)上穿MA20(188.27) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-10-13",
+      "code": "002594",
+      "action": "BUY",
+      "price": 383.53553999999997,
+      "shares": 200,
+      "amount": 76730.12,
+      "commission": 23.01,
+      "reason": "MA5(368.31)上穿MA20(366.01) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-10-18",
+      "code": "300750",
+      "action": "SELL",
+      "price": 147.15509999999998,
+      "shares": 1700,
+      "amount": 249838.46,
+      "commission": 325.21,
+      "reason": "MA5(145.08)下穿MA20(146.59) 死叉"
+    },
+    {
+      "date": "2023-10-20",
+      "code": "000858",
+      "action": "SELL",
+      "price": 181.71584000000001,
+      "shares": 800,
+      "amount": 145183.69,
+      "commission": 188.98,
+      "reason": "MA5(187.89)下穿MA20(188.05) 死叉"
+    },
+    {
+      "date": "2023-10-24",
+      "code": "300750",
+      "action": "BUY",
+      "price": 156.53244,
+      "shares": 1300,
+      "amount": 203553.22,
+      "commission": 61.05,
+      "reason": "MA5(150.67)上穿MA20(149.21) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-10-31",
+      "code": "000858",
+      "action": "BUY",
+      "price": 186.98322000000002,
+      "shares": 700,
+      "amount": 130927.52,
+      "commission": 39.27,
+      "reason": "MA5(188.24)上穿MA20(187.75) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-11-02",
+      "code": "300750",
+      "action": "SELL",
+      "price": 146.706,
+      "shares": 1300,
+      "amount": 190469.87,
+      "commission": 247.93,
+      "reason": "MA5(148.81)下穿MA20(150.09) 死叉"
+    },
+    {
+      "date": "2023-11-02",
+      "code": "000858",
+      "action": "SELL",
+      "price": 184.37052,
+      "shares": 700,
+      "amount": 128891.59,
+      "commission": 167.78,
+      "reason": "MA5(187.01)下穿MA20(187.45) 死叉"
+    },
+    {
+      "date": "2023-11-07",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1539.46278,
+      "shares": 100,
+      "amount": 153992.46,
+      "commission": 46.18,
+      "reason": "MA5(1524.30)上穿MA20(1523.53) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-11-08",
+      "code": "600036",
+      "action": "SELL",
+      "price": 48.11358,
+      "shares": 3700,
+      "amount": 177788.82,
+      "commission": 231.43,
+      "reason": "MA5(48.88)下穿MA20(48.91) 死叉"
+    },
+    {
+      "date": "2023-11-08",
+      "code": "002594",
+      "action": "SELL",
+      "price": 358.0824,
+      "shares": 200,
+      "amount": 71523.38,
+      "commission": 93.1,
+      "reason": "MA5(377.51)下穿MA20(378.94) 死叉"
+    },
+    {
+      "date": "2023-11-08",
+      "code": "300760",
+      "action": "SELL",
+      "price": 168.85162,
+      "shares": 800,
+      "amount": 134905.69,
+      "commission": 175.61,
+      "reason": "MA5(169.63)下穿MA20(170.18) 死叉"
+    },
+    {
+      "date": "2023-11-09",
+      "code": "000858",
+      "action": "BUY",
+      "price": 190.90104000000002,
+      "shares": 1400,
+      "amount": 267341.63,
+      "commission": 80.18,
+      "reason": "MA5(187.81)上穿MA20(187.25) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-11-21",
+      "code": "601318",
+      "action": "BUY",
+      "price": 39.16818000000001,
+      "shares": 4800,
+      "amount": 188063.67,
+      "commission": 56.4,
+      "reason": "MA5(39.29)上穿MA20(39.26) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-11-22",
+      "code": "300750",
+      "action": "BUY",
+      "price": 155.0595,
+      "shares": 800,
+      "amount": 124084.81,
+      "commission": 37.21,
+      "reason": "MA5(145.66)上穿MA20(144.95) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-11-24",
+      "code": "300760",
+      "action": "BUY",
+      "price": 173.76684,
+      "shares": 500,
+      "amount": 86909.49,
+      "commission": 26.07,
+      "reason": "MA5(168.76)上穿MA20(167.87) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-11-27",
+      "code": "603288",
+      "action": "BUY",
+      "price": 58.09596,
+      "shares": 1200,
+      "amount": 69736.07,
+      "commission": 20.91,
+      "reason": "MA5(57.17)上穿MA20(57.15) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-12-05",
+      "code": "601318",
+      "action": "SELL",
+      "price": 37.11562,
+      "shares": 4800,
+      "amount": 177923.37,
+      "commission": 231.6,
+      "reason": "MA5(39.04)下穿MA20(39.10) 死叉"
+    },
+    {
+      "date": "2023-12-05",
+      "code": "000858",
+      "action": "SELL",
+      "price": 193.14294,
+      "shares": 1400,
+      "amount": 270048.6,
+      "commission": 351.52,
+      "reason": "MA5(190.37)下穿MA20(190.58) 死叉"
+    },
+    {
+      "date": "2023-12-07",
+      "code": "600036",
+      "action": "BUY",
+      "price": 47.90562,
+      "shares": 3800,
+      "amount": 182095.97,
+      "commission": 54.61,
+      "reason": "MA5(46.77)上穿MA20(46.42) 金叉 | 验证通过"
+    },
+    {
+      "date": "2023-12-13",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1534.24536,
+      "shares": 100,
+      "amount": 153225.08,
+      "commission": 199.45,
+      "reason": "MA5(1568.99)下穿MA20(1578.24) 死叉"
+    },
+    {
+      "date": "2023-12-14",
+      "code": "300760",
+      "action": "SELL",
+      "price": 162.13508000000002,
+      "shares": 500,
+      "amount": 80962.15,
+      "commission": 105.39,
+      "reason": "MA5(170.40)下穿MA20(170.88) 死叉"
+    },
+    {
+      "date": "2023-12-27",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1590.63492,
+      "shares": 100,
+      "amount": 159111.21,
+      "commission": 47.72,
+      "reason": "MA5(1572.67)上穿MA20(1572.44) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-03",
+      "code": "002594",
+      "action": "BUY",
+      "price": 274.73838,
+      "shares": 500,
+      "amount": 137410.4,
+      "commission": 41.21,
+      "reason": "MA5(281.08)上穿MA20(280.82) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-03",
+      "code": "603288",
+      "action": "SELL",
+      "price": 62.51472,
+      "shares": 1200,
+      "amount": 74920.14,
+      "commission": 97.52,
+      "reason": "MA5(64.20)下穿MA20(64.79) 死叉"
+    },
+    {
+      "date": "2024-01-05",
+      "code": "002594",
+      "action": "SELL",
+      "price": 260.7275,
+      "shares": 500,
+      "amount": 130194.28,
+      "commission": 169.47,
+      "reason": "MA5(276.30)下穿MA20(277.47) 死叉"
+    },
+    {
+      "date": "2024-01-08",
+      "code": "600036",
+      "action": "SELL",
+      "price": 49.101600000000005,
+      "shares": 3800,
+      "amount": 186343.52,
+      "commission": 242.56,
+      "reason": "MA5(49.07)下穿MA20(49.21) 死叉"
+    },
+    {
+      "date": "2024-01-10",
+      "code": "601318",
+      "action": "BUY",
+      "price": 35.8215,
+      "shares": 6300,
+      "amount": 225743.15,
+      "commission": 67.7,
+      "reason": "MA5(35.12)上穿MA20(35.02) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-11",
+      "code": "300750",
+      "action": "SELL",
+      "price": 174.9993,
+      "shares": 800,
+      "amount": 139817.44,
+      "commission": 182.0,
+      "reason": "MA5(174.93)下穿MA20(175.26) 死叉"
+    },
+    {
+      "date": "2024-01-12",
+      "code": "600036",
+      "action": "BUY",
+      "price": 51.0519,
+      "shares": 3900,
+      "amount": 199162.14,
+      "commission": 59.73,
+      "reason": "MA5(49.72)上穿MA20(49.54) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-15",
+      "code": "300750",
+      "action": "BUY",
+      "price": 188.8269,
+      "shares": 700,
+      "amount": 132218.48,
+      "commission": 39.65,
+      "reason": "MA5(175.82)上穿MA20(175.41) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-19",
+      "code": "002594",
+      "action": "BUY",
+      "price": 275.68026,
+      "shares": 300,
+      "amount": 82728.89,
+      "commission": 24.81,
+      "reason": "MA5(274.52)上穿MA20(274.01) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "000858",
+      "action": "BUY",
+      "price": 177.81492,
+      "shares": 400,
+      "amount": 71147.31,
+      "commission": 21.34,
+      "reason": "MA5(175.08)上穿MA20(173.96) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-23",
+      "code": "300760",
+      "action": "BUY",
+      "price": 153.76692,
+      "shares": 300,
+      "amount": 46143.92,
+      "commission": 13.84,
+      "reason": "MA5(155.22)上穿MA20(155.11) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-01-24",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1534.3052400000001,
+      "shares": 100,
+      "amount": 153231.06,
+      "commission": 199.46,
+      "reason": "MA5(1590.45)下穿MA20(1595.29) 死叉"
+    },
+    {
+      "date": "2024-01-25",
+      "code": "600036",
+      "action": "SELL",
+      "price": 48.01378,
+      "shares": 3900,
+      "amount": 187010.31,
+      "commission": 243.43,
+      "reason": "MA5(49.67)下穿MA20(49.83) 死叉"
+    },
+    {
+      "date": "2024-01-25",
+      "code": "300760",
+      "action": "SELL",
+      "price": 151.33671999999999,
+      "shares": 300,
+      "amount": 45341.99,
+      "commission": 59.02,
+      "reason": "MA5(154.81)下穿MA20(154.82) 死叉"
+    },
+    {
+      "date": "2024-02-13",
+      "code": "600036",
+      "action": "BUY",
+      "price": 50.17014,
+      "shares": 3100,
+      "amount": 155574.09,
+      "commission": 46.66,
+      "reason": "MA5(49.71)上穿MA20(49.57) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-02-19",
+      "code": "002594",
+      "action": "SELL",
+      "price": 279.05078000000003,
+      "shares": 300,
+      "amount": 83606.4,
+      "commission": 108.83,
+      "reason": "MA5(297.33)下穿MA20(297.76) 死叉"
+    },
+    {
+      "date": "2024-02-20",
+      "code": "300760",
+      "action": "BUY",
+      "price": 150.96132,
+      "shares": 900,
+      "amount": 135905.95,
+      "commission": 40.76,
+      "reason": "MA5(149.10)上穿MA20(148.70) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-02-28",
+      "code": "600036",
+      "action": "SELL",
+      "price": 48.26328,
+      "shares": 3100,
+      "amount": 149421.67,
+      "commission": 194.5,
+      "reason": "MA5(49.20)下穿MA20(49.56) 死叉"
+    },
+    {
+      "date": "2024-02-28",
+      "code": "601318",
+      "action": "SELL",
+      "price": 36.13758,
+      "shares": 6300,
+      "amount": 227370.79,
+      "commission": 295.97,
+      "reason": "MA5(36.69)下穿MA20(36.90) 死叉"
+    },
+    {
+      "date": "2024-02-29",
+      "code": "603288",
+      "action": "BUY",
+      "price": 59.48874,
+      "shares": 3500,
+      "amount": 208273.05,
+      "commission": 62.46,
+      "reason": "MA5(58.44)上穿MA20(58.43) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-03-01",
+      "code": "300760",
+      "action": "SELL",
+      "price": 142.62418,
+      "shares": 900,
+      "amount": 128194.89,
+      "commission": 166.87,
+      "reason": "MA5(147.63)下穿MA20(147.84) 死叉"
+    },
+    {
+      "date": "2024-03-08",
+      "code": "603288",
+      "action": "SELL",
+      "price": 56.65646,
+      "shares": 3500,
+      "amount": 198039.82,
+      "commission": 257.79,
+      "reason": "MA5(57.96)下穿MA20(57.96) 死叉"
+    },
+    {
+      "date": "2024-03-12",
+      "code": "002594",
+      "action": "BUY",
+      "price": 288.8766,
+      "shares": 800,
+      "amount": 231170.61,
+      "commission": 69.33,
+      "reason": "MA5(277.17)上穿MA20(275.73) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-03-15",
+      "code": "601318",
+      "action": "BUY",
+      "price": 36.693239999999996,
+      "shares": 4700,
+      "amount": 172509.97,
+      "commission": 51.74,
+      "reason": "MA5(36.81)上穿MA20(36.71) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-03-15",
+      "code": "000858",
+      "action": "SELL",
+      "price": 198.09302,
+      "shares": 400,
+      "amount": 79134.2,
+      "commission": 103.01,
+      "reason": "MA5(202.84)下穿MA20(202.86) 死叉"
+    },
+    {
+      "date": "2024-03-19",
+      "code": "300750",
+      "action": "SELL",
+      "price": 183.92141999999998,
+      "shares": 700,
+      "amount": 128577.63,
+      "commission": 167.37,
+      "reason": "MA5(195.15)下穿MA20(196.74) 死叉"
+    },
+    {
+      "date": "2024-03-19",
+      "code": "600036",
+      "action": "BUY",
+      "price": 49.6491,
+      "shares": 3700,
+      "amount": 183756.78,
+      "commission": 55.11,
+      "reason": "MA5(49.29)上穿MA20(49.01) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-03-27",
+      "code": "000858",
+      "action": "BUY",
+      "price": 210.6204,
+      "shares": 600,
+      "amount": 126410.15,
+      "commission": 37.91,
+      "reason": "MA5(205.31)上穿MA20(203.79) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-03-29",
+      "code": "603288",
+      "action": "BUY",
+      "price": 59.07792,
+      "shares": 1500,
+      "amount": 88643.47,
+      "commission": 26.59,
+      "reason": "MA5(57.25)上穿MA20(56.85) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-04-08",
+      "code": "601318",
+      "action": "SELL",
+      "price": 37.20544,
+      "shares": 4700,
+      "amount": 174638.24,
+      "commission": 227.33,
+      "reason": "MA5(37.04)下穿MA20(37.11) 死叉"
+    },
+    {
+      "date": "2024-04-15",
+      "code": "601318",
+      "action": "BUY",
+      "price": 38.035920000000004,
+      "shares": 3000,
+      "amount": 114141.99,
+      "commission": 34.23,
+      "reason": "MA5(37.21)上穿MA20(37.20) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-04-16",
+      "code": "002594",
+      "action": "SELL",
+      "price": 295.76728,
+      "shares": 800,
+      "amount": 236306.23,
+      "commission": 307.6,
+      "reason": "MA5(297.89)下穿MA20(301.85) 死叉"
+    },
+    {
+      "date": "2024-04-18",
+      "code": "300750",
+      "action": "BUY",
+      "price": 176.72274000000002,
+      "shares": 800,
+      "amount": 141420.61,
+      "commission": 42.41,
+      "reason": "MA5(177.18)上穿MA20(176.27) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-04-22",
+      "code": "002594",
+      "action": "BUY",
+      "price": 327.58386,
+      "shares": 300,
+      "amount": 98304.64,
+      "commission": 29.48,
+      "reason": "MA5(305.26)上穿MA20(304.62) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-04-22",
+      "code": "603288",
+      "action": "SELL",
+      "price": 55.10956,
+      "shares": 1500,
+      "amount": 82556.88,
+      "commission": 107.46,
+      "reason": "MA5(57.04)下穿MA20(57.23) 死叉"
+    },
+    {
+      "date": "2024-04-23",
+      "code": "000858",
+      "action": "SELL",
+      "price": 207.71374,
+      "shares": 600,
+      "amount": 124466.23,
+      "commission": 162.02,
+      "reason": "MA5(209.57)下穿MA20(210.44) 死叉"
+    },
+    {
+      "date": "2024-04-24",
+      "code": "300750",
+      "action": "SELL",
+      "price": 171.79572,
+      "shares": 800,
+      "amount": 137257.91,
+      "commission": 178.67,
+      "reason": "MA5(173.54)下穿MA20(173.81) 死叉"
+    },
+    {
+      "date": "2024-04-30",
+      "code": "300750",
+      "action": "BUY",
+      "price": 180.14958,
+      "shares": 1000,
+      "amount": 180203.62,
+      "commission": 54.04,
+      "reason": "MA5(176.65)上穿MA20(174.68) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-04-30",
+      "code": "603288",
+      "action": "BUY",
+      "price": 59.619,
+      "shares": 2200,
+      "amount": 131201.15,
+      "commission": 39.35,
+      "reason": "MA5(57.73)上穿MA20(57.18) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-05-02",
+      "code": "000858",
+      "action": "BUY",
+      "price": 217.70454,
+      "shares": 400,
+      "amount": 87107.94,
+      "commission": 26.12,
+      "reason": "MA5(210.69)上穿MA20(210.31) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-05-13",
+      "code": "600036",
+      "action": "SELL",
+      "price": 52.3451,
+      "shares": 3700,
+      "amount": 193425.09,
+      "commission": 251.78,
+      "reason": "MA5(52.59)下穿MA20(52.89) 死叉"
+    },
+    {
+      "date": "2024-05-14",
+      "code": "000858",
+      "action": "SELL",
+      "price": 204.45028000000002,
+      "shares": 400,
+      "amount": 81673.8,
+      "commission": 106.31,
+      "reason": "MA5(209.74)下穿MA20(210.81) 死叉"
+    },
+    {
+      "date": "2024-05-16",
+      "code": "601318",
+      "action": "SELL",
+      "price": 41.2673,
+      "shares": 3000,
+      "amount": 123640.96,
+      "commission": 160.94,
+      "reason": "MA5(40.20)下穿MA20(40.32) 死叉"
+    },
+    {
+      "date": "2024-05-20",
+      "code": "300750",
+      "action": "SELL",
+      "price": 166.45641999999998,
+      "shares": 1000,
+      "amount": 166240.03,
+      "commission": 216.39,
+      "reason": "MA5(174.85)下穿MA20(176.59) 死叉"
+    },
+    {
+      "date": "2024-05-21",
+      "code": "601318",
+      "action": "BUY",
+      "price": 41.09202,
+      "shares": 5700,
+      "amount": 234294.78,
+      "commission": 70.27,
+      "reason": "MA5(40.91)上穿MA20(40.76) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-05-23",
+      "code": "603288",
+      "action": "SELL",
+      "price": 60.6285,
+      "shares": 2200,
+      "amount": 133209.3,
+      "commission": 173.4,
+      "reason": "MA5(59.90)下穿MA20(60.18) 死叉"
+    },
+    {
+      "date": "2024-05-24",
+      "code": "300760",
+      "action": "BUY",
+      "price": 128.2059,
+      "shares": 1600,
+      "amount": 205190.98,
+      "commission": 61.54,
+      "reason": "MA5(120.56)上穿MA20(120.53) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-05-29",
+      "code": "603288",
+      "action": "BUY",
+      "price": 61.55286,
+      "shares": 2300,
+      "amount": 141614.05,
+      "commission": 42.47,
+      "reason": "MA5(61.00)上穿MA20(60.74) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-06-05",
+      "code": "603288",
+      "action": "SELL",
+      "price": 56.96584,
+      "shares": 2300,
+      "amount": 130851.1,
+      "commission": 170.33,
+      "reason": "MA5(60.40)下穿MA20(60.79) 死叉"
+    },
+    {
+      "date": "2024-06-07",
+      "code": "000858",
+      "action": "BUY",
+      "price": 206.07132,
+      "shares": 600,
+      "amount": 123679.88,
+      "commission": 37.09,
+      "reason": "MA5(201.01)上穿MA20(200.03) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-06-11",
+      "code": "300760",
+      "action": "SELL",
+      "price": 116.19714,
+      "shares": 1600,
+      "amount": 185673.73,
+      "commission": 241.69,
+      "reason": "MA5(121.43)下穿MA20(122.41) 死叉"
+    },
+    {
+      "date": "2024-06-14",
+      "code": "600036",
+      "action": "BUY",
+      "price": 52.3545,
+      "shares": 3000,
+      "amount": 157110.62,
+      "commission": 47.12,
+      "reason": "MA5(51.29)上穿MA20(51.13) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-06-24",
+      "code": "600036",
+      "action": "SELL",
+      "price": 50.2493,
+      "shares": 3000,
+      "amount": 150551.93,
+      "commission": 195.97,
+      "reason": "MA5(51.05)下穿MA20(51.09) 死叉"
+    },
+    {
+      "date": "2024-06-24",
+      "code": "002594",
+      "action": "SELL",
+      "price": 428.02224,
+      "shares": 300,
+      "amount": 128239.74,
+      "commission": 166.93,
+      "reason": "MA5(421.93)下穿MA20(425.42) 死叉"
+    },
+    {
+      "date": "2024-06-25",
+      "code": "601318",
+      "action": "SELL",
+      "price": 44.0118,
+      "shares": 5700,
+      "amount": 250541.13,
+      "commission": 326.13,
+      "reason": "MA5(43.39)下穿MA20(43.41) 死叉"
+    },
+    {
+      "date": "2024-06-26",
+      "code": "601318",
+      "action": "BUY",
+      "price": 44.51886,
+      "shares": 6000,
+      "amount": 267193.29,
+      "commission": 80.13,
+      "reason": "MA5(43.54)上穿MA20(43.51) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-06-28",
+      "code": "002594",
+      "action": "BUY",
+      "price": 423.87606,
+      "shares": 400,
+      "amount": 169601.29,
+      "commission": 50.87,
+      "reason": "MA5(431.01)上穿MA20(428.22) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-06-28",
+      "code": "603288",
+      "action": "BUY",
+      "price": 60.07992,
+      "shares": 2300,
+      "amount": 138225.27,
+      "commission": 41.46,
+      "reason": "MA5(59.49)上穿MA20(59.13) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-07-02",
+      "code": "002594",
+      "action": "SELL",
+      "price": 409.11014,
+      "shares": 400,
+      "amount": 163431.32,
+      "commission": 212.74,
+      "reason": "MA5(427.55)下穿MA20(428.83) 死叉"
+    },
+    {
+      "date": "2024-07-02",
+      "code": "300760",
+      "action": "BUY",
+      "price": 124.96944,
+      "shares": 1100,
+      "amount": 137507.62,
+      "commission": 41.24,
+      "reason": "MA5(119.49)上穿MA20(119.15) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-07-11",
+      "code": "603288",
+      "action": "SELL",
+      "price": 58.30316,
+      "shares": 2300,
+      "amount": 133922.94,
+      "commission": 174.33,
+      "reason": "MA5(59.28)下穿MA20(59.44) 死叉"
+    },
+    {
+      "date": "2024-07-12",
+      "code": "600036",
+      "action": "BUY",
+      "price": 51.07194,
+      "shares": 2800,
+      "amount": 143044.33,
+      "commission": 42.9,
+      "reason": "MA5(50.04)上穿MA20(49.97) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-07-15",
+      "code": "300750",
+      "action": "BUY",
+      "price": 146.22186000000002,
+      "shares": 700,
+      "amount": 102386.01,
+      "commission": 30.71,
+      "reason": "MA5(144.45)上穿MA20(144.34) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-07-16",
+      "code": "002594",
+      "action": "BUY",
+      "price": 455.62944000000005,
+      "shares": 100,
+      "amount": 45576.61,
+      "commission": 13.67,
+      "reason": "MA5(427.94)上穿MA20(424.52) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-07-23",
+      "code": "601318",
+      "action": "SELL",
+      "price": 44.610600000000005,
+      "shares": 6000,
+      "amount": 267315.64,
+      "commission": 347.96,
+      "reason": "MA5(46.60)下穿MA20(46.65) 死叉"
+    },
+    {
+      "date": "2024-07-25",
+      "code": "300760",
+      "action": "SELL",
+      "price": 119.09134,
+      "shares": 1100,
+      "amount": 130830.17,
+      "commission": 170.3,
+      "reason": "MA5(122.17)下穿MA20(122.97) 死叉"
+    },
+    {
+      "date": "2024-07-26",
+      "code": "000858",
+      "action": "SELL",
+      "price": 224.06098,
+      "shares": 600,
+      "amount": 134261.82,
+      "commission": 174.77,
+      "reason": "MA5(220.44)下穿MA20(220.52) 死叉"
+    },
+    {
+      "date": "2024-07-29",
+      "code": "000858",
+      "action": "BUY",
+      "price": 225.22956,
+      "shares": 900,
+      "amount": 202767.42,
+      "commission": 60.81,
+      "reason": "MA5(221.60)上穿MA20(220.76) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-01",
+      "code": "603288",
+      "action": "BUY",
+      "price": 58.50678,
+      "shares": 2700,
+      "amount": 158015.7,
+      "commission": 47.39,
+      "reason": "MA5(57.94)上穿MA20(57.82) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "601318",
+      "action": "BUY",
+      "price": 46.91364,
+      "shares": 2300,
+      "amount": 107933.74,
+      "commission": 32.37,
+      "reason": "MA5(47.00)上穿MA20(46.83) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-08",
+      "code": "601318",
+      "action": "SELL",
+      "price": 45.927960000000006,
+      "shares": 2300,
+      "amount": 105496.98,
+      "commission": 137.32,
+      "reason": "MA5(46.15)下穿MA20(46.47) 死叉"
+    },
+    {
+      "date": "2024-08-14",
+      "code": "002594",
+      "action": "SELL",
+      "price": 485.25754,
+      "shares": 100,
+      "amount": 48462.67,
+      "commission": 63.08,
+      "reason": "MA5(487.57)下穿MA20(487.91) 死叉"
+    },
+    {
+      "date": "2024-08-14",
+      "code": "601318",
+      "action": "BUY",
+      "price": 45.78138,
+      "shares": 2700,
+      "amount": 123646.81,
+      "commission": 37.08,
+      "reason": "MA5(46.61)上穿MA20(46.30) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-14",
+      "code": "603288",
+      "action": "SELL",
+      "price": 57.49478,
+      "shares": 2700,
+      "amount": 155034.1,
+      "commission": 201.81,
+      "reason": "MA5(57.02)下穿MA20(57.17) 死叉"
+    },
+    {
+      "date": "2024-08-15",
+      "code": "002594",
+      "action": "BUY",
+      "price": 481.39086000000003,
+      "shares": 200,
+      "amount": 96307.06,
+      "commission": 28.88,
+      "reason": "MA5(489.06)上穿MA20(488.78) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-15",
+      "code": "000858",
+      "action": "SELL",
+      "price": 217.07497999999998,
+      "shares": 900,
+      "amount": 195113.5,
+      "commission": 253.98,
+      "reason": "MA5(222.53)下穿MA20(224.26) 死叉"
+    },
+    {
+      "date": "2024-08-16",
+      "code": "002594",
+      "action": "SELL",
+      "price": 497.17366000000004,
+      "shares": 200,
+      "amount": 99305.47,
+      "commission": 129.27,
+      "reason": "MA5(487.04)下穿MA20(488.48) 死叉"
+    },
+    {
+      "date": "2024-08-21",
+      "code": "600036",
+      "action": "SELL",
+      "price": 53.263259999999995,
+      "shares": 2800,
+      "amount": 148943.25,
+      "commission": 193.88,
+      "reason": "MA5(54.08)下穿MA20(54.53) 死叉"
+    },
+    {
+      "date": "2024-08-21",
+      "code": "002594",
+      "action": "BUY",
+      "price": 495.46896000000004,
+      "shares": 400,
+      "amount": 198247.04,
+      "commission": 59.46,
+      "reason": "MA5(491.30)上穿MA20(490.63) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-21",
+      "code": "601318",
+      "action": "SELL",
+      "price": 46.27726,
+      "shares": 2700,
+      "amount": 124786.17,
+      "commission": 162.43,
+      "reason": "MA5(46.24)下穿MA20(46.35) 死叉"
+    },
+    {
+      "date": "2024-08-23",
+      "code": "601318",
+      "action": "BUY",
+      "price": 47.30442,
+      "shares": 4500,
+      "amount": 212933.75,
+      "commission": 63.86,
+      "reason": "MA5(46.56)上穿MA20(46.51) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-08-27",
+      "code": "300760",
+      "action": "BUY",
+      "price": 115.88130000000001,
+      "shares": 1300,
+      "amount": 150690.88,
+      "commission": 45.19,
+      "reason": "MA5(113.93)上穿MA20(113.83) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-09-02",
+      "code": "002594",
+      "action": "SELL",
+      "price": 466.38536,
+      "shares": 400,
+      "amount": 186311.62,
+      "commission": 242.52,
+      "reason": "MA5(486.56)下穿MA20(489.25) 死叉"
+    },
+    {
+      "date": "2024-09-12",
+      "code": "002594",
+      "action": "BUY",
+      "price": 502.99398,
+      "shares": 300,
+      "amount": 150943.46,
+      "commission": 45.27,
+      "reason": "MA5(490.33)上穿MA20(487.14) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-09-12",
+      "code": "603288",
+      "action": "BUY",
+      "price": 59.2182,
+      "shares": 1900,
+      "amount": 112548.33,
+      "commission": 33.75,
+      "reason": "MA5(56.76)上穿MA20(56.61) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-09-13",
+      "code": "000858",
+      "action": "BUY",
+      "price": 219.86886,
+      "shares": 300,
+      "amount": 65980.45,
+      "commission": 19.79,
+      "reason": "MA5(216.18)上穿MA20(215.50) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-09-16",
+      "code": "601318",
+      "action": "SELL",
+      "price": 46.9559,
+      "shares": 4500,
+      "amount": 211026.86,
+      "commission": 274.69,
+      "reason": "MA5(47.57)下穿MA20(48.21) 死叉"
+    },
+    {
+      "date": "2024-09-16",
+      "code": "300760",
+      "action": "SELL",
+      "price": 110.49856,
+      "shares": 1300,
+      "amount": 143461.39,
+      "commission": 186.74,
+      "reason": "MA5(115.51)下穿MA20(115.84) 死叉"
+    },
+    {
+      "date": "2024-09-23",
+      "code": "002594",
+      "action": "SELL",
+      "price": 461.26562,
+      "shares": 300,
+      "amount": 138199.79,
+      "commission": 179.89,
+      "reason": "MA5(478.91)下穿MA20(484.32) 死叉"
+    },
+    {
+      "date": "2024-09-30",
+      "code": "601318",
+      "action": "BUY",
+      "price": 49.26834,
+      "shares": 4200,
+      "amount": 206989.11,
+      "commission": 62.08,
+      "reason": "MA5(48.91)上穿MA20(48.60) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-09-30",
+      "code": "300760",
+      "action": "BUY",
+      "price": 119.52858,
+      "shares": 1200,
+      "amount": 143477.33,
+      "commission": 43.03,
+      "reason": "MA5(116.21)上穿MA20(115.90) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-10-01",
+      "code": "600036",
+      "action": "BUY",
+      "price": 50.53086,
+      "shares": 2100,
+      "amount": 106146.64,
+      "commission": 31.83,
+      "reason": "MA5(48.77)上穿MA20(48.58) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-10-04",
+      "code": "601318",
+      "action": "SELL",
+      "price": 47.52476,
+      "shares": 4200,
+      "amount": 199344.51,
+      "commission": 259.49,
+      "reason": "MA5(48.23)下穿MA20(48.26) 死叉"
+    },
+    {
+      "date": "2024-10-08",
+      "code": "002594",
+      "action": "BUY",
+      "price": 500.20842,
+      "shares": 200,
+      "amount": 100071.7,
+      "commission": 30.01,
+      "reason": "MA5(485.91)上穿MA20(483.87) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-10-09",
+      "code": "300750",
+      "action": "SELL",
+      "price": 187.69386,
+      "shares": 700,
+      "amount": 131214.9,
+      "commission": 170.8,
+      "reason": "MA5(195.86)下穿MA20(196.67) 死叉"
+    },
+    {
+      "date": "2024-10-14",
+      "code": "601318",
+      "action": "BUY",
+      "price": 51.33246,
+      "shares": 2800,
+      "amount": 143774.01,
+      "commission": 43.12,
+      "reason": "MA5(48.33)上穿MA20(48.08) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-10-17",
+      "code": "000858",
+      "action": "SELL",
+      "price": 224.31047999999998,
+      "shares": 300,
+      "amount": 67205.66,
+      "commission": 87.48,
+      "reason": "MA5(225.92)下穿MA20(226.47) 死叉"
+    },
+    {
+      "date": "2024-10-21",
+      "code": "600036",
+      "action": "SELL",
+      "price": 49.61058,
+      "shares": 2100,
+      "amount": 104046.78,
+      "commission": 135.44,
+      "reason": "MA5(49.26)下穿MA20(49.33) 死叉"
+    },
+    {
+      "date": "2024-10-24",
+      "code": "600036",
+      "action": "BUY",
+      "price": 50.11002,
+      "shares": 3000,
+      "amount": 150375.16,
+      "commission": 45.1,
+      "reason": "MA5(49.67)上穿MA20(49.62) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-10-29",
+      "code": "603288",
+      "action": "SELL",
+      "price": 62.80414,
+      "shares": 1900,
+      "amount": 119172.74,
+      "commission": 155.13,
+      "reason": "MA5(64.38)下穿MA20(64.47) 死叉"
+    },
+    {
+      "date": "2024-11-01",
+      "code": "000858",
+      "action": "BUY",
+      "price": 226.78266000000002,
+      "shares": 600,
+      "amount": 136110.42,
+      "commission": 40.82,
+      "reason": "MA5(225.66)上穿MA20(224.86) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-06",
+      "code": "002594",
+      "action": "SELL",
+      "price": 558.52072,
+      "shares": 200,
+      "amount": 111558.93,
+      "commission": 145.22,
+      "reason": "MA5(565.21)下穿MA20(567.77) 死叉"
+    },
+    {
+      "date": "2024-11-07",
+      "code": "600036",
+      "action": "SELL",
+      "price": 49.62056,
+      "shares": 3000,
+      "amount": 148668.16,
+      "commission": 193.52,
+      "reason": "MA5(49.58)下穿MA20(49.69) 死叉"
+    },
+    {
+      "date": "2024-11-07",
+      "code": "300760",
+      "action": "SELL",
+      "price": 126.43661999999999,
+      "shares": 1200,
+      "amount": 151526.7,
+      "commission": 197.24,
+      "reason": "MA5(122.87)下穿MA20(123.30) 死叉"
+    },
+    {
+      "date": "2024-11-08",
+      "code": "300750",
+      "action": "BUY",
+      "price": 179.76882,
+      "shares": 1200,
+      "amount": 215787.3,
+      "commission": 64.72,
+      "reason": "MA5(186.08)上穿MA20(184.44) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-08",
+      "code": "000858",
+      "action": "SELL",
+      "price": 224.68972,
+      "shares": 600,
+      "amount": 134638.57,
+      "commission": 175.26,
+      "reason": "MA5(223.25)下穿MA20(223.32) 死叉"
+    },
+    {
+      "date": "2024-11-08",
+      "code": "300760",
+      "action": "BUY",
+      "price": 128.18586000000002,
+      "shares": 1500,
+      "amount": 192336.47,
+      "commission": 57.68,
+      "reason": "MA5(123.57)上穿MA20(123.45) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-11",
+      "code": "603288",
+      "action": "BUY",
+      "price": 66.10194,
+      "shares": 2100,
+      "amount": 138855.72,
+      "commission": 41.64,
+      "reason": "MA5(64.74)上穿MA20(64.37) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-13",
+      "code": "600036",
+      "action": "BUY",
+      "price": 50.31042,
+      "shares": 2000,
+      "amount": 100651.03,
+      "commission": 30.19,
+      "reason": "MA5(49.98)上穿MA20(49.82) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-13",
+      "code": "000858",
+      "action": "BUY",
+      "price": 227.43395999999998,
+      "shares": 300,
+      "amount": 68250.66,
+      "commission": 20.47,
+      "reason": "MA5(224.50)上穿MA20(223.37) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-14",
+      "code": "300750",
+      "action": "SELL",
+      "price": 175.17894,
+      "shares": 1200,
+      "amount": 209941.45,
+      "commission": 273.28,
+      "reason": "MA5(182.51)下穿MA20(183.17) 死叉"
+    },
+    {
+      "date": "2024-11-19",
+      "code": "603288",
+      "action": "SELL",
+      "price": 60.40894,
+      "shares": 2100,
+      "amount": 126693.86,
+      "commission": 164.92,
+      "reason": "MA5(63.44)下穿MA20(63.93) 死叉"
+    },
+    {
+      "date": "2024-11-20",
+      "code": "300750",
+      "action": "BUY",
+      "price": 192.01326,
+      "shares": 700,
+      "amount": 134449.6,
+      "commission": 40.32,
+      "reason": "MA5(184.66)上穿MA20(183.72) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-11-28",
+      "code": "601318",
+      "action": "SELL",
+      "price": 56.1375,
+      "shares": 2800,
+      "amount": 156980.66,
+      "commission": 204.34,
+      "reason": "MA5(54.89)下穿MA20(55.32) 死叉"
+    },
+    {
+      "date": "2024-12-04",
+      "code": "601318",
+      "action": "BUY",
+      "price": 56.88354,
+      "shares": 2700,
+      "amount": 153631.63,
+      "commission": 46.08,
+      "reason": "MA5(55.99)上穿MA20(55.95) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-12-05",
+      "code": "002594",
+      "action": "BUY",
+      "price": 533.2644,
+      "shares": 200,
+      "amount": 106684.88,
+      "commission": 32.0,
+      "reason": "MA5(522.49)上穿MA20(522.02) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-12-09",
+      "code": "603288",
+      "action": "BUY",
+      "price": 61.933620000000005,
+      "shares": 1300,
+      "amount": 80537.86,
+      "commission": 24.15,
+      "reason": "MA5(62.81)上穿MA20(62.36) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-12-10",
+      "code": "300760",
+      "action": "SELL",
+      "price": 129.26096,
+      "shares": 1500,
+      "amount": 193639.38,
+      "commission": 252.06,
+      "reason": "MA5(130.64)下穿MA20(131.14) 死叉"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "300750",
+      "action": "SELL",
+      "price": 196.09702000000001,
+      "shares": 700,
+      "amount": 137089.47,
+      "commission": 178.45,
+      "reason": "MA5(194.77)下穿MA20(194.93) 死叉"
+    },
+    {
+      "date": "2024-12-17",
+      "code": "300750",
+      "action": "BUY",
+      "price": 197.7948,
+      "shares": 700,
+      "amount": 138497.9,
+      "commission": 41.54,
+      "reason": "MA5(195.64)上穿MA20(195.37) 金叉 | 验证通过"
+    },
+    {
+      "date": "2024-12-19",
+      "code": "600036",
+      "action": "SELL",
+      "price": 51.347100000000005,
+      "shares": 2000,
+      "amount": 102560.7,
+      "commission": 133.5,
+      "reason": "MA5(51.26)下穿MA20(51.40) 死叉"
+    },
+    {
+      "date": "2024-12-20",
+      "code": "300750",
+      "action": "SELL",
+      "price": 180.139,
+      "shares": 700,
+      "amount": 125933.37,
+      "commission": 163.93,
+      "reason": "MA5(194.24)下穿MA20(195.57) 死叉"
+    },
+    {
+      "date": "2024-12-20",
+      "code": "002594",
+      "action": "SELL",
+      "price": 507.3333,
+      "shares": 200,
+      "amount": 101334.75,
+      "commission": 131.91,
+      "reason": "MA5(512.56)下穿MA20(517.87) 死叉"
+    },
+    {
+      "date": "2024-12-27",
+      "code": "601318",
+      "action": "SELL",
+      "price": 57.444880000000005,
+      "shares": 2700,
+      "amount": 154899.54,
+      "commission": 201.63,
+      "reason": "MA5(57.67)下穿MA20(57.71) 死叉"
+    }
+  ],
+  "daily_equity": [
+    {
+      "date": "2022-01-04",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-05",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-06",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-07",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-10",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-11",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-12",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-13",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-14",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-17",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-18",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-19",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-20",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-21",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-24",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-25",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-26",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-27",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-28",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-01-31",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-01",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-02",
+      "total_value": 1000000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2022-02-03",
+      "total_value": 996405.91,
+      "cumulative_return": -0.003594
+    },
+    {
+      "date": "2022-02-04",
+      "total_value": 984915.05,
+      "cumulative_return": -0.015085
+    },
+    {
+      "date": "2022-02-08",
+      "total_value": 988779.05,
+      "cumulative_return": -0.011221
+    },
+    {
+      "date": "2022-02-09",
+      "total_value": 1003244.05,
+      "cumulative_return": 0.003244
+    },
+    {
+      "date": "2022-02-10",
+      "total_value": 1001196.05,
+      "cumulative_return": 0.001196
+    },
+    {
+      "date": "2022-02-11",
+      "total_value": 1023654.05,
+      "cumulative_return": 0.023654
+    },
+    {
+      "date": "2022-02-14",
+      "total_value": 1034359.05,
+      "cumulative_return": 0.034359
+    },
+    {
+      "date": "2022-02-15",
+      "total_value": 1040104.5,
+      "cumulative_return": 0.040105
+    },
+    {
+      "date": "2022-02-16",
+      "total_value": 1030837.5,
+      "cumulative_return": 0.030838
+    },
+    {
+      "date": "2022-02-17",
+      "total_value": 1022243.5,
+      "cumulative_return": 0.022243
+    },
+    {
+      "date": "2022-02-18",
+      "total_value": 1031767.5,
+      "cumulative_return": 0.031767
+    },
+    {
+      "date": "2022-02-21",
+      "total_value": 1045100.5,
+      "cumulative_return": 0.045101
+    },
+    {
+      "date": "2022-02-22",
+      "total_value": 1051144.5,
+      "cumulative_return": 0.051145
+    },
+    {
+      "date": "2022-02-23",
+      "total_value": 1052689.5,
+      "cumulative_return": 0.05269
+    },
+    {
+      "date": "2022-02-24",
+      "total_value": 1059587.5,
+      "cumulative_return": 0.059588
+    },
+    {
+      "date": "2022-02-25",
+      "total_value": 1039022.5,
+      "cumulative_return": 0.039023
+    },
+    {
+      "date": "2022-02-28",
+      "total_value": 1045831.09,
+      "cumulative_return": 0.045831
+    },
+    {
+      "date": "2022-03-01",
+      "total_value": 1064683.33,
+      "cumulative_return": 0.064683
+    },
+    {
+      "date": "2022-03-02",
+      "total_value": 1067635.76,
+      "cumulative_return": 0.067636
+    },
+    {
+      "date": "2022-03-03",
+      "total_value": 1072452.76,
+      "cumulative_return": 0.072453
+    },
+    {
+      "date": "2022-03-04",
+      "total_value": 1080460.76,
+      "cumulative_return": 0.080461
+    },
+    {
+      "date": "2022-03-07",
+      "total_value": 1078772.76,
+      "cumulative_return": 0.078773
+    },
+    {
+      "date": "2022-03-08",
+      "total_value": 1067883.76,
+      "cumulative_return": 0.067884
+    },
+    {
+      "date": "2022-03-09",
+      "total_value": 1068270.2,
+      "cumulative_return": 0.06827
+    },
+    {
+      "date": "2022-03-10",
+      "total_value": 1070714.2,
+      "cumulative_return": 0.070714
+    },
+    {
+      "date": "2022-03-11",
+      "total_value": 1064304.31,
+      "cumulative_return": 0.064304
+    },
+    {
+      "date": "2022-03-14",
+      "total_value": 1056623.07,
+      "cumulative_return": 0.056623
+    },
+    {
+      "date": "2022-03-15",
+      "total_value": 1057084.87,
+      "cumulative_return": 0.057085
+    },
+    {
+      "date": "2022-03-16",
+      "total_value": 1073535.87,
+      "cumulative_return": 0.073536
+    },
+    {
+      "date": "2022-03-17",
+      "total_value": 1087297.87,
+      "cumulative_return": 0.087298
+    },
+    {
+      "date": "2022-03-18",
+      "total_value": 1083981.87,
+      "cumulative_return": 0.083982
+    },
+    {
+      "date": "2022-03-21",
+      "total_value": 1079096.33,
+      "cumulative_return": 0.079096
+    },
+    {
+      "date": "2022-03-22",
+      "total_value": 1079419.33,
+      "cumulative_return": 0.079419
+    },
+    {
+      "date": "2022-03-23",
+      "total_value": 1069423.72,
+      "cumulative_return": 0.069424
+    },
+    {
+      "date": "2022-03-24",
+      "total_value": 1070815.72,
+      "cumulative_return": 0.070816
+    },
+    {
+      "date": "2022-03-25",
+      "total_value": 1091959.72,
+      "cumulative_return": 0.09196
+    },
+    {
+      "date": "2022-03-28",
+      "total_value": 1102785.4,
+      "cumulative_return": 0.102785
+    },
+    {
+      "date": "2022-03-29",
+      "total_value": 1124598.91,
+      "cumulative_return": 0.124599
+    },
+    {
+      "date": "2022-03-30",
+      "total_value": 1119509.24,
+      "cumulative_return": 0.119509
+    },
+    {
+      "date": "2022-03-31",
+      "total_value": 1133334.24,
+      "cumulative_return": 0.133334
+    },
+    {
+      "date": "2022-04-01",
+      "total_value": 1130833.24,
+      "cumulative_return": 0.130833
+    },
+    {
+      "date": "2022-04-04",
+      "total_value": 1139478.24,
+      "cumulative_return": 0.139478
+    },
+    {
+      "date": "2022-04-06",
+      "total_value": 1141439.24,
+      "cumulative_return": 0.141439
+    },
+    {
+      "date": "2022-04-07",
+      "total_value": 1134377.24,
+      "cumulative_return": 0.134377
+    },
+    {
+      "date": "2022-04-08",
+      "total_value": 1160774.24,
+      "cumulative_return": 0.160774
+    },
+    {
+      "date": "2022-04-11",
+      "total_value": 1162126.24,
+      "cumulative_return": 0.162126
+    },
+    {
+      "date": "2022-04-12",
+      "total_value": 1173872.24,
+      "cumulative_return": 0.173872
+    },
+    {
+      "date": "2022-04-13",
+      "total_value": 1181407.24,
+      "cumulative_return": 0.181407
+    },
+    {
+      "date": "2022-04-14",
+      "total_value": 1181813.24,
+      "cumulative_return": 0.181813
+    },
+    {
+      "date": "2022-04-15",
+      "total_value": 1185358.24,
+      "cumulative_return": 0.185358
+    },
+    {
+      "date": "2022-04-18",
+      "total_value": 1177148.0,
+      "cumulative_return": 0.177148
+    },
+    {
+      "date": "2022-04-19",
+      "total_value": 1197940.0,
+      "cumulative_return": 0.19794
+    },
+    {
+      "date": "2022-04-20",
+      "total_value": 1196715.0,
+      "cumulative_return": 0.196715
+    },
+    {
+      "date": "2022-04-21",
+      "total_value": 1192727.0,
+      "cumulative_return": 0.192727
+    },
+    {
+      "date": "2022-04-22",
+      "total_value": 1185278.4,
+      "cumulative_return": 0.185278
+    },
+    {
+      "date": "2022-04-25",
+      "total_value": 1184996.4,
+      "cumulative_return": 0.184996
+    },
+    {
+      "date": "2022-04-26",
+      "total_value": 1186303.4,
+      "cumulative_return": 0.186303
+    },
+    {
+      "date": "2022-04-27",
+      "total_value": 1173316.4,
+      "cumulative_return": 0.173316
+    },
+    {
+      "date": "2022-04-28",
+      "total_value": 1192887.4,
+      "cumulative_return": 0.192887
+    },
+    {
+      "date": "2022-04-29",
+      "total_value": 1205600.4,
+      "cumulative_return": 0.2056
+    },
+    {
+      "date": "2022-05-02",
+      "total_value": 1213693.4,
+      "cumulative_return": 0.213693
+    },
+    {
+      "date": "2022-05-03",
+      "total_value": 1230875.4,
+      "cumulative_return": 0.230875
+    },
+    {
+      "date": "2022-05-05",
+      "total_value": 1219926.83,
+      "cumulative_return": 0.219927
+    },
+    {
+      "date": "2022-05-06",
+      "total_value": 1237880.14,
+      "cumulative_return": 0.23788
+    },
+    {
+      "date": "2022-05-09",
+      "total_value": 1219961.14,
+      "cumulative_return": 0.219961
+    },
+    {
+      "date": "2022-05-10",
+      "total_value": 1209947.31,
+      "cumulative_return": 0.209947
+    },
+    {
+      "date": "2022-05-11",
+      "total_value": 1212826.31,
+      "cumulative_return": 0.212826
+    },
+    {
+      "date": "2022-05-12",
+      "total_value": 1241235.31,
+      "cumulative_return": 0.241235
+    },
+    {
+      "date": "2022-05-13",
+      "total_value": 1246751.68,
+      "cumulative_return": 0.246752
+    },
+    {
+      "date": "2022-05-16",
+      "total_value": 1263199.68,
+      "cumulative_return": 0.2632
+    },
+    {
+      "date": "2022-05-17",
+      "total_value": 1261412.68,
+      "cumulative_return": 0.261413
+    },
+    {
+      "date": "2022-05-18",
+      "total_value": 1278583.68,
+      "cumulative_return": 0.278584
+    },
+    {
+      "date": "2022-05-19",
+      "total_value": 1272160.33,
+      "cumulative_return": 0.27216
+    },
+    {
+      "date": "2022-05-20",
+      "total_value": 1272022.16,
+      "cumulative_return": 0.272022
+    },
+    {
+      "date": "2022-05-23",
+      "total_value": 1266809.16,
+      "cumulative_return": 0.266809
+    },
+    {
+      "date": "2022-05-24",
+      "total_value": 1255624.21,
+      "cumulative_return": 0.255624
+    },
+    {
+      "date": "2022-05-25",
+      "total_value": 1245445.76,
+      "cumulative_return": 0.245446
+    },
+    {
+      "date": "2022-05-26",
+      "total_value": 1250766.6,
+      "cumulative_return": 0.250767
+    },
+    {
+      "date": "2022-05-27",
+      "total_value": 1229686.62,
+      "cumulative_return": 0.229687
+    },
+    {
+      "date": "2022-05-30",
+      "total_value": 1190061.62,
+      "cumulative_return": 0.190062
+    },
+    {
+      "date": "2022-05-31",
+      "total_value": 1209231.98,
+      "cumulative_return": 0.209232
+    },
+    {
+      "date": "2022-06-01",
+      "total_value": 1217561.98,
+      "cumulative_return": 0.217562
+    },
+    {
+      "date": "2022-06-02",
+      "total_value": 1238974.98,
+      "cumulative_return": 0.238975
+    },
+    {
+      "date": "2022-06-06",
+      "total_value": 1235506.58,
+      "cumulative_return": 0.235507
+    },
+    {
+      "date": "2022-06-07",
+      "total_value": 1234319.58,
+      "cumulative_return": 0.23432
+    },
+    {
+      "date": "2022-06-08",
+      "total_value": 1231641.84,
+      "cumulative_return": 0.231642
+    },
+    {
+      "date": "2022-06-09",
+      "total_value": 1227320.84,
+      "cumulative_return": 0.227321
+    },
+    {
+      "date": "2022-06-10",
+      "total_value": 1222701.84,
+      "cumulative_return": 0.222702
+    },
+    {
+      "date": "2022-06-13",
+      "total_value": 1233105.81,
+      "cumulative_return": 0.233106
+    },
+    {
+      "date": "2022-06-14",
+      "total_value": 1233042.36,
+      "cumulative_return": 0.233042
+    },
+    {
+      "date": "2022-06-15",
+      "total_value": 1235534.94,
+      "cumulative_return": 0.235535
+    },
+    {
+      "date": "2022-06-16",
+      "total_value": 1231995.69,
+      "cumulative_return": 0.231996
+    },
+    {
+      "date": "2022-06-17",
+      "total_value": 1220480.69,
+      "cumulative_return": 0.220481
+    },
+    {
+      "date": "2022-06-20",
+      "total_value": 1212474.17,
+      "cumulative_return": 0.212474
+    },
+    {
+      "date": "2022-06-21",
+      "total_value": 1212392.32,
+      "cumulative_return": 0.212392
+    },
+    {
+      "date": "2022-06-22",
+      "total_value": 1215640.32,
+      "cumulative_return": 0.21564
+    },
+    {
+      "date": "2022-06-23",
+      "total_value": 1214418.32,
+      "cumulative_return": 0.214418
+    },
+    {
+      "date": "2022-06-24",
+      "total_value": 1216902.32,
+      "cumulative_return": 0.216902
+    },
+    {
+      "date": "2022-06-27",
+      "total_value": 1218435.17,
+      "cumulative_return": 0.218435
+    },
+    {
+      "date": "2022-06-28",
+      "total_value": 1220899.17,
+      "cumulative_return": 0.220899
+    },
+    {
+      "date": "2022-06-29",
+      "total_value": 1229553.17,
+      "cumulative_return": 0.229553
+    },
+    {
+      "date": "2022-06-30",
+      "total_value": 1229045.17,
+      "cumulative_return": 0.229045
+    },
+    {
+      "date": "2022-07-01",
+      "total_value": 1214449.17,
+      "cumulative_return": 0.214449
+    },
+    {
+      "date": "2022-07-04",
+      "total_value": 1210223.17,
+      "cumulative_return": 0.210223
+    },
+    {
+      "date": "2022-07-05",
+      "total_value": 1201341.17,
+      "cumulative_return": 0.201341
+    },
+    {
+      "date": "2022-07-06",
+      "total_value": 1208537.17,
+      "cumulative_return": 0.208537
+    },
+    {
+      "date": "2022-07-07",
+      "total_value": 1210072.8,
+      "cumulative_return": 0.210073
+    },
+    {
+      "date": "2022-07-08",
+      "total_value": 1206628.22,
+      "cumulative_return": 0.206628
+    },
+    {
+      "date": "2022-07-11",
+      "total_value": 1210146.22,
+      "cumulative_return": 0.210146
+    },
+    {
+      "date": "2022-07-12",
+      "total_value": 1205010.22,
+      "cumulative_return": 0.20501
+    },
+    {
+      "date": "2022-07-13",
+      "total_value": 1207507.22,
+      "cumulative_return": 0.207507
+    },
+    {
+      "date": "2022-07-14",
+      "total_value": 1208680.22,
+      "cumulative_return": 0.20868
+    },
+    {
+      "date": "2022-07-15",
+      "total_value": 1211514.32,
+      "cumulative_return": 0.211514
+    },
+    {
+      "date": "2022-07-18",
+      "total_value": 1210710.02,
+      "cumulative_return": 0.21071
+    },
+    {
+      "date": "2022-07-19",
+      "total_value": 1211715.35,
+      "cumulative_return": 0.211715
+    },
+    {
+      "date": "2022-07-20",
+      "total_value": 1207824.97,
+      "cumulative_return": 0.207825
+    },
+    {
+      "date": "2022-07-21",
+      "total_value": 1215299.97,
+      "cumulative_return": 0.2153
+    },
+    {
+      "date": "2022-07-22",
+      "total_value": 1202794.97,
+      "cumulative_return": 0.202795
+    },
+    {
+      "date": "2022-07-25",
+      "total_value": 1205520.97,
+      "cumulative_return": 0.205521
+    },
+    {
+      "date": "2022-07-26",
+      "total_value": 1196015.97,
+      "cumulative_return": 0.196016
+    },
+    {
+      "date": "2022-07-27",
+      "total_value": 1206356.96,
+      "cumulative_return": 0.206357
+    },
+    {
+      "date": "2022-07-28",
+      "total_value": 1205188.96,
+      "cumulative_return": 0.205189
+    },
+    {
+      "date": "2022-07-29",
+      "total_value": 1209677.37,
+      "cumulative_return": 0.209677
+    },
+    {
+      "date": "2022-08-01",
+      "total_value": 1214105.37,
+      "cumulative_return": 0.214105
+    },
+    {
+      "date": "2022-08-02",
+      "total_value": 1219274.37,
+      "cumulative_return": 0.219274
+    },
+    {
+      "date": "2022-08-03",
+      "total_value": 1219895.37,
+      "cumulative_return": 0.219895
+    },
+    {
+      "date": "2022-08-04",
+      "total_value": 1219191.37,
+      "cumulative_return": 0.219191
+    },
+    {
+      "date": "2022-08-05",
+      "total_value": 1216276.37,
+      "cumulative_return": 0.216276
+    },
+    {
+      "date": "2022-08-08",
+      "total_value": 1217170.37,
+      "cumulative_return": 0.21717
+    },
+    {
+      "date": "2022-08-09",
+      "total_value": 1201070.37,
+      "cumulative_return": 0.20107
+    },
+    {
+      "date": "2022-08-10",
+      "total_value": 1204272.42,
+      "cumulative_return": 0.204272
+    },
+    {
+      "date": "2022-08-11",
+      "total_value": 1210432.75,
+      "cumulative_return": 0.210433
+    },
+    {
+      "date": "2022-08-12",
+      "total_value": 1214045.75,
+      "cumulative_return": 0.214046
+    },
+    {
+      "date": "2022-08-15",
+      "total_value": 1214179.12,
+      "cumulative_return": 0.214179
+    },
+    {
+      "date": "2022-08-16",
+      "total_value": 1219566.12,
+      "cumulative_return": 0.219566
+    },
+    {
+      "date": "2022-08-17",
+      "total_value": 1218547.12,
+      "cumulative_return": 0.218547
+    },
+    {
+      "date": "2022-08-18",
+      "total_value": 1224026.42,
+      "cumulative_return": 0.224026
+    },
+    {
+      "date": "2022-08-19",
+      "total_value": 1225743.42,
+      "cumulative_return": 0.225743
+    },
+    {
+      "date": "2022-08-22",
+      "total_value": 1234651.42,
+      "cumulative_return": 0.234651
+    },
+    {
+      "date": "2022-08-23",
+      "total_value": 1248487.42,
+      "cumulative_return": 0.248487
+    },
+    {
+      "date": "2022-08-24",
+      "total_value": 1252276.42,
+      "cumulative_return": 0.252276
+    },
+    {
+      "date": "2022-08-25",
+      "total_value": 1249298.42,
+      "cumulative_return": 0.249298
+    },
+    {
+      "date": "2022-08-26",
+      "total_value": 1245951.42,
+      "cumulative_return": 0.245951
+    },
+    {
+      "date": "2022-08-29",
+      "total_value": 1246485.95,
+      "cumulative_return": 0.246486
+    },
+    {
+      "date": "2022-08-30",
+      "total_value": 1244985.95,
+      "cumulative_return": 0.244986
+    },
+    {
+      "date": "2022-08-31",
+      "total_value": 1243003.95,
+      "cumulative_return": 0.243004
+    },
+    {
+      "date": "2022-09-01",
+      "total_value": 1241230.95,
+      "cumulative_return": 0.241231
+    },
+    {
+      "date": "2022-09-02",
+      "total_value": 1233226.02,
+      "cumulative_return": 0.233226
+    },
+    {
+      "date": "2022-09-05",
+      "total_value": 1232360.0,
+      "cumulative_return": 0.23236
+    },
+    {
+      "date": "2022-09-06",
+      "total_value": 1245028.67,
+      "cumulative_return": 0.245029
+    },
+    {
+      "date": "2022-09-07",
+      "total_value": 1237967.67,
+      "cumulative_return": 0.237968
+    },
+    {
+      "date": "2022-09-08",
+      "total_value": 1239499.67,
+      "cumulative_return": 0.2395
+    },
+    {
+      "date": "2022-09-09",
+      "total_value": 1237150.69,
+      "cumulative_return": 0.237151
+    },
+    {
+      "date": "2022-09-13",
+      "total_value": 1231340.69,
+      "cumulative_return": 0.231341
+    },
+    {
+      "date": "2022-09-14",
+      "total_value": 1225278.12,
+      "cumulative_return": 0.225278
+    },
+    {
+      "date": "2022-09-15",
+      "total_value": 1214490.18,
+      "cumulative_return": 0.21449
+    },
+    {
+      "date": "2022-09-16",
+      "total_value": 1222284.18,
+      "cumulative_return": 0.222284
+    },
+    {
+      "date": "2022-09-19",
+      "total_value": 1223554.51,
+      "cumulative_return": 0.223555
+    },
+    {
+      "date": "2022-09-20",
+      "total_value": 1217859.51,
+      "cumulative_return": 0.21786
+    },
+    {
+      "date": "2022-09-21",
+      "total_value": 1221448.51,
+      "cumulative_return": 0.221449
+    },
+    {
+      "date": "2022-09-22",
+      "total_value": 1222368.51,
+      "cumulative_return": 0.222369
+    },
+    {
+      "date": "2022-09-23",
+      "total_value": 1222575.51,
+      "cumulative_return": 0.222576
+    },
+    {
+      "date": "2022-09-26",
+      "total_value": 1213121.51,
+      "cumulative_return": 0.213122
+    },
+    {
+      "date": "2022-09-27",
+      "total_value": 1206253.92,
+      "cumulative_return": 0.206254
+    },
+    {
+      "date": "2022-09-28",
+      "total_value": 1201453.99,
+      "cumulative_return": 0.201454
+    },
+    {
+      "date": "2022-09-29",
+      "total_value": 1197885.79,
+      "cumulative_return": 0.197886
+    },
+    {
+      "date": "2022-09-30",
+      "total_value": 1203222.79,
+      "cumulative_return": 0.203223
+    },
+    {
+      "date": "2022-10-03",
+      "total_value": 1203991.47,
+      "cumulative_return": 0.203991
+    },
+    {
+      "date": "2022-10-04",
+      "total_value": 1205226.47,
+      "cumulative_return": 0.205226
+    },
+    {
+      "date": "2022-10-05",
+      "total_value": 1208187.87,
+      "cumulative_return": 0.208188
+    },
+    {
+      "date": "2022-10-06",
+      "total_value": 1214574.87,
+      "cumulative_return": 0.214575
+    },
+    {
+      "date": "2022-10-10",
+      "total_value": 1219308.87,
+      "cumulative_return": 0.219309
+    },
+    {
+      "date": "2022-10-11",
+      "total_value": 1215735.01,
+      "cumulative_return": 0.215735
+    },
+    {
+      "date": "2022-10-12",
+      "total_value": 1213886.57,
+      "cumulative_return": 0.213887
+    },
+    {
+      "date": "2022-10-13",
+      "total_value": 1220707.4,
+      "cumulative_return": 0.220707
+    },
+    {
+      "date": "2022-10-14",
+      "total_value": 1226609.4,
+      "cumulative_return": 0.226609
+    },
+    {
+      "date": "2022-10-17",
+      "total_value": 1224174.4,
+      "cumulative_return": 0.224174
+    },
+    {
+      "date": "2022-10-18",
+      "total_value": 1228203.4,
+      "cumulative_return": 0.228203
+    },
+    {
+      "date": "2022-10-19",
+      "total_value": 1242424.4,
+      "cumulative_return": 0.242424
+    },
+    {
+      "date": "2022-10-20",
+      "total_value": 1252800.4,
+      "cumulative_return": 0.2528
+    },
+    {
+      "date": "2022-10-21",
+      "total_value": 1245451.4,
+      "cumulative_return": 0.245451
+    },
+    {
+      "date": "2022-10-24",
+      "total_value": 1247180.63,
+      "cumulative_return": 0.247181
+    },
+    {
+      "date": "2022-10-25",
+      "total_value": 1252078.3,
+      "cumulative_return": 0.252078
+    },
+    {
+      "date": "2022-10-26",
+      "total_value": 1270091.3,
+      "cumulative_return": 0.270091
+    },
+    {
+      "date": "2022-10-27",
+      "total_value": 1267830.3,
+      "cumulative_return": 0.26783
+    },
+    {
+      "date": "2022-10-28",
+      "total_value": 1263203.3,
+      "cumulative_return": 0.263203
+    },
+    {
+      "date": "2022-10-31",
+      "total_value": 1270195.3,
+      "cumulative_return": 0.270195
+    },
+    {
+      "date": "2022-11-01",
+      "total_value": 1265333.3,
+      "cumulative_return": 0.265333
+    },
+    {
+      "date": "2022-11-02",
+      "total_value": 1255880.3,
+      "cumulative_return": 0.25588
+    },
+    {
+      "date": "2022-11-03",
+      "total_value": 1238870.23,
+      "cumulative_return": 0.23887
+    },
+    {
+      "date": "2022-11-04",
+      "total_value": 1242875.23,
+      "cumulative_return": 0.242875
+    },
+    {
+      "date": "2022-11-07",
+      "total_value": 1232103.79,
+      "cumulative_return": 0.232104
+    },
+    {
+      "date": "2022-11-08",
+      "total_value": 1234552.79,
+      "cumulative_return": 0.234553
+    },
+    {
+      "date": "2022-11-09",
+      "total_value": 1231068.85,
+      "cumulative_return": 0.231069
+    },
+    {
+      "date": "2022-11-10",
+      "total_value": 1235409.85,
+      "cumulative_return": 0.23541
+    },
+    {
+      "date": "2022-11-11",
+      "total_value": 1233863.85,
+      "cumulative_return": 0.233864
+    },
+    {
+      "date": "2022-11-14",
+      "total_value": 1230205.85,
+      "cumulative_return": 0.230206
+    },
+    {
+      "date": "2022-11-15",
+      "total_value": 1228604.85,
+      "cumulative_return": 0.228605
+    },
+    {
+      "date": "2022-11-16",
+      "total_value": 1229226.71,
+      "cumulative_return": 0.229227
+    },
+    {
+      "date": "2022-11-17",
+      "total_value": 1226778.71,
+      "cumulative_return": 0.226779
+    },
+    {
+      "date": "2022-11-18",
+      "total_value": 1229489.35,
+      "cumulative_return": 0.229489
+    },
+    {
+      "date": "2022-11-21",
+      "total_value": 1231593.68,
+      "cumulative_return": 0.231594
+    },
+    {
+      "date": "2022-11-22",
+      "total_value": 1230616.05,
+      "cumulative_return": 0.230616
+    },
+    {
+      "date": "2022-11-23",
+      "total_value": 1232439.05,
+      "cumulative_return": 0.232439
+    },
+    {
+      "date": "2022-11-24",
+      "total_value": 1219942.05,
+      "cumulative_return": 0.219942
+    },
+    {
+      "date": "2022-11-25",
+      "total_value": 1215877.05,
+      "cumulative_return": 0.215877
+    },
+    {
+      "date": "2022-11-28",
+      "total_value": 1219472.05,
+      "cumulative_return": 0.219472
+    },
+    {
+      "date": "2022-11-29",
+      "total_value": 1223188.76,
+      "cumulative_return": 0.223189
+    },
+    {
+      "date": "2022-11-30",
+      "total_value": 1214645.76,
+      "cumulative_return": 0.214646
+    },
+    {
+      "date": "2022-12-01",
+      "total_value": 1212295.15,
+      "cumulative_return": 0.212295
+    },
+    {
+      "date": "2022-12-02",
+      "total_value": 1215055.15,
+      "cumulative_return": 0.215055
+    },
+    {
+      "date": "2022-12-05",
+      "total_value": 1208887.15,
+      "cumulative_return": 0.208887
+    },
+    {
+      "date": "2022-12-06",
+      "total_value": 1212983.15,
+      "cumulative_return": 0.212983
+    },
+    {
+      "date": "2022-12-07",
+      "total_value": 1208809.05,
+      "cumulative_return": 0.208809
+    },
+    {
+      "date": "2022-12-08",
+      "total_value": 1208991.05,
+      "cumulative_return": 0.208991
+    },
+    {
+      "date": "2022-12-09",
+      "total_value": 1216700.65,
+      "cumulative_return": 0.216701
+    },
+    {
+      "date": "2022-12-12",
+      "total_value": 1215139.65,
+      "cumulative_return": 0.21514
+    },
+    {
+      "date": "2022-12-13",
+      "total_value": 1216980.65,
+      "cumulative_return": 0.216981
+    },
+    {
+      "date": "2022-12-14",
+      "total_value": 1218705.59,
+      "cumulative_return": 0.218706
+    },
+    {
+      "date": "2022-12-15",
+      "total_value": 1217412.59,
+      "cumulative_return": 0.217413
+    },
+    {
+      "date": "2022-12-16",
+      "total_value": 1196550.23,
+      "cumulative_return": 0.19655
+    },
+    {
+      "date": "2022-12-19",
+      "total_value": 1192531.8,
+      "cumulative_return": 0.192532
+    },
+    {
+      "date": "2022-12-20",
+      "total_value": 1192136.8,
+      "cumulative_return": 0.192137
+    },
+    {
+      "date": "2022-12-21",
+      "total_value": 1184858.8,
+      "cumulative_return": 0.184859
+    },
+    {
+      "date": "2022-12-22",
+      "total_value": 1177330.8,
+      "cumulative_return": 0.177331
+    },
+    {
+      "date": "2022-12-23",
+      "total_value": 1170372.77,
+      "cumulative_return": 0.170373
+    },
+    {
+      "date": "2022-12-26",
+      "total_value": 1168263.77,
+      "cumulative_return": 0.168264
+    },
+    {
+      "date": "2022-12-27",
+      "total_value": 1170830.77,
+      "cumulative_return": 0.170831
+    },
+    {
+      "date": "2022-12-28",
+      "total_value": 1172923.41,
+      "cumulative_return": 0.172923
+    },
+    {
+      "date": "2022-12-29",
+      "total_value": 1171488.67,
+      "cumulative_return": 0.171489
+    },
+    {
+      "date": "2022-12-30",
+      "total_value": 1165905.67,
+      "cumulative_return": 0.165906
+    },
+    {
+      "date": "2023-01-02",
+      "total_value": 1157212.67,
+      "cumulative_return": 0.157213
+    },
+    {
+      "date": "2023-01-03",
+      "total_value": 1159084.67,
+      "cumulative_return": 0.159085
+    },
+    {
+      "date": "2023-01-04",
+      "total_value": 1146902.67,
+      "cumulative_return": 0.146903
+    },
+    {
+      "date": "2023-01-05",
+      "total_value": 1147454.67,
+      "cumulative_return": 0.147455
+    },
+    {
+      "date": "2023-01-06",
+      "total_value": 1140399.02,
+      "cumulative_return": 0.140399
+    },
+    {
+      "date": "2023-01-09",
+      "total_value": 1144557.02,
+      "cumulative_return": 0.144557
+    },
+    {
+      "date": "2023-01-10",
+      "total_value": 1147082.1,
+      "cumulative_return": 0.147082
+    },
+    {
+      "date": "2023-01-11",
+      "total_value": 1145294.1,
+      "cumulative_return": 0.145294
+    },
+    {
+      "date": "2023-01-12",
+      "total_value": 1149158.1,
+      "cumulative_return": 0.149158
+    },
+    {
+      "date": "2023-01-13",
+      "total_value": 1146168.17,
+      "cumulative_return": 0.146168
+    },
+    {
+      "date": "2023-01-16",
+      "total_value": 1141503.17,
+      "cumulative_return": 0.141503
+    },
+    {
+      "date": "2023-01-17",
+      "total_value": 1144878.17,
+      "cumulative_return": 0.144878
+    },
+    {
+      "date": "2023-01-18",
+      "total_value": 1144878.17,
+      "cumulative_return": 0.144878
+    },
+    {
+      "date": "2023-01-19",
+      "total_value": 1147668.17,
+      "cumulative_return": 0.147668
+    },
+    {
+      "date": "2023-01-20",
+      "total_value": 1151061.81,
+      "cumulative_return": 0.151062
+    },
+    {
+      "date": "2023-01-23",
+      "total_value": 1160478.81,
+      "cumulative_return": 0.160479
+    },
+    {
+      "date": "2023-01-24",
+      "total_value": 1159011.81,
+      "cumulative_return": 0.159012
+    },
+    {
+      "date": "2023-01-25",
+      "total_value": 1148101.36,
+      "cumulative_return": 0.148101
+    },
+    {
+      "date": "2023-01-26",
+      "total_value": 1144920.36,
+      "cumulative_return": 0.14492
+    },
+    {
+      "date": "2023-01-30",
+      "total_value": 1152851.36,
+      "cumulative_return": 0.152851
+    },
+    {
+      "date": "2023-01-31",
+      "total_value": 1150871.36,
+      "cumulative_return": 0.150871
+    },
+    {
+      "date": "2023-02-01",
+      "total_value": 1142747.35,
+      "cumulative_return": 0.142747
+    },
+    {
+      "date": "2023-02-02",
+      "total_value": 1144651.35,
+      "cumulative_return": 0.144651
+    },
+    {
+      "date": "2023-02-03",
+      "total_value": 1136266.35,
+      "cumulative_return": 0.136266
+    },
+    {
+      "date": "2023-02-06",
+      "total_value": 1120591.44,
+      "cumulative_return": 0.120591
+    },
+    {
+      "date": "2023-02-07",
+      "total_value": 1132995.06,
+      "cumulative_return": 0.132995
+    },
+    {
+      "date": "2023-02-08",
+      "total_value": 1127573.54,
+      "cumulative_return": 0.127574
+    },
+    {
+      "date": "2023-02-09",
+      "total_value": 1127550.95,
+      "cumulative_return": 0.127551
+    },
+    {
+      "date": "2023-02-10",
+      "total_value": 1128444.95,
+      "cumulative_return": 0.128445
+    },
+    {
+      "date": "2023-02-13",
+      "total_value": 1125645.97,
+      "cumulative_return": 0.125646
+    },
+    {
+      "date": "2023-02-14",
+      "total_value": 1130592.97,
+      "cumulative_return": 0.130593
+    },
+    {
+      "date": "2023-02-15",
+      "total_value": 1139331.97,
+      "cumulative_return": 0.139332
+    },
+    {
+      "date": "2023-02-16",
+      "total_value": 1139251.19,
+      "cumulative_return": 0.139251
+    },
+    {
+      "date": "2023-02-17",
+      "total_value": 1137203.19,
+      "cumulative_return": 0.137203
+    },
+    {
+      "date": "2023-02-20",
+      "total_value": 1133634.19,
+      "cumulative_return": 0.133634
+    },
+    {
+      "date": "2023-02-21",
+      "total_value": 1132986.34,
+      "cumulative_return": 0.132986
+    },
+    {
+      "date": "2023-02-22",
+      "total_value": 1133497.34,
+      "cumulative_return": 0.133497
+    },
+    {
+      "date": "2023-02-23",
+      "total_value": 1126838.34,
+      "cumulative_return": 0.126838
+    },
+    {
+      "date": "2023-02-24",
+      "total_value": 1118154.02,
+      "cumulative_return": 0.118154
+    },
+    {
+      "date": "2023-02-27",
+      "total_value": 1123372.02,
+      "cumulative_return": 0.123372
+    },
+    {
+      "date": "2023-02-28",
+      "total_value": 1123284.24,
+      "cumulative_return": 0.123284
+    },
+    {
+      "date": "2023-03-01",
+      "total_value": 1122917.24,
+      "cumulative_return": 0.122917
+    },
+    {
+      "date": "2023-03-02",
+      "total_value": 1127517.24,
+      "cumulative_return": 0.127517
+    },
+    {
+      "date": "2023-03-03",
+      "total_value": 1127600.21,
+      "cumulative_return": 0.1276
+    },
+    {
+      "date": "2023-03-06",
+      "total_value": 1131446.21,
+      "cumulative_return": 0.131446
+    },
+    {
+      "date": "2023-03-07",
+      "total_value": 1122522.55,
+      "cumulative_return": 0.122523
+    },
+    {
+      "date": "2023-03-08",
+      "total_value": 1109053.55,
+      "cumulative_return": 0.109054
+    },
+    {
+      "date": "2023-03-09",
+      "total_value": 1128823.55,
+      "cumulative_return": 0.128824
+    },
+    {
+      "date": "2023-03-10",
+      "total_value": 1133035.6,
+      "cumulative_return": 0.133036
+    },
+    {
+      "date": "2023-03-13",
+      "total_value": 1138325.42,
+      "cumulative_return": 0.138325
+    },
+    {
+      "date": "2023-03-14",
+      "total_value": 1134823.42,
+      "cumulative_return": 0.134823
+    },
+    {
+      "date": "2023-03-15",
+      "total_value": 1135407.42,
+      "cumulative_return": 0.135407
+    },
+    {
+      "date": "2023-03-16",
+      "total_value": 1137135.42,
+      "cumulative_return": 0.137135
+    },
+    {
+      "date": "2023-03-17",
+      "total_value": 1139398.56,
+      "cumulative_return": 0.139399
+    },
+    {
+      "date": "2023-03-20",
+      "total_value": 1138998.56,
+      "cumulative_return": 0.138999
+    },
+    {
+      "date": "2023-03-21",
+      "total_value": 1136690.56,
+      "cumulative_return": 0.136691
+    },
+    {
+      "date": "2023-03-22",
+      "total_value": 1132932.32,
+      "cumulative_return": 0.132932
+    },
+    {
+      "date": "2023-03-23",
+      "total_value": 1135114.32,
+      "cumulative_return": 0.135114
+    },
+    {
+      "date": "2023-03-24",
+      "total_value": 1143342.32,
+      "cumulative_return": 0.143342
+    },
+    {
+      "date": "2023-03-27",
+      "total_value": 1145900.32,
+      "cumulative_return": 0.1459
+    },
+    {
+      "date": "2023-03-28",
+      "total_value": 1150654.32,
+      "cumulative_return": 0.150654
+    },
+    {
+      "date": "2023-03-29",
+      "total_value": 1153734.32,
+      "cumulative_return": 0.153734
+    },
+    {
+      "date": "2023-03-30",
+      "total_value": 1159116.07,
+      "cumulative_return": 0.159116
+    },
+    {
+      "date": "2023-03-31",
+      "total_value": 1153220.07,
+      "cumulative_return": 0.15322
+    },
+    {
+      "date": "2023-04-03",
+      "total_value": 1152444.07,
+      "cumulative_return": 0.152444
+    },
+    {
+      "date": "2023-04-04",
+      "total_value": 1151528.07,
+      "cumulative_return": 0.151528
+    },
+    {
+      "date": "2023-04-06",
+      "total_value": 1147080.07,
+      "cumulative_return": 0.14708
+    },
+    {
+      "date": "2023-04-07",
+      "total_value": 1140536.07,
+      "cumulative_return": 0.140536
+    },
+    {
+      "date": "2023-04-10",
+      "total_value": 1139468.97,
+      "cumulative_return": 0.139469
+    },
+    {
+      "date": "2023-04-11",
+      "total_value": 1138112.97,
+      "cumulative_return": 0.138113
+    },
+    {
+      "date": "2023-04-12",
+      "total_value": 1139232.97,
+      "cumulative_return": 0.139233
+    },
+    {
+      "date": "2023-04-13",
+      "total_value": 1132345.96,
+      "cumulative_return": 0.132346
+    },
+    {
+      "date": "2023-04-14",
+      "total_value": 1135673.96,
+      "cumulative_return": 0.135674
+    },
+    {
+      "date": "2023-04-17",
+      "total_value": 1141601.96,
+      "cumulative_return": 0.141602
+    },
+    {
+      "date": "2023-04-18",
+      "total_value": 1140717.96,
+      "cumulative_return": 0.140718
+    },
+    {
+      "date": "2023-04-19",
+      "total_value": 1143587.68,
+      "cumulative_return": 0.143588
+    },
+    {
+      "date": "2023-04-20",
+      "total_value": 1140109.68,
+      "cumulative_return": 0.14011
+    },
+    {
+      "date": "2023-04-21",
+      "total_value": 1150899.68,
+      "cumulative_return": 0.1509
+    },
+    {
+      "date": "2023-04-24",
+      "total_value": 1158773.68,
+      "cumulative_return": 0.158774
+    },
+    {
+      "date": "2023-04-25",
+      "total_value": 1156923.59,
+      "cumulative_return": 0.156924
+    },
+    {
+      "date": "2023-04-26",
+      "total_value": 1160155.31,
+      "cumulative_return": 0.160155
+    },
+    {
+      "date": "2023-04-27",
+      "total_value": 1157154.31,
+      "cumulative_return": 0.157154
+    },
+    {
+      "date": "2023-04-28",
+      "total_value": 1153980.22,
+      "cumulative_return": 0.15398
+    },
+    {
+      "date": "2023-05-01",
+      "total_value": 1151241.22,
+      "cumulative_return": 0.151241
+    },
+    {
+      "date": "2023-05-02",
+      "total_value": 1143565.22,
+      "cumulative_return": 0.143565
+    },
+    {
+      "date": "2023-05-04",
+      "total_value": 1143645.22,
+      "cumulative_return": 0.143645
+    },
+    {
+      "date": "2023-05-05",
+      "total_value": 1134207.61,
+      "cumulative_return": 0.134208
+    },
+    {
+      "date": "2023-05-08",
+      "total_value": 1131603.61,
+      "cumulative_return": 0.131604
+    },
+    {
+      "date": "2023-05-09",
+      "total_value": 1122093.61,
+      "cumulative_return": 0.122094
+    },
+    {
+      "date": "2023-05-10",
+      "total_value": 1116520.61,
+      "cumulative_return": 0.116521
+    },
+    {
+      "date": "2023-05-11",
+      "total_value": 1117127.69,
+      "cumulative_return": 0.117128
+    },
+    {
+      "date": "2023-05-12",
+      "total_value": 1113252.28,
+      "cumulative_return": 0.113252
+    },
+    {
+      "date": "2023-05-15",
+      "total_value": 1108650.23,
+      "cumulative_return": 0.10865
+    },
+    {
+      "date": "2023-05-16",
+      "total_value": 1099484.23,
+      "cumulative_return": 0.099484
+    },
+    {
+      "date": "2023-05-17",
+      "total_value": 1100945.27,
+      "cumulative_return": 0.100945
+    },
+    {
+      "date": "2023-05-18",
+      "total_value": 1095035.27,
+      "cumulative_return": 0.095035
+    },
+    {
+      "date": "2023-05-19",
+      "total_value": 1091065.27,
+      "cumulative_return": 0.091065
+    },
+    {
+      "date": "2023-05-22",
+      "total_value": 1088277.95,
+      "cumulative_return": 0.088278
+    },
+    {
+      "date": "2023-05-23",
+      "total_value": 1088277.95,
+      "cumulative_return": 0.088278
+    },
+    {
+      "date": "2023-05-24",
+      "total_value": 1086753.25,
+      "cumulative_return": 0.086753
+    },
+    {
+      "date": "2023-05-25",
+      "total_value": 1092538.25,
+      "cumulative_return": 0.092538
+    },
+    {
+      "date": "2023-05-26",
+      "total_value": 1092246.85,
+      "cumulative_return": 0.092247
+    },
+    {
+      "date": "2023-05-29",
+      "total_value": 1092573.85,
+      "cumulative_return": 0.092574
+    },
+    {
+      "date": "2023-05-30",
+      "total_value": 1095346.85,
+      "cumulative_return": 0.095347
+    },
+    {
+      "date": "2023-05-31",
+      "total_value": 1095187.85,
+      "cumulative_return": 0.095188
+    },
+    {
+      "date": "2023-06-01",
+      "total_value": 1088342.85,
+      "cumulative_return": 0.088343
+    },
+    {
+      "date": "2023-06-02",
+      "total_value": 1083884.85,
+      "cumulative_return": 0.083885
+    },
+    {
+      "date": "2023-06-05",
+      "total_value": 1080937.2,
+      "cumulative_return": 0.080937
+    },
+    {
+      "date": "2023-06-06",
+      "total_value": 1081721.2,
+      "cumulative_return": 0.081721
+    },
+    {
+      "date": "2023-06-07",
+      "total_value": 1079676.24,
+      "cumulative_return": 0.079676
+    },
+    {
+      "date": "2023-06-08",
+      "total_value": 1080604.24,
+      "cumulative_return": 0.080604
+    },
+    {
+      "date": "2023-06-09",
+      "total_value": 1085273.24,
+      "cumulative_return": 0.085273
+    },
+    {
+      "date": "2023-06-12",
+      "total_value": 1090212.24,
+      "cumulative_return": 0.090212
+    },
+    {
+      "date": "2023-06-13",
+      "total_value": 1098180.24,
+      "cumulative_return": 0.09818
+    },
+    {
+      "date": "2023-06-14",
+      "total_value": 1097362.24,
+      "cumulative_return": 0.097362
+    },
+    {
+      "date": "2023-06-15",
+      "total_value": 1095884.24,
+      "cumulative_return": 0.095884
+    },
+    {
+      "date": "2023-06-16",
+      "total_value": 1102243.24,
+      "cumulative_return": 0.102243
+    },
+    {
+      "date": "2023-06-19",
+      "total_value": 1096578.53,
+      "cumulative_return": 0.096579
+    },
+    {
+      "date": "2023-06-20",
+      "total_value": 1104642.53,
+      "cumulative_return": 0.104643
+    },
+    {
+      "date": "2023-06-21",
+      "total_value": 1106540.53,
+      "cumulative_return": 0.106541
+    },
+    {
+      "date": "2023-06-23",
+      "total_value": 1109940.53,
+      "cumulative_return": 0.109941
+    },
+    {
+      "date": "2023-06-26",
+      "total_value": 1102294.53,
+      "cumulative_return": 0.102295
+    },
+    {
+      "date": "2023-06-27",
+      "total_value": 1107940.53,
+      "cumulative_return": 0.107941
+    },
+    {
+      "date": "2023-06-28",
+      "total_value": 1105686.58,
+      "cumulative_return": 0.105687
+    },
+    {
+      "date": "2023-06-29",
+      "total_value": 1101629.58,
+      "cumulative_return": 0.10163
+    },
+    {
+      "date": "2023-06-30",
+      "total_value": 1097292.58,
+      "cumulative_return": 0.097293
+    },
+    {
+      "date": "2023-07-03",
+      "total_value": 1110413.58,
+      "cumulative_return": 0.110414
+    },
+    {
+      "date": "2023-07-04",
+      "total_value": 1106384.58,
+      "cumulative_return": 0.106385
+    },
+    {
+      "date": "2023-07-05",
+      "total_value": 1113272.28,
+      "cumulative_return": 0.113272
+    },
+    {
+      "date": "2023-07-06",
+      "total_value": 1120342.28,
+      "cumulative_return": 0.120342
+    },
+    {
+      "date": "2023-07-07",
+      "total_value": 1113169.28,
+      "cumulative_return": 0.113169
+    },
+    {
+      "date": "2023-07-10",
+      "total_value": 1105027.28,
+      "cumulative_return": 0.105027
+    },
+    {
+      "date": "2023-07-11",
+      "total_value": 1109339.28,
+      "cumulative_return": 0.109339
+    },
+    {
+      "date": "2023-07-12",
+      "total_value": 1105785.28,
+      "cumulative_return": 0.105785
+    },
+    {
+      "date": "2023-07-13",
+      "total_value": 1105879.48,
+      "cumulative_return": 0.105879
+    },
+    {
+      "date": "2023-07-14",
+      "total_value": 1107973.48,
+      "cumulative_return": 0.107973
+    },
+    {
+      "date": "2023-07-17",
+      "total_value": 1099134.48,
+      "cumulative_return": 0.099134
+    },
+    {
+      "date": "2023-07-18",
+      "total_value": 1100971.48,
+      "cumulative_return": 0.100971
+    },
+    {
+      "date": "2023-07-19",
+      "total_value": 1088443.48,
+      "cumulative_return": 0.088443
+    },
+    {
+      "date": "2023-07-20",
+      "total_value": 1086514.48,
+      "cumulative_return": 0.086514
+    },
+    {
+      "date": "2023-07-21",
+      "total_value": 1085076.0,
+      "cumulative_return": 0.085076
+    },
+    {
+      "date": "2023-07-24",
+      "total_value": 1088408.24,
+      "cumulative_return": 0.088408
+    },
+    {
+      "date": "2023-07-25",
+      "total_value": 1089383.24,
+      "cumulative_return": 0.089383
+    },
+    {
+      "date": "2023-07-26",
+      "total_value": 1091064.37,
+      "cumulative_return": 0.091064
+    },
+    {
+      "date": "2023-07-27",
+      "total_value": 1097284.37,
+      "cumulative_return": 0.097284
+    },
+    {
+      "date": "2023-07-28",
+      "total_value": 1098745.37,
+      "cumulative_return": 0.098745
+    },
+    {
+      "date": "2023-07-31",
+      "total_value": 1100041.37,
+      "cumulative_return": 0.100041
+    },
+    {
+      "date": "2023-08-01",
+      "total_value": 1102166.21,
+      "cumulative_return": 0.102166
+    },
+    {
+      "date": "2023-08-02",
+      "total_value": 1103488.21,
+      "cumulative_return": 0.103488
+    },
+    {
+      "date": "2023-08-03",
+      "total_value": 1101021.95,
+      "cumulative_return": 0.101022
+    },
+    {
+      "date": "2023-08-04",
+      "total_value": 1092008.29,
+      "cumulative_return": 0.092008
+    },
+    {
+      "date": "2023-08-07",
+      "total_value": 1090693.29,
+      "cumulative_return": 0.090693
+    },
+    {
+      "date": "2023-08-08",
+      "total_value": 1091802.29,
+      "cumulative_return": 0.091802
+    },
+    {
+      "date": "2023-08-09",
+      "total_value": 1091639.29,
+      "cumulative_return": 0.091639
+    },
+    {
+      "date": "2023-08-10",
+      "total_value": 1090721.25,
+      "cumulative_return": 0.090721
+    },
+    {
+      "date": "2023-08-11",
+      "total_value": 1091117.25,
+      "cumulative_return": 0.091117
+    },
+    {
+      "date": "2023-08-14",
+      "total_value": 1094687.86,
+      "cumulative_return": 0.094688
+    },
+    {
+      "date": "2023-08-15",
+      "total_value": 1091873.86,
+      "cumulative_return": 0.091874
+    },
+    {
+      "date": "2023-08-16",
+      "total_value": 1087515.38,
+      "cumulative_return": 0.087515
+    },
+    {
+      "date": "2023-08-17",
+      "total_value": 1092797.38,
+      "cumulative_return": 0.092797
+    },
+    {
+      "date": "2023-08-18",
+      "total_value": 1090770.16,
+      "cumulative_return": 0.09077
+    },
+    {
+      "date": "2023-08-21",
+      "total_value": 1088796.16,
+      "cumulative_return": 0.088796
+    },
+    {
+      "date": "2023-08-22",
+      "total_value": 1084947.16,
+      "cumulative_return": 0.084947
+    },
+    {
+      "date": "2023-08-23",
+      "total_value": 1086099.26,
+      "cumulative_return": 0.086099
+    },
+    {
+      "date": "2023-08-24",
+      "total_value": 1077888.0,
+      "cumulative_return": 0.077888
+    },
+    {
+      "date": "2023-08-25",
+      "total_value": 1075310.55,
+      "cumulative_return": 0.075311
+    },
+    {
+      "date": "2023-08-28",
+      "total_value": 1074688.55,
+      "cumulative_return": 0.074689
+    },
+    {
+      "date": "2023-08-29",
+      "total_value": 1075332.55,
+      "cumulative_return": 0.075333
+    },
+    {
+      "date": "2023-08-30",
+      "total_value": 1075390.55,
+      "cumulative_return": 0.075391
+    },
+    {
+      "date": "2023-08-31",
+      "total_value": 1077617.55,
+      "cumulative_return": 0.077618
+    },
+    {
+      "date": "2023-09-01",
+      "total_value": 1079445.55,
+      "cumulative_return": 0.079446
+    },
+    {
+      "date": "2023-09-04",
+      "total_value": 1076444.76,
+      "cumulative_return": 0.076445
+    },
+    {
+      "date": "2023-09-05",
+      "total_value": 1069936.76,
+      "cumulative_return": 0.069937
+    },
+    {
+      "date": "2023-09-06",
+      "total_value": 1077586.23,
+      "cumulative_return": 0.077586
+    },
+    {
+      "date": "2023-09-07",
+      "total_value": 1076173.23,
+      "cumulative_return": 0.076173
+    },
+    {
+      "date": "2023-09-08",
+      "total_value": 1072150.23,
+      "cumulative_return": 0.07215
+    },
+    {
+      "date": "2023-09-11",
+      "total_value": 1077049.23,
+      "cumulative_return": 0.077049
+    },
+    {
+      "date": "2023-09-12",
+      "total_value": 1083574.23,
+      "cumulative_return": 0.083574
+    },
+    {
+      "date": "2023-09-13",
+      "total_value": 1077750.69,
+      "cumulative_return": 0.077751
+    },
+    {
+      "date": "2023-09-14",
+      "total_value": 1077840.25,
+      "cumulative_return": 0.07784
+    },
+    {
+      "date": "2023-09-15",
+      "total_value": 1080936.6,
+      "cumulative_return": 0.080937
+    },
+    {
+      "date": "2023-09-18",
+      "total_value": 1076762.59,
+      "cumulative_return": 0.076763
+    },
+    {
+      "date": "2023-09-19",
+      "total_value": 1076631.59,
+      "cumulative_return": 0.076632
+    },
+    {
+      "date": "2023-09-20",
+      "total_value": 1077429.59,
+      "cumulative_return": 0.07743
+    },
+    {
+      "date": "2023-09-21",
+      "total_value": 1075458.59,
+      "cumulative_return": 0.075459
+    },
+    {
+      "date": "2023-09-22",
+      "total_value": 1066888.59,
+      "cumulative_return": 0.066889
+    },
+    {
+      "date": "2023-09-25",
+      "total_value": 1064764.81,
+      "cumulative_return": 0.064765
+    },
+    {
+      "date": "2023-09-26",
+      "total_value": 1065411.81,
+      "cumulative_return": 0.065412
+    },
+    {
+      "date": "2023-09-27",
+      "total_value": 1069164.78,
+      "cumulative_return": 0.069165
+    },
+    {
+      "date": "2023-09-28",
+      "total_value": 1072523.78,
+      "cumulative_return": 0.072524
+    },
+    {
+      "date": "2023-10-02",
+      "total_value": 1077392.57,
+      "cumulative_return": 0.077393
+    },
+    {
+      "date": "2023-10-03",
+      "total_value": 1080970.57,
+      "cumulative_return": 0.080971
+    },
+    {
+      "date": "2023-10-04",
+      "total_value": 1067292.57,
+      "cumulative_return": 0.067293
+    },
+    {
+      "date": "2023-10-05",
+      "total_value": 1069035.57,
+      "cumulative_return": 0.069036
+    },
+    {
+      "date": "2023-10-09",
+      "total_value": 1083972.57,
+      "cumulative_return": 0.083973
+    },
+    {
+      "date": "2023-10-10",
+      "total_value": 1088641.78,
+      "cumulative_return": 0.088642
+    },
+    {
+      "date": "2023-10-11",
+      "total_value": 1085986.78,
+      "cumulative_return": 0.085987
+    },
+    {
+      "date": "2023-10-12",
+      "total_value": 1081109.03,
+      "cumulative_return": 0.081109
+    },
+    {
+      "date": "2023-10-13",
+      "total_value": 1081460.53,
+      "cumulative_return": 0.081461
+    },
+    {
+      "date": "2023-10-16",
+      "total_value": 1068576.41,
+      "cumulative_return": 0.068576
+    },
+    {
+      "date": "2023-10-17",
+      "total_value": 1068118.41,
+      "cumulative_return": 0.068118
+    },
+    {
+      "date": "2023-10-18",
+      "total_value": 1074335.41,
+      "cumulative_return": 0.074335
+    },
+    {
+      "date": "2023-10-19",
+      "total_value": 1083150.87,
+      "cumulative_return": 0.083151
+    },
+    {
+      "date": "2023-10-20",
+      "total_value": 1081059.87,
+      "cumulative_return": 0.08106
+    },
+    {
+      "date": "2023-10-23",
+      "total_value": 1079917.56,
+      "cumulative_return": 0.079918
+    },
+    {
+      "date": "2023-10-24",
+      "total_value": 1078247.56,
+      "cumulative_return": 0.078248
+    },
+    {
+      "date": "2023-10-25",
+      "total_value": 1081402.34,
+      "cumulative_return": 0.081402
+    },
+    {
+      "date": "2023-10-26",
+      "total_value": 1077289.34,
+      "cumulative_return": 0.077289
+    },
+    {
+      "date": "2023-10-27",
+      "total_value": 1083055.34,
+      "cumulative_return": 0.083055
+    },
+    {
+      "date": "2023-10-30",
+      "total_value": 1071956.34,
+      "cumulative_return": 0.071956
+    },
+    {
+      "date": "2023-10-31",
+      "total_value": 1071255.34,
+      "cumulative_return": 0.071255
+    },
+    {
+      "date": "2023-11-01",
+      "total_value": 1065370.82,
+      "cumulative_return": 0.065371
+    },
+    {
+      "date": "2023-11-02",
+      "total_value": 1059792.82,
+      "cumulative_return": 0.059793
+    },
+    {
+      "date": "2023-11-03",
+      "total_value": 1062152.28,
+      "cumulative_return": 0.062152
+    },
+    {
+      "date": "2023-11-06",
+      "total_value": 1060932.28,
+      "cumulative_return": 0.060932
+    },
+    {
+      "date": "2023-11-07",
+      "total_value": 1061201.28,
+      "cumulative_return": 0.061201
+    },
+    {
+      "date": "2023-11-08",
+      "total_value": 1055494.82,
+      "cumulative_return": 0.055495
+    },
+    {
+      "date": "2023-11-09",
+      "total_value": 1053708.71,
+      "cumulative_return": 0.053709
+    },
+    {
+      "date": "2023-11-10",
+      "total_value": 1059130.08,
+      "cumulative_return": 0.05913
+    },
+    {
+      "date": "2023-11-13",
+      "total_value": 1052068.08,
+      "cumulative_return": 0.052068
+    },
+    {
+      "date": "2023-11-14",
+      "total_value": 1051728.08,
+      "cumulative_return": 0.051728
+    },
+    {
+      "date": "2023-11-15",
+      "total_value": 1054863.08,
+      "cumulative_return": 0.054863
+    },
+    {
+      "date": "2023-11-16",
+      "total_value": 1050429.08,
+      "cumulative_return": 0.050429
+    },
+    {
+      "date": "2023-11-17",
+      "total_value": 1051454.08,
+      "cumulative_return": 0.051454
+    },
+    {
+      "date": "2023-11-20",
+      "total_value": 1058780.08,
+      "cumulative_return": 0.05878
+    },
+    {
+      "date": "2023-11-21",
+      "total_value": 1062562.08,
+      "cumulative_return": 0.062562
+    },
+    {
+      "date": "2023-11-22",
+      "total_value": 1058257.41,
+      "cumulative_return": 0.058257
+    },
+    {
+      "date": "2023-11-23",
+      "total_value": 1060725.6,
+      "cumulative_return": 0.060726
+    },
+    {
+      "date": "2023-11-24",
+      "total_value": 1061532.6,
+      "cumulative_return": 0.061533
+    },
+    {
+      "date": "2023-11-27",
+      "total_value": 1057574.11,
+      "cumulative_return": 0.057574
+    },
+    {
+      "date": "2023-11-28",
+      "total_value": 1066167.04,
+      "cumulative_return": 0.066167
+    },
+    {
+      "date": "2023-11-29",
+      "total_value": 1064478.04,
+      "cumulative_return": 0.064478
+    },
+    {
+      "date": "2023-11-30",
+      "total_value": 1063533.04,
+      "cumulative_return": 0.063533
+    },
+    {
+      "date": "2023-12-01",
+      "total_value": 1069763.04,
+      "cumulative_return": 0.069763
+    },
+    {
+      "date": "2023-12-04",
+      "total_value": 1064489.04,
+      "cumulative_return": 0.064489
+    },
+    {
+      "date": "2023-12-05",
+      "total_value": 1067031.04,
+      "cumulative_return": 0.067031
+    },
+    {
+      "date": "2023-12-06",
+      "total_value": 1062960.01,
+      "cumulative_return": 0.06296
+    },
+    {
+      "date": "2023-12-07",
+      "total_value": 1064292.01,
+      "cumulative_return": 0.064292
+    },
+    {
+      "date": "2023-12-08",
+      "total_value": 1062566.04,
+      "cumulative_return": 0.062566
+    },
+    {
+      "date": "2023-12-11",
+      "total_value": 1057028.04,
+      "cumulative_return": 0.057028
+    },
+    {
+      "date": "2023-12-12",
+      "total_value": 1058167.04,
+      "cumulative_return": 0.058167
+    },
+    {
+      "date": "2023-12-13",
+      "total_value": 1066053.04,
+      "cumulative_return": 0.066053
+    },
+    {
+      "date": "2023-12-14",
+      "total_value": 1070219.12,
+      "cumulative_return": 0.070219
+    },
+    {
+      "date": "2023-12-15",
+      "total_value": 1071925.27,
+      "cumulative_return": 0.071925
+    },
+    {
+      "date": "2023-12-18",
+      "total_value": 1068263.27,
+      "cumulative_return": 0.068263
+    },
+    {
+      "date": "2023-12-19",
+      "total_value": 1065555.27,
+      "cumulative_return": 0.065555
+    },
+    {
+      "date": "2023-12-20",
+      "total_value": 1065197.27,
+      "cumulative_return": 0.065197
+    },
+    {
+      "date": "2023-12-21",
+      "total_value": 1066929.27,
+      "cumulative_return": 0.066929
+    },
+    {
+      "date": "2023-12-22",
+      "total_value": 1070767.27,
+      "cumulative_return": 0.070767
+    },
+    {
+      "date": "2023-12-25",
+      "total_value": 1073017.27,
+      "cumulative_return": 0.073017
+    },
+    {
+      "date": "2023-12-26",
+      "total_value": 1080279.27,
+      "cumulative_return": 0.080279
+    },
+    {
+      "date": "2023-12-27",
+      "total_value": 1073999.27,
+      "cumulative_return": 0.073999
+    },
+    {
+      "date": "2023-12-28",
+      "total_value": 1069137.06,
+      "cumulative_return": 0.069137
+    },
+    {
+      "date": "2023-12-29",
+      "total_value": 1069863.06,
+      "cumulative_return": 0.069863
+    },
+    {
+      "date": "2024-01-01",
+      "total_value": 1072884.06,
+      "cumulative_return": 0.072884
+    },
+    {
+      "date": "2024-01-02",
+      "total_value": 1071373.06,
+      "cumulative_return": 0.071373
+    },
+    {
+      "date": "2024-01-03",
+      "total_value": 1063862.06,
+      "cumulative_return": 0.063862
+    },
+    {
+      "date": "2024-01-04",
+      "total_value": 1069137.8,
+      "cumulative_return": 0.069138
+    },
+    {
+      "date": "2024-01-05",
+      "total_value": 1063202.8,
+      "cumulative_return": 0.063203
+    },
+    {
+      "date": "2024-01-08",
+      "total_value": 1059120.08,
+      "cumulative_return": 0.05912
+    },
+    {
+      "date": "2024-01-09",
+      "total_value": 1053165.6,
+      "cumulative_return": 0.053166
+    },
+    {
+      "date": "2024-01-10",
+      "total_value": 1056682.6,
+      "cumulative_return": 0.056683
+    },
+    {
+      "date": "2024-01-11",
+      "total_value": 1052593.45,
+      "cumulative_return": 0.052593
+    },
+    {
+      "date": "2024-01-12",
+      "total_value": 1060195.89,
+      "cumulative_return": 0.060196
+    },
+    {
+      "date": "2024-01-15",
+      "total_value": 1053188.75,
+      "cumulative_return": 0.053189
+    },
+    {
+      "date": "2024-01-16",
+      "total_value": 1056569.27,
+      "cumulative_return": 0.056569
+    },
+    {
+      "date": "2024-01-17",
+      "total_value": 1056064.27,
+      "cumulative_return": 0.056064
+    },
+    {
+      "date": "2024-01-18",
+      "total_value": 1056286.27,
+      "cumulative_return": 0.056286
+    },
+    {
+      "date": "2024-01-19",
+      "total_value": 1051796.27,
+      "cumulative_return": 0.051796
+    },
+    {
+      "date": "2024-01-22",
+      "total_value": 1051937.38,
+      "cumulative_return": 0.051937
+    },
+    {
+      "date": "2024-01-23",
+      "total_value": 1047508.38,
+      "cumulative_return": 0.047508
+    },
+    {
+      "date": "2024-01-24",
+      "total_value": 1044077.15,
+      "cumulative_return": 0.044077
+    },
+    {
+      "date": "2024-01-25",
+      "total_value": 1040149.21,
+      "cumulative_return": 0.040149
+    },
+    {
+      "date": "2024-01-26",
+      "total_value": 1041598.51,
+      "cumulative_return": 0.041599
+    },
+    {
+      "date": "2024-01-29",
+      "total_value": 1044437.51,
+      "cumulative_return": 0.044438
+    },
+    {
+      "date": "2024-01-30",
+      "total_value": 1044243.51,
+      "cumulative_return": 0.044244
+    },
+    {
+      "date": "2024-01-31",
+      "total_value": 1041046.51,
+      "cumulative_return": 0.041047
+    },
+    {
+      "date": "2024-02-01",
+      "total_value": 1051490.51,
+      "cumulative_return": 0.051491
+    },
+    {
+      "date": "2024-02-02",
+      "total_value": 1061557.51,
+      "cumulative_return": 0.061558
+    },
+    {
+      "date": "2024-02-05",
+      "total_value": 1056531.51,
+      "cumulative_return": 0.056532
+    },
+    {
+      "date": "2024-02-06",
+      "total_value": 1054567.51,
+      "cumulative_return": 0.054568
+    },
+    {
+      "date": "2024-02-07",
+      "total_value": 1056230.51,
+      "cumulative_return": 0.056231
+    },
+    {
+      "date": "2024-02-08",
+      "total_value": 1055874.51,
+      "cumulative_return": 0.055875
+    },
+    {
+      "date": "2024-02-09",
+      "total_value": 1057929.51,
+      "cumulative_return": 0.05793
+    },
+    {
+      "date": "2024-02-12",
+      "total_value": 1048240.51,
+      "cumulative_return": 0.048241
+    },
+    {
+      "date": "2024-02-13",
+      "total_value": 1050986.51,
+      "cumulative_return": 0.050987
+    },
+    {
+      "date": "2024-02-14",
+      "total_value": 1058968.42,
+      "cumulative_return": 0.058968
+    },
+    {
+      "date": "2024-02-15",
+      "total_value": 1058165.42,
+      "cumulative_return": 0.058165
+    },
+    {
+      "date": "2024-02-19",
+      "total_value": 1056751.42,
+      "cumulative_return": 0.056751
+    },
+    {
+      "date": "2024-02-20",
+      "total_value": 1055444.82,
+      "cumulative_return": 0.055445
+    },
+    {
+      "date": "2024-02-21",
+      "total_value": 1061152.87,
+      "cumulative_return": 0.061153
+    },
+    {
+      "date": "2024-02-22",
+      "total_value": 1061057.87,
+      "cumulative_return": 0.061058
+    },
+    {
+      "date": "2024-02-23",
+      "total_value": 1053249.87,
+      "cumulative_return": 0.05325
+    },
+    {
+      "date": "2024-02-26",
+      "total_value": 1052625.87,
+      "cumulative_return": 0.052626
+    },
+    {
+      "date": "2024-02-27",
+      "total_value": 1045965.87,
+      "cumulative_return": 0.045966
+    },
+    {
+      "date": "2024-02-28",
+      "total_value": 1043337.87,
+      "cumulative_return": 0.043338
+    },
+    {
+      "date": "2024-02-29",
+      "total_value": 1040334.33,
+      "cumulative_return": 0.040334
+    },
+    {
+      "date": "2024-03-01",
+      "total_value": 1045077.28,
+      "cumulative_return": 0.045077
+    },
+    {
+      "date": "2024-03-04",
+      "total_value": 1048112.17,
+      "cumulative_return": 0.048112
+    },
+    {
+      "date": "2024-03-05",
+      "total_value": 1047713.17,
+      "cumulative_return": 0.047713
+    },
+    {
+      "date": "2024-03-06",
+      "total_value": 1048969.17,
+      "cumulative_return": 0.048969
+    },
+    {
+      "date": "2024-03-07",
+      "total_value": 1038884.17,
+      "cumulative_return": 0.038884
+    },
+    {
+      "date": "2024-03-08",
+      "total_value": 1034932.17,
+      "cumulative_return": 0.034932
+    },
+    {
+      "date": "2024-03-11",
+      "total_value": 1035584.99,
+      "cumulative_return": 0.035585
+    },
+    {
+      "date": "2024-03-12",
+      "total_value": 1035486.99,
+      "cumulative_return": 0.035487
+    },
+    {
+      "date": "2024-03-13",
+      "total_value": 1035606.38,
+      "cumulative_return": 0.035606
+    },
+    {
+      "date": "2024-03-14",
+      "total_value": 1026218.38,
+      "cumulative_return": 0.026218
+    },
+    {
+      "date": "2024-03-15",
+      "total_value": 1026088.38,
+      "cumulative_return": 0.026088
+    },
+    {
+      "date": "2024-03-18",
+      "total_value": 1027944.61,
+      "cumulative_return": 0.027945
+    },
+    {
+      "date": "2024-03-19",
+      "total_value": 1031744.61,
+      "cumulative_return": 0.031745
+    },
+    {
+      "date": "2024-03-20",
+      "total_value": 1027018.46,
+      "cumulative_return": 0.027018
+    },
+    {
+      "date": "2024-03-21",
+      "total_value": 1031921.46,
+      "cumulative_return": 0.031921
+    },
+    {
+      "date": "2024-03-22",
+      "total_value": 1029373.46,
+      "cumulative_return": 0.029373
+    },
+    {
+      "date": "2024-03-25",
+      "total_value": 1042515.46,
+      "cumulative_return": 0.042515
+    },
+    {
+      "date": "2024-03-26",
+      "total_value": 1042411.46,
+      "cumulative_return": 0.042411
+    },
+    {
+      "date": "2024-03-27",
+      "total_value": 1038430.46,
+      "cumulative_return": 0.03843
+    },
+    {
+      "date": "2024-03-28",
+      "total_value": 1033966.31,
+      "cumulative_return": 0.033966
+    },
+    {
+      "date": "2024-03-29",
+      "total_value": 1035516.31,
+      "cumulative_return": 0.035516
+    },
+    {
+      "date": "2024-04-01",
+      "total_value": 1036031.84,
+      "cumulative_return": 0.036032
+    },
+    {
+      "date": "2024-04-02",
+      "total_value": 1034707.84,
+      "cumulative_return": 0.034708
+    },
+    {
+      "date": "2024-04-03",
+      "total_value": 1037416.84,
+      "cumulative_return": 0.037417
+    },
+    {
+      "date": "2024-04-04",
+      "total_value": 1050392.84,
+      "cumulative_return": 0.050393
+    },
+    {
+      "date": "2024-04-08",
+      "total_value": 1044183.84,
+      "cumulative_return": 0.044184
+    },
+    {
+      "date": "2024-04-09",
+      "total_value": 1052448.08,
+      "cumulative_return": 0.052448
+    },
+    {
+      "date": "2024-04-10",
+      "total_value": 1042080.08,
+      "cumulative_return": 0.04208
+    },
+    {
+      "date": "2024-04-11",
+      "total_value": 1031150.08,
+      "cumulative_return": 0.03115
+    },
+    {
+      "date": "2024-04-12",
+      "total_value": 1041180.08,
+      "cumulative_return": 0.04118
+    },
+    {
+      "date": "2024-04-15",
+      "total_value": 1031500.08,
+      "cumulative_return": 0.0315
+    },
+    {
+      "date": "2024-04-16",
+      "total_value": 1033212.09,
+      "cumulative_return": 0.033212
+    },
+    {
+      "date": "2024-04-17",
+      "total_value": 1035124.32,
+      "cumulative_return": 0.035124
+    },
+    {
+      "date": "2024-04-18",
+      "total_value": 1030255.32,
+      "cumulative_return": 0.030255
+    },
+    {
+      "date": "2024-04-19",
+      "total_value": 1031281.71,
+      "cumulative_return": 0.031282
+    },
+    {
+      "date": "2024-04-22",
+      "total_value": 1027517.71,
+      "cumulative_return": 0.027518
+    },
+    {
+      "date": "2024-04-23",
+      "total_value": 1027352.95,
+      "cumulative_return": 0.027353
+    },
+    {
+      "date": "2024-04-24",
+      "total_value": 1041427.18,
+      "cumulative_return": 0.041427
+    },
+    {
+      "date": "2024-04-25",
+      "total_value": 1046969.09,
+      "cumulative_return": 0.046969
+    },
+    {
+      "date": "2024-04-26",
+      "total_value": 1047621.09,
+      "cumulative_return": 0.047621
+    },
+    {
+      "date": "2024-04-29",
+      "total_value": 1048989.09,
+      "cumulative_return": 0.048989
+    },
+    {
+      "date": "2024-04-30",
+      "total_value": 1046654.09,
+      "cumulative_return": 0.046654
+    },
+    {
+      "date": "2024-05-01",
+      "total_value": 1046166.32,
+      "cumulative_return": 0.046166
+    },
+    {
+      "date": "2024-05-02",
+      "total_value": 1046373.32,
+      "cumulative_return": 0.046373
+    },
+    {
+      "date": "2024-05-06",
+      "total_value": 1040164.38,
+      "cumulative_return": 0.040164
+    },
+    {
+      "date": "2024-05-07",
+      "total_value": 1037506.38,
+      "cumulative_return": 0.037506
+    },
+    {
+      "date": "2024-05-08",
+      "total_value": 1044138.38,
+      "cumulative_return": 0.044138
+    },
+    {
+      "date": "2024-05-09",
+      "total_value": 1042594.38,
+      "cumulative_return": 0.042594
+    },
+    {
+      "date": "2024-05-10",
+      "total_value": 1041574.38,
+      "cumulative_return": 0.041574
+    },
+    {
+      "date": "2024-05-13",
+      "total_value": 1041065.38,
+      "cumulative_return": 0.041065
+    },
+    {
+      "date": "2024-05-14",
+      "total_value": 1036770.47,
+      "cumulative_return": 0.03677
+    },
+    {
+      "date": "2024-05-15",
+      "total_value": 1030579.27,
+      "cumulative_return": 0.030579
+    },
+    {
+      "date": "2024-05-16",
+      "total_value": 1027645.27,
+      "cumulative_return": 0.027645
+    },
+    {
+      "date": "2024-05-17",
+      "total_value": 1027446.23,
+      "cumulative_return": 0.027446
+    },
+    {
+      "date": "2024-05-20",
+      "total_value": 1029717.23,
+      "cumulative_return": 0.029717
+    },
+    {
+      "date": "2024-05-21",
+      "total_value": 1030984.26,
+      "cumulative_return": 0.030984
+    },
+    {
+      "date": "2024-05-22",
+      "total_value": 1029695.48,
+      "cumulative_return": 0.029695
+    },
+    {
+      "date": "2024-05-23",
+      "total_value": 1029091.48,
+      "cumulative_return": 0.029091
+    },
+    {
+      "date": "2024-05-24",
+      "total_value": 1031547.78,
+      "cumulative_return": 0.031548
+    },
+    {
+      "date": "2024-05-27",
+      "total_value": 1040757.8,
+      "cumulative_return": 0.040758
+    },
+    {
+      "date": "2024-05-28",
+      "total_value": 1050101.8,
+      "cumulative_return": 0.050102
+    },
+    {
+      "date": "2024-05-29",
+      "total_value": 1052153.8,
+      "cumulative_return": 0.052154
+    },
+    {
+      "date": "2024-05-30",
+      "total_value": 1052490.75,
+      "cumulative_return": 0.052491
+    },
+    {
+      "date": "2024-05-31",
+      "total_value": 1044546.75,
+      "cumulative_return": 0.044547
+    },
+    {
+      "date": "2024-06-03",
+      "total_value": 1052262.75,
+      "cumulative_return": 0.052263
+    },
+    {
+      "date": "2024-06-04",
+      "total_value": 1044517.75,
+      "cumulative_return": 0.044518
+    },
+    {
+      "date": "2024-06-05",
+      "total_value": 1047966.75,
+      "cumulative_return": 0.047967
+    },
+    {
+      "date": "2024-06-06",
+      "total_value": 1040737.85,
+      "cumulative_return": 0.040738
+    },
+    {
+      "date": "2024-06-07",
+      "total_value": 1036197.85,
+      "cumulative_return": 0.036198
+    },
+    {
+      "date": "2024-06-11",
+      "total_value": 1042650.97,
+      "cumulative_return": 0.042651
+    },
+    {
+      "date": "2024-06-12",
+      "total_value": 1041360.7,
+      "cumulative_return": 0.041361
+    },
+    {
+      "date": "2024-06-13",
+      "total_value": 1039506.7,
+      "cumulative_return": 0.039507
+    },
+    {
+      "date": "2024-06-14",
+      "total_value": 1038720.7,
+      "cumulative_return": 0.038721
+    },
+    {
+      "date": "2024-06-17",
+      "total_value": 1036191.08,
+      "cumulative_return": 0.036191
+    },
+    {
+      "date": "2024-06-18",
+      "total_value": 1036851.08,
+      "cumulative_return": 0.036851
+    },
+    {
+      "date": "2024-06-19",
+      "total_value": 1030014.08,
+      "cumulative_return": 0.030014
+    },
+    {
+      "date": "2024-06-20",
+      "total_value": 1020777.08,
+      "cumulative_return": 0.020777
+    },
+    {
+      "date": "2024-06-21",
+      "total_value": 1024176.08,
+      "cumulative_return": 0.024176
+    },
+    {
+      "date": "2024-06-24",
+      "total_value": 1030917.08,
+      "cumulative_return": 0.030917
+    },
+    {
+      "date": "2024-06-25",
+      "total_value": 1029160.75,
+      "cumulative_return": 0.029161
+    },
+    {
+      "date": "2024-06-26",
+      "total_value": 1032729.88,
+      "cumulative_return": 0.03273
+    },
+    {
+      "date": "2024-06-27",
+      "total_value": 1031132.59,
+      "cumulative_return": 0.031133
+    },
+    {
+      "date": "2024-06-28",
+      "total_value": 1032290.59,
+      "cumulative_return": 0.032291
+    },
+    {
+      "date": "2024-07-01",
+      "total_value": 1035892.03,
+      "cumulative_return": 0.035892
+    },
+    {
+      "date": "2024-07-02",
+      "total_value": 1040107.03,
+      "cumulative_return": 0.040107
+    },
+    {
+      "date": "2024-07-03",
+      "total_value": 1046565.73,
+      "cumulative_return": 0.046566
+    },
+    {
+      "date": "2024-07-04",
+      "total_value": 1045549.73,
+      "cumulative_return": 0.04555
+    },
+    {
+      "date": "2024-07-05",
+      "total_value": 1042093.73,
+      "cumulative_return": 0.042094
+    },
+    {
+      "date": "2024-07-08",
+      "total_value": 1042646.73,
+      "cumulative_return": 0.042647
+    },
+    {
+      "date": "2024-07-09",
+      "total_value": 1048135.73,
+      "cumulative_return": 0.048136
+    },
+    {
+      "date": "2024-07-10",
+      "total_value": 1050177.73,
+      "cumulative_return": 0.050178
+    },
+    {
+      "date": "2024-07-11",
+      "total_value": 1046428.73,
+      "cumulative_return": 0.046429
+    },
+    {
+      "date": "2024-07-12",
+      "total_value": 1046233.67,
+      "cumulative_return": 0.046234
+    },
+    {
+      "date": "2024-07-15",
+      "total_value": 1044347.34,
+      "cumulative_return": 0.044347
+    },
+    {
+      "date": "2024-07-16",
+      "total_value": 1036924.33,
+      "cumulative_return": 0.036924
+    },
+    {
+      "date": "2024-07-17",
+      "total_value": 1041058.72,
+      "cumulative_return": 0.041059
+    },
+    {
+      "date": "2024-07-18",
+      "total_value": 1044347.72,
+      "cumulative_return": 0.044348
+    },
+    {
+      "date": "2024-07-19",
+      "total_value": 1038668.72,
+      "cumulative_return": 0.038669
+    },
+    {
+      "date": "2024-07-22",
+      "total_value": 1044263.72,
+      "cumulative_return": 0.044264
+    },
+    {
+      "date": "2024-07-23",
+      "total_value": 1033284.72,
+      "cumulative_return": 0.033285
+    },
+    {
+      "date": "2024-07-24",
+      "total_value": 1030722.36,
+      "cumulative_return": 0.030722
+    },
+    {
+      "date": "2024-07-25",
+      "total_value": 1029356.36,
+      "cumulative_return": 0.029356
+    },
+    {
+      "date": "2024-07-26",
+      "total_value": 1026987.53,
+      "cumulative_return": 0.026988
+    },
+    {
+      "date": "2024-07-29",
+      "total_value": 1036732.35,
+      "cumulative_return": 0.036732
+    },
+    {
+      "date": "2024-07-30",
+      "total_value": 1035454.93,
+      "cumulative_return": 0.035455
+    },
+    {
+      "date": "2024-07-31",
+      "total_value": 1035363.93,
+      "cumulative_return": 0.035364
+    },
+    {
+      "date": "2024-08-01",
+      "total_value": 1034816.93,
+      "cumulative_return": 0.034817
+    },
+    {
+      "date": "2024-08-02",
+      "total_value": 1039027.23,
+      "cumulative_return": 0.039027
+    },
+    {
+      "date": "2024-08-05",
+      "total_value": 1046011.23,
+      "cumulative_return": 0.046011
+    },
+    {
+      "date": "2024-08-06",
+      "total_value": 1045585.49,
+      "cumulative_return": 0.045585
+    },
+    {
+      "date": "2024-08-07",
+      "total_value": 1044677.49,
+      "cumulative_return": 0.044677
+    },
+    {
+      "date": "2024-08-08",
+      "total_value": 1050118.49,
+      "cumulative_return": 0.050118
+    },
+    {
+      "date": "2024-08-09",
+      "total_value": 1051623.47,
+      "cumulative_return": 0.051623
+    },
+    {
+      "date": "2024-08-12",
+      "total_value": 1043741.47,
+      "cumulative_return": 0.043741
+    },
+    {
+      "date": "2024-08-13",
+      "total_value": 1045805.47,
+      "cumulative_return": 0.045805
+    },
+    {
+      "date": "2024-08-14",
+      "total_value": 1032369.47,
+      "cumulative_return": 0.032369
+    },
+    {
+      "date": "2024-08-15",
+      "total_value": 1033801.43,
+      "cumulative_return": 0.033801
+    },
+    {
+      "date": "2024-08-16",
+      "total_value": 1031851.87,
+      "cumulative_return": 0.031852
+    },
+    {
+      "date": "2024-08-19",
+      "total_value": 1040273.34,
+      "cumulative_return": 0.040273
+    },
+    {
+      "date": "2024-08-20",
+      "total_value": 1036856.34,
+      "cumulative_return": 0.036856
+    },
+    {
+      "date": "2024-08-21",
+      "total_value": 1034234.34,
+      "cumulative_return": 0.034234
+    },
+    {
+      "date": "2024-08-22",
+      "total_value": 1038192.72,
+      "cumulative_return": 0.038193
+    },
+    {
+      "date": "2024-08-23",
+      "total_value": 1032304.72,
+      "cumulative_return": 0.032305
+    },
+    {
+      "date": "2024-08-26",
+      "total_value": 1032230.97,
+      "cumulative_return": 0.032231
+    },
+    {
+      "date": "2024-08-27",
+      "total_value": 1036623.97,
+      "cumulative_return": 0.036624
+    },
+    {
+      "date": "2024-08-28",
+      "total_value": 1039585.09,
+      "cumulative_return": 0.039585
+    },
+    {
+      "date": "2024-08-29",
+      "total_value": 1044651.09,
+      "cumulative_return": 0.044651
+    },
+    {
+      "date": "2024-08-30",
+      "total_value": 1046227.09,
+      "cumulative_return": 0.046227
+    },
+    {
+      "date": "2024-09-02",
+      "total_value": 1042574.09,
+      "cumulative_return": 0.042574
+    },
+    {
+      "date": "2024-09-03",
+      "total_value": 1044628.71,
+      "cumulative_return": 0.044629
+    },
+    {
+      "date": "2024-09-04",
+      "total_value": 1049071.71,
+      "cumulative_return": 0.049072
+    },
+    {
+      "date": "2024-09-05",
+      "total_value": 1047115.71,
+      "cumulative_return": 0.047116
+    },
+    {
+      "date": "2024-09-06",
+      "total_value": 1055523.71,
+      "cumulative_return": 0.055524
+    },
+    {
+      "date": "2024-09-09",
+      "total_value": 1053867.71,
+      "cumulative_return": 0.053868
+    },
+    {
+      "date": "2024-09-10",
+      "total_value": 1040238.71,
+      "cumulative_return": 0.040239
+    },
+    {
+      "date": "2024-09-11",
+      "total_value": 1039910.71,
+      "cumulative_return": 0.039911
+    },
+    {
+      "date": "2024-09-12",
+      "total_value": 1032678.71,
+      "cumulative_return": 0.032679
+    },
+    {
+      "date": "2024-09-13",
+      "total_value": 1032029.92,
+      "cumulative_return": 0.03203
+    },
+    {
+      "date": "2024-09-16",
+      "total_value": 1032433.47,
+      "cumulative_return": 0.032433
+    },
+    {
+      "date": "2024-09-18",
+      "total_value": 1032101.72,
+      "cumulative_return": 0.032102
+    },
+    {
+      "date": "2024-09-19",
+      "total_value": 1036478.72,
+      "cumulative_return": 0.036479
+    },
+    {
+      "date": "2024-09-20",
+      "total_value": 1036046.72,
+      "cumulative_return": 0.036047
+    },
+    {
+      "date": "2024-09-23",
+      "total_value": 1025631.72,
+      "cumulative_return": 0.025632
+    },
+    {
+      "date": "2024-09-24",
+      "total_value": 1034437.51,
+      "cumulative_return": 0.034438
+    },
+    {
+      "date": "2024-09-25",
+      "total_value": 1038652.51,
+      "cumulative_return": 0.038653
+    },
+    {
+      "date": "2024-09-26",
+      "total_value": 1037668.51,
+      "cumulative_return": 0.037669
+    },
+    {
+      "date": "2024-09-27",
+      "total_value": 1040902.51,
+      "cumulative_return": 0.040903
+    },
+    {
+      "date": "2024-09-30",
+      "total_value": 1036729.51,
+      "cumulative_return": 0.03673
+    },
+    {
+      "date": "2024-10-01",
+      "total_value": 1038253.07,
+      "cumulative_return": 0.038253
+    },
+    {
+      "date": "2024-10-02",
+      "total_value": 1029351.43,
+      "cumulative_return": 0.029351
+    },
+    {
+      "date": "2024-10-03",
+      "total_value": 1023520.43,
+      "cumulative_return": 0.02352
+    },
+    {
+      "date": "2024-10-04",
+      "total_value": 1022095.43,
+      "cumulative_return": 0.022095
+    },
+    {
+      "date": "2024-10-08",
+      "total_value": 1021351.94,
+      "cumulative_return": 0.021352
+    },
+    {
+      "date": "2024-10-09",
+      "total_value": 1018704.24,
+      "cumulative_return": 0.018704
+    },
+    {
+      "date": "2024-10-10",
+      "total_value": 1016989.14,
+      "cumulative_return": 0.016989
+    },
+    {
+      "date": "2024-10-11",
+      "total_value": 1023005.14,
+      "cumulative_return": 0.023005
+    },
+    {
+      "date": "2024-10-14",
+      "total_value": 1025879.14,
+      "cumulative_return": 0.025879
+    },
+    {
+      "date": "2024-10-15",
+      "total_value": 1023589.13,
+      "cumulative_return": 0.023589
+    },
+    {
+      "date": "2024-10-16",
+      "total_value": 1032190.13,
+      "cumulative_return": 0.03219
+    },
+    {
+      "date": "2024-10-17",
+      "total_value": 1035217.13,
+      "cumulative_return": 0.035217
+    },
+    {
+      "date": "2024-10-18",
+      "total_value": 1033676.79,
+      "cumulative_return": 0.033677
+    },
+    {
+      "date": "2024-10-21",
+      "total_value": 1038350.79,
+      "cumulative_return": 0.038351
+    },
+    {
+      "date": "2024-10-22",
+      "total_value": 1040545.57,
+      "cumulative_return": 0.040546
+    },
+    {
+      "date": "2024-10-23",
+      "total_value": 1047689.57,
+      "cumulative_return": 0.04769
+    },
+    {
+      "date": "2024-10-24",
+      "total_value": 1046878.57,
+      "cumulative_return": 0.046879
+    },
+    {
+      "date": "2024-10-25",
+      "total_value": 1044244.41,
+      "cumulative_return": 0.044244
+    },
+    {
+      "date": "2024-10-28",
+      "total_value": 1046356.41,
+      "cumulative_return": 0.046356
+    },
+    {
+      "date": "2024-10-29",
+      "total_value": 1041113.41,
+      "cumulative_return": 0.041113
+    },
+    {
+      "date": "2024-10-30",
+      "total_value": 1043439.15,
+      "cumulative_return": 0.043439
+    },
+    {
+      "date": "2024-10-31",
+      "total_value": 1045121.15,
+      "cumulative_return": 0.045121
+    },
+    {
+      "date": "2024-11-01",
+      "total_value": 1035473.15,
+      "cumulative_return": 0.035473
+    },
+    {
+      "date": "2024-11-04",
+      "total_value": 1032424.73,
+      "cumulative_return": 0.032425
+    },
+    {
+      "date": "2024-11-05",
+      "total_value": 1025060.73,
+      "cumulative_return": 0.025061
+    },
+    {
+      "date": "2024-11-06",
+      "total_value": 1030714.73,
+      "cumulative_return": 0.030715
+    },
+    {
+      "date": "2024-11-07",
+      "total_value": 1036471.66,
+      "cumulative_return": 0.036472
+    },
+    {
+      "date": "2024-11-08",
+      "total_value": 1040802.52,
+      "cumulative_return": 0.040803
+    },
+    {
+      "date": "2024-11-11",
+      "total_value": 1042220.32,
+      "cumulative_return": 0.04222
+    },
+    {
+      "date": "2024-11-12",
+      "total_value": 1051866.6,
+      "cumulative_return": 0.051867
+    },
+    {
+      "date": "2024-11-13",
+      "total_value": 1050736.6,
+      "cumulative_return": 0.050737
+    },
+    {
+      "date": "2024-11-14",
+      "total_value": 1047549.91,
+      "cumulative_return": 0.04755
+    },
+    {
+      "date": "2024-11-15",
+      "total_value": 1037540.36,
+      "cumulative_return": 0.03754
+    },
+    {
+      "date": "2024-11-18",
+      "total_value": 1037156.36,
+      "cumulative_return": 0.037156
+    },
+    {
+      "date": "2024-11-19",
+      "total_value": 1038086.36,
+      "cumulative_return": 0.038086
+    },
+    {
+      "date": "2024-11-20",
+      "total_value": 1032349.22,
+      "cumulative_return": 0.032349
+    },
+    {
+      "date": "2024-11-21",
+      "total_value": 1028503.62,
+      "cumulative_return": 0.028504
+    },
+    {
+      "date": "2024-11-22",
+      "total_value": 1024945.62,
+      "cumulative_return": 0.024946
+    },
+    {
+      "date": "2024-11-25",
+      "total_value": 1024595.62,
+      "cumulative_return": 0.024596
+    },
+    {
+      "date": "2024-11-26",
+      "total_value": 1029080.62,
+      "cumulative_return": 0.029081
+    },
+    {
+      "date": "2024-11-27",
+      "total_value": 1028855.62,
+      "cumulative_return": 0.028856
+    },
+    {
+      "date": "2024-11-28",
+      "total_value": 1031542.62,
+      "cumulative_return": 0.031543
+    },
+    {
+      "date": "2024-11-29",
+      "total_value": 1035834.28,
+      "cumulative_return": 0.035834
+    },
+    {
+      "date": "2024-12-02",
+      "total_value": 1035397.28,
+      "cumulative_return": 0.035397
+    },
+    {
+      "date": "2024-12-03",
+      "total_value": 1037817.28,
+      "cumulative_return": 0.037817
+    },
+    {
+      "date": "2024-12-04",
+      "total_value": 1033089.28,
+      "cumulative_return": 0.033089
+    },
+    {
+      "date": "2024-12-05",
+      "total_value": 1041085.65,
+      "cumulative_return": 0.041086
+    },
+    {
+      "date": "2024-12-06",
+      "total_value": 1041457.77,
+      "cumulative_return": 0.041458
+    },
+    {
+      "date": "2024-12-09",
+      "total_value": 1030879.77,
+      "cumulative_return": 0.03088
+    },
+    {
+      "date": "2024-12-10",
+      "total_value": 1033797.91,
+      "cumulative_return": 0.033798
+    },
+    {
+      "date": "2024-12-11",
+      "total_value": 1035882.29,
+      "cumulative_return": 0.035882
+    },
+    {
+      "date": "2024-12-12",
+      "total_value": 1042193.29,
+      "cumulative_return": 0.042193
+    },
+    {
+      "date": "2024-12-13",
+      "total_value": 1043537.29,
+      "cumulative_return": 0.043537
+    },
+    {
+      "date": "2024-12-16",
+      "total_value": 1041592.29,
+      "cumulative_return": 0.041592
+    },
+    {
+      "date": "2024-12-17",
+      "total_value": 1047314.76,
+      "cumulative_return": 0.047315
+    },
+    {
+      "date": "2024-12-18",
+      "total_value": 1041299.86,
+      "cumulative_return": 0.0413
+    },
+    {
+      "date": "2024-12-19",
+      "total_value": 1039883.86,
+      "cumulative_return": 0.039884
+    },
+    {
+      "date": "2024-12-20",
+      "total_value": 1034964.56,
+      "cumulative_return": 0.034965
+    },
+    {
+      "date": "2024-12-23",
+      "total_value": 1029016.68,
+      "cumulative_return": 0.029017
+    },
+    {
+      "date": "2024-12-24",
+      "total_value": 1028506.68,
+      "cumulative_return": 0.028507
+    },
+    {
+      "date": "2024-12-25",
+      "total_value": 1029938.68,
+      "cumulative_return": 0.029939
+    },
+    {
+      "date": "2024-12-26",
+      "total_value": 1033186.68,
+      "cumulative_return": 0.033187
+    },
+    {
+      "date": "2024-12-27",
+      "total_value": 1038022.68,
+      "cumulative_return": 0.038023
+    },
+    {
+      "date": "2024-12-30",
+      "total_value": 1034737.22,
+      "cumulative_return": 0.034737
+    },
+    {
+      "date": "2024-12-31",
+      "total_value": 1036316.22,
+      "cumulative_return": 0.036316
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+======================================================================
+A股量化交易系统 - 手动扫描报告
+生成时间：2026-03-18 10:44:58
+分析股票：10只 | 通过：0只 | 排除：10只
+======================================================================
+
+【数据完整性自检说明】
+  ✓ 通过条件：股价 / PE / 市值 / 近期事件 四项全有
+  ✗ 排除条件：任一字段缺失，不猜测，直接排除
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ 通过自检（0只）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+▶ 排除（10只）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  贵州茅台（600519）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  宁德时代（300750）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  招商银行（600036）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  比亚迪（002594）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  中国平安（601318）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  五粮液（000858）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  北方华创（002371）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  中国神华（601088）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  海天味业（603288）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+  迈瑞医疗（300760）
+  └─ 排除原因：分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+       缺失字段：全部
+
+======================================================================
+原则声明：本报告所有结论均基于实际采集数据，
+不使用"众所周知""一般认为"等模糊表述，每项数据均标注来源。
+======================================================================

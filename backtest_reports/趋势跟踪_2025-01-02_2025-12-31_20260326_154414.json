@@ -1,0 +1,4555 @@
+{
+  "strategy": "趋势跟踪",
+  "start_date": "2025-01-02",
+  "end_date": "2025-12-31",
+  "initial_cash": 200000.0,
+  "final_value": 365324.07,
+  "total_return": 0.8266,
+  "annualized_return": 0.8678,
+  "max_drawdown": 0.1198,
+  "sharpe_ratio": 2.89,
+  "win_rate": 0.3469,
+  "profit_factor": 2.88,
+  "total_trades": 308,
+  "per_stock": {
+    "300502": {
+      "trades": 4,
+      "pnl": -5108.47,
+      "pnl_pct": -7.61
+    },
+    "002475": {
+      "trades": 5,
+      "pnl": -12636.4,
+      "pnl_pct": -21.5
+    },
+    "601899": {
+      "trades": 7,
+      "pnl": 3248.28,
+      "pnl_pct": 3.23
+    },
+    "603986": {
+      "trades": 7,
+      "pnl": -46551.66,
+      "pnl_pct": -51.73
+    },
+    "002463": {
+      "trades": 6,
+      "pnl": -1311.44,
+      "pnl_pct": -4.33
+    },
+    "600549": {
+      "trades": 4,
+      "pnl": 1098.39,
+      "pnl_pct": 6.52
+    },
+    "000792": {
+      "trades": 6,
+      "pnl": 511.59,
+      "pnl_pct": 2.07
+    },
+    "603993": {
+      "trades": 6,
+      "pnl": 2131.81,
+      "pnl_pct": 10.08
+    },
+    "300827": {
+      "trades": 7,
+      "pnl": -853.46,
+      "pnl_pct": -1.2
+    },
+    "600989": {
+      "trades": 15,
+      "pnl": -21690.93,
+      "pnl_pct": -20.77
+    },
+    "300394": {
+      "trades": 4,
+      "pnl": -691.69,
+      "pnl_pct": -2.94
+    },
+    "300476": {
+      "trades": 2,
+      "pnl": 181.2,
+      "pnl_pct": 4.07
+    },
+    "002384": {
+      "trades": 6,
+      "pnl": -4883.89,
+      "pnl_pct": -7.78
+    },
+    "002202": {
+      "trades": 9,
+      "pnl": -29901.1,
+      "pnl_pct": -53.47
+    },
+    "601138": {
+      "trades": 8,
+      "pnl": 15959.64,
+      "pnl_pct": 105.54
+    },
+    "002050": {
+      "trades": 11,
+      "pnl": -40990.44,
+      "pnl_pct": -56.76
+    },
+    "300274": {
+      "trades": 4,
+      "pnl": -1447.56,
+      "pnl_pct": -5.16
+    },
+    "300383": {
+      "trades": 6,
+      "pnl": -4477.58,
+      "pnl_pct": -6.3
+    },
+    "603259": {
+      "trades": 4,
+      "pnl": -227.58,
+      "pnl_pct": -1.42
+    },
+    "300475": {
+      "trades": 7,
+      "pnl": -9667.66,
+      "pnl_pct": -18.07
+    },
+    "688313": {
+      "trades": 8,
+      "pnl": 2251.21,
+      "pnl_pct": 5.42
+    },
+    "603659": {
+      "trades": 11,
+      "pnl": -6834.09,
+      "pnl_pct": -17.52
+    },
+    "300136": {
+      "trades": 3,
+      "pnl": -6365.92,
+      "pnl_pct": -72.27
+    },
+    "000617": {
+      "trades": 11,
+      "pnl": -3442.31,
+      "pnl_pct": -4.49
+    },
+    "603601": {
+      "trades": 10,
+      "pnl": 11751.19,
+      "pnl_pct": 19.76
+    },
+    "002565": {
+      "trades": 12,
+      "pnl": 73152.29,
+      "pnl_pct": 47.53
+    },
+    "000988": {
+      "trades": 4,
+      "pnl": 4120.06,
+      "pnl_pct": 32.96
+    },
+    "300059": {
+      "trades": 10,
+      "pnl": 778.47,
+      "pnl_pct": 4.86
+    },
+    "600821": {
+      "trades": 10,
+      "pnl": -2274.87,
+      "pnl_pct": -3.38
+    },
+    "601016": {
+      "trades": 8,
+      "pnl": -807.66,
+      "pnl_pct": -1.83
+    },
+    "601318": {
+      "trades": 5,
+      "pnl": -45214.18,
+      "pnl_pct": -81.53
+    },
+    "002709": {
+      "trades": 7,
+      "pnl": -25522.1,
+      "pnl_pct": -62.02
+    },
+    "002015": {
+      "trades": 6,
+      "pnl": 2248.3,
+      "pnl_pct": 20.12
+    },
+    "600666": {
+      "trades": 6,
+      "pnl": -1395.63,
+      "pnl_pct": -4.61
+    },
+    "600726": {
+      "trades": 16,
+      "pnl": -6398.82,
+      "pnl_pct": -4.5
+    },
+    "600089": {
+      "trades": 8,
+      "pnl": 2967.46,
+      "pnl_pct": 10.8
+    },
+    "300014": {
+      "trades": 4,
+      "pnl": 2563.28,
+      "pnl_pct": 28.49
+    },
+    "600487": {
+      "trades": 8,
+      "pnl": 1862.58,
+      "pnl_pct": 6.23
+    },
+    "600276": {
+      "trades": 2,
+      "pnl": 637.73,
+      "pnl_pct": 6.6
+    },
+    "688041": {
+      "trades": 2,
+      "pnl": -972.42,
+      "pnl_pct": -6.37
+    },
+    "688008": {
+      "trades": 2,
+      "pnl": 7088.16,
+      "pnl_pct": 46.18
+    },
+    "300438": {
+      "trades": 4,
+      "pnl": 3180.47,
+      "pnl_pct": 13.49
+    },
+    "600498": {
+      "trades": 3,
+      "pnl": -4619.97,
+      "pnl_pct": -64.44
+    },
+    "600930": {
+      "trades": 6,
+      "pnl": -1763.81,
+      "pnl_pct": -6.17
+    },
+    "001309": {
+      "trades": 2,
+      "pnl": 709.66,
+      "pnl_pct": 4.06
+    },
+    "688525": {
+      "trades": 4,
+      "pnl": -547.43,
+      "pnl_pct": -4.15
+    },
+    "002594": {
+      "trades": 4,
+      "pnl": -2962.48,
+      "pnl_pct": -4.47
+    },
+    "002281": {
+      "trades": 4,
+      "pnl": -2518.15,
+      "pnl_pct": -7.67
+    }
+  },
+  "trades": [
+    {
+      "date": "2025-01-03",
+      "code": "300502",
+      "action": "BUY",
+      "price": 83.95758000000001,
+      "shares": 700,
+      "amount": 58787.94,
+      "commission": 17.63,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "002475",
+      "action": "BUY",
+      "price": 38.95776,
+      "shares": 1000,
+      "amount": 38969.45,
+      "commission": 11.69,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "601899",
+      "action": "BUY",
+      "price": 15.21036,
+      "shares": 2000,
+      "amount": 30429.85,
+      "commission": 9.13,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "603986",
+      "action": "BUY",
+      "price": 103.50659999999999,
+      "shares": 200,
+      "amount": 20707.53,
+      "commission": 6.21,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "002463",
+      "action": "BUY",
+      "price": 38.96778,
+      "shares": 300,
+      "amount": 11695.33,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "600549",
+      "action": "BUY",
+      "price": 18.346619999999998,
+      "shares": 600,
+      "amount": 11012.97,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "000792",
+      "action": "BUY",
+      "price": 16.3827,
+      "shares": 500,
+      "amount": 8196.35,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-03",
+      "code": "603993",
+      "action": "BUY",
+      "price": 6.5630999999999995,
+      "shares": 900,
+      "amount": 5911.79,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-06",
+      "code": "002475",
+      "action": "SELL",
+      "price": 38.75234,
+      "shares": 1000,
+      "amount": 38701.96,
+      "commission": 50.38,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-06",
+      "code": "603986",
+      "action": "SELL",
+      "price": 99.8998,
+      "shares": 200,
+      "amount": 19953.99,
+      "commission": 25.97,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-06",
+      "code": "300827",
+      "action": "BUY",
+      "price": 31.08204,
+      "shares": 700,
+      "amount": 21763.96,
+      "commission": 6.53,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-06",
+      "code": "600989",
+      "action": "BUY",
+      "price": 16.07208,
+      "shares": 900,
+      "amount": 14469.87,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "300394",
+      "action": "BUY",
+      "price": 65.05986,
+      "shares": 100,
+      "amount": 6510.99,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "002475",
+      "action": "BUY",
+      "price": 39.85956,
+      "shares": 200,
+      "amount": 7976.91,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "300476",
+      "action": "BUY",
+      "price": 44.418659999999996,
+      "shares": 100,
+      "amount": 4446.87,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "002384",
+      "action": "BUY",
+      "price": 30.88164,
+      "shares": 100,
+      "amount": 3093.16,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "002202",
+      "action": "BUY",
+      "price": 10.13022,
+      "shares": 400,
+      "amount": 4057.09,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "601138",
+      "action": "BUY",
+      "price": 19.96986,
+      "shares": 100,
+      "amount": 2001.99,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-09",
+      "code": "002050",
+      "action": "BUY",
+      "price": 25.34058,
+      "shares": 100,
+      "amount": 2539.06,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-10",
+      "code": "300502",
+      "action": "SELL",
+      "price": 76.80608,
+      "shares": 700,
+      "amount": 53694.36,
+      "commission": 69.89,
+      "reason": "追踪止损 最高85.39→77.01 回撤9.8%"
+    },
+    {
+      "date": "2025-01-10",
+      "code": "002475",
+      "action": "SELL",
+      "price": 37.26532,
+      "shares": 200,
+      "amount": 7440.61,
+      "commission": 12.45,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-10",
+      "code": "002202",
+      "action": "SELL",
+      "price": 9.590779999999999,
+      "shares": 400,
+      "amount": 3827.48,
+      "commission": 8.84,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-10",
+      "code": "601138",
+      "action": "SELL",
+      "price": 18.472980000000003,
+      "shares": 100,
+      "amount": 1840.45,
+      "commission": 6.85,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-10",
+      "code": "000792",
+      "action": "SELL",
+      "price": 15.77838,
+      "shares": 500,
+      "amount": 7876.3,
+      "commission": 12.89,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-13",
+      "code": "300394",
+      "action": "SELL",
+      "price": 60.86802,
+      "shares": 100,
+      "amount": 6075.72,
+      "commission": 11.09,
+      "reason": "追踪止损 最高67.05→61.06 回撤8.9%"
+    },
+    {
+      "date": "2025-01-13",
+      "code": "300476",
+      "action": "SELL",
+      "price": 46.37706,
+      "shares": 100,
+      "amount": 4628.07,
+      "commission": 9.64,
+      "reason": "追踪止损 最高50.70→46.43 回撤8.4%"
+    },
+    {
+      "date": "2025-01-14",
+      "code": "300274",
+      "action": "BUY",
+      "price": 71.2422,
+      "shares": 300,
+      "amount": 21379.07,
+      "commission": 6.41,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-14",
+      "code": "300383",
+      "action": "BUY",
+      "price": 14.10816,
+      "shares": 1400,
+      "amount": 19757.35,
+      "commission": 5.93,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-14",
+      "code": "000792",
+      "action": "BUY",
+      "price": 16.56306,
+      "shares": 900,
+      "amount": 14911.75,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-14",
+      "code": "603259",
+      "action": "BUY",
+      "price": 53.32644,
+      "shares": 100,
+      "amount": 5337.64,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-15",
+      "code": "002463",
+      "action": "SELL",
+      "price": 38.363119999999995,
+      "shares": 300,
+      "amount": 11492.43,
+      "commission": 16.51,
+      "reason": "追踪止损 最高42.41→38.18 回撤10.0%"
+    },
+    {
+      "date": "2025-01-15",
+      "code": "300475",
+      "action": "BUY",
+      "price": 27.96582,
+      "shares": 400,
+      "amount": 11191.33,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-16",
+      "code": "300502",
+      "action": "BUY",
+      "price": 83.75718,
+      "shares": 100,
+      "amount": 8380.72,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-16",
+      "code": "688313",
+      "action": "BUY",
+      "price": 17.57508,
+      "shares": 300,
+      "amount": 5277.52,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-17",
+      "code": "603659",
+      "action": "BUY",
+      "price": 15.270480000000001,
+      "shares": 300,
+      "amount": 4586.14,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-20",
+      "code": "300136",
+      "action": "BUY",
+      "price": 23.997899999999998,
+      "shares": 100,
+      "amount": 2404.79,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-20",
+      "code": "000617",
+      "action": "BUY",
+      "price": 6.59316,
+      "shares": 400,
+      "amount": 2642.26,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-21",
+      "code": "601138",
+      "action": "BUY",
+      "price": 20.4909,
+      "shares": 100,
+      "amount": 2054.09,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-21",
+      "code": "603659",
+      "action": "SELL",
+      "price": 14.510919999999999,
+      "shares": 300,
+      "amount": 4343.92,
+      "commission": 9.35,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-22",
+      "code": "603601",
+      "action": "BUY",
+      "price": 3.2865599999999997,
+      "shares": 800,
+      "amount": 2634.25,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-22",
+      "code": "300827",
+      "action": "SELL",
+      "price": 29.37114,
+      "shares": 700,
+      "amount": 20533.07,
+      "commission": 26.73,
+      "reason": "追踪止损 最高33.99→29.61 回撤12.9%"
+    },
+    {
+      "date": "2025-01-22",
+      "code": "002565",
+      "action": "BUY",
+      "price": 2.9959800000000003,
+      "shares": 2700,
+      "amount": 8094.15,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-22",
+      "code": "000617",
+      "action": "SELL",
+      "price": 6.47702,
+      "shares": 400,
+      "amount": 2583.22,
+      "commission": 7.59,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-23",
+      "code": "000988",
+      "action": "BUY",
+      "price": 41.0319,
+      "shares": 100,
+      "amount": 4108.19,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-23",
+      "code": "603601",
+      "action": "SELL",
+      "price": 3.20358,
+      "shares": 800,
+      "amount": 2555.3,
+      "commission": 7.56,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-23",
+      "code": "000617",
+      "action": "BUY",
+      "price": 6.513,
+      "shares": 900,
+      "amount": 5866.7,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-24",
+      "code": "300059",
+      "action": "BUY",
+      "price": 24.07806,
+      "shares": 100,
+      "amount": 2412.81,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-24",
+      "code": "002565",
+      "action": "SELL",
+      "price": 2.92414,
+      "shares": 2700,
+      "amount": 7882.28,
+      "commission": 12.9,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-24",
+      "code": "600989",
+      "action": "SELL",
+      "price": 15.558819999999999,
+      "shares": 900,
+      "amount": 13983.94,
+      "commission": 19.0,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "300502",
+      "action": "SELL",
+      "price": 83.79208,
+      "shares": 100,
+      "amount": 8365.83,
+      "commission": 13.38,
+      "reason": "追踪止损 最高100.75→89.51 回撤11.2%"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "603601",
+      "action": "BUY",
+      "price": 3.31662,
+      "shares": 3800,
+      "amount": 12608.16,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "300059",
+      "action": "SELL",
+      "price": 23.19352,
+      "shares": 100,
+      "amount": 2312.03,
+      "commission": 7.32,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "601138",
+      "action": "SELL",
+      "price": 19.550819999999998,
+      "shares": 100,
+      "amount": 1948.13,
+      "commission": 6.96,
+      "reason": "追踪止损 最高22.38→20.48 回撤8.5%"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "300383",
+      "action": "SELL",
+      "price": 14.55084,
+      "shares": 1400,
+      "amount": 20344.69,
+      "commission": 26.48,
+      "reason": "追踪止损 最高15.42→13.80 回撤10.5%"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "688313",
+      "action": "SELL",
+      "price": 18.68256,
+      "shares": 300,
+      "amount": 5594.16,
+      "commission": 10.6,
+      "reason": "追踪止损 最高23.20→19.32 回撤16.7%"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "600989",
+      "action": "BUY",
+      "price": 16.85364,
+      "shares": 1000,
+      "amount": 16858.7,
+      "commission": 5.06,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "000988",
+      "action": "SELL",
+      "price": 37.904039999999995,
+      "shares": 100,
+      "amount": 3781.61,
+      "commission": 8.79,
+      "reason": "追踪止损 最高42.00→37.84 回撤9.9%"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "300274",
+      "action": "SELL",
+      "price": 68.85202,
+      "shares": 300,
+      "amount": 20628.75,
+      "commission": 26.85,
+      "reason": "追踪止损 最高75.36→68.79 回撤8.7%"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "002384",
+      "action": "SELL",
+      "price": 30.05976,
+      "shares": 100,
+      "amount": 2997.97,
+      "commission": 8.01,
+      "reason": "追踪止损 最高34.73→30.28 回撤12.8%"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "600821",
+      "action": "BUY",
+      "price": 5.3106,
+      "shares": 3900,
+      "amount": 20717.55,
+      "commission": 6.21,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "002565",
+      "action": "BUY",
+      "price": 2.96592,
+      "shares": 5000,
+      "amount": 14834.6,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "000617",
+      "action": "SELL",
+      "price": 6.36724,
+      "shares": 900,
+      "amount": 5719.79,
+      "commission": 10.73,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-02-06",
+      "code": "000617",
+      "action": "BUY",
+      "price": 6.513,
+      "shares": 1800,
+      "amount": 11728.4,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-07",
+      "code": "601016",
+      "action": "BUY",
+      "price": 3.0160199999999997,
+      "shares": 2800,
+      "amount": 8449.86,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-07",
+      "code": "601318",
+      "action": "BUY",
+      "price": 48.43668,
+      "shares": 100,
+      "amount": 4848.67,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-07",
+      "code": "002709",
+      "action": "BUY",
+      "price": 19.89972,
+      "shares": 200,
+      "amount": 3984.94,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-07",
+      "code": "300059",
+      "action": "BUY",
+      "price": 24.26844,
+      "shares": 100,
+      "amount": 2431.84,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-07",
+      "code": "002015",
+      "action": "BUY",
+      "price": 7.6152,
+      "shares": 300,
+      "amount": 2289.56,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-10",
+      "code": "600666",
+      "action": "BUY",
+      "price": 3.04608,
+      "shares": 600,
+      "amount": 1832.65,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-10",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.2444800000000003,
+      "shares": 600,
+      "amount": 1351.69,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-13",
+      "code": "002050",
+      "action": "SELL",
+      "price": 31.87612,
+      "shares": 100,
+      "amount": 3179.42,
+      "commission": 8.19,
+      "reason": "追踪止损 最高34.95→32.03 回撤8.4%"
+    },
+    {
+      "date": "2025-02-14",
+      "code": "600089",
+      "action": "BUY",
+      "price": 12.01398,
+      "shares": 100,
+      "amount": 1206.4,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-17",
+      "code": "600989",
+      "action": "SELL",
+      "price": 15.419099999999998,
+      "shares": 1000,
+      "amount": 15398.68,
+      "commission": 20.42,
+      "reason": "追踪止损 最高16.84→15.45 回撤8.3%"
+    },
+    {
+      "date": "2025-02-19",
+      "code": "002463",
+      "action": "BUY",
+      "price": 41.32248,
+      "shares": 100,
+      "amount": 4137.25,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-19",
+      "code": "300014",
+      "action": "BUY",
+      "price": 44.22828,
+      "shares": 100,
+      "amount": 4427.83,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-19",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.17564,
+      "shares": 600,
+      "amount": 1299.08,
+      "commission": 6.31,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-02-21",
+      "code": "603993",
+      "action": "SELL",
+      "price": 6.6367,
+      "shares": 900,
+      "amount": 5962.06,
+      "commission": 10.97,
+      "reason": "追踪止损 最高7.24→6.66 回撤8.0%"
+    },
+    {
+      "date": "2025-02-24",
+      "code": "601016",
+      "action": "SELL",
+      "price": 2.88422,
+      "shares": 2800,
+      "amount": 8062.74,
+      "commission": 13.08,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-02-24",
+      "code": "600487",
+      "action": "BUY",
+      "price": 16.40274,
+      "shares": 500,
+      "amount": 8206.37,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-25",
+      "code": "601899",
+      "action": "SELL",
+      "price": 15.29934,
+      "shares": 2000,
+      "amount": 30558.9,
+      "commission": 39.78,
+      "reason": "追踪止损 最高16.78→15.28 回撤8.9%"
+    },
+    {
+      "date": "2025-02-25",
+      "code": "002463",
+      "action": "SELL",
+      "price": 38.3731,
+      "shares": 100,
+      "amount": 3828.47,
+      "commission": 8.84,
+      "reason": "追踪止损 最高41.99→38.38 回撤8.6%"
+    },
+    {
+      "date": "2025-02-25",
+      "code": "600089",
+      "action": "SELL",
+      "price": 11.73648,
+      "shares": 100,
+      "amount": 1167.47,
+      "commission": 6.17,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-02-25",
+      "code": "603259",
+      "action": "SELL",
+      "price": 61.19736,
+      "shares": 100,
+      "amount": 6108.62,
+      "commission": 11.12,
+      "reason": "追踪止损 最高66.73→60.80 回撤8.9%"
+    },
+    {
+      "date": "2025-02-25",
+      "code": "000617",
+      "action": "SELL",
+      "price": 6.3472800000000005,
+      "shares": 1800,
+      "amount": 11408.68,
+      "commission": 16.43,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-02-26",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.2545,
+      "shares": 9600,
+      "amount": 21649.69,
+      "commission": 6.49,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-28",
+      "code": "600666",
+      "action": "SELL",
+      "price": 2.87424,
+      "shares": 600,
+      "amount": 1717.82,
+      "commission": 6.72,
+      "reason": "追踪止损 最高3.10→2.85 回撤8.1%"
+    },
+    {
+      "date": "2025-02-28",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.18562,
+      "shares": 9600,
+      "amount": 20954.68,
+      "commission": 27.28,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-03-03",
+      "code": "300136",
+      "action": "SELL",
+      "price": 24.5009,
+      "shares": 100,
+      "amount": 2442.64,
+      "commission": 7.45,
+      "reason": "追踪止损 最高27.06→24.76 回撤8.5%"
+    },
+    {
+      "date": "2025-03-03",
+      "code": "600487",
+      "action": "SELL",
+      "price": 15.20952,
+      "shares": 500,
+      "amount": 7592.16,
+      "commission": 12.6,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-03-03",
+      "code": "300059",
+      "action": "SELL",
+      "price": 22.67456,
+      "shares": 100,
+      "amount": 2260.19,
+      "commission": 7.27,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-03-03",
+      "code": "300475",
+      "action": "SELL",
+      "price": 34.69048,
+      "shares": 400,
+      "amount": 13857.32,
+      "commission": 18.88,
+      "reason": "追踪止损 最高39.43→35.43 回撤10.1%"
+    },
+    {
+      "date": "2025-03-05",
+      "code": "600989",
+      "action": "BUY",
+      "price": 16.30254,
+      "shares": 1800,
+      "amount": 29353.38,
+      "commission": 8.8,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-07",
+      "code": "600089",
+      "action": "BUY",
+      "price": 12.003960000000001,
+      "shares": 1700,
+      "amount": 20412.85,
+      "commission": 6.12,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-10",
+      "code": "601899",
+      "action": "BUY",
+      "price": 15.81156,
+      "shares": 900,
+      "amount": 14235.4,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-10",
+      "code": "603993",
+      "action": "BUY",
+      "price": 7.4148000000000005,
+      "shares": 1400,
+      "amount": 10385.72,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-13",
+      "code": "601016",
+      "action": "BUY",
+      "price": 2.96592,
+      "shares": 2500,
+      "amount": 7419.8,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-13",
+      "code": "600487",
+      "action": "BUY",
+      "price": 16.14222,
+      "shares": 300,
+      "amount": 4847.67,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-13",
+      "code": "002709",
+      "action": "SELL",
+      "price": 19.610699999999998,
+      "shares": 200,
+      "amount": 3913.22,
+      "commission": 8.92,
+      "reason": "追踪止损 最高21.97→19.81 回撤9.8%"
+    },
+    {
+      "date": "2025-03-13",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.28456,
+      "shares": 2200,
+      "amount": 5031.03,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-14",
+      "code": "002050",
+      "action": "BUY",
+      "price": 30.891659999999998,
+      "shares": 100,
+      "amount": 3094.17,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-17",
+      "code": "300059",
+      "action": "BUY",
+      "price": 24.2985,
+      "shares": 100,
+      "amount": 2434.85,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-19",
+      "code": "002050",
+      "action": "SELL",
+      "price": 30.06974,
+      "shares": 100,
+      "amount": 2998.97,
+      "commission": 8.01,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-03-21",
+      "code": "002202",
+      "action": "BUY",
+      "price": 9.62922,
+      "shares": 200,
+      "amount": 1930.84,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-24",
+      "code": "300059",
+      "action": "SELL",
+      "price": 23.19352,
+      "shares": 100,
+      "amount": 2312.03,
+      "commission": 7.32,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-03-27",
+      "code": "600989",
+      "action": "SELL",
+      "price": 14.28138,
+      "shares": 1800,
+      "amount": 25673.07,
+      "commission": 33.42,
+      "reason": "追踪止损 最高17.14→15.17 回撤11.5%"
+    },
+    {
+      "date": "2025-03-27",
+      "code": "600276",
+      "action": "BUY",
+      "price": 48.28638,
+      "shares": 200,
+      "amount": 9662.28,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-28",
+      "code": "000792",
+      "action": "SELL",
+      "price": 16.506919999999997,
+      "shares": 900,
+      "amount": 14836.37,
+      "commission": 19.86,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-03-31",
+      "code": "600549",
+      "action": "SELL",
+      "price": 18.72248,
+      "shares": 600,
+      "amount": 11217.25,
+      "commission": 16.23,
+      "reason": "追踪止损 最高20.40→18.72 回撤8.2%"
+    },
+    {
+      "date": "2025-03-31",
+      "code": "002202",
+      "action": "SELL",
+      "price": 8.7325,
+      "shares": 200,
+      "amount": 1739.75,
+      "commission": 6.75,
+      "reason": "追踪止损 最高9.53→8.74 回撤8.3%"
+    },
+    {
+      "date": "2025-03-31",
+      "code": "300014",
+      "action": "SELL",
+      "price": 46.287240000000004,
+      "shares": 100,
+      "amount": 4619.1,
+      "commission": 9.63,
+      "reason": "追踪止损 最高50.96→46.37 回撤9.0%"
+    },
+    {
+      "date": "2025-04-01",
+      "code": "601016",
+      "action": "SELL",
+      "price": 2.87424,
+      "shares": 2500,
+      "amount": 7173.41,
+      "commission": 12.19,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-04-01",
+      "code": "600487",
+      "action": "SELL",
+      "price": 16.1676,
+      "shares": 300,
+      "amount": 4840.43,
+      "commission": 9.85,
+      "reason": "追踪止损 最高17.77→16.23 回撤8.7%"
+    },
+    {
+      "date": "2025-04-01",
+      "code": "600089",
+      "action": "SELL",
+      "price": 11.75644,
+      "shares": 1700,
+      "amount": 19959.97,
+      "commission": 25.98,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-04-02",
+      "code": "002015",
+      "action": "SELL",
+      "price": 7.3852,
+      "shares": 300,
+      "amount": 2208.34,
+      "commission": 7.22,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-04-03",
+      "code": "603993",
+      "action": "SELL",
+      "price": 6.2474799999999995,
+      "shares": 1400,
+      "amount": 8732.73,
+      "commission": 13.75,
+      "reason": "追踪止损 最高7.83→6.98 回撤10.9%"
+    },
+    {
+      "date": "2025-04-07",
+      "code": "601899",
+      "action": "SELL",
+      "price": 15.00992,
+      "shares": 900,
+      "amount": 13490.42,
+      "commission": 18.51,
+      "reason": "追踪止损 最高17.90→14.91 回撤16.7%"
+    },
+    {
+      "date": "2025-04-07",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.19958,
+      "shares": 3900,
+      "amount": 20252.0,
+      "commission": 26.36,
+      "reason": "追踪止损 最高6.10→5.19 回撤14.9%"
+    },
+    {
+      "date": "2025-04-07",
+      "code": "601318",
+      "action": "SELL",
+      "price": 45.908,
+      "shares": 100,
+      "amount": 4581.21,
+      "commission": 9.59,
+      "reason": "追踪止损 最高51.52→46.01 回撤10.7%"
+    },
+    {
+      "date": "2025-04-07",
+      "code": "603601",
+      "action": "SELL",
+      "price": 3.2335200000000004,
+      "shares": 3800,
+      "amount": 12270.09,
+      "commission": 17.29,
+      "reason": "追踪止损 最高3.69→3.22 回撤12.7%"
+    },
+    {
+      "date": "2025-04-07",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.06586,
+      "shares": 2200,
+      "amount": 4535.35,
+      "commission": 9.54,
+      "reason": "追踪止损 最高2.35→2.08 回撤11.5%"
+    },
+    {
+      "date": "2025-04-07",
+      "code": "002565",
+      "action": "SELL",
+      "price": 2.9441,
+      "shares": 5000,
+      "amount": 14700.78,
+      "commission": 19.72,
+      "reason": "追踪止损 最高3.34→2.97 回撤11.1%"
+    },
+    {
+      "date": "2025-04-10",
+      "code": "000617",
+      "action": "BUY",
+      "price": 7.00398,
+      "shares": 7300,
+      "amount": 51144.39,
+      "commission": 15.34,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-15",
+      "code": "601899",
+      "action": "BUY",
+      "price": 17.4348,
+      "shares": 2000,
+      "amount": 34880.06,
+      "commission": 10.46,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-16",
+      "code": "688041",
+      "action": "BUY",
+      "price": 152.53446,
+      "shares": 100,
+      "amount": 15258.45,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-21",
+      "code": "603659",
+      "action": "BUY",
+      "price": 18.10614,
+      "shares": 1100,
+      "amount": 19922.73,
+      "commission": 5.98,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-22",
+      "code": "688313",
+      "action": "BUY",
+      "price": 21.983880000000003,
+      "shares": 600,
+      "amount": 13195.33,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-22",
+      "code": "002565",
+      "action": "BUY",
+      "price": 3.8176200000000002,
+      "shares": 2800,
+      "amount": 10694.34,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-25",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.7054,
+      "shares": 2800,
+      "amount": 7580.12,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-25",
+      "code": "000617",
+      "action": "SELL",
+      "price": 7.10576,
+      "shares": 7300,
+      "amount": 51804.61,
+      "commission": 67.43,
+      "reason": "追踪止损 最高7.79→7.13 回撤8.5%"
+    },
+    {
+      "date": "2025-04-28",
+      "code": "603659",
+      "action": "SELL",
+      "price": 16.706519999999998,
+      "shares": 1100,
+      "amount": 18353.28,
+      "commission": 23.89,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-04-29",
+      "code": "603601",
+      "action": "BUY",
+      "price": 3.4769400000000004,
+      "shares": 7600,
+      "amount": 26432.67,
+      "commission": 7.93,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-29",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.48502,
+      "shares": 2800,
+      "amount": 6946.1,
+      "commission": 11.96,
+      "reason": "追踪止损 最高2.75→2.50 回撤9.1%"
+    },
+    {
+      "date": "2025-04-30",
+      "code": "603986",
+      "action": "BUY",
+      "price": 130.48044,
+      "shares": 100,
+      "amount": 13053.04,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-30",
+      "code": "688008",
+      "action": "BUY",
+      "price": 76.71312,
+      "shares": 200,
+      "amount": 15347.62,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-07",
+      "code": "000988",
+      "action": "BUY",
+      "price": 41.9337,
+      "shares": 200,
+      "amount": 8391.74,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-07",
+      "code": "002202",
+      "action": "BUY",
+      "price": 8.967899999999998,
+      "shares": 1000,
+      "amount": 8972.9,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-07",
+      "code": "601318",
+      "action": "BUY",
+      "price": 48.55692,
+      "shares": 100,
+      "amount": 4860.69,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-08",
+      "code": "603993",
+      "action": "BUY",
+      "price": 6.9138,
+      "shares": 700,
+      "amount": 4844.66,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-09",
+      "code": "688041",
+      "action": "SELL",
+      "price": 143.05332,
+      "shares": 100,
+      "amount": 14286.03,
+      "commission": 19.31,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-05-12",
+      "code": "300274",
+      "action": "BUY",
+      "price": 66.56286,
+      "shares": 100,
+      "amount": 6661.29,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-12",
+      "code": "600549",
+      "action": "BUY",
+      "price": 19.438799999999997,
+      "shares": 300,
+      "amount": 5836.64,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-12",
+      "code": "603659",
+      "action": "BUY",
+      "price": 17.80554,
+      "shares": 200,
+      "amount": 3566.11,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-14",
+      "code": "002709",
+      "action": "BUY",
+      "price": 18.116159999999997,
+      "shares": 100,
+      "amount": 1816.62,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-14",
+      "code": "601138",
+      "action": "BUY",
+      "price": 18.62718,
+      "shares": 100,
+      "amount": 1867.72,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-15",
+      "code": "600989",
+      "action": "BUY",
+      "price": 15.80154,
+      "shares": 100,
+      "amount": 1585.15,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-19",
+      "code": "603659",
+      "action": "SELL",
+      "price": 17.00592,
+      "shares": 200,
+      "amount": 3392.78,
+      "commission": 8.4,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-05-19",
+      "code": "600089",
+      "action": "BUY",
+      "price": 11.713379999999999,
+      "shares": 200,
+      "amount": 2347.68,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-21",
+      "code": "603986",
+      "action": "SELL",
+      "price": 117.42468,
+      "shares": 100,
+      "amount": 11725.73,
+      "commission": 16.74,
+      "reason": "追踪止损 最高131.51→117.80 回撤10.4%"
+    },
+    {
+      "date": "2025-05-22",
+      "code": "300274",
+      "action": "SELL",
+      "price": 59.75026,
+      "shares": 100,
+      "amount": 5964.05,
+      "commission": 10.98,
+      "reason": "追踪止损 最高65.79→60.50 回撤8.0%"
+    },
+    {
+      "date": "2025-05-23",
+      "code": "002709",
+      "action": "SELL",
+      "price": 17.065800000000003,
+      "shares": 100,
+      "amount": 1699.87,
+      "commission": 6.71,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-05-23",
+      "code": "002050",
+      "action": "BUY",
+      "price": 26.833560000000002,
+      "shares": 300,
+      "amount": 8055.07,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-23",
+      "code": "688313",
+      "action": "SELL",
+      "price": 28.8422,
+      "shares": 600,
+      "amount": 17282.82,
+      "commission": 22.5,
+      "reason": "追踪止损 最高31.42→28.64 回撤8.8%"
+    },
+    {
+      "date": "2025-05-26",
+      "code": "600089",
+      "action": "SELL",
+      "price": 11.4271,
+      "shares": 200,
+      "amount": 2278.13,
+      "commission": 7.29,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-05-27",
+      "code": "601138",
+      "action": "SELL",
+      "price": 17.49494,
+      "shares": 100,
+      "amount": 1742.74,
+      "commission": 6.75,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-05-27",
+      "code": "002050",
+      "action": "SELL",
+      "price": 25.508879999999998,
+      "shares": 300,
+      "amount": 7640.01,
+      "commission": 12.65,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-05-28",
+      "code": "300438",
+      "action": "BUY",
+      "price": 25.73136,
+      "shares": 500,
+      "amount": 12870.68,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-29",
+      "code": "601138",
+      "action": "BUY",
+      "price": 18.3867,
+      "shares": 500,
+      "amount": 9198.35,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-29",
+      "code": "002015",
+      "action": "BUY",
+      "price": 8.476920000000002,
+      "shares": 900,
+      "amount": 7634.23,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-04",
+      "code": "601016",
+      "action": "BUY",
+      "price": 2.8456799999999998,
+      "shares": 1900,
+      "amount": 5411.79,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-05",
+      "code": "600666",
+      "action": "BUY",
+      "price": 2.73546,
+      "shares": 1300,
+      "amount": 3561.1,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-09",
+      "code": "000792",
+      "action": "BUY",
+      "price": 16.4328,
+      "shares": 100,
+      "amount": 1648.28,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-12",
+      "code": "300059",
+      "action": "BUY",
+      "price": 21.52296,
+      "shares": 100,
+      "amount": 2157.3,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-13",
+      "code": "000617",
+      "action": "BUY",
+      "price": 6.99396,
+      "shares": 200,
+      "amount": 1403.79,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-19",
+      "code": "002015",
+      "action": "SELL",
+      "price": 11.157639999999999,
+      "shares": 900,
+      "amount": 10026.83,
+      "commission": 15.04,
+      "reason": "追踪止损 最高12.86→11.77 回撤8.5%"
+    },
+    {
+      "date": "2025-06-19",
+      "code": "603659",
+      "action": "BUY",
+      "price": 17.1843,
+      "shares": 200,
+      "amount": 3441.86,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-20",
+      "code": "300059",
+      "action": "SELL",
+      "price": 20.5588,
+      "shares": 100,
+      "amount": 2048.82,
+      "commission": 7.06,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-06-20",
+      "code": "600276",
+      "action": "SELL",
+      "price": 51.57664,
+      "shares": 200,
+      "amount": 10300.01,
+      "commission": 15.32,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-06-23",
+      "code": "603601",
+      "action": "SELL",
+      "price": 3.51296,
+      "shares": 7600,
+      "amount": 26663.79,
+      "commission": 34.71,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-06-23",
+      "code": "300827",
+      "action": "BUY",
+      "price": 21.2925,
+      "shares": 600,
+      "amount": 12780.5,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "603601",
+      "action": "BUY",
+      "price": 3.6472800000000003,
+      "shares": 3000,
+      "amount": 10946.84,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "300059",
+      "action": "BUY",
+      "price": 21.933780000000002,
+      "shares": 300,
+      "amount": 6585.13,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-26",
+      "code": "002709",
+      "action": "BUY",
+      "price": 18.2865,
+      "shares": 300,
+      "amount": 5490.95,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-30",
+      "code": "600089",
+      "action": "BUY",
+      "price": 11.68332,
+      "shares": 300,
+      "amount": 3510.0,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-01",
+      "code": "600487",
+      "action": "BUY",
+      "price": 15.581100000000001,
+      "shares": 100,
+      "amount": 1563.11,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-01",
+      "code": "600666",
+      "action": "SELL",
+      "price": 3.22354,
+      "shares": 1300,
+      "amount": 4181.41,
+      "commission": 9.19,
+      "reason": "追踪止损 最高3.60→3.29 回撤8.6%"
+    },
+    {
+      "date": "2025-07-01",
+      "code": "600498",
+      "action": "BUY",
+      "price": 20.93178,
+      "shares": 100,
+      "amount": 2098.18,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-02",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.52504,
+      "shares": 1200,
+      "amount": 3035.05,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-08",
+      "code": "600821",
+      "action": "BUY",
+      "price": 5.4108,
+      "shares": 400,
+      "amount": 2169.32,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-08",
+      "code": "600989",
+      "action": "SELL",
+      "price": 15.768400000000002,
+      "shares": 100,
+      "amount": 1570.26,
+      "commission": 6.58,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-07-11",
+      "code": "603601",
+      "action": "SELL",
+      "price": 4.78042,
+      "shares": 3000,
+      "amount": 14321.92,
+      "commission": 19.34,
+      "reason": "追踪止损 最高5.51→4.80 回撤12.9%"
+    },
+    {
+      "date": "2025-07-15",
+      "code": "300438",
+      "action": "SELL",
+      "price": 25.828239999999997,
+      "shares": 500,
+      "amount": 12896.21,
+      "commission": 17.91,
+      "reason": "追踪止损 最高28.17→25.76 回撤8.6%"
+    },
+    {
+      "date": "2025-07-15",
+      "code": "000617",
+      "action": "SELL",
+      "price": 8.75246,
+      "shares": 200,
+      "amount": 1743.74,
+      "commission": 6.75,
+      "reason": "追踪止损 最高9.61→8.83 回撤8.1%"
+    },
+    {
+      "date": "2025-07-16",
+      "code": "002050",
+      "action": "BUY",
+      "price": 27.23436,
+      "shares": 300,
+      "amount": 8175.31,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-22",
+      "code": "600930",
+      "action": "BUY",
+      "price": 7.515,
+      "shares": 1100,
+      "amount": 8271.5,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-23",
+      "code": "002565",
+      "action": "SELL",
+      "price": 6.3472800000000005,
+      "shares": 2800,
+      "amount": 17749.28,
+      "commission": 23.1,
+      "reason": "追踪止损 最高6.93→6.35 回撤8.4%"
+    },
+    {
+      "date": "2025-07-23",
+      "code": "600989",
+      "action": "BUY",
+      "price": 16.10214,
+      "shares": 600,
+      "amount": 9666.28,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-25",
+      "code": "600930",
+      "action": "SELL",
+      "price": 6.69658,
+      "shares": 1100,
+      "amount": 7353.87,
+      "commission": 12.37,
+      "reason": "追踪止损 最高7.70→6.74 回撤12.5%"
+    },
+    {
+      "date": "2025-07-29",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.57484,
+      "shares": 1200,
+      "amount": 3081.72,
+      "commission": 8.09,
+      "reason": "追踪止损 最高2.81→2.58 回撤8.2%"
+    },
+    {
+      "date": "2025-07-29",
+      "code": "600989",
+      "action": "SELL",
+      "price": 15.748439999999999,
+      "shares": 600,
+      "amount": 9434.61,
+      "commission": 14.45,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-07-30",
+      "code": "603986",
+      "action": "BUY",
+      "price": 121.242,
+      "shares": 100,
+      "amount": 12129.2,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-30",
+      "code": "300475",
+      "action": "BUY",
+      "price": 34.03794,
+      "shares": 300,
+      "amount": 10216.38,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-30",
+      "code": "600989",
+      "action": "BUY",
+      "price": 15.971879999999999,
+      "shares": 400,
+      "amount": 6393.75,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-31",
+      "code": "002202",
+      "action": "SELL",
+      "price": 9.441080000000001,
+      "shares": 1000,
+      "amount": 9426.64,
+      "commission": 14.44,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-07-31",
+      "code": "300475",
+      "action": "SELL",
+      "price": 33.5328,
+      "shares": 300,
+      "amount": 10044.78,
+      "commission": 15.06,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-07-31",
+      "code": "300827",
+      "action": "SELL",
+      "price": 22.7544,
+      "shares": 600,
+      "amount": 13633.99,
+      "commission": 18.65,
+      "reason": "追踪止损 最高25.02→22.81 回撤8.8%"
+    },
+    {
+      "date": "2025-07-31",
+      "code": "600989",
+      "action": "SELL",
+      "price": 15.23946,
+      "shares": 400,
+      "amount": 6084.69,
+      "commission": 11.1,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-08-01",
+      "code": "600549",
+      "action": "SELL",
+      "price": 22.47496,
+      "shares": 300,
+      "amount": 6730.75,
+      "commission": 11.74,
+      "reason": "追踪止损 最高24.86→22.54 回撤9.3%"
+    },
+    {
+      "date": "2025-08-01",
+      "code": "001309",
+      "action": "BUY",
+      "price": 87.41448,
+      "shares": 200,
+      "amount": 17488.14,
+      "commission": 5.24,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-05",
+      "code": "603986",
+      "action": "SELL",
+      "price": 117.764,
+      "shares": 100,
+      "amount": 11759.62,
+      "commission": 16.78,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-08-05",
+      "code": "300475",
+      "action": "BUY",
+      "price": 34.28844,
+      "shares": 500,
+      "amount": 17149.36,
+      "commission": 5.14,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-05",
+      "code": "300438",
+      "action": "BUY",
+      "price": 26.7534,
+      "shares": 400,
+      "amount": 10706.36,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-07",
+      "code": "688525",
+      "action": "BUY",
+      "price": 64.90956,
+      "shares": 100,
+      "amount": 6495.96,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-07",
+      "code": "603659",
+      "action": "SELL",
+      "price": 17.6147,
+      "shares": 200,
+      "amount": 3514.42,
+      "commission": 8.52,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-08-08",
+      "code": "688525",
+      "action": "SELL",
+      "price": 63.1235,
+      "shares": 100,
+      "amount": 6301.04,
+      "commission": 11.31,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-08-08",
+      "code": "002202",
+      "action": "BUY",
+      "price": 10.08012,
+      "shares": 1000,
+      "amount": 10085.12,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-11",
+      "code": "688525",
+      "action": "BUY",
+      "price": 67.0338,
+      "shares": 100,
+      "amount": 6708.38,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-12",
+      "code": "300014",
+      "action": "BUY",
+      "price": 45.63108,
+      "shares": 100,
+      "amount": 4568.11,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-12",
+      "code": "300383",
+      "action": "BUY",
+      "price": 14.71938,
+      "shares": 200,
+      "amount": 2948.88,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-15",
+      "code": "603659",
+      "action": "BUY",
+      "price": 18.55704,
+      "shares": 100,
+      "amount": 1860.7,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-18",
+      "code": "002015",
+      "action": "BUY",
+      "price": 12.45486,
+      "shares": 100,
+      "amount": 1250.49,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-21",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.6252400000000002,
+      "shares": 800,
+      "amount": 2105.19,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-01",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.5049799999999998,
+      "shares": 800,
+      "amount": 1996.98,
+      "commission": 7.0,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-09-02",
+      "code": "002202",
+      "action": "SELL",
+      "price": 11.037880000000001,
+      "shares": 1000,
+      "amount": 11021.84,
+      "commission": 16.04,
+      "reason": "追踪止损 最高11.95→10.99 回撤8.0%"
+    },
+    {
+      "date": "2025-09-02",
+      "code": "600498",
+      "action": "SELL",
+      "price": 25.56876,
+      "shares": 100,
+      "amount": 2549.32,
+      "commission": 7.56,
+      "reason": "追踪止损 最高28.29→25.68 回撤9.2%"
+    },
+    {
+      "date": "2025-09-03",
+      "code": "001309",
+      "action": "SELL",
+      "price": 91.10742,
+      "shares": 200,
+      "amount": 18197.8,
+      "commission": 23.69,
+      "reason": "追踪止损 最高101.97→92.09 回撤9.7%"
+    },
+    {
+      "date": "2025-09-03",
+      "code": "300383",
+      "action": "SELL",
+      "price": 14.91012,
+      "shares": 200,
+      "amount": 2974.04,
+      "commission": 7.98,
+      "reason": "追踪止损 最高16.66→14.85 回撤10.9%"
+    },
+    {
+      "date": "2025-09-03",
+      "code": "002015",
+      "action": "SELL",
+      "price": 11.93608,
+      "shares": 100,
+      "amount": 1187.41,
+      "commission": 6.19,
+      "reason": "追踪止损 最高13.25→11.97 回撤9.7%"
+    },
+    {
+      "date": "2025-09-03",
+      "code": "688008",
+      "action": "SELL",
+      "price": 112.3249,
+      "shares": 200,
+      "amount": 22435.78,
+      "commission": 29.2,
+      "reason": "追踪止损 最高124.02→112.29 回撤9.5%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "000988",
+      "action": "SELL",
+      "price": 64.28117999999999,
+      "shares": 200,
+      "amount": 12838.38,
+      "commission": 17.86,
+      "reason": "追踪止损 最高75.26→64.80 回撤13.9%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "688525",
+      "action": "SELL",
+      "price": 63.672399999999996,
+      "shares": 100,
+      "amount": 6355.87,
+      "commission": 11.37,
+      "reason": "追踪止损 最高73.22→63.48 回撤13.3%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "300059",
+      "action": "SELL",
+      "price": 26.26736,
+      "shares": 300,
+      "amount": 7867.33,
+      "commission": 12.88,
+      "reason": "追踪止损 最高28.91→26.21 回撤9.3%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "002050",
+      "action": "SELL",
+      "price": 29.52084,
+      "shares": 300,
+      "amount": 8842.4,
+      "commission": 13.86,
+      "reason": "追踪止损 最高32.88→29.67 回撤9.8%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "300475",
+      "action": "SELL",
+      "price": 39.89006,
+      "shares": 500,
+      "amount": 19919.1,
+      "commission": 25.93,
+      "reason": "追踪止损 最高46.87→39.80 回撤15.1%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "603993",
+      "action": "SELL",
+      "price": 12.275400000000001,
+      "shares": 700,
+      "amount": 8579.19,
+      "commission": 13.59,
+      "reason": "追踪止损 最高13.82→12.44 回撤10.0%"
+    },
+    {
+      "date": "2025-09-08",
+      "code": "601318",
+      "action": "SELL",
+      "price": 56.696380000000005,
+      "shares": 100,
+      "amount": 5658.97,
+      "commission": 10.67,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-09-09",
+      "code": "601138",
+      "action": "SELL",
+      "price": 51.167460000000005,
+      "shares": 500,
+      "amount": 25550.47,
+      "commission": 33.26,
+      "reason": "追踪止损 最高55.50→48.46 回撤12.7%"
+    },
+    {
+      "date": "2025-09-10",
+      "code": "300014",
+      "action": "SELL",
+      "price": 69.52068,
+      "shares": 100,
+      "amount": 6940.12,
+      "commission": 11.95,
+      "reason": "追踪止损 最高77.76→69.91 回撤10.1%"
+    },
+    {
+      "date": "2025-09-12",
+      "code": "002565",
+      "action": "BUY",
+      "price": 7.55508,
+      "shares": 6600,
+      "amount": 49878.49,
+      "commission": 14.96,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-16",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.61522,
+      "shares": 13500,
+      "amount": 35316.06,
+      "commission": 10.59,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-17",
+      "code": "002565",
+      "action": "SELL",
+      "price": 7.1856,
+      "shares": 6600,
+      "amount": 47363.31,
+      "commission": 61.65,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-09-18",
+      "code": "002594",
+      "action": "BUY",
+      "price": 110.0196,
+      "shares": 300,
+      "amount": 33015.78,
+      "commission": 9.9,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-22",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.4650600000000003,
+      "shares": 13500,
+      "amount": 33235.05,
+      "commission": 43.26,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-09-23",
+      "code": "002594",
+      "action": "SELL",
+      "price": 104.79,
+      "shares": 300,
+      "amount": 31396.13,
+      "commission": 40.87,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-09-23",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.40916,
+      "shares": 400,
+      "amount": 2156.5,
+      "commission": 7.16,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-09-24",
+      "code": "300383",
+      "action": "BUY",
+      "price": 15.59112,
+      "shares": 3100,
+      "amount": 48346.97,
+      "commission": 14.5,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-09",
+      "code": "002594",
+      "action": "BUY",
+      "price": 110.7711,
+      "shares": 300,
+      "amount": 33241.3,
+      "commission": 9.97,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-09",
+      "code": "600821",
+      "action": "BUY",
+      "price": 5.83164,
+      "shares": 4200,
+      "amount": 24500.24,
+      "commission": 7.35,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-10",
+      "code": "002709",
+      "action": "SELL",
+      "price": 33.44298,
+      "shares": 300,
+      "amount": 10017.86,
+      "commission": 15.03,
+      "reason": "追踪止损 最高38.74→35.27 回撤9.0%"
+    },
+    {
+      "date": "2025-10-10",
+      "code": "300383",
+      "action": "SELL",
+      "price": 13.972,
+      "shares": 3100,
+      "amount": 43256.89,
+      "commission": 56.31,
+      "reason": "追踪止损 最高15.88→14.44 回撤9.1%"
+    },
+    {
+      "date": "2025-10-10",
+      "code": "603659",
+      "action": "SELL",
+      "price": 25.7484,
+      "shares": 100,
+      "amount": 2567.27,
+      "commission": 7.57,
+      "reason": "追踪止损 最高30.92→27.71 回撤10.4%"
+    },
+    {
+      "date": "2025-10-10",
+      "code": "300438",
+      "action": "SELL",
+      "price": 34.70046,
+      "shares": 400,
+      "amount": 13861.3,
+      "commission": 18.88,
+      "reason": "追踪止损 最高40.80→36.41 回撤10.8%"
+    },
+    {
+      "date": "2025-10-13",
+      "code": "002594",
+      "action": "SELL",
+      "price": 106.46664000000001,
+      "shares": 300,
+      "amount": 31898.47,
+      "commission": 41.52,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-10-13",
+      "code": "600487",
+      "action": "SELL",
+      "price": 22.215480000000003,
+      "shares": 100,
+      "amount": 2214.33,
+      "commission": 7.22,
+      "reason": "追踪止损 最高24.11→22.15 回撤8.1%"
+    },
+    {
+      "date": "2025-10-14",
+      "code": "601899",
+      "action": "SELL",
+      "price": 29.90008,
+      "shares": 2000,
+      "amount": 59722.42,
+      "commission": 77.74,
+      "reason": "追踪止损 最高32.38→29.50 回撤8.9%"
+    },
+    {
+      "date": "2025-10-20",
+      "code": "600726",
+      "action": "BUY",
+      "price": 2.6252400000000002,
+      "shares": 25200,
+      "amount": 66175.89,
+      "commission": 19.85,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-21",
+      "code": "601318",
+      "action": "BUY",
+      "price": 57.1641,
+      "shares": 800,
+      "amount": 45745.0,
+      "commission": 13.72,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-23",
+      "code": "300394",
+      "action": "BUY",
+      "price": 169.95924,
+      "shares": 100,
+      "amount": 17001.02,
+      "commission": 5.1,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-27",
+      "code": "002384",
+      "action": "BUY",
+      "price": 74.148,
+      "shares": 300,
+      "amount": 22251.07,
+      "commission": 6.67,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-27",
+      "code": "603259",
+      "action": "BUY",
+      "price": 107.00358,
+      "shares": 100,
+      "amount": 10705.36,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-28",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.5888,
+      "shares": 4200,
+      "amount": 23442.45,
+      "commission": 30.51,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-10-28",
+      "code": "002281",
+      "action": "BUY",
+      "price": 67.47468,
+      "shares": 300,
+      "amount": 20248.48,
+      "commission": 6.07,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-28",
+      "code": "688313",
+      "action": "BUY",
+      "price": 79.158,
+      "shares": 200,
+      "amount": 15836.6,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-29",
+      "code": "600821",
+      "action": "BUY",
+      "price": 5.6913599999999995,
+      "shares": 2400,
+      "amount": 13664.26,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-30",
+      "code": "300394",
+      "action": "SELL",
+      "price": 167.664,
+      "shares": 100,
+      "amount": 16744.6,
+      "commission": 21.8,
+      "reason": "追踪止损 最高194.50→172.02 回撤11.6%"
+    },
+    {
+      "date": "2025-10-30",
+      "code": "688313",
+      "action": "SELL",
+      "price": 68.52268,
+      "shares": 200,
+      "amount": 13685.83,
+      "commission": 18.7,
+      "reason": "追踪止损 最高76.69→70.06 回撤8.6%"
+    },
+    {
+      "date": "2025-10-30",
+      "code": "603259",
+      "action": "SELL",
+      "price": 97.21517999999999,
+      "shares": 100,
+      "amount": 9706.8,
+      "commission": 14.72,
+      "reason": "追踪止损 最高106.64→97.06 回撤9.0%"
+    },
+    {
+      "date": "2025-10-31",
+      "code": "002384",
+      "action": "SELL",
+      "price": 67.7642,
+      "shares": 300,
+      "amount": 20302.83,
+      "commission": 26.43,
+      "reason": "追踪止损 最高74.62→68.50 回撤8.2%"
+    },
+    {
+      "date": "2025-10-31",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.47902,
+      "shares": 2400,
+      "amount": 13131.5,
+      "commission": 18.15,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-10-31",
+      "code": "300827",
+      "action": "BUY",
+      "price": 32.3145,
+      "shares": 900,
+      "amount": 29091.77,
+      "commission": 8.72,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-03",
+      "code": "601016",
+      "action": "SELL",
+      "price": 3.0938,
+      "shares": 1900,
+      "amount": 5867.34,
+      "commission": 10.88,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-11-04",
+      "code": "600666",
+      "action": "BUY",
+      "price": 3.6572999999999998,
+      "shares": 6800,
+      "amount": 24877.1,
+      "commission": 7.46,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-04",
+      "code": "002281",
+      "action": "SELL",
+      "price": 59.34108,
+      "shares": 300,
+      "amount": 17779.18,
+      "commission": 23.14,
+      "reason": "追踪止损 最高67.30→60.80 回撤9.7%"
+    },
+    {
+      "date": "2025-11-05",
+      "code": "601016",
+      "action": "BUY",
+      "price": 3.1663200000000002,
+      "shares": 7200,
+      "amount": 22804.34,
+      "commission": 6.84,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-05",
+      "code": "600930",
+      "action": "BUY",
+      "price": 6.5530800000000005,
+      "shares": 2400,
+      "amount": 15732.39,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-06",
+      "code": "688313",
+      "action": "BUY",
+      "price": 72.21413999999999,
+      "shares": 100,
+      "amount": 7226.41,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-07",
+      "code": "002565",
+      "action": "BUY",
+      "price": 7.8156,
+      "shares": 1100,
+      "amount": 8602.16,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-10",
+      "code": "600821",
+      "action": "BUY",
+      "price": 5.73144,
+      "shares": 1100,
+      "amount": 6309.58,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-14",
+      "code": "600089",
+      "action": "SELL",
+      "price": 23.5029,
+      "shares": 300,
+      "amount": 7038.82,
+      "commission": 12.05,
+      "reason": "追踪止损 最高26.50→23.66 回撤10.7%"
+    },
+    {
+      "date": "2025-11-18",
+      "code": "300827",
+      "action": "SELL",
+      "price": 40.35912,
+      "shares": 900,
+      "amount": 36275.99,
+      "commission": 47.22,
+      "reason": "追踪止损 最高45.70→40.83 回撤10.7%"
+    },
+    {
+      "date": "2025-11-19",
+      "code": "601016",
+      "action": "SELL",
+      "price": 3.08382,
+      "shares": 7200,
+      "amount": 22174.64,
+      "commission": 28.86,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-11-19",
+      "code": "600821",
+      "action": "SELL",
+      "price": 5.55886,
+      "shares": 1100,
+      "amount": 6103.63,
+      "commission": 11.11,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-11-19",
+      "code": "600726",
+      "action": "SELL",
+      "price": 2.53492,
+      "shares": 25200,
+      "amount": 63796.94,
+      "commission": 83.04,
+      "reason": "追踪止损 最高2.77→2.54 回撤8.3%"
+    },
+    {
+      "date": "2025-11-19",
+      "code": "002565",
+      "action": "SELL",
+      "price": 7.1357,
+      "shares": 1100,
+      "amount": 7836.42,
+      "commission": 12.85,
+      "reason": "追踪止损 最高7.72→7.10 回撤8.0%"
+    },
+    {
+      "date": "2025-11-20",
+      "code": "600930",
+      "action": "SELL",
+      "price": 6.2973799999999995,
+      "shares": 2400,
+      "amount": 15093.6,
+      "commission": 20.11,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-11-21",
+      "code": "600666",
+      "action": "SELL",
+      "price": 3.38322,
+      "shares": 6800,
+      "amount": 22975.99,
+      "commission": 29.91,
+      "reason": "追踪止损 最高3.80→3.36 回撤11.6%"
+    },
+    {
+      "date": "2025-11-21",
+      "code": "688313",
+      "action": "SELL",
+      "price": 72.36498,
+      "shares": 100,
+      "amount": 7224.26,
+      "commission": 12.24,
+      "reason": "追踪止损 最高84.61→71.27 回撤15.8%"
+    },
+    {
+      "date": "2025-11-24",
+      "code": "000792",
+      "action": "SELL",
+      "price": 25.62864,
+      "shares": 100,
+      "amount": 2555.3,
+      "commission": 7.56,
+      "reason": "追踪止损 最高28.06→25.38 回撤9.6%"
+    },
+    {
+      "date": "2025-11-25",
+      "code": "002565",
+      "action": "BUY",
+      "price": 7.444859999999999,
+      "shares": 8300,
+      "amount": 61810.88,
+      "commission": 18.54,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-26",
+      "code": "002384",
+      "action": "BUY",
+      "price": 74.87946000000001,
+      "shares": 500,
+      "amount": 37450.96,
+      "commission": 11.23,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-28",
+      "code": "002202",
+      "action": "BUY",
+      "price": 15.4308,
+      "shares": 2000,
+      "amount": 30870.86,
+      "commission": 9.26,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-01",
+      "code": "601899",
+      "action": "BUY",
+      "price": 29.959799999999998,
+      "shares": 700,
+      "amount": 20978.15,
+      "commission": 6.29,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-01",
+      "code": "002463",
+      "action": "BUY",
+      "price": 72.0939,
+      "shares": 200,
+      "amount": 14423.78,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-01",
+      "code": "600989",
+      "action": "BUY",
+      "price": 18.537,
+      "shares": 600,
+      "amount": 11127.2,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-02",
+      "code": "300136",
+      "action": "BUY",
+      "price": 31.99386,
+      "shares": 200,
+      "amount": 6403.77,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-02",
+      "code": "603601",
+      "action": "BUY",
+      "price": 5.2605,
+      "shares": 1300,
+      "amount": 6843.65,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-03",
+      "code": "600930",
+      "action": "BUY",
+      "price": 6.5630999999999995,
+      "shares": 700,
+      "amount": 4599.17,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-04",
+      "code": "002384",
+      "action": "SELL",
+      "price": 69.3111,
+      "shares": 500,
+      "amount": 34610.5,
+      "commission": 45.05,
+      "reason": "追踪止损 最高75.56→69.30 回撤8.3%"
+    },
+    {
+      "date": "2025-12-05",
+      "code": "002281",
+      "action": "BUY",
+      "price": 62.925599999999996,
+      "shares": 200,
+      "amount": 12590.12,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-08",
+      "code": "002050",
+      "action": "BUY",
+      "price": 45.78138,
+      "shares": 200,
+      "amount": 9161.28,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-11",
+      "code": "600498",
+      "action": "BUY",
+      "price": 25.330560000000002,
+      "shares": 200,
+      "amount": 5071.11,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-11",
+      "code": "600989",
+      "action": "SELL",
+      "price": 17.7145,
+      "shares": 600,
+      "amount": 10613.07,
+      "commission": 15.63,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-12-16",
+      "code": "002050",
+      "action": "SELL",
+      "price": 42.92398,
+      "shares": 200,
+      "amount": 8571.21,
+      "commission": 13.58,
+      "reason": "追踪止损 最高46.68→42.75 回撤8.4%"
+    },
+    {
+      "date": "2025-12-16",
+      "code": "002281",
+      "action": "SELL",
+      "price": 62.794160000000005,
+      "shares": 200,
+      "amount": 12541.27,
+      "commission": 17.56,
+      "reason": "追踪止损 最高68.55→62.35 回撤9.0%"
+    },
+    {
+      "date": "2025-12-17",
+      "code": "600487",
+      "action": "BUY",
+      "price": 21.843600000000002,
+      "shares": 700,
+      "amount": 15295.52,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-17",
+      "code": "002565",
+      "action": "SELL",
+      "price": 15.8682,
+      "shares": 8300,
+      "amount": 131534.84,
+      "commission": 171.22,
+      "reason": "追踪止损 最高16.85→15.17 回撤10.0%"
+    },
+    {
+      "date": "2025-12-18",
+      "code": "603986",
+      "action": "BUY",
+      "price": 220.44,
+      "shares": 200,
+      "amount": 44101.23,
+      "commission": 13.23,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-19",
+      "code": "002463",
+      "action": "SELL",
+      "price": 68.21329999999999,
+      "shares": 200,
+      "amount": 13624.02,
+      "commission": 18.64,
+      "reason": "追踪止损 最高73.85→67.52 回撤8.6%"
+    },
+    {
+      "date": "2025-12-22",
+      "code": "002050",
+      "action": "BUY",
+      "price": 45.761340000000004,
+      "shares": 900,
+      "amount": 41197.56,
+      "commission": 12.36,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-23",
+      "code": "600930",
+      "action": "SELL",
+      "price": 6.2874,
+      "shares": 700,
+      "amount": 4391.78,
+      "commission": 9.4,
+      "reason": "EMA10下穿EMA30 趋势转弱"
+    },
+    {
+      "date": "2025-12-24",
+      "code": "002709",
+      "action": "BUY",
+      "price": 42.645120000000006,
+      "shares": 700,
+      "amount": 29860.54,
+      "commission": 8.96,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-24",
+      "code": "300475",
+      "action": "BUY",
+      "price": 149.26794,
+      "shares": 100,
+      "amount": 14931.79,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-24",
+      "code": "600989",
+      "action": "BUY",
+      "price": 18.7374,
+      "shares": 800,
+      "amount": 14994.92,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-25",
+      "code": "002475",
+      "action": "BUY",
+      "price": 59.138040000000004,
+      "shares": 200,
+      "amount": 11832.61,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-25",
+      "code": "300827",
+      "action": "BUY",
+      "price": 38.2764,
+      "shares": 200,
+      "amount": 7660.28,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-26",
+      "code": "603659",
+      "action": "BUY",
+      "price": 28.11612,
+      "shares": 200,
+      "amount": 5628.22,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-29",
+      "code": "000617",
+      "action": "BUY",
+      "price": 9.77952,
+      "shares": 400,
+      "amount": 3916.81,
+      "commission": 5.0,
+      "reason": "EMA10上穿EMA30 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-30",
+      "code": "600487",
+      "action": "SELL",
+      "price": 24.5009,
+      "shares": 700,
+      "amount": 17128.33,
+      "commission": 22.3,
+      "reason": "追踪止损 最高26.93→24.46 回撤9.2%"
+    },
+    {
+      "date": "2025-12-30",
+      "code": "603601",
+      "action": "SELL",
+      "price": 11.86622,
+      "shares": 1300,
+      "amount": 15405.66,
+      "commission": 20.43,
+      "reason": "追踪止损 最高13.34→11.94 回撤10.5%"
+    }
+  ],
+  "daily_equity": [
+    {
+      "date": "2025-01-02",
+      "total_value": 200000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-03",
+      "total_value": 200000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-06",
+      "total_value": 198127.79,
+      "cumulative_return": -0.009361
+    },
+    {
+      "date": "2025-01-07",
+      "total_value": 202131.91,
+      "cumulative_return": 0.01066
+    },
+    {
+      "date": "2025-01-08",
+      "total_value": 200448.9,
+      "cumulative_return": 0.002244
+    },
+    {
+      "date": "2025-01-09",
+      "total_value": 200403.9,
+      "cumulative_return": 0.002019
+    },
+    {
+      "date": "2025-01-10",
+      "total_value": 195283.84,
+      "cumulative_return": -0.023581
+    },
+    {
+      "date": "2025-01-13",
+      "total_value": 194055.04,
+      "cumulative_return": -0.029725
+    },
+    {
+      "date": "2025-01-14",
+      "total_value": 195588.83,
+      "cumulative_return": -0.022056
+    },
+    {
+      "date": "2025-01-15",
+      "total_value": 192496.02,
+      "cumulative_return": -0.03752
+    },
+    {
+      "date": "2025-01-16",
+      "total_value": 193981.12,
+      "cumulative_return": -0.030094
+    },
+    {
+      "date": "2025-01-17",
+      "total_value": 195139.88,
+      "cumulative_return": -0.024301
+    },
+    {
+      "date": "2025-01-20",
+      "total_value": 198569.74,
+      "cumulative_return": -0.007151
+    },
+    {
+      "date": "2025-01-21",
+      "total_value": 199621.69,
+      "cumulative_return": -0.001892
+    },
+    {
+      "date": "2025-01-22",
+      "total_value": 197129.52,
+      "cumulative_return": -0.014352
+    },
+    {
+      "date": "2025-01-23",
+      "total_value": 195396.41,
+      "cumulative_return": -0.023018
+    },
+    {
+      "date": "2025-01-24",
+      "total_value": 197625.82,
+      "cumulative_return": -0.011871
+    },
+    {
+      "date": "2025-01-27",
+      "total_value": 192084.23,
+      "cumulative_return": -0.039579
+    },
+    {
+      "date": "2025-02-05",
+      "total_value": 191704.21,
+      "cumulative_return": -0.041479
+    },
+    {
+      "date": "2025-02-06",
+      "total_value": 194819.18,
+      "cumulative_return": -0.025904
+    },
+    {
+      "date": "2025-02-07",
+      "total_value": 196586.78,
+      "cumulative_return": -0.017066
+    },
+    {
+      "date": "2025-02-10",
+      "total_value": 196938.91,
+      "cumulative_return": -0.015305
+    },
+    {
+      "date": "2025-02-11",
+      "total_value": 196071.57,
+      "cumulative_return": -0.019642
+    },
+    {
+      "date": "2025-02-12",
+      "total_value": 196875.57,
+      "cumulative_return": -0.015622
+    },
+    {
+      "date": "2025-02-13",
+      "total_value": 195041.57,
+      "cumulative_return": -0.024792
+    },
+    {
+      "date": "2025-02-14",
+      "total_value": 195498.99,
+      "cumulative_return": -0.022505
+    },
+    {
+      "date": "2025-02-17",
+      "total_value": 194337.59,
+      "cumulative_return": -0.028312
+    },
+    {
+      "date": "2025-02-18",
+      "total_value": 190945.27,
+      "cumulative_return": -0.045274
+    },
+    {
+      "date": "2025-02-19",
+      "total_value": 192542.27,
+      "cumulative_return": -0.037289
+    },
+    {
+      "date": "2025-02-20",
+      "total_value": 192274.27,
+      "cumulative_return": -0.038629
+    },
+    {
+      "date": "2025-02-21",
+      "total_value": 194509.27,
+      "cumulative_return": -0.027454
+    },
+    {
+      "date": "2025-02-24",
+      "total_value": 198479.33,
+      "cumulative_return": -0.007603
+    },
+    {
+      "date": "2025-02-25",
+      "total_value": 196020.7,
+      "cumulative_return": -0.019896
+    },
+    {
+      "date": "2025-02-26",
+      "total_value": 196970.84,
+      "cumulative_return": -0.015146
+    },
+    {
+      "date": "2025-02-27",
+      "total_value": 196384.15,
+      "cumulative_return": -0.018079
+    },
+    {
+      "date": "2025-02-28",
+      "total_value": 192888.15,
+      "cumulative_return": -0.035559
+    },
+    {
+      "date": "2025-03-03",
+      "total_value": 193103.65,
+      "cumulative_return": -0.034482
+    },
+    {
+      "date": "2025-03-04",
+      "total_value": 192419.96,
+      "cumulative_return": -0.0379
+    },
+    {
+      "date": "2025-03-05",
+      "total_value": 192156.96,
+      "cumulative_return": -0.039215
+    },
+    {
+      "date": "2025-03-06",
+      "total_value": 193166.58,
+      "cumulative_return": -0.034167
+    },
+    {
+      "date": "2025-03-07",
+      "total_value": 193266.58,
+      "cumulative_return": -0.033667
+    },
+    {
+      "date": "2025-03-10",
+      "total_value": 193971.73,
+      "cumulative_return": -0.030141
+    },
+    {
+      "date": "2025-03-11",
+      "total_value": 195134.61,
+      "cumulative_return": -0.024327
+    },
+    {
+      "date": "2025-03-12",
+      "total_value": 195934.61,
+      "cumulative_return": -0.020327
+    },
+    {
+      "date": "2025-03-13",
+      "total_value": 196756.61,
+      "cumulative_return": -0.016217
+    },
+    {
+      "date": "2025-03-14",
+      "total_value": 198715.33,
+      "cumulative_return": -0.006423
+    },
+    {
+      "date": "2025-03-17",
+      "total_value": 198215.16,
+      "cumulative_return": -0.008924
+    },
+    {
+      "date": "2025-03-18",
+      "total_value": 200480.31,
+      "cumulative_return": 0.002402
+    },
+    {
+      "date": "2025-03-19",
+      "total_value": 200659.31,
+      "cumulative_return": 0.003297
+    },
+    {
+      "date": "2025-03-20",
+      "total_value": 199889.28,
+      "cumulative_return": -0.000554
+    },
+    {
+      "date": "2025-03-21",
+      "total_value": 197895.28,
+      "cumulative_return": -0.010524
+    },
+    {
+      "date": "2025-03-24",
+      "total_value": 198152.44,
+      "cumulative_return": -0.009238
+    },
+    {
+      "date": "2025-03-25",
+      "total_value": 199974.47,
+      "cumulative_return": -0.000128
+    },
+    {
+      "date": "2025-03-26",
+      "total_value": 199167.47,
+      "cumulative_return": -0.004163
+    },
+    {
+      "date": "2025-03-27",
+      "total_value": 194547.47,
+      "cumulative_return": -0.027263
+    },
+    {
+      "date": "2025-03-28",
+      "total_value": 190838.26,
+      "cumulative_return": -0.045809
+    },
+    {
+      "date": "2025-03-31",
+      "total_value": 189317.63,
+      "cumulative_return": -0.053412
+    },
+    {
+      "date": "2025-04-01",
+      "total_value": 190962.73,
+      "cumulative_return": -0.045186
+    },
+    {
+      "date": "2025-04-02",
+      "total_value": 190752.54,
+      "cumulative_return": -0.046237
+    },
+    {
+      "date": "2025-04-03",
+      "total_value": 189963.88,
+      "cumulative_return": -0.050181
+    },
+    {
+      "date": "2025-04-07",
+      "total_value": 180770.61,
+      "cumulative_return": -0.096147
+    },
+    {
+      "date": "2025-04-08",
+      "total_value": 180677.46,
+      "cumulative_return": -0.096613
+    },
+    {
+      "date": "2025-04-09",
+      "total_value": 180581.46,
+      "cumulative_return": -0.097093
+    },
+    {
+      "date": "2025-04-10",
+      "total_value": 180637.46,
+      "cumulative_return": -0.096813
+    },
+    {
+      "date": "2025-04-11",
+      "total_value": 179036.07,
+      "cumulative_return": -0.10482
+    },
+    {
+      "date": "2025-04-14",
+      "total_value": 181032.07,
+      "cumulative_return": -0.09484
+    },
+    {
+      "date": "2025-04-15",
+      "total_value": 179452.07,
+      "cumulative_return": -0.10274
+    },
+    {
+      "date": "2025-04-16",
+      "total_value": 179397.01,
+      "cumulative_return": -0.103015
+    },
+    {
+      "date": "2025-04-17",
+      "total_value": 178407.56,
+      "cumulative_return": -0.107962
+    },
+    {
+      "date": "2025-04-18",
+      "total_value": 177926.56,
+      "cumulative_return": -0.110367
+    },
+    {
+      "date": "2025-04-21",
+      "total_value": 182645.56,
+      "cumulative_return": -0.086772
+    },
+    {
+      "date": "2025-04-22",
+      "total_value": 186775.83,
+      "cumulative_return": -0.066121
+    },
+    {
+      "date": "2025-04-23",
+      "total_value": 184082.16,
+      "cumulative_return": -0.079589
+    },
+    {
+      "date": "2025-04-24",
+      "total_value": 181069.16,
+      "cumulative_return": -0.094654
+    },
+    {
+      "date": "2025-04-25",
+      "total_value": 181462.16,
+      "cumulative_return": -0.092689
+    },
+    {
+      "date": "2025-04-28",
+      "total_value": 180892.65,
+      "cumulative_return": -0.095537
+    },
+    {
+      "date": "2025-04-29",
+      "total_value": 180923.93,
+      "cumulative_return": -0.09538
+    },
+    {
+      "date": "2025-04-30",
+      "total_value": 179729.36,
+      "cumulative_return": -0.101353
+    },
+    {
+      "date": "2025-05-06",
+      "total_value": 183102.7,
+      "cumulative_return": -0.084486
+    },
+    {
+      "date": "2025-05-07",
+      "total_value": 183973.7,
+      "cumulative_return": -0.080131
+    },
+    {
+      "date": "2025-05-08",
+      "total_value": 183356.37,
+      "cumulative_return": -0.083218
+    },
+    {
+      "date": "2025-05-09",
+      "total_value": 182020.71,
+      "cumulative_return": -0.089896
+    },
+    {
+      "date": "2025-05-12",
+      "total_value": 183290.74,
+      "cumulative_return": -0.083546
+    },
+    {
+      "date": "2025-05-13",
+      "total_value": 182952.7,
+      "cumulative_return": -0.085236
+    },
+    {
+      "date": "2025-05-14",
+      "total_value": 184220.7,
+      "cumulative_return": -0.078896
+    },
+    {
+      "date": "2025-05-15",
+      "total_value": 182729.36,
+      "cumulative_return": -0.086353
+    },
+    {
+      "date": "2025-05-16",
+      "total_value": 183948.21,
+      "cumulative_return": -0.080259
+    },
+    {
+      "date": "2025-05-19",
+      "total_value": 183505.21,
+      "cumulative_return": -0.082474
+    },
+    {
+      "date": "2025-05-20",
+      "total_value": 183564.31,
+      "cumulative_return": -0.082178
+    },
+    {
+      "date": "2025-05-21",
+      "total_value": 184862.31,
+      "cumulative_return": -0.075688
+    },
+    {
+      "date": "2025-05-22",
+      "total_value": 184076.04,
+      "cumulative_return": -0.07962
+    },
+    {
+      "date": "2025-05-23",
+      "total_value": 182623.09,
+      "cumulative_return": -0.086885
+    },
+    {
+      "date": "2025-05-26",
+      "total_value": 184118.71,
+      "cumulative_return": -0.079406
+    },
+    {
+      "date": "2025-05-27",
+      "total_value": 182072.84,
+      "cumulative_return": -0.089636
+    },
+    {
+      "date": "2025-05-28",
+      "total_value": 182483.59,
+      "cumulative_return": -0.087582
+    },
+    {
+      "date": "2025-05-29",
+      "total_value": 183686.91,
+      "cumulative_return": -0.081565
+    },
+    {
+      "date": "2025-05-30",
+      "total_value": 181511.33,
+      "cumulative_return": -0.092443
+    },
+    {
+      "date": "2025-06-03",
+      "total_value": 184855.33,
+      "cumulative_return": -0.075723
+    },
+    {
+      "date": "2025-06-04",
+      "total_value": 186888.33,
+      "cumulative_return": -0.065558
+    },
+    {
+      "date": "2025-06-05",
+      "total_value": 187080.54,
+      "cumulative_return": -0.064597
+    },
+    {
+      "date": "2025-06-06",
+      "total_value": 187655.44,
+      "cumulative_return": -0.061723
+    },
+    {
+      "date": "2025-06-09",
+      "total_value": 189649.44,
+      "cumulative_return": -0.051753
+    },
+    {
+      "date": "2025-06-10",
+      "total_value": 188630.16,
+      "cumulative_return": -0.056849
+    },
+    {
+      "date": "2025-06-11",
+      "total_value": 190437.16,
+      "cumulative_return": -0.047814
+    },
+    {
+      "date": "2025-06-12",
+      "total_value": 192202.16,
+      "cumulative_return": -0.038989
+    },
+    {
+      "date": "2025-06-13",
+      "total_value": 191679.86,
+      "cumulative_return": -0.041601
+    },
+    {
+      "date": "2025-06-16",
+      "total_value": 193840.07,
+      "cumulative_return": -0.0308
+    },
+    {
+      "date": "2025-06-17",
+      "total_value": 194393.07,
+      "cumulative_return": -0.028035
+    },
+    {
+      "date": "2025-06-18",
+      "total_value": 194546.07,
+      "cumulative_return": -0.02727
+    },
+    {
+      "date": "2025-06-19",
+      "total_value": 190719.07,
+      "cumulative_return": -0.046405
+    },
+    {
+      "date": "2025-06-20",
+      "total_value": 190443.04,
+      "cumulative_return": -0.047785
+    },
+    {
+      "date": "2025-06-23",
+      "total_value": 192865.87,
+      "cumulative_return": -0.035671
+    },
+    {
+      "date": "2025-06-24",
+      "total_value": 196503.16,
+      "cumulative_return": -0.017484
+    },
+    {
+      "date": "2025-06-25",
+      "total_value": 198989.19,
+      "cumulative_return": -0.005054
+    },
+    {
+      "date": "2025-06-26",
+      "total_value": 198058.19,
+      "cumulative_return": -0.009709
+    },
+    {
+      "date": "2025-06-27",
+      "total_value": 200788.24,
+      "cumulative_return": 0.003941
+    },
+    {
+      "date": "2025-06-30",
+      "total_value": 202993.24,
+      "cumulative_return": 0.014966
+    },
+    {
+      "date": "2025-07-01",
+      "total_value": 204467.24,
+      "cumulative_return": 0.022336
+    },
+    {
+      "date": "2025-07-02",
+      "total_value": 207020.36,
+      "cumulative_return": 0.035102
+    },
+    {
+      "date": "2025-07-03",
+      "total_value": 209023.31,
+      "cumulative_return": 0.045117
+    },
+    {
+      "date": "2025-07-04",
+      "total_value": 207871.31,
+      "cumulative_return": 0.039357
+    },
+    {
+      "date": "2025-07-07",
+      "total_value": 208022.31,
+      "cumulative_return": 0.040112
+    },
+    {
+      "date": "2025-07-08",
+      "total_value": 213296.31,
+      "cumulative_return": 0.066482
+    },
+    {
+      "date": "2025-07-09",
+      "total_value": 211254.25,
+      "cumulative_return": 0.056271
+    },
+    {
+      "date": "2025-07-10",
+      "total_value": 210762.25,
+      "cumulative_return": 0.053811
+    },
+    {
+      "date": "2025-07-11",
+      "total_value": 209837.25,
+      "cumulative_return": 0.049186
+    },
+    {
+      "date": "2025-07-14",
+      "total_value": 209201.17,
+      "cumulative_return": 0.046006
+    },
+    {
+      "date": "2025-07-15",
+      "total_value": 209489.17,
+      "cumulative_return": 0.047446
+    },
+    {
+      "date": "2025-07-16",
+      "total_value": 208839.12,
+      "cumulative_return": 0.044196
+    },
+    {
+      "date": "2025-07-17",
+      "total_value": 211091.81,
+      "cumulative_return": 0.055459
+    },
+    {
+      "date": "2025-07-18",
+      "total_value": 211586.81,
+      "cumulative_return": 0.057934
+    },
+    {
+      "date": "2025-07-21",
+      "total_value": 213566.81,
+      "cumulative_return": 0.067834
+    },
+    {
+      "date": "2025-07-22",
+      "total_value": 214962.81,
+      "cumulative_return": 0.074814
+    },
+    {
+      "date": "2025-07-23",
+      "total_value": 213393.31,
+      "cumulative_return": 0.066967
+    },
+    {
+      "date": "2025-07-24",
+      "total_value": 215444.31,
+      "cumulative_return": 0.077222
+    },
+    {
+      "date": "2025-07-25",
+      "total_value": 213797.31,
+      "cumulative_return": 0.068987
+    },
+    {
+      "date": "2025-07-28",
+      "total_value": 214505.18,
+      "cumulative_return": 0.072526
+    },
+    {
+      "date": "2025-07-29",
+      "total_value": 215566.18,
+      "cumulative_return": 0.077831
+    },
+    {
+      "date": "2025-07-30",
+      "total_value": 215936.51,
+      "cumulative_return": 0.079683
+    },
+    {
+      "date": "2025-07-31",
+      "total_value": 212837.18,
+      "cumulative_return": 0.064186
+    },
+    {
+      "date": "2025-08-01",
+      "total_value": 210715.28,
+      "cumulative_return": 0.053576
+    },
+    {
+      "date": "2025-08-04",
+      "total_value": 213139.89,
+      "cumulative_return": 0.065699
+    },
+    {
+      "date": "2025-08-05",
+      "total_value": 214800.89,
+      "cumulative_return": 0.074004
+    },
+    {
+      "date": "2025-08-06",
+      "total_value": 216991.79,
+      "cumulative_return": 0.084959
+    },
+    {
+      "date": "2025-08-07",
+      "total_value": 218147.79,
+      "cumulative_return": 0.090739
+    },
+    {
+      "date": "2025-08-08",
+      "total_value": 218296.25,
+      "cumulative_return": 0.091481
+    },
+    {
+      "date": "2025-08-11",
+      "total_value": 220525.17,
+      "cumulative_return": 0.102626
+    },
+    {
+      "date": "2025-08-12",
+      "total_value": 223170.79,
+      "cumulative_return": 0.115854
+    },
+    {
+      "date": "2025-08-13",
+      "total_value": 227139.8,
+      "cumulative_return": 0.135699
+    },
+    {
+      "date": "2025-08-14",
+      "total_value": 225012.8,
+      "cumulative_return": 0.125064
+    },
+    {
+      "date": "2025-08-15",
+      "total_value": 230158.8,
+      "cumulative_return": 0.150794
+    },
+    {
+      "date": "2025-08-18",
+      "total_value": 230202.1,
+      "cumulative_return": 0.15101
+    },
+    {
+      "date": "2025-08-19",
+      "total_value": 230644.61,
+      "cumulative_return": 0.153223
+    },
+    {
+      "date": "2025-08-20",
+      "total_value": 232614.61,
+      "cumulative_return": 0.163073
+    },
+    {
+      "date": "2025-08-21",
+      "total_value": 232661.61,
+      "cumulative_return": 0.163308
+    },
+    {
+      "date": "2025-08-22",
+      "total_value": 237625.42,
+      "cumulative_return": 0.188127
+    },
+    {
+      "date": "2025-08-25",
+      "total_value": 246401.42,
+      "cumulative_return": 0.232007
+    },
+    {
+      "date": "2025-08-26",
+      "total_value": 247008.42,
+      "cumulative_return": 0.235042
+    },
+    {
+      "date": "2025-08-27",
+      "total_value": 245719.42,
+      "cumulative_return": 0.228597
+    },
+    {
+      "date": "2025-08-28",
+      "total_value": 251439.42,
+      "cumulative_return": 0.257197
+    },
+    {
+      "date": "2025-08-29",
+      "total_value": 257973.42,
+      "cumulative_return": 0.289867
+    },
+    {
+      "date": "2025-09-01",
+      "total_value": 268087.42,
+      "cumulative_return": 0.340437
+    },
+    {
+      "date": "2025-09-02",
+      "total_value": 261400.4,
+      "cumulative_return": 0.307002
+    },
+    {
+      "date": "2025-09-03",
+      "total_value": 260911.56,
+      "cumulative_return": 0.304558
+    },
+    {
+      "date": "2025-09-04",
+      "total_value": 253665.59,
+      "cumulative_return": 0.268328
+    },
+    {
+      "date": "2025-09-05",
+      "total_value": 261188.86,
+      "cumulative_return": 0.305944
+    },
+    {
+      "date": "2025-09-08",
+      "total_value": 258054.86,
+      "cumulative_return": 0.290274
+    },
+    {
+      "date": "2025-09-09",
+      "total_value": 257993.83,
+      "cumulative_return": 0.289969
+    },
+    {
+      "date": "2025-09-10",
+      "total_value": 257864.3,
+      "cumulative_return": 0.289321
+    },
+    {
+      "date": "2025-09-11",
+      "total_value": 259808.42,
+      "cumulative_return": 0.299042
+    },
+    {
+      "date": "2025-09-12",
+      "total_value": 259875.42,
+      "cumulative_return": 0.299377
+    },
+    {
+      "date": "2025-09-15",
+      "total_value": 260039.93,
+      "cumulative_return": 0.3002
+    },
+    {
+      "date": "2025-09-16",
+      "total_value": 258242.93,
+      "cumulative_return": 0.291215
+    },
+    {
+      "date": "2025-09-17",
+      "total_value": 257507.87,
+      "cumulative_return": 0.287539
+    },
+    {
+      "date": "2025-09-18",
+      "total_value": 255353.18,
+      "cumulative_return": 0.276766
+    },
+    {
+      "date": "2025-09-19",
+      "total_value": 255597.4,
+      "cumulative_return": 0.277987
+    },
+    {
+      "date": "2025-09-22",
+      "total_value": 255177.4,
+      "cumulative_return": 0.275887
+    },
+    {
+      "date": "2025-09-23",
+      "total_value": 255979.45,
+      "cumulative_return": 0.279897
+    },
+    {
+      "date": "2025-09-24",
+      "total_value": 257598.08,
+      "cumulative_return": 0.28799
+    },
+    {
+      "date": "2025-09-25",
+      "total_value": 260952.11,
+      "cumulative_return": 0.304761
+    },
+    {
+      "date": "2025-09-26",
+      "total_value": 259946.11,
+      "cumulative_return": 0.299731
+    },
+    {
+      "date": "2025-09-29",
+      "total_value": 265060.11,
+      "cumulative_return": 0.325301
+    },
+    {
+      "date": "2025-09-30",
+      "total_value": 267675.11,
+      "cumulative_return": 0.338376
+    },
+    {
+      "date": "2025-10-09",
+      "total_value": 274460.11,
+      "cumulative_return": 0.372301
+    },
+    {
+      "date": "2025-10-10",
+      "total_value": 265412.57,
+      "cumulative_return": 0.327063
+    },
+    {
+      "date": "2025-10-13",
+      "total_value": 262490.89,
+      "cumulative_return": 0.312454
+    },
+    {
+      "date": "2025-10-14",
+      "total_value": 259303.69,
+      "cumulative_return": 0.296518
+    },
+    {
+      "date": "2025-10-15",
+      "total_value": 259944.11,
+      "cumulative_return": 0.299721
+    },
+    {
+      "date": "2025-10-16",
+      "total_value": 259571.11,
+      "cumulative_return": 0.297856
+    },
+    {
+      "date": "2025-10-17",
+      "total_value": 258598.11,
+      "cumulative_return": 0.292991
+    },
+    {
+      "date": "2025-10-20",
+      "total_value": 258828.11,
+      "cumulative_return": 0.294141
+    },
+    {
+      "date": "2025-10-21",
+      "total_value": 260537.22,
+      "cumulative_return": 0.302686
+    },
+    {
+      "date": "2025-10-22",
+      "total_value": 260792.22,
+      "cumulative_return": 0.303961
+    },
+    {
+      "date": "2025-10-23",
+      "total_value": 262529.22,
+      "cumulative_return": 0.312646
+    },
+    {
+      "date": "2025-10-24",
+      "total_value": 260655.2,
+      "cumulative_return": 0.303276
+    },
+    {
+      "date": "2025-10-27",
+      "total_value": 261784.2,
+      "cumulative_return": 0.308921
+    },
+    {
+      "date": "2025-10-28",
+      "total_value": 260884.77,
+      "cumulative_return": 0.304424
+    },
+    {
+      "date": "2025-10-29",
+      "total_value": 262634.14,
+      "cumulative_return": 0.313171
+    },
+    {
+      "date": "2025-10-30",
+      "total_value": 256389.88,
+      "cumulative_return": 0.281949
+    },
+    {
+      "date": "2025-10-31",
+      "total_value": 251028.11,
+      "cumulative_return": 0.255141
+    },
+    {
+      "date": "2025-11-03",
+      "total_value": 253046.67,
+      "cumulative_return": 0.265233
+    },
+    {
+      "date": "2025-11-04",
+      "total_value": 254359.01,
+      "cumulative_return": 0.271795
+    },
+    {
+      "date": "2025-11-05",
+      "total_value": 256444.09,
+      "cumulative_return": 0.28222
+    },
+    {
+      "date": "2025-11-06",
+      "total_value": 257662.36,
+      "cumulative_return": 0.288312
+    },
+    {
+      "date": "2025-11-07",
+      "total_value": 257132.95,
+      "cumulative_return": 0.285665
+    },
+    {
+      "date": "2025-11-10",
+      "total_value": 262346.79,
+      "cumulative_return": 0.311734
+    },
+    {
+      "date": "2025-11-11",
+      "total_value": 262336.21,
+      "cumulative_return": 0.311681
+    },
+    {
+      "date": "2025-11-12",
+      "total_value": 261079.21,
+      "cumulative_return": 0.305396
+    },
+    {
+      "date": "2025-11-13",
+      "total_value": 269197.21,
+      "cumulative_return": 0.345986
+    },
+    {
+      "date": "2025-11-14",
+      "total_value": 269553.21,
+      "cumulative_return": 0.347766
+    },
+    {
+      "date": "2025-11-17",
+      "total_value": 267057.03,
+      "cumulative_return": 0.335285
+    },
+    {
+      "date": "2025-11-18",
+      "total_value": 259912.03,
+      "cumulative_return": 0.29956
+    },
+    {
+      "date": "2025-11-19",
+      "total_value": 257285.02,
+      "cumulative_return": 0.286425
+    },
+    {
+      "date": "2025-11-20",
+      "total_value": 256626.65,
+      "cumulative_return": 0.283133
+    },
+    {
+      "date": "2025-11-21",
+      "total_value": 253643.25,
+      "cumulative_return": 0.268216
+    },
+    {
+      "date": "2025-11-24",
+      "total_value": 253394.5,
+      "cumulative_return": 0.266973
+    },
+    {
+      "date": "2025-11-25",
+      "total_value": 254267.8,
+      "cumulative_return": 0.271339
+    },
+    {
+      "date": "2025-11-26",
+      "total_value": 254124.92,
+      "cumulative_return": 0.270625
+    },
+    {
+      "date": "2025-11-27",
+      "total_value": 252281.96,
+      "cumulative_return": 0.26141
+    },
+    {
+      "date": "2025-11-28",
+      "total_value": 258800.96,
+      "cumulative_return": 0.294005
+    },
+    {
+      "date": "2025-12-01",
+      "total_value": 264612.1,
+      "cumulative_return": 0.32306
+    },
+    {
+      "date": "2025-12-02",
+      "total_value": 271712.97,
+      "cumulative_return": 0.358565
+    },
+    {
+      "date": "2025-12-03",
+      "total_value": 278257.55,
+      "cumulative_return": 0.391288
+    },
+    {
+      "date": "2025-12-04",
+      "total_value": 277737.38,
+      "cumulative_return": 0.388687
+    },
+    {
+      "date": "2025-12-05",
+      "total_value": 291642.88,
+      "cumulative_return": 0.458214
+    },
+    {
+      "date": "2025-12-08",
+      "total_value": 304674.76,
+      "cumulative_return": 0.523374
+    },
+    {
+      "date": "2025-12-09",
+      "total_value": 304625.48,
+      "cumulative_return": 0.523127
+    },
+    {
+      "date": "2025-12-10",
+      "total_value": 308186.48,
+      "cumulative_return": 0.540932
+    },
+    {
+      "date": "2025-12-11",
+      "total_value": 319700.48,
+      "cumulative_return": 0.598502
+    },
+    {
+      "date": "2025-12-12",
+      "total_value": 335003.44,
+      "cumulative_return": 0.675017
+    },
+    {
+      "date": "2025-12-15",
+      "total_value": 340928.44,
+      "cumulative_return": 0.704642
+    },
+    {
+      "date": "2025-12-16",
+      "total_value": 341688.44,
+      "cumulative_return": 0.708442
+    },
+    {
+      "date": "2025-12-17",
+      "total_value": 329826.92,
+      "cumulative_return": 0.649135
+    },
+    {
+      "date": "2025-12-18",
+      "total_value": 336373.24,
+      "cumulative_return": 0.681866
+    },
+    {
+      "date": "2025-12-19",
+      "total_value": 336306.01,
+      "cumulative_return": 0.68153
+    },
+    {
+      "date": "2025-12-22",
+      "total_value": 342556.03,
+      "cumulative_return": 0.71278
+    },
+    {
+      "date": "2025-12-23",
+      "total_value": 341036.47,
+      "cumulative_return": 0.705182
+    },
+    {
+      "date": "2025-12-24",
+      "total_value": 346324.25,
+      "cumulative_return": 0.731621
+    },
+    {
+      "date": "2025-12-25",
+      "total_value": 354916.0,
+      "cumulative_return": 0.77458
+    },
+    {
+      "date": "2025-12-26",
+      "total_value": 362489.11,
+      "cumulative_return": 0.812446
+    },
+    {
+      "date": "2025-12-29",
+      "total_value": 362374.89,
+      "cumulative_return": 0.811874
+    },
+    {
+      "date": "2025-12-30",
+      "total_value": 361250.08,
+      "cumulative_return": 0.80625
+    },
+    {
+      "date": "2025-12-31",
+      "total_value": 365324.07,
+      "cumulative_return": 0.82662
+    }
+  ]
+}

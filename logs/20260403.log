@@ -1,0 +1,36 @@
+15:35:23 [INFO] daily_scan: [日扫描] 开始 定时 主力建仓选股 @ 2026-04-03 15:35
+15:35:23 [INFO] daily_scan: [日扫描] 初筛候选股 111 只
+15:35:27 [INFO] daily_scan: [日扫描] 命中 BUY=0 WATCH=28
+15:35:27 [INFO] daily_scan:   WATCH 300035 中科电气 信号日=2026-04-02
+15:35:27 [INFO] daily_scan:   WATCH 300772 运达股份 信号日=2026-04-02
+15:35:27 [INFO] daily_scan:   WATCH 300702 天宇股份 信号日=2026-04-02
+15:35:27 [INFO] daily_scan:   WATCH 603737 三棵树 信号日=2026-04-02
+15:35:27 [INFO] daily_scan:   WATCH 600143 金发科技 信号日=2026-04-01
+15:35:27 [INFO] push: [企业微信] 失败: {'errcode': 40058, 'errmsg': 'markdown.content exceed max length 4096. invalid Request Parameter, hint: [1775201727430050422319424], from ip: 223.73.34.251, more info at https://open.work.weixin.qq.com/devtool/query?e=40058'}
+15:35:27 [INFO] push: [推送] 完成 0/1 渠道成功
+15:35:27 [INFO] daily_scan: [日扫描] 推送完成: 0/1 渠道成功
+15:35:27 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=28 保留旧标的=5 总计=33
+15:35:27 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=28
+16:56:59 [INFO] daily_scan: [日扫描] 开始 手动 主力建仓选股 @ 2026-04-03 16:56
+16:56:59 [INFO] daily_scan: [日扫描] 初筛候选股 111 只
+16:57:00 [INFO] daily_scan: [日扫描] 命中 BUY=0 WATCH=28
+16:57:00 [INFO] daily_scan:   WATCH 300035 中科电气 信号日=2026-04-02
+16:57:00 [INFO] daily_scan:   WATCH 300772 运达股份 信号日=2026-04-02
+16:57:00 [INFO] daily_scan:   WATCH 300702 天宇股份 信号日=2026-04-02
+16:57:00 [INFO] daily_scan:   WATCH 603737 三棵树 信号日=2026-04-02
+16:57:00 [INFO] daily_scan:   WATCH 600143 金发科技 信号日=2026-04-01
+16:57:00 [INFO] push: [企业微信] 失败: {'errcode': 40058, 'errmsg': 'markdown.content exceed max length 4096. invalid Request Parameter, hint: [1775206620016363811622257], from ip: 223.73.34.251, more info at https://open.work.weixin.qq.com/devtool/query?e=40058'}
+16:57:00 [INFO] push: [推送] 完成 0/1 渠道成功
+16:57:00 [INFO] daily_scan: [日扫描] 推送完成: 0/1 渠道成功
+16:57:00 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=28 保留旧标的=5 总计=33
+16:57:00 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=28
+16:57:26 [INFO] daily_scan: [日扫描] 开始 手动 主力建仓选股 @ 2026-04-03 16:57
+16:57:26 [INFO] daily_scan: [日扫描] 初筛候选股 111 只
+16:57:27 [INFO] daily_scan: [日扫描] 命中 BUY=0 WATCH=28
+16:57:27 [INFO] daily_scan:   WATCH 300035 中科电气 信号日=2026-04-02
+16:57:27 [INFO] daily_scan:   WATCH 300772 运达股份 信号日=2026-04-02
+16:57:27 [INFO] daily_scan:   WATCH 300702 天宇股份 信号日=2026-04-02
+16:57:27 [INFO] daily_scan:   WATCH 603737 三棵树 信号日=2026-04-02
+16:57:27 [INFO] daily_scan:   WATCH 600143 金发科技 信号日=2026-04-01
+16:57:27 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=28 保留旧标的=5 总计=33
+16:57:27 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=28

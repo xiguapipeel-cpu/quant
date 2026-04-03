@@ -1,0 +1,102 @@
+[
+  {
+    "code": "600519",
+    "name": "贵州茅台",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "300750",
+    "name": "宁德时代",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "600036",
+    "name": "招商银行",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "002594",
+    "name": "比亚迪",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "601318",
+    "name": "中国平安",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "000858",
+    "name": "五粮液",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "002371",
+    "name": "北方华创",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "601088",
+    "name": "中国神华",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "603288",
+    "name": "海天味业",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  },
+  {
+    "code": "300760",
+    "name": "迈瑞医疗",
+    "integrity_pass": false,
+    "decision": "排除",
+    "decision_reason": "分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'",
+    "missing_fields": [
+      "全部"
+    ]
+  }
+]

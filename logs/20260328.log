@@ -1,0 +1,4 @@
+14:40:50 [WARNING] wechat: [微信] 推送失败: 账户未进行实名认证
+14:48:50 [INFO] web_app: [App] 调度器已启动
+14:48:50 [INFO] web_app: [调度器] 启动
+22:12:49 [INFO] web_app: [App] 调度器已停止

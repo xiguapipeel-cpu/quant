@@ -1,0 +1,1115 @@
+{
+  "time": "2026-04-03T15:35:23.815243",
+  "stocks": [
+    {
+      "code": "002015",
+      "name": "协鑫能科",
+      "market": "SZ",
+      "cap_yi": 263.0,
+      "amount_wan": 151794.0,
+      "price": 16.2,
+      "pe": 41.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600711",
+      "name": "盛屯矿业",
+      "market": "SH",
+      "cap_yi": 408.0,
+      "amount_wan": 150691.0,
+      "price": 13.2,
+      "pe": 21.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600867",
+      "name": "通化东宝",
+      "market": "SH",
+      "cap_yi": 193.9,
+      "amount_wan": 130530.0,
+      "price": 9.9,
+      "pe": 15.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002155",
+      "name": "湖南黄金",
+      "market": "SZ",
+      "cap_yi": 454.0,
+      "amount_wan": 113438.0,
+      "price": 29.05,
+      "pe": 37.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600392",
+      "name": "盛和资源",
+      "market": "SH",
+      "cap_yi": 394.4,
+      "amount_wan": 98942.0,
+      "price": 22.5,
+      "pe": 43.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603358",
+      "name": "华达科技",
+      "market": "SH",
+      "cap_yi": 166.3,
+      "amount_wan": 84491.0,
+      "price": 35.41,
+      "pe": 40.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "000688",
+      "name": "国城矿业",
+      "market": "SZ",
+      "cap_yi": 474.3,
+      "amount_wan": 81035.0,
+      "price": 40.02,
+      "pe": 43.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300035",
+      "name": "中科电气",
+      "market": "SZ",
+      "cap_yi": 146.0,
+      "amount_wan": 73639.0,
+      "price": 21.3,
+      "pe": 27.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300251",
+      "name": "光线传媒",
+      "market": "SZ",
+      "cap_yi": 424.2,
+      "amount_wan": 69615.0,
+      "price": 14.46,
+      "pe": 20.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002340",
+      "name": "格林美",
+      "market": "SZ",
+      "cap_yi": 388.9,
+      "amount_wan": 64232.0,
+      "price": 7.62,
+      "pe": 32.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600143",
+      "name": "金发科技",
+      "market": "SH",
+      "cap_yi": 417.6,
+      "amount_wan": 63037.0,
+      "price": 15.85,
+      "pe": 35.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300790",
+      "name": "宇瞳光学",
+      "market": "SZ",
+      "cap_yi": 93.8,
+      "amount_wan": 62763.0,
+      "price": 25.08,
+      "pe": 36.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603876",
+      "name": "鼎胜新材",
+      "market": "SH",
+      "cap_yi": 204.5,
+      "amount_wan": 56804.0,
+      "price": 22.01,
+      "pe": 54.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002203",
+      "name": "海亮股份",
+      "market": "SZ",
+      "cap_yi": 344.7,
+      "amount_wan": 56612.0,
+      "price": 15.04,
+      "pe": 44.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002553",
+      "name": "南方精工",
+      "market": "SZ",
+      "cap_yi": 90.8,
+      "amount_wan": 51576.0,
+      "price": 25.7,
+      "pe": 25.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300772",
+      "name": "运达股份",
+      "market": "SZ",
+      "cap_yi": 139.7,
+      "amount_wan": 49167.0,
+      "price": 17.76,
+      "pe": 44.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002402",
+      "name": "和而泰",
+      "market": "SZ",
+      "cap_yi": 270.4,
+      "amount_wan": 49162.0,
+      "price": 29.24,
+      "pe": 45.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "601233",
+      "name": "桐昆股份",
+      "market": "SH",
+      "cap_yi": 426.6,
+      "amount_wan": 46270.0,
+      "price": 17.93,
+      "pe": 24.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300201",
+      "name": "海伦哲",
+      "market": "SZ",
+      "cap_yi": 102.9,
+      "amount_wan": 43591.0,
+      "price": 10.2,
+      "pe": 39.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300681",
+      "name": "英搏尔",
+      "market": "SZ",
+      "cap_yi": 71.2,
+      "amount_wan": 42665.0,
+      "price": 23.27,
+      "pe": 38.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603612",
+      "name": "索通发展",
+      "market": "SH",
+      "cap_yi": 120.2,
+      "amount_wan": 40767.0,
+      "price": 24.13,
+      "pe": 17.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "001696",
+      "name": "宗申动力",
+      "market": "SZ",
+      "cap_yi": 211.9,
+      "amount_wan": 40156.0,
+      "price": 18.51,
+      "pe": 26.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600497",
+      "name": "驰宏锌锗",
+      "market": "SH",
+      "cap_yi": 388.1,
+      "amount_wan": 39039.0,
+      "price": 7.7,
+      "pe": 38.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600166",
+      "name": "福田汽车",
+      "market": "SH",
+      "cap_yi": 237.5,
+      "amount_wan": 38485.0,
+      "price": 3.0,
+      "pe": 30.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688518",
+      "name": "联赢激光",
+      "market": "SH",
+      "cap_yi": 85.7,
+      "amount_wan": 35026.0,
+      "price": 25.12,
+      "pe": 47.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002396",
+      "name": "星网锐捷",
+      "market": "SZ",
+      "cap_yi": 151.8,
+      "amount_wan": 32391.0,
+      "price": 25.91,
+      "pe": 36.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300409",
+      "name": "道氏技术",
+      "market": "SZ",
+      "cap_yi": 187.9,
+      "amount_wan": 30607.0,
+      "price": 24.02,
+      "pe": 45.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688136",
+      "name": "科兴制药",
+      "market": "SH",
+      "cap_yi": 64.2,
+      "amount_wan": 30493.0,
+      "price": 31.9,
+      "pe": 41.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002824",
+      "name": "和胜股份",
+      "market": "SZ",
+      "cap_yi": 63.2,
+      "amount_wan": 28924.0,
+      "price": 20.3,
+      "pe": 49.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600685",
+      "name": "中船防务",
+      "market": "SH",
+      "cap_yi": 384.9,
+      "amount_wan": 28773.0,
+      "price": 27.23,
+      "pe": 39.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300602",
+      "name": "飞荣达",
+      "market": "SZ",
+      "cap_yi": 169.0,
+      "amount_wan": 26987.0,
+      "price": 29.05,
+      "pe": 49.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002237",
+      "name": "恒邦股份",
+      "market": "SZ",
+      "cap_yi": 206.3,
+      "amount_wan": 26466.0,
+      "price": 14.43,
+      "pe": 33.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "003010",
+      "name": "若羽臣",
+      "market": "SZ",
+      "cap_yi": 99.9,
+      "amount_wan": 26369.0,
+      "price": 32.1,
+      "pe": 52.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688772",
+      "name": "珠海冠宇",
+      "market": "SH",
+      "cap_yi": 166.3,
+      "amount_wan": 25226.0,
+      "price": 14.69,
+      "pe": 36.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600686",
+      "name": "金龙汽车",
+      "market": "SH",
+      "cap_yi": 128.9,
+      "amount_wan": 24809.0,
+      "price": 17.97,
+      "pe": 39.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600595",
+      "name": "中孚实业",
+      "market": "SH",
+      "cap_yi": 295.0,
+      "amount_wan": 24702.0,
+      "price": 7.36,
+      "pe": 25.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600251",
+      "name": "冠农股份",
+      "market": "SH",
+      "cap_yi": 84.0,
+      "amount_wan": 23228.0,
+      "price": 10.81,
+      "pe": 40.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "000600",
+      "name": "建投能源",
+      "market": "SZ",
+      "cap_yi": 156.7,
+      "amount_wan": 22816.0,
+      "price": 8.69,
+      "pe": 9.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603162",
+      "name": "海通发展",
+      "market": "SH",
+      "cap_yi": 129.9,
+      "amount_wan": 22591.0,
+      "price": 14.0,
+      "pe": 27.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "601162",
+      "name": "天风证券",
+      "market": "SH",
+      "cap_yi": 362.7,
+      "amount_wan": 21184.0,
+      "price": 3.6,
+      "pe": 55.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "601069",
+      "name": "西部黄金",
+      "market": "SH",
+      "cap_yi": 278.1,
+      "amount_wan": 21156.0,
+      "price": 30.53,
+      "pe": 59.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600195",
+      "name": "中牧股份",
+      "market": "SH",
+      "cap_yi": 80.2,
+      "amount_wan": 20938.0,
+      "price": 7.85,
+      "pe": 38.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002171",
+      "name": "楚江新材",
+      "market": "SZ",
+      "cap_yi": 175.0,
+      "amount_wan": 20666.0,
+      "price": 10.78,
+      "pe": 31.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002688",
+      "name": "金河生物",
+      "market": "SZ",
+      "cap_yi": 44.6,
+      "amount_wan": 20241.0,
+      "price": 5.79,
+      "pe": 37.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002734",
+      "name": "利民股份",
+      "market": "SZ",
+      "cap_yi": 81.6,
+      "amount_wan": 19682.0,
+      "price": 17.14,
+      "pe": 20.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002250",
+      "name": "联化科技",
+      "market": "SZ",
+      "cap_yi": 142.2,
+      "amount_wan": 19659.0,
+      "price": 15.8,
+      "pe": 37.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002170",
+      "name": "芭田股份",
+      "market": "SZ",
+      "cap_yi": 121.2,
+      "amount_wan": 18094.0,
+      "price": 12.53,
+      "pe": 13.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "601636",
+      "name": "旗滨集团",
+      "market": "SH",
+      "cap_yi": 166.3,
+      "amount_wan": 18084.0,
+      "price": 5.62,
+      "pe": 28.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002440",
+      "name": "闰土股份",
+      "market": "SZ",
+      "cap_yi": 123.1,
+      "amount_wan": 18044.0,
+      "price": 10.95,
+      "pe": 43.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "000876",
+      "name": "新希望",
+      "market": "SZ",
+      "cap_yi": 371.0,
+      "amount_wan": 17839.0,
+      "price": 8.24,
+      "pe": 34.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688117",
+      "name": "圣诺生物",
+      "market": "SH",
+      "cap_yi": 55.7,
+      "amount_wan": 17475.0,
+      "price": 35.39,
+      "pe": 35.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600389",
+      "name": "江山股份",
+      "market": "SH",
+      "cap_yi": 121.9,
+      "amount_wan": 17163.0,
+      "price": 28.3,
+      "pe": 26.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002545",
+      "name": "东方铁塔",
+      "market": "SZ",
+      "cap_yi": 266.5,
+      "amount_wan": 16398.0,
+      "price": 21.42,
+      "pe": 29.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002448",
+      "name": "中原内配",
+      "market": "SZ",
+      "cap_yi": 83.0,
+      "amount_wan": 15928.0,
+      "price": 14.1,
+      "pe": 28.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301607",
+      "name": "富特科技",
+      "market": "SZ",
+      "cap_yi": 71.7,
+      "amount_wan": 15451.0,
+      "price": 46.15,
+      "pe": 47.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002928",
+      "name": "华夏航空",
+      "market": "SZ",
+      "cap_yi": 100.7,
+      "amount_wan": 14655.0,
+      "price": 7.88,
+      "pe": 17.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688006",
+      "name": "杭可科技",
+      "market": "SH",
+      "cap_yi": 162.3,
+      "amount_wan": 14553.0,
+      "price": 26.89,
+      "pe": 42.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600429",
+      "name": "三元股份",
+      "market": "SH",
+      "cap_yi": 87.9,
+      "amount_wan": 14196.0,
+      "price": 5.85,
+      "pe": 48.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688639",
+      "name": "华恒生物",
+      "market": "SH",
+      "cap_yi": 69.2,
+      "amount_wan": 14180.0,
+      "price": 27.66,
+      "pe": 54.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603997",
+      "name": "继峰股份",
+      "market": "SH",
+      "cap_yi": 152.5,
+      "amount_wan": 13753.0,
+      "price": 11.99,
+      "pe": 34.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300967",
+      "name": "晓鸣股份",
+      "market": "SZ",
+      "cap_yi": 32.7,
+      "amount_wan": 13499.0,
+      "price": 17.45,
+      "pe": 14.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300611",
+      "name": "美力科技",
+      "market": "SZ",
+      "cap_yi": 54.4,
+      "amount_wan": 12730.0,
+      "price": 25.76,
+      "pe": 38.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301235",
+      "name": "华康洁净",
+      "market": "SZ",
+      "cap_yi": 46.1,
+      "amount_wan": 12572.0,
+      "price": 42.8,
+      "pe": 43.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603969",
+      "name": "银龙股份",
+      "market": "SH",
+      "cap_yi": 75.4,
+      "amount_wan": 12206.0,
+      "price": 8.65,
+      "pe": 21.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002225",
+      "name": "濮耐股份",
+      "market": "SZ",
+      "cap_yi": 59.8,
+      "amount_wan": 11922.0,
+      "price": 5.16,
+      "pe": 58.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301078",
+      "name": "孩子王",
+      "market": "SZ",
+      "cap_yi": 102.0,
+      "amount_wan": 11583.0,
+      "price": 8.09,
+      "pe": 40.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002637",
+      "name": "赞宇科技",
+      "market": "SZ",
+      "cap_yi": 52.5,
+      "amount_wan": 11296.0,
+      "price": 11.16,
+      "pe": 32.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301220",
+      "name": "亚香股份",
+      "market": "SZ",
+      "cap_yi": 43.1,
+      "amount_wan": 10753.0,
+      "price": 38.23,
+      "pe": 33.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603890",
+      "name": "春秋电子",
+      "market": "SH",
+      "cap_yi": 61.6,
+      "amount_wan": 10464.0,
+      "price": 13.78,
+      "pe": 20.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300702",
+      "name": "天宇股份",
+      "market": "SZ",
+      "cap_yi": 79.2,
+      "amount_wan": 10432.0,
+      "price": 22.77,
+      "pe": 42.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "000803",
+      "name": "山高环能",
+      "market": "SZ",
+      "cap_yi": 38.5,
+      "amount_wan": 10415.0,
+      "price": 8.25,
+      "pe": 51.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002511",
+      "name": "中顺洁柔",
+      "market": "SZ",
+      "cap_yi": 107.2,
+      "amount_wan": 10362.0,
+      "price": 8.33,
+      "pe": 43.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002006",
+      "name": "精工科技",
+      "market": "SZ",
+      "cap_yi": 87.1,
+      "amount_wan": 10122.0,
+      "price": 16.75,
+      "pe": 40.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002010",
+      "name": "传化智联",
+      "market": "SZ",
+      "cap_yi": 154.0,
+      "amount_wan": 10023.0,
+      "price": 5.57,
+      "pe": 28.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300041",
+      "name": "回天新材",
+      "market": "SZ",
+      "cap_yi": 58.0,
+      "amount_wan": 9997.0,
+      "price": 10.36,
+      "pe": 38.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "000935",
+      "name": "四川双马",
+      "market": "SZ",
+      "cap_yi": 190.9,
+      "amount_wan": 9747.0,
+      "price": 25.0,
+      "pe": 55.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300132",
+      "name": "青松股份",
+      "market": "SZ",
+      "cap_yi": 43.1,
+      "amount_wan": 9210.0,
+      "price": 8.34,
+      "pe": 33.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603737",
+      "name": "三棵树",
+      "market": "SH",
+      "cap_yi": 368.0,
+      "amount_wan": 9077.0,
+      "price": 49.88,
+      "pe": 56.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "001288",
+      "name": "运机集团",
+      "market": "SZ",
+      "cap_yi": 65.0,
+      "amount_wan": 8660.0,
+      "price": 27.69,
+      "pe": 37.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "002209",
+      "name": "达意隆",
+      "market": "SZ",
+      "cap_yi": 30.6,
+      "amount_wan": 7588.0,
+      "price": 15.35,
+      "pe": 23.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "003011",
+      "name": "海象新材",
+      "market": "SZ",
+      "cap_yi": 23.3,
+      "amount_wan": 6605.0,
+      "price": 22.73,
+      "pe": 17.8,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301161",
+      "name": "唯万密封",
+      "market": "SZ",
+      "cap_yi": 33.7,
+      "amount_wan": 6175.0,
+      "price": 28.11,
+      "pe": 47.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688410",
+      "name": "山外山",
+      "market": "SH",
+      "cap_yi": 50.1,
+      "amount_wan": 6162.0,
+      "price": 15.67,
+      "pe": 35.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "003002",
+      "name": "壶化股份",
+      "market": "SZ",
+      "cap_yi": 53.5,
+      "amount_wan": 6127.0,
+      "price": 26.74,
+      "pe": 29.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603151",
+      "name": "邦基科技",
+      "market": "SH",
+      "cap_yi": 26.7,
+      "amount_wan": 6087.0,
+      "price": 15.62,
+      "pe": 24.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600576",
+      "name": "祥源文旅",
+      "market": "SH",
+      "cap_yi": 59.8,
+      "amount_wan": 6046.0,
+      "price": 5.67,
+      "pe": 32.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300473",
+      "name": "德尔股份",
+      "market": "SZ",
+      "cap_yi": 51.1,
+      "amount_wan": 6041.0,
+      "price": 29.6,
+      "pe": 59.5,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "000576",
+      "name": "甘化科工",
+      "market": "SZ",
+      "cap_yi": 38.8,
+      "amount_wan": 5928.0,
+      "price": 8.9,
+      "pe": 51.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603081",
+      "name": "大丰实业",
+      "market": "SH",
+      "cap_yi": 49.4,
+      "amount_wan": 5897.0,
+      "price": 11.7,
+      "pe": 48.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300940",
+      "name": "南极光",
+      "market": "SZ",
+      "cap_yi": 46.8,
+      "amount_wan": 5521.0,
+      "price": 21.03,
+      "pe": 36.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "300644",
+      "name": "南京聚隆",
+      "market": "SZ",
+      "cap_yi": 31.1,
+      "amount_wan": 5005.0,
+      "price": 28.1,
+      "pe": 24.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603566",
+      "name": "普莱柯",
+      "market": "SH",
+      "cap_yi": 42.6,
+      "amount_wan": 4372.0,
+      "price": 12.32,
+      "pe": 30.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688269",
+      "name": "凯立新材",
+      "market": "SH",
+      "cap_yi": 48.0,
+      "amount_wan": 4262.0,
+      "price": 36.75,
+      "pe": 44.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "003017",
+      "name": "大洋生物",
+      "market": "SZ",
+      "cap_yi": 24.7,
+      "amount_wan": 4223.0,
+      "price": 29.46,
+      "pe": 27.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688379",
+      "name": "华光新材",
+      "market": "SH",
+      "cap_yi": 42.4,
+      "amount_wan": 4200.0,
+      "price": 44.6,
+      "pe": 22.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "605189",
+      "name": "富春染织",
+      "market": "SH",
+      "cap_yi": 27.2,
+      "amount_wan": 4049.0,
+      "price": 14.0,
+      "pe": 36.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "600983",
+      "name": "惠而浦",
+      "market": "SH",
+      "cap_yi": 75.4,
+      "amount_wan": 3772.0,
+      "price": 9.84,
+      "pe": 16.7,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603313",
+      "name": "梦百合",
+      "market": "SH",
+      "cap_yi": 44.6,
+      "amount_wan": 3448.0,
+      "price": 7.82,
+      "pe": 28.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "601968",
+      "name": "宝钢包装",
+      "market": "SH",
+      "cap_yi": 65.2,
+      "amount_wan": 3376.0,
+      "price": 5.11,
+      "pe": 35.0,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688162",
+      "name": "巨一科技",
+      "market": "SH",
+      "cap_yi": 40.3,
+      "amount_wan": 3255.0,
+      "price": 29.36,
+      "pe": 50.3,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301381",
+      "name": "赛维时代",
+      "market": "SZ",
+      "cap_yi": 76.3,
+      "amount_wan": 3107.0,
+      "price": 18.91,
+      "pe": 34.2,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "001228",
+      "name": "永泰运",
+      "market": "SZ",
+      "cap_yi": 31.2,
+      "amount_wan": 2893.0,
+      "price": 30.01,
+      "pe": 34.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603506",
+      "name": "南都物业",
+      "market": "SH",
+      "cap_yi": 22.0,
+      "amount_wan": 2829.0,
+      "price": 11.72,
+      "pe": 19.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301283",
+      "name": "聚胶股份",
+      "market": "SZ",
+      "cap_yi": 35.4,
+      "amount_wan": 2822.0,
+      "price": 44.02,
+      "pe": 23.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "603101",
+      "name": "汇嘉时代",
+      "market": "SH",
+      "cap_yi": 37.1,
+      "amount_wan": 2667.0,
+      "price": 7.89,
+      "pe": 42.9,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688600",
+      "name": "皖仪科技",
+      "market": "SH",
+      "cap_yi": 31.7,
+      "amount_wan": 2515.0,
+      "price": 23.52,
+      "pe": 55.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301356",
+      "name": "天振股份",
+      "market": "SZ",
+      "cap_yi": 45.9,
+      "amount_wan": 2444.0,
+      "price": 21.24,
+      "pe": 52.6,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688501",
+      "name": "青达环保",
+      "market": "SH",
+      "cap_yi": 28.7,
+      "amount_wan": 2319.0,
+      "price": 23.07,
+      "pe": 16.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "301446",
+      "name": "福事特",
+      "market": "SZ",
+      "cap_yi": 38.1,
+      "amount_wan": 2093.0,
+      "price": 36.62,
+      "pe": 44.4,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688557",
+      "name": "兰剑智能",
+      "market": "SH",
+      "cap_yi": 31.8,
+      "amount_wan": 1631.0,
+      "price": 31.0,
+      "pe": 28.1,
+      "source": "eastmoney_xuangu"
+    },
+    {
+      "code": "688665",
+      "name": "四方光电",
+      "market": "SH",
+      "cap_yi": 43.5,
+      "amount_wan": 1543.0,
+      "price": 43.03,
+      "pe": 33.7,
+      "source": "eastmoney_xuangu"
+    }
+  ]
+}

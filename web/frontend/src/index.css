@@ -1,0 +1,17 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0d1117; color: #e6edf3; font-family: 'SF Pro Display', -apple-system, 'Segoe UI', sans-serif; }
+#root { min-height: 100vh; }
+
+/* Ant Design overrides for dark mode */
+.ant-layout-sider { min-height: 100vh; }
+.ant-menu-item-group-title { font-size: 10px !important; text-transform: uppercase; letter-spacing: 0.08em; }
+.ant-statistic-title { color: #8892a4 !important; font-size: 12px !important; }
+.ant-card { border-color: rgba(255,255,255,0.06) !important; }
+.ant-table-thead > tr > th { font-size: 12px !important; }
+.ant-empty-description { color: #556070 !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }

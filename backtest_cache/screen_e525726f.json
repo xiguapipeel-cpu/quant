@@ -1,0 +1,15 @@
+{
+  "time": "2026-03-31T19:00:05.241707",
+  "stocks": [
+    {
+      "code": "001389",
+      "name": "广合科技",
+      "market": "SZ",
+      "cap_yi": 549.6,
+      "amount_wan": 112512.0,
+      "price": 116.33,
+      "pe": 54.6,
+      "source": "eastmoney_xuangu"
+    }
+  ]
+}

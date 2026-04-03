@@ -1,0 +1,2275 @@
+{
+  "strategy": "主力建仓",
+  "start_date": "2025-01-02",
+  "end_date": "2026-03-30",
+  "initial_cash": 100000.0,
+  "final_value": 129942.6,
+  "total_return": 0.2994,
+  "annualized_return": 0.2479,
+  "max_drawdown": 0.0507,
+  "sharpe_ratio": 1.89,
+  "win_rate": 0.7812,
+  "profit_factor": 6.74,
+  "total_trades": 64,
+  "per_stock": {
+    "600392": {
+      "trades": 2,
+      "pnl": 2052.38,
+      "pnl_pct": 6.94
+    },
+    "605020": {
+      "trades": 2,
+      "pnl": -1358.37,
+      "pnl_pct": -6.8
+    },
+    "600867": {
+      "trades": 4,
+      "pnl": -116.27,
+      "pnl_pct": -0.43
+    },
+    "002545": {
+      "trades": 2,
+      "pnl": 845.81,
+      "pnl_pct": 8.19
+    },
+    "002171": {
+      "trades": 2,
+      "pnl": 11.33,
+      "pnl_pct": 0.09
+    },
+    "002237": {
+      "trades": 6,
+      "pnl": 975.01,
+      "pnl_pct": 4.43
+    },
+    "603876": {
+      "trades": 2,
+      "pnl": 3155.16,
+      "pnl_pct": 21.62
+    },
+    "002340": {
+      "trades": 2,
+      "pnl": 1870.14,
+      "pnl_pct": 18.62
+    },
+    "002203": {
+      "trades": 2,
+      "pnl": 1315.67,
+      "pnl_pct": 18.61
+    },
+    "002170": {
+      "trades": 4,
+      "pnl": 1191.59,
+      "pnl_pct": 5.22
+    },
+    "601233": {
+      "trades": 4,
+      "pnl": 6218.57,
+      "pnl_pct": 35.85
+    },
+    "600143": {
+      "trades": 4,
+      "pnl": 2262.34,
+      "pnl_pct": 10.69
+    },
+    "603358": {
+      "trades": 2,
+      "pnl": 629.79,
+      "pnl_pct": 9.19
+    },
+    "001696": {
+      "trades": 2,
+      "pnl": -670.11,
+      "pnl_pct": -3.34
+    },
+    "002155": {
+      "trades": 2,
+      "pnl": 479.25,
+      "pnl_pct": 3.1
+    },
+    "601069": {
+      "trades": 4,
+      "pnl": 7189.24,
+      "pnl_pct": 44.33
+    },
+    "000600": {
+      "trades": 2,
+      "pnl": 3885.91,
+      "pnl_pct": 14.79
+    },
+    "603737": {
+      "trades": 2,
+      "pnl": -2545.82,
+      "pnl_pct": -7.87
+    },
+    "603087": {
+      "trades": 2,
+      "pnl": 296.28,
+      "pnl_pct": 1.5
+    },
+    "600389": {
+      "trades": 2,
+      "pnl": 1561.91,
+      "pnl_pct": 8.34
+    },
+    "002015": {
+      "trades": 2,
+      "pnl": 288.46,
+      "pnl_pct": 5.62
+    },
+    "688006": {
+      "trades": 2,
+      "pnl": 52.92,
+      "pnl_pct": 1.77
+    },
+    "002440": {
+      "trades": 2,
+      "pnl": 319.4,
+      "pnl_pct": 13.73
+    },
+    "002755": {
+      "trades": 2,
+      "pnl": -77.39,
+      "pnl_pct": -4.5
+    },
+    "601636": {
+      "trades": 2,
+      "pnl": 109.4,
+      "pnl_pct": 8.73
+    }
+  },
+  "trades": [
+    {
+      "date": "2025-05-06",
+      "code": "600392",
+      "action": "BUY",
+      "price": 11.83362,
+      "shares": 2500,
+      "amount": 29592.93,
+      "commission": 8.88,
+      "reason": "建仓完毕即将拉升: 放量突破+10.2% 量比5.4x | 已建仓15天 观察15天 阳阴量比1.31 RSI=67"
+    },
+    {
+      "date": "2025-05-14",
+      "code": "605020",
+      "action": "BUY",
+      "price": 22.17426,
+      "shares": 900,
+      "amount": 19962.82,
+      "commission": 5.99,
+      "reason": "建仓完毕即将拉升: 均线多头发散 MA20↑0.0039 | 已建仓15天 观察14天 阳阴量比1.15 RSI=56"
+    },
+    {
+      "date": "2025-05-15",
+      "code": "600867",
+      "action": "BUY",
+      "price": 7.38474,
+      "shares": 2000,
+      "amount": 14774.48,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨7.33 | 已建仓17天 观察25天 阳阴量比0.98 RSI=58"
+    },
+    {
+      "date": "2025-06-05",
+      "code": "002545",
+      "action": "BUY",
+      "price": 7.93584,
+      "shares": 1300,
+      "amount": 10321.59,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+5.6% 量比5.4x | 已建仓16天 观察16天 阳阴量比1.64 RSI=70"
+    },
+    {
+      "date": "2025-06-05",
+      "code": "605020",
+      "action": "SELL",
+      "price": 20.69852,
+      "shares": 900,
+      "amount": 18604.45,
+      "commission": 24.22,
+      "reason": "破位止损: 连续5日<MA20 收益-6.9%"
+    },
+    {
+      "date": "2025-06-06",
+      "code": "002171",
+      "action": "BUY",
+      "price": 8.93784,
+      "shares": 1400,
+      "amount": 12517.98,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨8.96 | 已建仓24天 观察23天 阳阴量比1.27 RSI=60"
+    },
+    {
+      "date": "2025-06-06",
+      "code": "002237",
+      "action": "BUY",
+      "price": 11.26248,
+      "shares": 800,
+      "amount": 9014.98,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨11.29 | 已建仓26天 观察25天 阳阴量比1.23 RSI=61"
+    },
+    {
+      "date": "2025-06-17",
+      "code": "002545",
+      "action": "SELL",
+      "price": 8.60276,
+      "shares": 1300,
+      "amount": 11167.4,
+      "commission": 16.18,
+      "reason": "超买止盈: RSI=81 收益+8.6%"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "600867",
+      "action": "SELL",
+      "price": 7.5847999999999995,
+      "shares": 2000,
+      "amount": 15149.43,
+      "commission": 20.17,
+      "reason": "破位止损: 连续5日<MA20 收益+2.9%"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "603876",
+      "action": "BUY",
+      "price": 9.1182,
+      "shares": 1600,
+      "amount": 14594.12,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨8.98 | 已建仓18天 观察22天 阳阴量比1.11 RSI=65"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "002340",
+      "action": "BUY",
+      "price": 6.27252,
+      "shares": 1600,
+      "amount": 10041.03,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨6.22 | 已建仓32天 观察31天 阳阴量比1.19 RSI=60"
+    },
+    {
+      "date": "2025-06-25",
+      "code": "002203",
+      "action": "BUY",
+      "price": 10.09014,
+      "shares": 700,
+      "amount": 7068.1,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨9.93 | 已建仓17天 观察18天 阳阴量比1.18 RSI=61"
+    },
+    {
+      "date": "2025-07-01",
+      "code": "002170",
+      "action": "BUY",
+      "price": 10.240440000000001,
+      "shares": 400,
+      "amount": 4101.18,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+4.6% 量比3.3x | 已建仓23天 观察23天 阳阴量比1.38 RSI=64"
+    },
+    {
+      "date": "2025-07-02",
+      "code": "601233",
+      "action": "BUY",
+      "price": 10.921800000000001,
+      "shares": 300,
+      "amount": 3281.54,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨10.88 | 已建仓21天 观察30天 阳阴量比1.05 RSI=59"
+    },
+    {
+      "date": "2025-07-07",
+      "code": "600392",
+      "action": "SELL",
+      "price": 12.6746,
+      "shares": 2500,
+      "amount": 31645.31,
+      "commission": 41.19,
+      "reason": "破位止损: 连续5日<MA20 收益+10.0%"
+    },
+    {
+      "date": "2025-07-08",
+      "code": "600143",
+      "action": "BUY",
+      "price": 10.71138,
+      "shares": 1100,
+      "amount": 11787.52,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨10.54 | 已建仓31天 观察40天 阳阴量比1.17 RSI=62"
+    },
+    {
+      "date": "2025-07-10",
+      "code": "603358",
+      "action": "BUY",
+      "price": 34.258379999999995,
+      "shares": 200,
+      "amount": 6856.68,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨33.97 | 已建仓32天 观察59天 阳阴量比0.81 RSI=58"
+    },
+    {
+      "date": "2025-07-10",
+      "code": "002171",
+      "action": "SELL",
+      "price": 8.96204,
+      "shares": 1400,
+      "amount": 12529.31,
+      "commission": 17.55,
+      "reason": "破位止损: 连续5日<MA20 收益-2.3%"
+    },
+    {
+      "date": "2025-07-10",
+      "code": "002237",
+      "action": "SELL",
+      "price": 11.60674,
+      "shares": 800,
+      "amount": 9271.11,
+      "commission": 14.29,
+      "reason": "破位止损: 连续5日<MA20 收益+1.8%"
+    },
+    {
+      "date": "2025-07-16",
+      "code": "603358",
+      "action": "SELL",
+      "price": 37.49486,
+      "shares": 200,
+      "amount": 7486.47,
+      "commission": 12.5,
+      "reason": "超买止盈: RSI=83 收益+12.2%"
+    },
+    {
+      "date": "2025-07-21",
+      "code": "600143",
+      "action": "SELL",
+      "price": 12.81432,
+      "shares": 1100,
+      "amount": 14076.66,
+      "commission": 19.1,
+      "reason": "超买止盈: RSI=82 收益+13.3%"
+    },
+    {
+      "date": "2025-07-22",
+      "code": "002170",
+      "action": "SELL",
+      "price": 10.16962,
+      "shares": 400,
+      "amount": 4058.78,
+      "commission": 9.07,
+      "reason": "破位止损: 连续5日<MA20 收益-0.9%"
+    },
+    {
+      "date": "2025-07-30",
+      "code": "601233",
+      "action": "SELL",
+      "price": 12.70454,
+      "shares": 300,
+      "amount": 3802.55,
+      "commission": 8.81,
+      "reason": "超买止盈: RSI=81 收益+17.6%"
+    },
+    {
+      "date": "2025-08-13",
+      "code": "001696",
+      "action": "BUY",
+      "price": 25.05,
+      "shares": 800,
+      "amount": 20046.01,
+      "commission": 6.01,
+      "reason": "建仓完毕即将拉升: 突破布林上轨24.88 | 已建仓15天 观察15天 阳阴量比1.26 RSI=66"
+    },
+    {
+      "date": "2025-08-15",
+      "code": "002155",
+      "action": "BUY",
+      "price": 19.30854,
+      "shares": 800,
+      "amount": 15451.83,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 均线多头发散 MA20↑0.0024 | 已建仓15天 观察14天 阳阴量比1.13 RSI=60"
+    },
+    {
+      "date": "2025-08-26",
+      "code": "002237",
+      "action": "BUY",
+      "price": 12.8757,
+      "shares": 800,
+      "amount": 10305.56,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨12.72 | 已建仓19天 观察19天 阳阴量比1.14 RSI=64"
+    },
+    {
+      "date": "2025-08-28",
+      "code": "002340",
+      "action": "SELL",
+      "price": 7.45506,
+      "shares": 1600,
+      "amount": 11911.17,
+      "commission": 16.93,
+      "reason": "超买止盈: RSI=83 收益+19.9%"
+    },
+    {
+      "date": "2025-08-29",
+      "code": "601069",
+      "action": "BUY",
+      "price": 20.941799999999997,
+      "shares": 500,
+      "amount": 10475.9,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+4.5% 量比2.2x | 已建仓15天 观察14天 阳阴量比1.19 RSI=56"
+    },
+    {
+      "date": "2025-09-01",
+      "code": "002203",
+      "action": "SELL",
+      "price": 11.99596,
+      "shares": 700,
+      "amount": 8383.77,
+      "commission": 13.4,
+      "reason": "破位止损: 连续5日<MA20 收益+20.1%"
+    },
+    {
+      "date": "2025-09-03",
+      "code": "601069",
+      "action": "SELL",
+      "price": 27.445,
+      "shares": 500,
+      "amount": 13703.78,
+      "commission": 18.72,
+      "reason": "超买止盈: RSI=84 收益+33.1%"
+    },
+    {
+      "date": "2025-09-05",
+      "code": "603876",
+      "action": "SELL",
+      "price": 11.107740000000002,
+      "shares": 1600,
+      "amount": 17749.28,
+      "commission": 23.1,
+      "reason": "超买止盈: RSI=82 收益+21.9%"
+    },
+    {
+      "date": "2025-09-08",
+      "code": "001696",
+      "action": "SELL",
+      "price": 24.2514,
+      "shares": 800,
+      "amount": 19375.9,
+      "commission": 25.22,
+      "reason": "破位止损: 连续5日<MA20 收益-3.2%"
+    },
+    {
+      "date": "2025-10-09",
+      "code": "000600",
+      "action": "BUY",
+      "price": 7.72542,
+      "shares": 3400,
+      "amount": 26274.31,
+      "commission": 7.88,
+      "reason": "建仓完毕即将拉升: 放量突破+6.2% 量比2.7x | 已建仓15天 观察16天 阳阴量比1.06 RSI=64"
+    },
+    {
+      "date": "2025-10-09",
+      "code": "002170",
+      "action": "BUY",
+      "price": 11.01198,
+      "shares": 1700,
+      "amount": 18725.98,
+      "commission": 5.62,
+      "reason": "建仓完毕即将拉升: MACD零轴上方金叉 | 已建仓21天 观察21天 阳阴量比1.19 RSI=62"
+    },
+    {
+      "date": "2025-10-15",
+      "code": "600867",
+      "action": "BUY",
+      "price": 8.94786,
+      "shares": 1400,
+      "amount": 12532.0,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+4.6% 量比2.5x | 已建仓29天 观察29天 阳阴量比1.15 RSI=71"
+    },
+    {
+      "date": "2025-10-16",
+      "code": "000600",
+      "action": "SELL",
+      "price": 8.882200000000001,
+      "shares": 3400,
+      "amount": 30160.22,
+      "commission": 39.26,
+      "reason": "超买止盈: RSI=81 收益+14.5%"
+    },
+    {
+      "date": "2025-10-22",
+      "code": "002237",
+      "action": "SELL",
+      "price": 13.083779999999999,
+      "shares": 800,
+      "amount": 10451.56,
+      "commission": 15.47,
+      "reason": "追踪止损: 峰15.91→13.11 回撤17.6% 收益+2.9%"
+    },
+    {
+      "date": "2025-10-24",
+      "code": "002155",
+      "action": "SELL",
+      "price": 19.94004,
+      "shares": 800,
+      "amount": 15931.08,
+      "commission": 20.95,
+      "reason": "追踪止损: 峰23.72→20.13 回撤15.1% 收益+4.6%"
+    },
+    {
+      "date": "2025-11-21",
+      "code": "600867",
+      "action": "SELL",
+      "price": 8.61274,
+      "shares": 1400,
+      "amount": 12040.78,
+      "commission": 17.06,
+      "reason": "破位止损: 连续5日<MA20 收益-4.8%"
+    },
+    {
+      "date": "2025-11-21",
+      "code": "002170",
+      "action": "SELL",
+      "price": 11.75644,
+      "shares": 1700,
+      "amount": 19959.97,
+      "commission": 25.98,
+      "reason": "追踪止损: 峰13.56→11.36 回撤16.2% 收益+2.9%"
+    },
+    {
+      "date": "2025-12-02",
+      "code": "603737",
+      "action": "BUY",
+      "price": 46.1922,
+      "shares": 700,
+      "amount": 32344.24,
+      "commission": 9.7,
+      "reason": "建仓完毕即将拉升: 均线多头发散 MA20↑0.0021 | 已建仓21天 观察20天 阳阴量比1.31 RSI=58"
+    },
+    {
+      "date": "2025-12-12",
+      "code": "603087",
+      "action": "BUY",
+      "price": 65.85144,
+      "shares": 300,
+      "amount": 19761.36,
+      "commission": 5.93,
+      "reason": "建仓完毕即将拉升: 突破布林上轨66.01 | 已建仓18天 观察17天 阳阴量比1.04 RSI=57"
+    },
+    {
+      "date": "2025-12-17",
+      "code": "600389",
+      "action": "BUY",
+      "price": 23.396700000000003,
+      "shares": 800,
+      "amount": 18722.98,
+      "commission": 5.62,
+      "reason": "建仓完毕即将拉升: 放量突破+7.1% 量比2.3x | 已建仓42天 观察44天 阳阴量比1.26 RSI=57"
+    },
+    {
+      "date": "2025-12-19",
+      "code": "601233",
+      "action": "BUY",
+      "price": 15.62118,
+      "shares": 900,
+      "amount": 14064.06,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: MACD零轴上方金叉 | 已建仓23天 观察22天 阳阴量比1.18 RSI=61"
+    },
+    {
+      "date": "2025-12-22",
+      "code": "600143",
+      "action": "BUY",
+      "price": 18.72738,
+      "shares": 500,
+      "amount": 9368.69,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+4.9% 量比2.7x | 已建仓23天 观察22天 阳阴量比1.19 RSI=56"
+    },
+    {
+      "date": "2025-12-23",
+      "code": "601069",
+      "action": "BUY",
+      "price": 28.68726,
+      "shares": 200,
+      "amount": 5742.45,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨28.30 | 已建仓16天 观察15天 阳阴量比1.34 RSI=57"
+    },
+    {
+      "date": "2025-12-24",
+      "code": "002015",
+      "action": "BUY",
+      "price": 10.25046,
+      "shares": 500,
+      "amount": 5130.23,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨10.16 | 已建仓49天 观察72天 阳阴量比1.05 RSI=55"
+    },
+    {
+      "date": "2025-12-24",
+      "code": "688006",
+      "action": "BUY",
+      "price": 29.779439999999997,
+      "shares": 100,
+      "amount": 2982.94,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 突破布林上轨29.53 | 已建仓15天 观察14天 阳阴量比1.47 RSI=55"
+    },
+    {
+      "date": "2025-12-25",
+      "code": "002237",
+      "action": "BUY",
+      "price": 13.35666,
+      "shares": 200,
+      "amount": 2676.33,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 均线多头发散 MA20↑0.0022 | 已建仓32天 观察31天 阳阴量比1.05 RSI=50"
+    },
+    {
+      "date": "2025-12-25",
+      "code": "002440",
+      "action": "BUY",
+      "price": 7.73544,
+      "shares": 300,
+      "amount": 2325.63,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: MACD零轴上方金叉 | 已建仓20天 观察19天 阳阴量比1.27 RSI=61"
+    },
+    {
+      "date": "2026-01-05",
+      "code": "002755",
+      "action": "BUY",
+      "price": 17.16426,
+      "shares": 100,
+      "amount": 1721.43,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+4.9% 量比2.9x | 已建仓20天 观察23天 阳阴量比1.22 RSI=53"
+    },
+    {
+      "date": "2026-01-05",
+      "code": "601636",
+      "action": "BUY",
+      "price": 6.24246,
+      "shares": 200,
+      "amount": 1253.49,
+      "commission": 5.0,
+      "reason": "建仓完毕即将拉升: 放量突破+5.1% 量比2.2x | 已建仓22天 观察21天 阳阴量比1.34 RSI=56"
+    },
+    {
+      "date": "2026-01-16",
+      "code": "603737",
+      "action": "SELL",
+      "price": 42.62458,
+      "shares": 700,
+      "amount": 29798.42,
+      "commission": 38.79,
+      "reason": "破位止损: 连续5日<MA20 收益-7.5%"
+    },
+    {
+      "date": "2026-01-21",
+      "code": "002237",
+      "action": "SELL",
+      "price": 16.28736,
+      "shares": 200,
+      "amount": 3249.21,
+      "commission": 8.26,
+      "reason": "超买止盈: RSI=85 收益+29.7%"
+    },
+    {
+      "date": "2026-01-21",
+      "code": "002440",
+      "action": "SELL",
+      "price": 8.842279999999999,
+      "shares": 300,
+      "amount": 2645.03,
+      "commission": 7.65,
+      "reason": "超买止盈: RSI=82 收益+16.3%"
+    },
+    {
+      "date": "2026-01-28",
+      "code": "601233",
+      "action": "SELL",
+      "price": 21.98594,
+      "shares": 900,
+      "amount": 19761.62,
+      "commission": 25.72,
+      "reason": "超买止盈: RSI=81 收益+39.1%"
+    },
+    {
+      "date": "2026-01-28",
+      "code": "601069",
+      "action": "SELL",
+      "price": 48.59262,
+      "shares": 200,
+      "amount": 9703.81,
+      "commission": 14.72,
+      "reason": "超买止盈: RSI=84 收益+55.7%"
+    },
+    {
+      "date": "2026-01-30",
+      "code": "002755",
+      "action": "SELL",
+      "price": 16.506919999999997,
+      "shares": 100,
+      "amount": 1644.04,
+      "commission": 6.65,
+      "reason": "破位止损: 连续5日<MA20 收益-3.1%"
+    },
+    {
+      "date": "2026-02-03",
+      "code": "002015",
+      "action": "SELL",
+      "price": 10.85824,
+      "shares": 500,
+      "amount": 5418.69,
+      "commission": 10.43,
+      "reason": "破位止损: 连续5日<MA20 收益+4.8%"
+    },
+    {
+      "date": "2026-02-03",
+      "code": "600143",
+      "action": "SELL",
+      "price": 18.7125,
+      "shares": 500,
+      "amount": 9341.89,
+      "commission": 14.36,
+      "reason": "破位止损: 连续5日<MA20 收益+0.7%"
+    },
+    {
+      "date": "2026-02-03",
+      "code": "603087",
+      "action": "SELL",
+      "price": 66.94584,
+      "shares": 300,
+      "amount": 20057.64,
+      "commission": 26.11,
+      "reason": "破位止损: 连续5日<MA20 收益+1.8%"
+    },
+    {
+      "date": "2026-02-03",
+      "code": "688006",
+      "action": "SELL",
+      "price": 30.439,
+      "shares": 100,
+      "amount": 3035.86,
+      "commission": 8.04,
+      "reason": "破位止损: 连续5日<MA20 收益+3.8%"
+    },
+    {
+      "date": "2026-02-06",
+      "code": "600389",
+      "action": "SELL",
+      "price": 25.389120000000002,
+      "shares": 800,
+      "amount": 20284.89,
+      "commission": 26.4,
+      "reason": "破位止损: 连续5日<MA20 收益+7.9%"
+    },
+    {
+      "date": "2026-03-09",
+      "code": "601636",
+      "action": "SELL",
+      "price": 6.84628,
+      "shares": 200,
+      "amount": 1362.89,
+      "commission": 6.37,
+      "reason": "破位止损: 连续5日<MA20 收益+9.8%"
+    }
+  ],
+  "daily_equity": [
+    {
+      "date": "2025-01-02",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-03",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-06",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-07",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-08",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-09",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-10",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-13",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-14",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-15",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-16",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-17",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-20",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-21",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-22",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-23",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-24",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-01-27",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-05",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-06",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-07",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-10",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-11",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-12",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-13",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-14",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-17",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-18",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-19",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-20",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-21",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-24",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-25",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-26",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-27",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-02-28",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-03",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-04",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-05",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-06",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-07",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-10",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-11",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-12",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-13",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-14",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-17",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-18",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-19",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-20",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-21",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-24",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-25",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-26",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-27",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-28",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-03-31",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-01",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-02",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-03",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-07",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-08",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-09",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-10",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-11",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-14",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-15",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-16",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-17",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-18",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-21",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-22",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-23",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-24",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-25",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-28",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-29",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-04-30",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-05-06",
+      "total_value": 100000.0,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2025-05-07",
+      "total_value": 99607.07,
+      "cumulative_return": -0.003929
+    },
+    {
+      "date": "2025-05-08",
+      "total_value": 100282.07,
+      "cumulative_return": 0.002821
+    },
+    {
+      "date": "2025-05-09",
+      "total_value": 99707.07,
+      "cumulative_return": -0.002929
+    },
+    {
+      "date": "2025-05-12",
+      "total_value": 100207.07,
+      "cumulative_return": 0.002071
+    },
+    {
+      "date": "2025-05-13",
+      "total_value": 99732.07,
+      "cumulative_return": -0.002679
+    },
+    {
+      "date": "2025-05-14",
+      "total_value": 100782.07,
+      "cumulative_return": 0.007821
+    },
+    {
+      "date": "2025-05-15",
+      "total_value": 102354.25,
+      "cumulative_return": 0.023543
+    },
+    {
+      "date": "2025-05-16",
+      "total_value": 100741.77,
+      "cumulative_return": 0.007418
+    },
+    {
+      "date": "2025-05-19",
+      "total_value": 100037.77,
+      "cumulative_return": 0.000378
+    },
+    {
+      "date": "2025-05-20",
+      "total_value": 100196.77,
+      "cumulative_return": 0.001968
+    },
+    {
+      "date": "2025-05-21",
+      "total_value": 99211.77,
+      "cumulative_return": -0.007882
+    },
+    {
+      "date": "2025-05-22",
+      "total_value": 98146.77,
+      "cumulative_return": -0.018532
+    },
+    {
+      "date": "2025-05-23",
+      "total_value": 98288.77,
+      "cumulative_return": -0.017112
+    },
+    {
+      "date": "2025-05-26",
+      "total_value": 98459.77,
+      "cumulative_return": -0.015402
+    },
+    {
+      "date": "2025-05-27",
+      "total_value": 97840.77,
+      "cumulative_return": -0.021592
+    },
+    {
+      "date": "2025-05-28",
+      "total_value": 97161.77,
+      "cumulative_return": -0.028382
+    },
+    {
+      "date": "2025-05-29",
+      "total_value": 98058.77,
+      "cumulative_return": -0.019412
+    },
+    {
+      "date": "2025-05-30",
+      "total_value": 97641.77,
+      "cumulative_return": -0.023582
+    },
+    {
+      "date": "2025-06-03",
+      "total_value": 98860.77,
+      "cumulative_return": -0.011392
+    },
+    {
+      "date": "2025-06-04",
+      "total_value": 100448.77,
+      "cumulative_return": 0.004488
+    },
+    {
+      "date": "2025-06-05",
+      "total_value": 101387.77,
+      "cumulative_return": 0.013878
+    },
+    {
+      "date": "2025-06-06",
+      "total_value": 101261.63,
+      "cumulative_return": 0.012616
+    },
+    {
+      "date": "2025-06-09",
+      "total_value": 102972.67,
+      "cumulative_return": 0.029727
+    },
+    {
+      "date": "2025-06-10",
+      "total_value": 102800.67,
+      "cumulative_return": 0.028007
+    },
+    {
+      "date": "2025-06-11",
+      "total_value": 104549.67,
+      "cumulative_return": 0.045497
+    },
+    {
+      "date": "2025-06-12",
+      "total_value": 105730.67,
+      "cumulative_return": 0.057307
+    },
+    {
+      "date": "2025-06-13",
+      "total_value": 105287.67,
+      "cumulative_return": 0.052877
+    },
+    {
+      "date": "2025-06-16",
+      "total_value": 105229.67,
+      "cumulative_return": 0.052297
+    },
+    {
+      "date": "2025-06-17",
+      "total_value": 105669.67,
+      "cumulative_return": 0.056697
+    },
+    {
+      "date": "2025-06-18",
+      "total_value": 104062.07,
+      "cumulative_return": 0.040621
+    },
+    {
+      "date": "2025-06-19",
+      "total_value": 102630.07,
+      "cumulative_return": 0.026301
+    },
+    {
+      "date": "2025-06-20",
+      "total_value": 102141.07,
+      "cumulative_return": 0.021411
+    },
+    {
+      "date": "2025-06-23",
+      "total_value": 102327.07,
+      "cumulative_return": 0.023271
+    },
+    {
+      "date": "2025-06-24",
+      "total_value": 103185.07,
+      "cumulative_return": 0.031851
+    },
+    {
+      "date": "2025-06-25",
+      "total_value": 103745.35,
+      "cumulative_return": 0.037454
+    },
+    {
+      "date": "2025-06-26",
+      "total_value": 102509.25,
+      "cumulative_return": 0.025093
+    },
+    {
+      "date": "2025-06-27",
+      "total_value": 103126.25,
+      "cumulative_return": 0.031262
+    },
+    {
+      "date": "2025-06-30",
+      "total_value": 104208.25,
+      "cumulative_return": 0.042083
+    },
+    {
+      "date": "2025-07-01",
+      "total_value": 104383.25,
+      "cumulative_return": 0.043833
+    },
+    {
+      "date": "2025-07-02",
+      "total_value": 104070.07,
+      "cumulative_return": 0.040701
+    },
+    {
+      "date": "2025-07-03",
+      "total_value": 103881.53,
+      "cumulative_return": 0.038815
+    },
+    {
+      "date": "2025-07-04",
+      "total_value": 102547.53,
+      "cumulative_return": 0.025475
+    },
+    {
+      "date": "2025-07-07",
+      "total_value": 102478.53,
+      "cumulative_return": 0.024785
+    },
+    {
+      "date": "2025-07-08",
+      "total_value": 103267.84,
+      "cumulative_return": 0.032678
+    },
+    {
+      "date": "2025-07-09",
+      "total_value": 102207.32,
+      "cumulative_return": 0.022073
+    },
+    {
+      "date": "2025-07-10",
+      "total_value": 102281.32,
+      "cumulative_return": 0.022813
+    },
+    {
+      "date": "2025-07-11",
+      "total_value": 102971.06,
+      "cumulative_return": 0.029711
+    },
+    {
+      "date": "2025-07-14",
+      "total_value": 103546.06,
+      "cumulative_return": 0.035461
+    },
+    {
+      "date": "2025-07-15",
+      "total_value": 103340.06,
+      "cumulative_return": 0.033401
+    },
+    {
+      "date": "2025-07-16",
+      "total_value": 103360.06,
+      "cumulative_return": 0.033601
+    },
+    {
+      "date": "2025-07-17",
+      "total_value": 103594.53,
+      "cumulative_return": 0.035945
+    },
+    {
+      "date": "2025-07-18",
+      "total_value": 103975.53,
+      "cumulative_return": 0.039755
+    },
+    {
+      "date": "2025-07-21",
+      "total_value": 105534.53,
+      "cumulative_return": 0.055345
+    },
+    {
+      "date": "2025-07-22",
+      "total_value": 106896.19,
+      "cumulative_return": 0.068962
+    },
+    {
+      "date": "2025-07-23",
+      "total_value": 106600.97,
+      "cumulative_return": 0.06601
+    },
+    {
+      "date": "2025-07-24",
+      "total_value": 107141.97,
+      "cumulative_return": 0.07142
+    },
+    {
+      "date": "2025-07-25",
+      "total_value": 107000.97,
+      "cumulative_return": 0.07001
+    },
+    {
+      "date": "2025-07-28",
+      "total_value": 106685.97,
+      "cumulative_return": 0.06686
+    },
+    {
+      "date": "2025-07-29",
+      "total_value": 107039.97,
+      "cumulative_return": 0.0704
+    },
+    {
+      "date": "2025-07-30",
+      "total_value": 106649.97,
+      "cumulative_return": 0.0665
+    },
+    {
+      "date": "2025-07-31",
+      "total_value": 106486.52,
+      "cumulative_return": 0.064865
+    },
+    {
+      "date": "2025-08-01",
+      "total_value": 107288.52,
+      "cumulative_return": 0.072885
+    },
+    {
+      "date": "2025-08-04",
+      "total_value": 107551.52,
+      "cumulative_return": 0.075515
+    },
+    {
+      "date": "2025-08-05",
+      "total_value": 107743.52,
+      "cumulative_return": 0.077435
+    },
+    {
+      "date": "2025-08-06",
+      "total_value": 107797.52,
+      "cumulative_return": 0.077975
+    },
+    {
+      "date": "2025-08-07",
+      "total_value": 107423.52,
+      "cumulative_return": 0.074235
+    },
+    {
+      "date": "2025-08-08",
+      "total_value": 107828.52,
+      "cumulative_return": 0.078285
+    },
+    {
+      "date": "2025-08-11",
+      "total_value": 108176.52,
+      "cumulative_return": 0.081765
+    },
+    {
+      "date": "2025-08-12",
+      "total_value": 107934.52,
+      "cumulative_return": 0.079345
+    },
+    {
+      "date": "2025-08-13",
+      "total_value": 108291.52,
+      "cumulative_return": 0.082915
+    },
+    {
+      "date": "2025-08-14",
+      "total_value": 107210.51,
+      "cumulative_return": 0.072105
+    },
+    {
+      "date": "2025-08-15",
+      "total_value": 109009.51,
+      "cumulative_return": 0.090095
+    },
+    {
+      "date": "2025-08-18",
+      "total_value": 109316.68,
+      "cumulative_return": 0.093167
+    },
+    {
+      "date": "2025-08-19",
+      "total_value": 109094.68,
+      "cumulative_return": 0.090947
+    },
+    {
+      "date": "2025-08-20",
+      "total_value": 110036.68,
+      "cumulative_return": 0.100367
+    },
+    {
+      "date": "2025-08-21",
+      "total_value": 109838.68,
+      "cumulative_return": 0.098387
+    },
+    {
+      "date": "2025-08-22",
+      "total_value": 110347.68,
+      "cumulative_return": 0.103477
+    },
+    {
+      "date": "2025-08-25",
+      "total_value": 111638.68,
+      "cumulative_return": 0.116387
+    },
+    {
+      "date": "2025-08-26",
+      "total_value": 112147.68,
+      "cumulative_return": 0.121477
+    },
+    {
+      "date": "2025-08-27",
+      "total_value": 110328.12,
+      "cumulative_return": 0.103281
+    },
+    {
+      "date": "2025-08-28",
+      "total_value": 111001.12,
+      "cumulative_return": 0.110011
+    },
+    {
+      "date": "2025-08-29",
+      "total_value": 111735.29,
+      "cumulative_return": 0.117353
+    },
+    {
+      "date": "2025-09-01",
+      "total_value": 114542.39,
+      "cumulative_return": 0.145424
+    },
+    {
+      "date": "2025-09-02",
+      "total_value": 115174.16,
+      "cumulative_return": 0.151742
+    },
+    {
+      "date": "2025-09-03",
+      "total_value": 115187.16,
+      "cumulative_return": 0.151872
+    },
+    {
+      "date": "2025-09-04",
+      "total_value": 113979.94,
+      "cumulative_return": 0.139799
+    },
+    {
+      "date": "2025-09-05",
+      "total_value": 116323.94,
+      "cumulative_return": 0.163239
+    },
+    {
+      "date": "2025-09-08",
+      "total_value": 117129.22,
+      "cumulative_return": 0.171292
+    },
+    {
+      "date": "2025-09-09",
+      "total_value": 119073.12,
+      "cumulative_return": 0.190731
+    },
+    {
+      "date": "2025-09-10",
+      "total_value": 119041.12,
+      "cumulative_return": 0.190411
+    },
+    {
+      "date": "2025-09-11",
+      "total_value": 118825.12,
+      "cumulative_return": 0.188251
+    },
+    {
+      "date": "2025-09-12",
+      "total_value": 119353.12,
+      "cumulative_return": 0.193531
+    },
+    {
+      "date": "2025-09-15",
+      "total_value": 118505.12,
+      "cumulative_return": 0.185051
+    },
+    {
+      "date": "2025-09-16",
+      "total_value": 118729.12,
+      "cumulative_return": 0.187291
+    },
+    {
+      "date": "2025-09-17",
+      "total_value": 117865.12,
+      "cumulative_return": 0.178651
+    },
+    {
+      "date": "2025-09-18",
+      "total_value": 116569.12,
+      "cumulative_return": 0.165691
+    },
+    {
+      "date": "2025-09-19",
+      "total_value": 116657.12,
+      "cumulative_return": 0.166571
+    },
+    {
+      "date": "2025-09-22",
+      "total_value": 117673.12,
+      "cumulative_return": 0.176731
+    },
+    {
+      "date": "2025-09-23",
+      "total_value": 117617.12,
+      "cumulative_return": 0.176171
+    },
+    {
+      "date": "2025-09-24",
+      "total_value": 117953.12,
+      "cumulative_return": 0.179531
+    },
+    {
+      "date": "2025-09-25",
+      "total_value": 117353.12,
+      "cumulative_return": 0.173531
+    },
+    {
+      "date": "2025-09-26",
+      "total_value": 117121.12,
+      "cumulative_return": 0.171211
+    },
+    {
+      "date": "2025-09-29",
+      "total_value": 117865.12,
+      "cumulative_return": 0.178651
+    },
+    {
+      "date": "2025-09-30",
+      "total_value": 118649.12,
+      "cumulative_return": 0.186491
+    },
+    {
+      "date": "2025-10-09",
+      "total_value": 120353.12,
+      "cumulative_return": 0.203531
+    },
+    {
+      "date": "2025-10-10",
+      "total_value": 119805.83,
+      "cumulative_return": 0.198058
+    },
+    {
+      "date": "2025-10-13",
+      "total_value": 121330.83,
+      "cumulative_return": 0.213308
+    },
+    {
+      "date": "2025-10-14",
+      "total_value": 121341.83,
+      "cumulative_return": 0.213418
+    },
+    {
+      "date": "2025-10-15",
+      "total_value": 123280.83,
+      "cumulative_return": 0.232808
+    },
+    {
+      "date": "2025-10-16",
+      "total_value": 122124.83,
+      "cumulative_return": 0.221248
+    },
+    {
+      "date": "2025-10-17",
+      "total_value": 121325.05,
+      "cumulative_return": 0.213251
+    },
+    {
+      "date": "2025-10-20",
+      "total_value": 119530.05,
+      "cumulative_return": 0.195301
+    },
+    {
+      "date": "2025-10-21",
+      "total_value": 119881.05,
+      "cumulative_return": 0.198811
+    },
+    {
+      "date": "2025-10-22",
+      "total_value": 118264.05,
+      "cumulative_return": 0.182641
+    },
+    {
+      "date": "2025-10-23",
+      "total_value": 118415.61,
+      "cumulative_return": 0.184156
+    },
+    {
+      "date": "2025-10-24",
+      "total_value": 118333.61,
+      "cumulative_return": 0.183336
+    },
+    {
+      "date": "2025-10-27",
+      "total_value": 118564.69,
+      "cumulative_return": 0.185647
+    },
+    {
+      "date": "2025-10-28",
+      "total_value": 118568.69,
+      "cumulative_return": 0.185687
+    },
+    {
+      "date": "2025-10-29",
+      "total_value": 119599.69,
+      "cumulative_return": 0.195997
+    },
+    {
+      "date": "2025-10-30",
+      "total_value": 118615.69,
+      "cumulative_return": 0.186157
+    },
+    {
+      "date": "2025-10-31",
+      "total_value": 119311.69,
+      "cumulative_return": 0.193117
+    },
+    {
+      "date": "2025-11-03",
+      "total_value": 119392.69,
+      "cumulative_return": 0.193927
+    },
+    {
+      "date": "2025-11-04",
+      "total_value": 118893.69,
+      "cumulative_return": 0.188937
+    },
+    {
+      "date": "2025-11-05",
+      "total_value": 119636.69,
+      "cumulative_return": 0.196367
+    },
+    {
+      "date": "2025-11-06",
+      "total_value": 121529.69,
+      "cumulative_return": 0.215297
+    },
+    {
+      "date": "2025-11-07",
+      "total_value": 123579.69,
+      "cumulative_return": 0.235797
+    },
+    {
+      "date": "2025-11-10",
+      "total_value": 123093.69,
+      "cumulative_return": 0.230937
+    },
+    {
+      "date": "2025-11-11",
+      "total_value": 122590.69,
+      "cumulative_return": 0.225907
+    },
+    {
+      "date": "2025-11-12",
+      "total_value": 121917.69,
+      "cumulative_return": 0.219177
+    },
+    {
+      "date": "2025-11-13",
+      "total_value": 122648.69,
+      "cumulative_return": 0.226487
+    },
+    {
+      "date": "2025-11-14",
+      "total_value": 122436.69,
+      "cumulative_return": 0.224367
+    },
+    {
+      "date": "2025-11-17",
+      "total_value": 122374.69,
+      "cumulative_return": 0.223747
+    },
+    {
+      "date": "2025-11-18",
+      "total_value": 121784.69,
+      "cumulative_return": 0.217847
+    },
+    {
+      "date": "2025-11-19",
+      "total_value": 121346.69,
+      "cumulative_return": 0.213467
+    },
+    {
+      "date": "2025-11-20",
+      "total_value": 120788.69,
+      "cumulative_return": 0.207887
+    },
+    {
+      "date": "2025-11-21",
+      "total_value": 118985.69,
+      "cumulative_return": 0.189857
+    },
+    {
+      "date": "2025-11-24",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-11-25",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-11-26",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-11-27",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-11-28",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-12-01",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-12-02",
+      "total_value": 119732.44,
+      "cumulative_return": 0.197324
+    },
+    {
+      "date": "2025-12-03",
+      "total_value": 120043.2,
+      "cumulative_return": 0.200432
+    },
+    {
+      "date": "2025-12-04",
+      "total_value": 120064.2,
+      "cumulative_return": 0.200642
+    },
+    {
+      "date": "2025-12-05",
+      "total_value": 120071.2,
+      "cumulative_return": 0.200712
+    },
+    {
+      "date": "2025-12-08",
+      "total_value": 119287.2,
+      "cumulative_return": 0.192872
+    },
+    {
+      "date": "2025-12-09",
+      "total_value": 118811.2,
+      "cumulative_return": 0.188112
+    },
+    {
+      "date": "2025-12-10",
+      "total_value": 118916.2,
+      "cumulative_return": 0.189162
+    },
+    {
+      "date": "2025-12-11",
+      "total_value": 118797.2,
+      "cumulative_return": 0.187972
+    },
+    {
+      "date": "2025-12-12",
+      "total_value": 118797.2,
+      "cumulative_return": 0.187972
+    },
+    {
+      "date": "2025-12-15",
+      "total_value": 119069.84,
+      "cumulative_return": 0.190698
+    },
+    {
+      "date": "2025-12-16",
+      "total_value": 118823.84,
+      "cumulative_return": 0.188238
+    },
+    {
+      "date": "2025-12-17",
+      "total_value": 119341.84,
+      "cumulative_return": 0.193418
+    },
+    {
+      "date": "2025-12-18",
+      "total_value": 119205.86,
+      "cumulative_return": 0.192059
+    },
+    {
+      "date": "2025-12-19",
+      "total_value": 120760.86,
+      "cumulative_return": 0.207609
+    },
+    {
+      "date": "2025-12-22",
+      "total_value": 119806.8,
+      "cumulative_return": 0.198068
+    },
+    {
+      "date": "2025-12-23",
+      "total_value": 120127.11,
+      "cumulative_return": 0.201271
+    },
+    {
+      "date": "2025-12-24",
+      "total_value": 120454.66,
+      "cumulative_return": 0.204547
+    },
+    {
+      "date": "2025-12-25",
+      "total_value": 121410.49,
+      "cumulative_return": 0.214105
+    },
+    {
+      "date": "2025-12-26",
+      "total_value": 123689.53,
+      "cumulative_return": 0.236895
+    },
+    {
+      "date": "2025-12-29",
+      "total_value": 123001.53,
+      "cumulative_return": 0.230015
+    },
+    {
+      "date": "2025-12-30",
+      "total_value": 124137.53,
+      "cumulative_return": 0.241375
+    },
+    {
+      "date": "2025-12-31",
+      "total_value": 123071.53,
+      "cumulative_return": 0.230715
+    },
+    {
+      "date": "2026-01-05",
+      "total_value": 123695.53,
+      "cumulative_return": 0.236955
+    },
+    {
+      "date": "2026-01-06",
+      "total_value": 125695.61,
+      "cumulative_return": 0.256956
+    },
+    {
+      "date": "2026-01-07",
+      "total_value": 126142.61,
+      "cumulative_return": 0.261426
+    },
+    {
+      "date": "2026-01-08",
+      "total_value": 125502.61,
+      "cumulative_return": 0.255026
+    },
+    {
+      "date": "2026-01-09",
+      "total_value": 125979.61,
+      "cumulative_return": 0.259796
+    },
+    {
+      "date": "2026-01-12",
+      "total_value": 124293.61,
+      "cumulative_return": 0.242936
+    },
+    {
+      "date": "2026-01-13",
+      "total_value": 123055.61,
+      "cumulative_return": 0.230556
+    },
+    {
+      "date": "2026-01-14",
+      "total_value": 122581.61,
+      "cumulative_return": 0.225816
+    },
+    {
+      "date": "2026-01-15",
+      "total_value": 125800.61,
+      "cumulative_return": 0.258006
+    },
+    {
+      "date": "2026-01-16",
+      "total_value": 124279.61,
+      "cumulative_return": 0.242796
+    },
+    {
+      "date": "2026-01-19",
+      "total_value": 127115.03,
+      "cumulative_return": 0.27115
+    },
+    {
+      "date": "2026-01-20",
+      "total_value": 128317.03,
+      "cumulative_return": 0.28317
+    },
+    {
+      "date": "2026-01-21",
+      "total_value": 129562.03,
+      "cumulative_return": 0.29562
+    },
+    {
+      "date": "2026-01-22",
+      "total_value": 130184.27,
+      "cumulative_return": 0.301843
+    },
+    {
+      "date": "2026-01-23",
+      "total_value": 131155.27,
+      "cumulative_return": 0.311553
+    },
+    {
+      "date": "2026-01-26",
+      "total_value": 130847.27,
+      "cumulative_return": 0.308473
+    },
+    {
+      "date": "2026-01-27",
+      "total_value": 130678.27,
+      "cumulative_return": 0.306783
+    },
+    {
+      "date": "2026-01-28",
+      "total_value": 132048.27,
+      "cumulative_return": 0.320483
+    },
+    {
+      "date": "2026-01-29",
+      "total_value": 132034.7,
+      "cumulative_return": 0.320347
+    },
+    {
+      "date": "2026-01-30",
+      "total_value": 131905.7,
+      "cumulative_return": 0.319057
+    },
+    {
+      "date": "2026-02-02",
+      "total_value": 128632.74,
+      "cumulative_return": 0.286327
+    },
+    {
+      "date": "2026-02-03",
+      "total_value": 130267.74,
+      "cumulative_return": 0.302677
+    },
+    {
+      "date": "2026-02-04",
+      "total_value": 130170.82,
+      "cumulative_return": 0.301708
+    },
+    {
+      "date": "2026-02-05",
+      "total_value": 129712.82,
+      "cumulative_return": 0.297128
+    },
+    {
+      "date": "2026-02-06",
+      "total_value": 129908.82,
+      "cumulative_return": 0.299088
+    },
+    {
+      "date": "2026-02-09",
+      "total_value": 130065.71,
+      "cumulative_return": 0.300657
+    },
+    {
+      "date": "2026-02-10",
+      "total_value": 130019.71,
+      "cumulative_return": 0.300197
+    },
+    {
+      "date": "2026-02-11",
+      "total_value": 130077.71,
+      "cumulative_return": 0.300777
+    },
+    {
+      "date": "2026-02-12",
+      "total_value": 130085.71,
+      "cumulative_return": 0.300857
+    },
+    {
+      "date": "2026-02-13",
+      "total_value": 129997.71,
+      "cumulative_return": 0.299977
+    },
+    {
+      "date": "2026-02-24",
+      "total_value": 130033.71,
+      "cumulative_return": 0.300337
+    },
+    {
+      "date": "2026-02-25",
+      "total_value": 130061.71,
+      "cumulative_return": 0.300617
+    },
+    {
+      "date": "2026-02-26",
+      "total_value": 130061.71,
+      "cumulative_return": 0.300617
+    },
+    {
+      "date": "2026-02-27",
+      "total_value": 130087.71,
+      "cumulative_return": 0.300877
+    },
+    {
+      "date": "2026-03-02",
+      "total_value": 130069.71,
+      "cumulative_return": 0.300697
+    },
+    {
+      "date": "2026-03-03",
+      "total_value": 130007.71,
+      "cumulative_return": 0.300077
+    },
+    {
+      "date": "2026-03-04",
+      "total_value": 129941.71,
+      "cumulative_return": 0.299417
+    },
+    {
+      "date": "2026-03-05",
+      "total_value": 129931.71,
+      "cumulative_return": 0.299317
+    },
+    {
+      "date": "2026-03-06",
+      "total_value": 129965.71,
+      "cumulative_return": 0.299657
+    },
+    {
+      "date": "2026-03-09",
+      "total_value": 129947.71,
+      "cumulative_return": 0.299477
+    },
+    {
+      "date": "2026-03-10",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-11",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-12",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-13",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-16",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-17",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-18",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-19",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-20",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-23",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-24",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-25",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-26",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-27",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    },
+    {
+      "date": "2026-03-30",
+      "total_value": 129942.6,
+      "cumulative_return": 0.299426
+    }
+  ]
+}

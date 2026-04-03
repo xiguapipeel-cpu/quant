@@ -1,0 +1,3365 @@
+{
+  "strategy": "MACD动量",
+  "start_date": "2024-08-01",
+  "end_date": "2025-12-31",
+  "initial_cash": 1000000,
+  "final_value": 995685.53,
+  "total_return": -0.0043,
+  "annualized_return": -0.0032,
+  "max_drawdown": 0.2295,
+  "sharpe_ratio": -0.11,
+  "win_rate": 0.2564,
+  "profit_factor": 0.95,
+  "total_trades": 157,
+  "per_stock": {
+    "603288": {
+      "trades": 14,
+      "pnl": 41832.99,
+      "pnl_pct": 2.69
+    },
+    "300760": {
+      "trades": 8,
+      "pnl": -16790.67,
+      "pnl_pct": -3.89
+    },
+    "600519": {
+      "trades": 10,
+      "pnl": -30835.33,
+      "pnl_pct": -3.44
+    },
+    "000858": {
+      "trades": 10,
+      "pnl": 9203.48,
+      "pnl_pct": 1.41
+    },
+    "600036": {
+      "trades": 24,
+      "pnl": -16276.28,
+      "pnl_pct": -0.65
+    },
+    "601318": {
+      "trades": 19,
+      "pnl": -98122.29,
+      "pnl_pct": -5.86
+    },
+    "601088": {
+      "trades": 22,
+      "pnl": -22378.93,
+      "pnl_pct": -1.02
+    },
+    "002371": {
+      "trades": 22,
+      "pnl": -43805.08,
+      "pnl_pct": -1.84
+    },
+    "300750": {
+      "trades": 18,
+      "pnl": 43412.98,
+      "pnl_pct": 3.25
+    },
+    "002594": {
+      "trades": 10,
+      "pnl": -34715.34,
+      "pnl_pct": -5.01
+    }
+  },
+  "trades": [
+    {
+      "date": "2024-08-02",
+      "code": "603288",
+      "action": "BUY",
+      "price": 33.296459999999996,
+      "shares": 9000,
+      "amount": 299758.04,
+      "commission": 89.9,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-08-02",
+      "code": "300760",
+      "action": "BUY",
+      "price": 250.15932,
+      "shares": 800,
+      "amount": 200187.49,
+      "commission": 60.04,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1349.2531199999999,
+      "shares": 100,
+      "amount": 134965.79,
+      "commission": 40.48,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-08-05",
+      "code": "000858",
+      "action": "BUY",
+      "price": 118.4364,
+      "shares": 900,
+      "amount": 106624.74,
+      "commission": 31.98,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-08-14",
+      "code": "300760",
+      "action": "SELL",
+      "price": 240.5679,
+      "shares": 800,
+      "amount": 192204.13,
+      "commission": 250.19,
+      "reason": "MACD死叉 收益-3.3%"
+    },
+    {
+      "date": "2024-08-15",
+      "code": "600036",
+      "action": "BUY",
+      "price": 29.79948,
+      "shares": 4500,
+      "amount": 134137.89,
+      "commission": 40.23,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-08-15",
+      "code": "000858",
+      "action": "SELL",
+      "price": 115.94764,
+      "shares": 900,
+      "amount": 104217.22,
+      "commission": 135.66,
+      "reason": "MACD死叉 收益-0.9%"
+    },
+    {
+      "date": "2024-08-16",
+      "code": "603288",
+      "action": "SELL",
+      "price": 33.413039999999995,
+      "shares": 9000,
+      "amount": 300326.43,
+      "commission": 390.93,
+      "reason": "MACD死叉 收益0.8%"
+    },
+    {
+      "date": "2024-08-19",
+      "code": "601318",
+      "action": "BUY",
+      "price": 38.74734,
+      "shares": 5500,
+      "amount": 213174.3,
+      "commission": 63.93,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-08-22",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1329.8948799999998,
+      "shares": 100,
+      "amount": 132816.6,
+      "commission": 172.89,
+      "reason": "MACD死叉 收益0.0%"
+    },
+    {
+      "date": "2024-08-30",
+      "code": "600036",
+      "action": "SELL",
+      "price": 28.932019999999998,
+      "shares": 4500,
+      "amount": 130024.84,
+      "commission": 169.25,
+      "reason": "MACD死叉 收益-2.1%"
+    },
+    {
+      "date": "2024-08-30",
+      "code": "603288",
+      "action": "BUY",
+      "price": 35.15016,
+      "shares": 6500,
+      "amount": 228544.58,
+      "commission": 68.54,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-09-10",
+      "code": "601318",
+      "action": "SELL",
+      "price": 39.08168,
+      "shares": 5500,
+      "amount": 214669.81,
+      "commission": 279.43,
+      "reason": "MACD死叉 收益1.5%"
+    },
+    {
+      "date": "2024-09-19",
+      "code": "601318",
+      "action": "BUY",
+      "price": 40.581,
+      "shares": 5500,
+      "amount": 223262.46,
+      "commission": 66.96,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "000858",
+      "action": "BUY",
+      "price": 115.51056,
+      "shares": 1300,
+      "amount": 150208.78,
+      "commission": 45.05,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "601088",
+      "action": "BUY",
+      "price": 38.83752,
+      "shares": 2900,
+      "amount": 112662.6,
+      "commission": 33.79,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-10-09",
+      "code": "601318",
+      "action": "SELL",
+      "price": 53.0437,
+      "shares": 5500,
+      "amount": 291361.09,
+      "commission": 379.26,
+      "reason": "追踪止损 回撤10.4% 收益28.8%"
+    },
+    {
+      "date": "2024-10-09",
+      "code": "000858",
+      "action": "SELL",
+      "price": 139.0713,
+      "shares": 1300,
+      "amount": 180557.66,
+      "commission": 235.03,
+      "reason": "追踪止损 回撤10.5% 收益24.4%"
+    },
+    {
+      "date": "2024-10-09",
+      "code": "603288",
+      "action": "SELL",
+      "price": 45.12956,
+      "shares": 6500,
+      "amount": 292960.8,
+      "commission": 381.34,
+      "reason": "追踪止损 回撤10.2% 收益27.1%"
+    },
+    {
+      "date": "2024-10-17",
+      "code": "601088",
+      "action": "SELL",
+      "price": 37.73438,
+      "shares": 2900,
+      "amount": 109287.44,
+      "commission": 142.26,
+      "reason": "MACD死叉 收益-0.5%"
+    },
+    {
+      "date": "2024-11-07",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1588.6209000000001,
+      "shares": 200,
+      "amount": 317819.5,
+      "commission": 95.32,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-07",
+      "code": "000858",
+      "action": "BUY",
+      "price": 155.99136000000001,
+      "shares": 1500,
+      "amount": 234057.24,
+      "commission": 70.2,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-07",
+      "code": "002371",
+      "action": "BUY",
+      "price": 325.03878,
+      "shares": 500,
+      "amount": 162568.15,
+      "commission": 48.76,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-07",
+      "code": "603288",
+      "action": "BUY",
+      "price": 48.36654,
+      "shares": 2600,
+      "amount": 125790.73,
+      "commission": 37.73,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-08",
+      "code": "300760",
+      "action": "BUY",
+      "price": 276.58205999999996,
+      "shares": 300,
+      "amount": 82999.51,
+      "commission": 24.89,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-12",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1489.57488,
+      "shares": 200,
+      "amount": 297527.69,
+      "commission": 387.29,
+      "reason": "MACD死叉 收益-4.6%"
+    },
+    {
+      "date": "2024-11-12",
+      "code": "300750",
+      "action": "BUY",
+      "price": 262.76448,
+      "shares": 500,
+      "amount": 131421.65,
+      "commission": 39.41,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-12",
+      "code": "000858",
+      "action": "SELL",
+      "price": 144.39064000000002,
+      "shares": 1500,
+      "amount": 216304.4,
+      "commission": 281.56,
+      "reason": "MACD死叉 收益-5.2%"
+    },
+    {
+      "date": "2024-11-14",
+      "code": "603288",
+      "action": "SELL",
+      "price": 44.60062,
+      "shares": 2600,
+      "amount": 115810.86,
+      "commission": 150.75,
+      "reason": "MACD死叉 收益-5.2%"
+    },
+    {
+      "date": "2024-11-15",
+      "code": "002371",
+      "action": "SELL",
+      "price": 310.68738,
+      "shares": 500,
+      "amount": 155141.74,
+      "commission": 201.95,
+      "reason": "追踪止损 回撤13.2% 收益-0.8%"
+    },
+    {
+      "date": "2024-11-15",
+      "code": "300760",
+      "action": "SELL",
+      "price": 265.63766000000004,
+      "shares": 300,
+      "amount": 79587.7,
+      "commission": 103.6,
+      "reason": "MACD死叉 收益-4.8%"
+    },
+    {
+      "date": "2024-11-18",
+      "code": "300750",
+      "action": "SELL",
+      "price": 254.74947999999998,
+      "shares": 500,
+      "amount": 127209.15,
+      "commission": 165.59,
+      "reason": "MACD死叉 收益-3.8%"
+    },
+    {
+      "date": "2024-11-19",
+      "code": "601088",
+      "action": "BUY",
+      "price": 37.68522,
+      "shares": 8600,
+      "amount": 324190.12,
+      "commission": 97.23,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-26",
+      "code": "601088",
+      "action": "SELL",
+      "price": 36.49686,
+      "shares": 8600,
+      "amount": 313464.96,
+      "commission": 408.03,
+      "reason": "MACD死叉 收益-3.5%"
+    },
+    {
+      "date": "2024-11-27",
+      "code": "601088",
+      "action": "BUY",
+      "price": 37.4247,
+      "shares": 8500,
+      "amount": 318205.38,
+      "commission": 95.43,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-11-29",
+      "code": "601088",
+      "action": "SELL",
+      "price": 36.48688,
+      "shares": 8500,
+      "amount": 309735.3,
+      "commission": 403.18,
+      "reason": "MACD死叉 收益-1.7%"
+    },
+    {
+      "date": "2024-12-03",
+      "code": "603288",
+      "action": "BUY",
+      "price": 45.821459999999995,
+      "shares": 6900,
+      "amount": 316262.92,
+      "commission": 94.85,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-04",
+      "code": "601088",
+      "action": "BUY",
+      "price": 38.8275,
+      "shares": 5700,
+      "amount": 221383.15,
+      "commission": 66.4,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-06",
+      "code": "600036",
+      "action": "BUY",
+      "price": 34.649159999999995,
+      "shares": 4500,
+      "amount": 155968.0,
+      "commission": 46.78,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-10",
+      "code": "002594",
+      "action": "BUY",
+      "price": 92.87537999999999,
+      "shares": 1100,
+      "amount": 102193.57,
+      "commission": 30.65,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-10",
+      "code": "601318",
+      "action": "BUY",
+      "price": 53.16612,
+      "shares": 1500,
+      "amount": 79773.1,
+      "commission": 23.92,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-12",
+      "code": "300750",
+      "action": "BUY",
+      "price": 263.64624,
+      "shares": 200,
+      "amount": 52745.07,
+      "commission": 15.82,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-12",
+      "code": "000858",
+      "action": "BUY",
+      "price": 142.31406,
+      "shares": 200,
+      "amount": 28471.35,
+      "commission": 8.54,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-12",
+      "code": "300760",
+      "action": "BUY",
+      "price": 263.89674,
+      "shares": 100,
+      "amount": 26397.59,
+      "commission": 7.92,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "300750",
+      "action": "SELL",
+      "price": 259.71952,
+      "shares": 200,
+      "amount": 51876.38,
+      "commission": 67.53,
+      "reason": "MACD死叉 收益-2.4%"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "002594",
+      "action": "SELL",
+      "price": 90.13936,
+      "shares": 1100,
+      "amount": 99024.4,
+      "commission": 128.9,
+      "reason": "MACD死叉 收益-2.7%"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "601318",
+      "action": "SELL",
+      "price": 50.2493,
+      "shares": 1500,
+      "amount": 75275.96,
+      "commission": 97.99,
+      "reason": "MACD死叉 收益-4.7%"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "000858",
+      "action": "SELL",
+      "price": 135.98747999999998,
+      "shares": 200,
+      "amount": 27162.14,
+      "commission": 35.36,
+      "reason": "MACD死叉 收益-5.0%"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "300760",
+      "action": "SELL",
+      "price": 248.53194,
+      "shares": 100,
+      "amount": 24820.88,
+      "commission": 32.31,
+      "reason": "MACD死叉 收益-5.9%"
+    },
+    {
+      "date": "2024-12-17",
+      "code": "300750",
+      "action": "BUY",
+      "price": 268.0851,
+      "shares": 400,
+      "amount": 107266.21,
+      "commission": 32.17,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-17",
+      "code": "002594",
+      "action": "BUY",
+      "price": 93.27618,
+      "shares": 800,
+      "amount": 74643.33,
+      "commission": 22.39,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-19",
+      "code": "603288",
+      "action": "SELL",
+      "price": 45.41898,
+      "shares": 6900,
+      "amount": 312983.55,
+      "commission": 407.41,
+      "reason": "MACD死叉 收益-0.6%"
+    },
+    {
+      "date": "2024-12-20",
+      "code": "300750",
+      "action": "SELL",
+      "price": 255.4381,
+      "shares": 400,
+      "amount": 102042.41,
+      "commission": 132.83,
+      "reason": "MACD死叉 收益-4.2%"
+    },
+    {
+      "date": "2024-12-20",
+      "code": "601088",
+      "action": "SELL",
+      "price": 37.88408,
+      "shares": 5700,
+      "amount": 215658.53,
+      "commission": 280.72,
+      "reason": "MACD死叉 收益-2.0%"
+    },
+    {
+      "date": "2024-12-23",
+      "code": "002371",
+      "action": "BUY",
+      "price": 298.32546,
+      "shares": 800,
+      "amount": 238731.97,
+      "commission": 71.6,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-26",
+      "code": "601318",
+      "action": "BUY",
+      "price": 51.001799999999996,
+      "shares": 3300,
+      "amount": 168356.43,
+      "commission": 50.49,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2024-12-31",
+      "code": "601318",
+      "action": "SELL",
+      "price": 50.0497,
+      "shares": 3300,
+      "amount": 164949.3,
+      "commission": 214.71,
+      "reason": "MACD死叉 收益-1.6%"
+    },
+    {
+      "date": "2024-12-31",
+      "code": "601088",
+      "action": "BUY",
+      "price": 40.1802,
+      "shares": 4200,
+      "amount": 168807.47,
+      "commission": 50.63,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-02",
+      "code": "002594",
+      "action": "SELL",
+      "price": 89.00164000000001,
+      "shares": 800,
+      "amount": 71108.75,
+      "commission": 92.56,
+      "reason": "MACD死叉 收益-4.2%"
+    },
+    {
+      "date": "2025-01-02",
+      "code": "002371",
+      "action": "SELL",
+      "price": 278.65157999999997,
+      "shares": 800,
+      "amount": 222631.47,
+      "commission": 289.8,
+      "reason": "MACD死叉 收益-6.7%"
+    },
+    {
+      "date": "2025-01-02",
+      "code": "601088",
+      "action": "SELL",
+      "price": 39.60064,
+      "shares": 4200,
+      "amount": 166106.47,
+      "commission": 216.22,
+      "reason": "MACD死叉 收益-2.2%"
+    },
+    {
+      "date": "2025-01-07",
+      "code": "600036",
+      "action": "SELL",
+      "price": 35.74836,
+      "shares": 4500,
+      "amount": 160658.49,
+      "commission": 209.13,
+      "reason": "MACD死叉 收益3.5%"
+    },
+    {
+      "date": "2025-01-14",
+      "code": "600036",
+      "action": "BUY",
+      "price": 37.05396,
+      "shares": 8200,
+      "amount": 303933.62,
+      "commission": 91.15,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-16",
+      "code": "002371",
+      "action": "BUY",
+      "price": 288.67620000000005,
+      "shares": 700,
+      "amount": 202133.96,
+      "commission": 60.62,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-20",
+      "code": "300750",
+      "action": "BUY",
+      "price": 262.26348,
+      "shares": 500,
+      "amount": 131171.08,
+      "commission": 39.34,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-22",
+      "code": "600036",
+      "action": "SELL",
+      "price": 36.586679999999994,
+      "shares": 8200,
+      "amount": 299620.76,
+      "commission": 390.01,
+      "reason": "MACD死叉 收益-1.1%"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "600036",
+      "action": "BUY",
+      "price": 37.91568,
+      "shares": 5300,
+      "amount": 201013.39,
+      "commission": 60.29,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-01-27",
+      "code": "002371",
+      "action": "SELL",
+      "price": 282.35416000000004,
+      "shares": 700,
+      "amount": 197390.97,
+      "commission": 256.94,
+      "reason": "MACD死叉 收益-3.9%"
+    },
+    {
+      "date": "2025-02-05",
+      "code": "600036",
+      "action": "SELL",
+      "price": 36.91602,
+      "shares": 5300,
+      "amount": 195400.55,
+      "commission": 254.35,
+      "reason": "MACD死叉 收益-1.7%"
+    },
+    {
+      "date": "2025-02-06",
+      "code": "002371",
+      "action": "BUY",
+      "price": 303.37554,
+      "shares": 800,
+      "amount": 242773.24,
+      "commission": 72.81,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-11",
+      "code": "600036",
+      "action": "BUY",
+      "price": 38.0259,
+      "shares": 4900,
+      "amount": 186382.81,
+      "commission": 55.9,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-02-24",
+      "code": "600036",
+      "action": "SELL",
+      "price": 38.06372,
+      "shares": 4900,
+      "amount": 186269.76,
+      "commission": 242.47,
+      "reason": "MACD死叉 收益0.8%"
+    },
+    {
+      "date": "2025-02-28",
+      "code": "300750",
+      "action": "SELL",
+      "price": 258.94108,
+      "shares": 500,
+      "amount": 129302.23,
+      "commission": 168.31,
+      "reason": "MACD死叉 收益0.0%"
+    },
+    {
+      "date": "2025-03-03",
+      "code": "300750",
+      "action": "BUY",
+      "price": 264.98892,
+      "shares": 800,
+      "amount": 212054.73,
+      "commission": 63.6,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-04",
+      "code": "300750",
+      "action": "SELL",
+      "price": 256.94507999999996,
+      "shares": 800,
+      "amount": 205288.84,
+      "commission": 267.22,
+      "reason": "MACD死叉 收益-3.9%"
+    },
+    {
+      "date": "2025-03-04",
+      "code": "002371",
+      "action": "SELL",
+      "price": 317.53366,
+      "shares": 800,
+      "amount": 253696.69,
+      "commission": 330.24,
+      "reason": "MACD死叉 收益4.7%"
+    },
+    {
+      "date": "2025-03-05",
+      "code": "600036",
+      "action": "BUY",
+      "price": 39.95976,
+      "shares": 7500,
+      "amount": 299788.11,
+      "commission": 89.91,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-07",
+      "code": "601318",
+      "action": "BUY",
+      "price": 49.05792,
+      "shares": 4300,
+      "amount": 211012.34,
+      "commission": 63.28,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-19",
+      "code": "002594",
+      "action": "BUY",
+      "price": 132.27401999999998,
+      "shares": 1100,
+      "amount": 145545.07,
+      "commission": 43.65,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-03-24",
+      "code": "002594",
+      "action": "SELL",
+      "price": 124.42066,
+      "shares": 1100,
+      "amount": 136684.8,
+      "commission": 177.92,
+      "reason": "MACD死叉 收益-5.5%"
+    },
+    {
+      "date": "2025-03-25",
+      "code": "601318",
+      "action": "SELL",
+      "price": 49.33114,
+      "shares": 4300,
+      "amount": 211848.14,
+      "commission": 275.76,
+      "reason": "MACD死叉 收益0.9%"
+    },
+    {
+      "date": "2025-03-26",
+      "code": "600036",
+      "action": "SELL",
+      "price": 39.660520000000005,
+      "shares": 7500,
+      "amount": 297067.21,
+      "commission": 386.69,
+      "reason": "MACD死叉 收益-0.6%"
+    },
+    {
+      "date": "2025-04-09",
+      "code": "002371",
+      "action": "BUY",
+      "price": 340.63991999999996,
+      "shares": 800,
+      "amount": 272593.69,
+      "commission": 81.75,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-21",
+      "code": "600036",
+      "action": "BUY",
+      "price": 39.3786,
+      "shares": 5400,
+      "amount": 212708.23,
+      "commission": 63.79,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-23",
+      "code": "002594",
+      "action": "BUY",
+      "price": 123.08568000000001,
+      "shares": 1200,
+      "amount": 147747.13,
+      "commission": 44.31,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-04-28",
+      "code": "002371",
+      "action": "SELL",
+      "price": 334.83898,
+      "shares": 800,
+      "amount": 267522.95,
+      "commission": 348.23,
+      "reason": "MACD死叉 收益-1.2%"
+    },
+    {
+      "date": "2025-04-30",
+      "code": "600036",
+      "action": "SELL",
+      "price": 37.81422,
+      "shares": 5400,
+      "amount": 203931.33,
+      "commission": 265.46,
+      "reason": "MACD死叉 收益-3.9%"
+    },
+    {
+      "date": "2025-05-07",
+      "code": "603288",
+      "action": "BUY",
+      "price": 41.66316,
+      "shares": 5900,
+      "amount": 245886.39,
+      "commission": 73.74,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-08",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1530.48486,
+      "shares": 100,
+      "amount": 153094.4,
+      "commission": 45.91,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-08",
+      "code": "600036",
+      "action": "BUY",
+      "price": 39.86958,
+      "shares": 3200,
+      "amount": 127620.93,
+      "commission": 38.27,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-13",
+      "code": "603288",
+      "action": "SELL",
+      "price": 40.688460000000006,
+      "shares": 5900,
+      "amount": 239749.83,
+      "commission": 312.08,
+      "reason": "MACD死叉 收益-2.8%"
+    },
+    {
+      "date": "2025-05-14",
+      "code": "601088",
+      "action": "BUY",
+      "price": 36.18222,
+      "shares": 4500,
+      "amount": 162868.84,
+      "commission": 48.85,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-15",
+      "code": "603288",
+      "action": "BUY",
+      "price": 41.6331,
+      "shares": 2700,
+      "amount": 112443.09,
+      "commission": 33.72,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-05-22",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1520.59272,
+      "shares": 100,
+      "amount": 151861.59,
+      "commission": 197.68,
+      "reason": "MACD死叉 收益0.1%"
+    },
+    {
+      "date": "2025-05-28",
+      "code": "600036",
+      "action": "SELL",
+      "price": 40.608619999999995,
+      "shares": 3200,
+      "amount": 129778.65,
+      "commission": 168.93,
+      "reason": "MACD死叉 收益2.2%"
+    },
+    {
+      "date": "2025-05-28",
+      "code": "002594",
+      "action": "SELL",
+      "price": 118.30292,
+      "shares": 1200,
+      "amount": 141778.95,
+      "commission": 184.55,
+      "reason": "追踪止损 回撤10.5% 收益-2.5%"
+    },
+    {
+      "date": "2025-05-30",
+      "code": "601088",
+      "action": "SELL",
+      "price": 35.928,
+      "shares": 4500,
+      "amount": 161465.82,
+      "commission": 210.18,
+      "reason": "MACD死叉 收益0.8%"
+    },
+    {
+      "date": "2025-06-05",
+      "code": "603288",
+      "action": "SELL",
+      "price": 42.47488,
+      "shares": 2700,
+      "amount": 114533.09,
+      "commission": 149.09,
+      "reason": "MACD死叉 收益1.9%"
+    },
+    {
+      "date": "2025-06-09",
+      "code": "600036",
+      "action": "BUY",
+      "price": 41.64312,
+      "shares": 6900,
+      "amount": 287423.73,
+      "commission": 86.2,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-12",
+      "code": "601318",
+      "action": "BUY",
+      "price": 52.38456,
+      "shares": 3800,
+      "amount": 199121.05,
+      "commission": 59.72,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-17",
+      "code": "601318",
+      "action": "SELL",
+      "price": 51.526740000000004,
+      "shares": 3800,
+      "amount": 195547.07,
+      "commission": 254.54,
+      "reason": "MACD死叉 收益-1.1%"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "601318",
+      "action": "BUY",
+      "price": 54.3585,
+      "shares": 3700,
+      "amount": 201186.79,
+      "commission": 60.34,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-24",
+      "code": "601088",
+      "action": "BUY",
+      "price": 36.693239999999996,
+      "shares": 3800,
+      "amount": 139476.14,
+      "commission": 41.83,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-06-26",
+      "code": "300750",
+      "action": "BUY",
+      "price": 256.011,
+      "shares": 300,
+      "amount": 76826.34,
+      "commission": 23.04,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-01",
+      "code": "600036",
+      "action": "SELL",
+      "price": 43.602619999999995,
+      "shares": 6900,
+      "amount": 300466.96,
+      "commission": 391.12,
+      "reason": "MACD死叉 收益4.4%"
+    },
+    {
+      "date": "2025-07-08",
+      "code": "600036",
+      "action": "BUY",
+      "price": 44.57898,
+      "shares": 3700,
+      "amount": 164991.71,
+      "commission": 49.48,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-08",
+      "code": "601088",
+      "action": "SELL",
+      "price": 36.66652,
+      "shares": 3800,
+      "amount": 139151.64,
+      "commission": 181.13,
+      "reason": "MACD死叉 收益0.4%"
+    },
+    {
+      "date": "2025-07-09",
+      "code": "600036",
+      "action": "SELL",
+      "price": 44.00182,
+      "shares": 3700,
+      "amount": 162595.09,
+      "commission": 211.65,
+      "reason": "MACD死叉 收益-1.1%"
+    },
+    {
+      "date": "2025-07-10",
+      "code": "600036",
+      "action": "BUY",
+      "price": 45.36054,
+      "shares": 4600,
+      "amount": 208721.08,
+      "commission": 62.6,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-15",
+      "code": "600036",
+      "action": "SELL",
+      "price": 44.1615,
+      "shares": 4600,
+      "amount": 202878.81,
+      "commission": 264.09,
+      "reason": "MACD死叉 收益-2.3%"
+    },
+    {
+      "date": "2025-07-16",
+      "code": "601318",
+      "action": "SELL",
+      "price": 55.6385,
+      "shares": 3700,
+      "amount": 205594.83,
+      "commission": 267.62,
+      "reason": "MACD死叉 收益3.0%"
+    },
+    {
+      "date": "2025-07-22",
+      "code": "601088",
+      "action": "BUY",
+      "price": 38.7774,
+      "shares": 6900,
+      "amount": 267644.33,
+      "commission": 80.27,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-24",
+      "code": "002371",
+      "action": "BUY",
+      "price": 338.676,
+      "shares": 500,
+      "amount": 169388.8,
+      "commission": 50.8,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-28",
+      "code": "601318",
+      "action": "BUY",
+      "price": 59.22822,
+      "shares": 2300,
+      "amount": 136265.77,
+      "commission": 40.87,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-07-31",
+      "code": "300750",
+      "action": "SELL",
+      "price": 263.2724,
+      "shares": 300,
+      "amount": 78879.04,
+      "commission": 102.68,
+      "reason": "MACD死叉 收益4.7%"
+    },
+    {
+      "date": "2025-08-01",
+      "code": "601318",
+      "action": "SELL",
+      "price": 57.0357,
+      "shares": 2300,
+      "amount": 131011.57,
+      "commission": 170.54,
+      "reason": "MACD死叉 收益-3.2%"
+    },
+    {
+      "date": "2025-08-04",
+      "code": "002371",
+      "action": "SELL",
+      "price": 328.58152,
+      "shares": 500,
+      "amount": 164077.18,
+      "commission": 213.58,
+      "reason": "MACD死叉 收益-3.1%"
+    },
+    {
+      "date": "2025-08-15",
+      "code": "300750",
+      "action": "BUY",
+      "price": 280.22934000000004,
+      "shares": 700,
+      "amount": 196219.39,
+      "commission": 58.85,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-15",
+      "code": "002371",
+      "action": "BUY",
+      "price": 344.35734,
+      "shares": 400,
+      "amount": 137784.26,
+      "commission": 41.32,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-01",
+      "code": "601088",
+      "action": "SELL",
+      "price": 40.25932,
+      "shares": 6900,
+      "amount": 277428.18,
+      "commission": 361.13,
+      "reason": "MACD死叉 收益-5.0%"
+    },
+    {
+      "date": "2025-08-18",
+      "code": "601088",
+      "action": "BUY",
+      "price": 38.246340000000004,
+      "shares": 5000,
+      "amount": 191289.07,
+      "commission": 57.37,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-19",
+      "code": "000858",
+      "action": "BUY",
+      "price": 122.08368,
+      "shares": 1100,
+      "amount": 134332.34,
+      "commission": 40.29,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-25",
+      "code": "601318",
+      "action": "BUY",
+      "price": 60.069900000000004,
+      "shares": 1500,
+      "amount": 90131.88,
+      "commission": 27.03,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-08-27",
+      "code": "601318",
+      "action": "SELL",
+      "price": 57.6844,
+      "shares": 1500,
+      "amount": 86414.12,
+      "commission": 112.48,
+      "reason": "MACD死叉 收益-3.8%"
+    },
+    {
+      "date": "2025-08-28",
+      "code": "601088",
+      "action": "SELL",
+      "price": 36.846160000000005,
+      "shares": 5000,
+      "amount": 183991.3,
+      "commission": 239.5,
+      "reason": "MACD死叉 收益-3.5%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "000858",
+      "action": "SELL",
+      "price": 122.57436,
+      "shares": 1100,
+      "amount": 134656.51,
+      "commission": 175.28,
+      "reason": "MACD死叉 收益0.9%"
+    },
+    {
+      "date": "2025-09-04",
+      "code": "002371",
+      "action": "SELL",
+      "price": 350.24809999999997,
+      "shares": 400,
+      "amount": 139917.11,
+      "commission": 182.13,
+      "reason": "追踪止损 回撤11.6% 收益2.6%"
+    },
+    {
+      "date": "2025-09-17",
+      "code": "002594",
+      "action": "BUY",
+      "price": 111.21198,
+      "shares": 2000,
+      "amount": 222490.69,
+      "commission": 66.73,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-17",
+      "code": "002371",
+      "action": "BUY",
+      "price": 392.56356,
+      "shares": 400,
+      "amount": 157072.53,
+      "commission": 47.11,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-17",
+      "code": "601088",
+      "action": "BUY",
+      "price": 38.04594,
+      "shares": 3000,
+      "amount": 114172.06,
+      "commission": 34.24,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-09-23",
+      "code": "002594",
+      "action": "SELL",
+      "price": 104.79,
+      "shares": 2000,
+      "amount": 209307.55,
+      "commission": 272.45,
+      "reason": "MACD死叉 收益-4.9%"
+    },
+    {
+      "date": "2025-09-30",
+      "code": "300760",
+      "action": "BUY",
+      "price": 243.1353,
+      "shares": 500,
+      "amount": 121604.12,
+      "commission": 36.47,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-13",
+      "code": "300750",
+      "action": "SELL",
+      "price": 380.238,
+      "shares": 700,
+      "amount": 265820.58,
+      "commission": 346.02,
+      "reason": "MACD死叉 收益33.9%"
+    },
+    {
+      "date": "2025-10-13",
+      "code": "300760",
+      "action": "SELL",
+      "price": 235.8773,
+      "shares": 500,
+      "amount": 117785.33,
+      "commission": 153.32,
+      "reason": "MACD死叉 收益-4.3%"
+    },
+    {
+      "date": "2025-10-14",
+      "code": "002371",
+      "action": "SELL",
+      "price": 404.689,
+      "shares": 400,
+      "amount": 161665.16,
+      "commission": 210.44,
+      "reason": "追踪止损 回撤12.7% 收益3.2%"
+    },
+    {
+      "date": "2025-10-16",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1462.0582800000002,
+      "shares": 100,
+      "amount": 146249.69,
+      "commission": 43.86,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-16",
+      "code": "603288",
+      "action": "BUY",
+      "price": 39.46878,
+      "shares": 5800,
+      "amount": 228987.6,
+      "commission": 68.68,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-10-20",
+      "code": "603288",
+      "action": "SELL",
+      "price": 38.522800000000004,
+      "shares": 5800,
+      "amount": 223141.78,
+      "commission": 290.46,
+      "reason": "MACD死叉 收益-2.1%"
+    },
+    {
+      "date": "2025-10-28",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1413.22788,
+      "shares": 100,
+      "amount": 141139.07,
+      "commission": 183.72,
+      "reason": "MACD死叉 收益-2.7%"
+    },
+    {
+      "date": "2025-11-10",
+      "code": "600519",
+      "action": "BUY",
+      "price": 1440.91608,
+      "shares": 100,
+      "amount": 144134.84,
+      "commission": 43.23,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-12",
+      "code": "601088",
+      "action": "SELL",
+      "price": 42.60462,
+      "shares": 3000,
+      "amount": 127647.7,
+      "commission": 166.16,
+      "reason": "MACD死叉 收益12.1%"
+    },
+    {
+      "date": "2025-11-14",
+      "code": "300750",
+      "action": "BUY",
+      "price": 388.776,
+      "shares": 600,
+      "amount": 233335.58,
+      "commission": 69.98,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-17",
+      "code": "300750",
+      "action": "SELL",
+      "price": 388.222,
+      "shares": 600,
+      "amount": 232630.39,
+      "commission": 302.81,
+      "reason": "MACD死叉 收益-3.3%"
+    },
+    {
+      "date": "2025-11-19",
+      "code": "002371",
+      "action": "BUY",
+      "price": 424.848,
+      "shares": 600,
+      "amount": 254985.27,
+      "commission": 76.47,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-11-20",
+      "code": "002371",
+      "action": "SELL",
+      "price": 394.46948,
+      "shares": 600,
+      "amount": 236374.0,
+      "commission": 307.69,
+      "reason": "MACD死叉 收益-3.4%"
+    },
+    {
+      "date": "2025-11-26",
+      "code": "600519",
+      "action": "SELL",
+      "price": 1422.68892,
+      "shares": 100,
+      "amount": 142083.94,
+      "commission": 184.95,
+      "reason": "MACD死叉 收益-0.9%"
+    },
+    {
+      "date": "2025-11-26",
+      "code": "002371",
+      "action": "BUY",
+      "price": 423.72576,
+      "shares": 700,
+      "amount": 296697.01,
+      "commission": 88.98,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-02",
+      "code": "600036",
+      "action": "BUY",
+      "price": 42.344519999999996,
+      "shares": 5000,
+      "amount": 211786.12,
+      "commission": 63.52,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-03",
+      "code": "600036",
+      "action": "SELL",
+      "price": 41.95592,
+      "shares": 5000,
+      "amount": 209506.89,
+      "commission": 272.71,
+      "reason": "MACD死叉 收益-0.9%"
+    },
+    {
+      "date": "2025-12-08",
+      "code": "300750",
+      "action": "BUY",
+      "price": 392.283,
+      "shares": 500,
+      "amount": 196200.34,
+      "commission": 58.84,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-08",
+      "code": "601318",
+      "action": "BUY",
+      "price": 63.5268,
+      "shares": 2400,
+      "amount": 152510.06,
+      "commission": 45.74,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-16",
+      "code": "300750",
+      "action": "SELL",
+      "price": 375.6971,
+      "shares": 500,
+      "amount": 187604.35,
+      "commission": 244.2,
+      "reason": "MACD死叉 收益-3.6%"
+    },
+    {
+      "date": "2025-12-17",
+      "code": "002371",
+      "action": "SELL",
+      "price": 440.118,
+      "shares": 700,
+      "amount": 307682.09,
+      "commission": 400.51,
+      "reason": "MACD死叉 收益5.5%"
+    },
+    {
+      "date": "2025-12-23",
+      "code": "002371",
+      "action": "BUY",
+      "price": 481.962,
+      "shares": 500,
+      "amount": 241053.29,
+      "commission": 72.29,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-23",
+      "code": "601088",
+      "action": "BUY",
+      "price": 41.1822,
+      "shares": 4400,
+      "amount": 181256.04,
+      "commission": 54.36,
+      "reason": "MACD金叉 价格>60日趋势线"
+    },
+    {
+      "date": "2025-12-25",
+      "code": "601088",
+      "action": "SELL",
+      "price": 39.969899999999996,
+      "shares": 4400,
+      "amount": 175638.93,
+      "commission": 228.63,
+      "reason": "MACD死叉 收益-2.5%"
+    },
+    {
+      "date": "2025-12-29",
+      "code": "002371",
+      "action": "SELL",
+      "price": 452.3435,
+      "shares": 500,
+      "amount": 225877.73,
+      "commission": 294.02,
+      "reason": "MACD死叉 收益-5.9%"
+    }
+  ],
+  "daily_equity": [
+    {
+      "date": "2024-08-01",
+      "total_value": 1000000,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2024-08-02",
+      "total_value": 1000000,
+      "cumulative_return": 0.0
+    },
+    {
+      "date": "2024-08-05",
+      "total_value": 1001582.47,
+      "cumulative_return": 0.001582
+    },
+    {
+      "date": "2024-08-06",
+      "total_value": 1002801.94,
+      "cumulative_return": 0.002802
+    },
+    {
+      "date": "2024-08-07",
+      "total_value": 1003979.94,
+      "cumulative_return": 0.00398
+    },
+    {
+      "date": "2024-08-08",
+      "total_value": 1013733.94,
+      "cumulative_return": 0.013734
+    },
+    {
+      "date": "2024-08-09",
+      "total_value": 1008565.94,
+      "cumulative_return": 0.008566
+    },
+    {
+      "date": "2024-08-12",
+      "total_value": 1009848.94,
+      "cumulative_return": 0.009849
+    },
+    {
+      "date": "2024-08-13",
+      "total_value": 997754.94,
+      "cumulative_return": -0.002245
+    },
+    {
+      "date": "2024-08-14",
+      "total_value": 988548.94,
+      "cumulative_return": -0.011451
+    },
+    {
+      "date": "2024-08-15",
+      "total_value": 994800.07,
+      "cumulative_return": -0.0052
+    },
+    {
+      "date": "2024-08-16",
+      "total_value": 993273.4,
+      "cumulative_return": -0.006727
+    },
+    {
+      "date": "2024-08-19",
+      "total_value": 992918.83,
+      "cumulative_return": -0.007081
+    },
+    {
+      "date": "2024-08-20",
+      "total_value": 991162.53,
+      "cumulative_return": -0.008837
+    },
+    {
+      "date": "2024-08-21",
+      "total_value": 989843.53,
+      "cumulative_return": -0.010156
+    },
+    {
+      "date": "2024-08-22",
+      "total_value": 987930.53,
+      "cumulative_return": -0.012069
+    },
+    {
+      "date": "2024-08-23",
+      "total_value": 998106.13,
+      "cumulative_return": -0.001894
+    },
+    {
+      "date": "2024-08-26",
+      "total_value": 998421.13,
+      "cumulative_return": -0.001579
+    },
+    {
+      "date": "2024-08-27",
+      "total_value": 997006.13,
+      "cumulative_return": -0.002994
+    },
+    {
+      "date": "2024-08-28",
+      "total_value": 997136.13,
+      "cumulative_return": -0.002864
+    },
+    {
+      "date": "2024-08-29",
+      "total_value": 990626.13,
+      "cumulative_return": -0.009374
+    },
+    {
+      "date": "2024-08-30",
+      "total_value": 994871.13,
+      "cumulative_return": -0.005129
+    },
+    {
+      "date": "2024-09-02",
+      "total_value": 986476.39,
+      "cumulative_return": -0.013524
+    },
+    {
+      "date": "2024-09-03",
+      "total_value": 986001.39,
+      "cumulative_return": -0.013999
+    },
+    {
+      "date": "2024-09-04",
+      "total_value": 978511.39,
+      "cumulative_return": -0.021489
+    },
+    {
+      "date": "2024-09-05",
+      "total_value": 984491.39,
+      "cumulative_return": -0.015509
+    },
+    {
+      "date": "2024-09-06",
+      "total_value": 982386.39,
+      "cumulative_return": -0.017614
+    },
+    {
+      "date": "2024-09-09",
+      "total_value": 977821.39,
+      "cumulative_return": -0.022179
+    },
+    {
+      "date": "2024-09-10",
+      "total_value": 979011.39,
+      "cumulative_return": -0.020989
+    },
+    {
+      "date": "2024-09-11",
+      "total_value": 982871.2,
+      "cumulative_return": -0.017129
+    },
+    {
+      "date": "2024-09-12",
+      "total_value": 981181.2,
+      "cumulative_return": -0.018819
+    },
+    {
+      "date": "2024-09-13",
+      "total_value": 980661.2,
+      "cumulative_return": -0.019339
+    },
+    {
+      "date": "2024-09-18",
+      "total_value": 982546.2,
+      "cumulative_return": -0.017454
+    },
+    {
+      "date": "2024-09-19",
+      "total_value": 982806.2,
+      "cumulative_return": -0.017194
+    },
+    {
+      "date": "2024-09-20",
+      "total_value": 981538.74,
+      "cumulative_return": -0.018461
+    },
+    {
+      "date": "2024-09-23",
+      "total_value": 983548.74,
+      "cumulative_return": -0.016451
+    },
+    {
+      "date": "2024-09-24",
+      "total_value": 1010063.74,
+      "cumulative_return": 0.010064
+    },
+    {
+      "date": "2024-09-25",
+      "total_value": 1013422.36,
+      "cumulative_return": 0.013422
+    },
+    {
+      "date": "2024-09-26",
+      "total_value": 1066625.36,
+      "cumulative_return": 0.066625
+    },
+    {
+      "date": "2024-09-27",
+      "total_value": 1105611.36,
+      "cumulative_return": 0.105611
+    },
+    {
+      "date": "2024-09-30",
+      "total_value": 1186953.36,
+      "cumulative_return": 0.186953
+    },
+    {
+      "date": "2024-10-08",
+      "total_value": 1234706.36,
+      "cumulative_return": 0.234706
+    },
+    {
+      "date": "2024-10-09",
+      "total_value": 1140724.36,
+      "cumulative_return": 0.140724
+    },
+    {
+      "date": "2024-10-10",
+      "total_value": 1150770.91,
+      "cumulative_return": 0.150771
+    },
+    {
+      "date": "2024-10-11",
+      "total_value": 1149755.91,
+      "cumulative_return": 0.149756
+    },
+    {
+      "date": "2024-10-14",
+      "total_value": 1149958.91,
+      "cumulative_return": 0.149959
+    },
+    {
+      "date": "2024-10-15",
+      "total_value": 1147464.91,
+      "cumulative_return": 0.147465
+    },
+    {
+      "date": "2024-10-16",
+      "total_value": 1146652.91,
+      "cumulative_return": 0.146653
+    },
+    {
+      "date": "2024-10-17",
+      "total_value": 1145086.91,
+      "cumulative_return": 0.145087
+    },
+    {
+      "date": "2024-10-18",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-21",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-22",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-23",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-24",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-25",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-28",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-29",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-30",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-10-31",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-11-01",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-11-04",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-11-05",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-11-06",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-11-07",
+      "total_value": 1144899.35,
+      "cumulative_return": 0.144899
+    },
+    {
+      "date": "2024-11-08",
+      "total_value": 1122396.73,
+      "cumulative_return": 0.122397
+    },
+    {
+      "date": "2024-11-11",
+      "total_value": 1128673.22,
+      "cumulative_return": 0.128673
+    },
+    {
+      "date": "2024-11-12",
+      "total_value": 1116851.22,
+      "cumulative_return": 0.116851
+    },
+    {
+      "date": "2024-11-13",
+      "total_value": 1117968.66,
+      "cumulative_return": 0.117969
+    },
+    {
+      "date": "2024-11-14",
+      "total_value": 1102389.66,
+      "cumulative_return": 0.10239
+    },
+    {
+      "date": "2024-11-15",
+      "total_value": 1085255.52,
+      "cumulative_return": 0.085256
+    },
+    {
+      "date": "2024-11-18",
+      "total_value": 1082694.96,
+      "cumulative_return": 0.082695
+    },
+    {
+      "date": "2024-11-19",
+      "total_value": 1081824.11,
+      "cumulative_return": 0.081824
+    },
+    {
+      "date": "2024-11-20",
+      "total_value": 1082713.99,
+      "cumulative_return": 0.082714
+    },
+    {
+      "date": "2024-11-21",
+      "total_value": 1084003.99,
+      "cumulative_return": 0.084004
+    },
+    {
+      "date": "2024-11-22",
+      "total_value": 1072049.99,
+      "cumulative_return": 0.07205
+    },
+    {
+      "date": "2024-11-25",
+      "total_value": 1074715.99,
+      "cumulative_return": 0.074716
+    },
+    {
+      "date": "2024-11-26",
+      "total_value": 1072049.99,
+      "cumulative_return": 0.07205
+    },
+    {
+      "date": "2024-11-27",
+      "total_value": 1071098.95,
+      "cumulative_return": 0.071099
+    },
+    {
+      "date": "2024-11-28",
+      "total_value": 1067648.57,
+      "cumulative_return": 0.067649
+    },
+    {
+      "date": "2024-11-29",
+      "total_value": 1065013.57,
+      "cumulative_return": 0.065014
+    },
+    {
+      "date": "2024-12-02",
+      "total_value": 1062628.87,
+      "cumulative_return": 0.062629
+    },
+    {
+      "date": "2024-12-03",
+      "total_value": 1062628.87,
+      "cumulative_return": 0.062629
+    },
+    {
+      "date": "2024-12-04",
+      "total_value": 1058107.95,
+      "cumulative_return": 0.058108
+    },
+    {
+      "date": "2024-12-05",
+      "total_value": 1054302.8,
+      "cumulative_return": 0.054303
+    },
+    {
+      "date": "2024-12-06",
+      "total_value": 1059042.8,
+      "cumulative_return": 0.059043
+    },
+    {
+      "date": "2024-12-09",
+      "total_value": 1058366.8,
+      "cumulative_return": 0.058367
+    },
+    {
+      "date": "2024-12-10",
+      "total_value": 1070648.8,
+      "cumulative_return": 0.070649
+    },
+    {
+      "date": "2024-12-11",
+      "total_value": 1075040.13,
+      "cumulative_return": 0.07504
+    },
+    {
+      "date": "2024-12-12",
+      "total_value": 1081840.13,
+      "cumulative_return": 0.08184
+    },
+    {
+      "date": "2024-12-13",
+      "total_value": 1056007.12,
+      "cumulative_return": 0.056007
+    },
+    {
+      "date": "2024-12-16",
+      "total_value": 1057022.12,
+      "cumulative_return": 0.057022
+    },
+    {
+      "date": "2024-12-17",
+      "total_value": 1052987.88,
+      "cumulative_return": 0.052988
+    },
+    {
+      "date": "2024-12-18",
+      "total_value": 1060423.34,
+      "cumulative_return": 0.060423
+    },
+    {
+      "date": "2024-12-19",
+      "total_value": 1051917.34,
+      "cumulative_return": 0.051917
+    },
+    {
+      "date": "2024-12-20",
+      "total_value": 1038931.89,
+      "cumulative_return": 0.038932
+    },
+    {
+      "date": "2024-12-23",
+      "total_value": 1039190.83,
+      "cumulative_return": 0.039191
+    },
+    {
+      "date": "2024-12-24",
+      "total_value": 1047885.86,
+      "cumulative_return": 0.047886
+    },
+    {
+      "date": "2024-12-25",
+      "total_value": 1046655.86,
+      "cumulative_return": 0.046656
+    },
+    {
+      "date": "2024-12-26",
+      "total_value": 1046191.86,
+      "cumulative_return": 0.046192
+    },
+    {
+      "date": "2024-12-27",
+      "total_value": 1049117.43,
+      "cumulative_return": 0.049117
+    },
+    {
+      "date": "2024-12-30",
+      "total_value": 1048952.43,
+      "cumulative_return": 0.048952
+    },
+    {
+      "date": "2024-12-31",
+      "total_value": 1033307.43,
+      "cumulative_return": 0.033307
+    },
+    {
+      "date": "2025-01-02",
+      "total_value": 1014098.26,
+      "cumulative_return": 0.014098
+    },
+    {
+      "date": "2025-01-03",
+      "total_value": 1015693.95,
+      "cumulative_return": 0.015694
+    },
+    {
+      "date": "2025-01-06",
+      "total_value": 1017448.95,
+      "cumulative_return": 0.017449
+    },
+    {
+      "date": "2025-01-07",
+      "total_value": 1016773.95,
+      "cumulative_return": 0.016774
+    },
+    {
+      "date": "2025-01-08",
+      "total_value": 1015927.44,
+      "cumulative_return": 0.015927
+    },
+    {
+      "date": "2025-01-09",
+      "total_value": 1015927.44,
+      "cumulative_return": 0.015927
+    },
+    {
+      "date": "2025-01-10",
+      "total_value": 1015927.44,
+      "cumulative_return": 0.015927
+    },
+    {
+      "date": "2025-01-13",
+      "total_value": 1015927.44,
+      "cumulative_return": 0.015927
+    },
+    {
+      "date": "2025-01-14",
+      "total_value": 1015927.44,
+      "cumulative_return": 0.015927
+    },
+    {
+      "date": "2025-01-15",
+      "total_value": 1020559.82,
+      "cumulative_return": 0.02056
+    },
+    {
+      "date": "2025-01-16",
+      "total_value": 1023429.82,
+      "cumulative_return": 0.02343
+    },
+    {
+      "date": "2025-01-17",
+      "total_value": 1019934.86,
+      "cumulative_return": 0.019935
+    },
+    {
+      "date": "2025-01-20",
+      "total_value": 1015096.86,
+      "cumulative_return": 0.015097
+    },
+    {
+      "date": "2025-01-21",
+      "total_value": 1015410.78,
+      "cumulative_return": 0.015411
+    },
+    {
+      "date": "2025-01-22",
+      "total_value": 1002147.78,
+      "cumulative_return": 0.002148
+    },
+    {
+      "date": "2025-01-23",
+      "total_value": 1003130.54,
+      "cumulative_return": 0.003131
+    },
+    {
+      "date": "2025-01-24",
+      "total_value": 1002031.54,
+      "cumulative_return": 0.002032
+    },
+    {
+      "date": "2025-01-27",
+      "total_value": 998968.54,
+      "cumulative_return": -0.001031
+    },
+    {
+      "date": "2025-02-05",
+      "total_value": 994024.12,
+      "cumulative_return": -0.005976
+    },
+    {
+      "date": "2025-02-06",
+      "total_value": 993867.67,
+      "cumulative_return": -0.006132
+    },
+    {
+      "date": "2025-02-07",
+      "total_value": 996088.43,
+      "cumulative_return": -0.003912
+    },
+    {
+      "date": "2025-02-10",
+      "total_value": 993721.43,
+      "cumulative_return": -0.006279
+    },
+    {
+      "date": "2025-02-11",
+      "total_value": 987852.43,
+      "cumulative_return": -0.012148
+    },
+    {
+      "date": "2025-02-12",
+      "total_value": 1000096.62,
+      "cumulative_return": 9.7e-05
+    },
+    {
+      "date": "2025-02-13",
+      "total_value": 1000614.62,
+      "cumulative_return": 0.000615
+    },
+    {
+      "date": "2025-02-14",
+      "total_value": 1011230.62,
+      "cumulative_return": 0.011231
+    },
+    {
+      "date": "2025-02-17",
+      "total_value": 1015468.62,
+      "cumulative_return": 0.015469
+    },
+    {
+      "date": "2025-02-18",
+      "total_value": 1020210.62,
+      "cumulative_return": 0.020211
+    },
+    {
+      "date": "2025-02-19",
+      "total_value": 1036073.62,
+      "cumulative_return": 0.036074
+    },
+    {
+      "date": "2025-02-20",
+      "total_value": 1033169.62,
+      "cumulative_return": 0.03317
+    },
+    {
+      "date": "2025-02-21",
+      "total_value": 1038983.62,
+      "cumulative_return": 0.038984
+    },
+    {
+      "date": "2025-02-24",
+      "total_value": 1038089.62,
+      "cumulative_return": 0.03809
+    },
+    {
+      "date": "2025-02-25",
+      "total_value": 1028779.38,
+      "cumulative_return": 0.028779
+    },
+    {
+      "date": "2025-02-26",
+      "total_value": 1033197.38,
+      "cumulative_return": 0.033197
+    },
+    {
+      "date": "2025-02-27",
+      "total_value": 1031647.38,
+      "cumulative_return": 0.031647
+    },
+    {
+      "date": "2025-02-28",
+      "total_value": 1021005.38,
+      "cumulative_return": 0.021005
+    },
+    {
+      "date": "2025-03-03",
+      "total_value": 1013847.61,
+      "cumulative_return": 0.013848
+    },
+    {
+      "date": "2025-03-04",
+      "total_value": 1004904.88,
+      "cumulative_return": 0.004905
+    },
+    {
+      "date": "2025-03-05",
+      "total_value": 1003434.41,
+      "cumulative_return": 0.003434
+    },
+    {
+      "date": "2025-03-06",
+      "total_value": 1003271.3,
+      "cumulative_return": 0.003271
+    },
+    {
+      "date": "2025-03-07",
+      "total_value": 1007846.3,
+      "cumulative_return": 0.007846
+    },
+    {
+      "date": "2025-03-10",
+      "total_value": 1002493.96,
+      "cumulative_return": 0.002494
+    },
+    {
+      "date": "2025-03-11",
+      "total_value": 1006868.96,
+      "cumulative_return": 0.006869
+    },
+    {
+      "date": "2025-03-12",
+      "total_value": 1005588.96,
+      "cumulative_return": 0.005589
+    },
+    {
+      "date": "2025-03-13",
+      "total_value": 1007795.96,
+      "cumulative_return": 0.007796
+    },
+    {
+      "date": "2025-03-14",
+      "total_value": 1027714.96,
+      "cumulative_return": 0.027715
+    },
+    {
+      "date": "2025-03-17",
+      "total_value": 1026427.96,
+      "cumulative_return": 0.026428
+    },
+    {
+      "date": "2025-03-18",
+      "total_value": 1028811.96,
+      "cumulative_return": 0.028812
+    },
+    {
+      "date": "2025-03-19",
+      "total_value": 1036744.96,
+      "cumulative_return": 0.036745
+    },
+    {
+      "date": "2025-03-20",
+      "total_value": 1023766.89,
+      "cumulative_return": 0.023767
+    },
+    {
+      "date": "2025-03-21",
+      "total_value": 1006271.89,
+      "cumulative_return": 0.006272
+    },
+    {
+      "date": "2025-03-24",
+      "total_value": 1011762.89,
+      "cumulative_return": 0.011763
+    },
+    {
+      "date": "2025-03-25",
+      "total_value": 1011836.69,
+      "cumulative_return": 0.011837
+    },
+    {
+      "date": "2025-03-26",
+      "total_value": 992996.83,
+      "cumulative_return": -0.007003
+    },
+    {
+      "date": "2025-03-27",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-03-28",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-03-31",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-01",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-02",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-03",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-07",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-08",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-09",
+      "total_value": 992689.04,
+      "cumulative_return": -0.007311
+    },
+    {
+      "date": "2025-04-10",
+      "total_value": 987031.35,
+      "cumulative_return": -0.012969
+    },
+    {
+      "date": "2025-04-11",
+      "total_value": 990575.35,
+      "cumulative_return": -0.009425
+    },
+    {
+      "date": "2025-04-14",
+      "total_value": 990575.35,
+      "cumulative_return": -0.009425
+    },
+    {
+      "date": "2025-04-15",
+      "total_value": 987319.35,
+      "cumulative_return": -0.012681
+    },
+    {
+      "date": "2025-04-16",
+      "total_value": 996791.35,
+      "cumulative_return": -0.003209
+    },
+    {
+      "date": "2025-04-17",
+      "total_value": 994031.35,
+      "cumulative_return": -0.005969
+    },
+    {
+      "date": "2025-04-18",
+      "total_value": 988223.35,
+      "cumulative_return": -0.011777
+    },
+    {
+      "date": "2025-04-21",
+      "total_value": 989911.35,
+      "cumulative_return": -0.010089
+    },
+    {
+      "date": "2025-04-22",
+      "total_value": 991051.12,
+      "cumulative_return": -0.008949
+    },
+    {
+      "date": "2025-04-23",
+      "total_value": 987351.12,
+      "cumulative_return": -0.012649
+    },
+    {
+      "date": "2025-04-24",
+      "total_value": 985839.99,
+      "cumulative_return": -0.01416
+    },
+    {
+      "date": "2025-04-25",
+      "total_value": 985349.99,
+      "cumulative_return": -0.01465
+    },
+    {
+      "date": "2025-04-28",
+      "total_value": 983147.99,
+      "cumulative_return": -0.016852
+    },
+    {
+      "date": "2025-04-29",
+      "total_value": 978120.94,
+      "cumulative_return": -0.021879
+    },
+    {
+      "date": "2025-04-30",
+      "total_value": 970548.94,
+      "cumulative_return": -0.029451
+    },
+    {
+      "date": "2025-05-06",
+      "total_value": 973486.27,
+      "cumulative_return": -0.026514
+    },
+    {
+      "date": "2025-05-07",
+      "total_value": 973186.27,
+      "cumulative_return": -0.026814
+    },
+    {
+      "date": "2025-05-08",
+      "total_value": 970356.88,
+      "cumulative_return": -0.029643
+    },
+    {
+      "date": "2025-05-09",
+      "total_value": 973440.55,
+      "cumulative_return": -0.026559
+    },
+    {
+      "date": "2025-05-12",
+      "total_value": 979442.55,
+      "cumulative_return": -0.020557
+    },
+    {
+      "date": "2025-05-13",
+      "total_value": 976051.55,
+      "cumulative_return": -0.023948
+    },
+    {
+      "date": "2025-05-14",
+      "total_value": 983993.38,
+      "cumulative_return": -0.016007
+    },
+    {
+      "date": "2025-05-15",
+      "total_value": 988356.54,
+      "cumulative_return": -0.011643
+    },
+    {
+      "date": "2025-05-16",
+      "total_value": 985421.45,
+      "cumulative_return": -0.014579
+    },
+    {
+      "date": "2025-05-19",
+      "total_value": 977617.45,
+      "cumulative_return": -0.022383
+    },
+    {
+      "date": "2025-05-20",
+      "total_value": 983365.45,
+      "cumulative_return": -0.016635
+    },
+    {
+      "date": "2025-05-21",
+      "total_value": 991643.45,
+      "cumulative_return": -0.008357
+    },
+    {
+      "date": "2025-05-22",
+      "total_value": 994530.45,
+      "cumulative_return": -0.00547
+    },
+    {
+      "date": "2025-05-23",
+      "total_value": 992571.04,
+      "cumulative_return": -0.007429
+    },
+    {
+      "date": "2025-05-26",
+      "total_value": 982963.04,
+      "cumulative_return": -0.017037
+    },
+    {
+      "date": "2025-05-27",
+      "total_value": 978130.04,
+      "cumulative_return": -0.02187
+    },
+    {
+      "date": "2025-05-28",
+      "total_value": 977788.04,
+      "cumulative_return": -0.022212
+    },
+    {
+      "date": "2025-05-29",
+      "total_value": 973491.64,
+      "cumulative_return": -0.026508
+    },
+    {
+      "date": "2025-05-30",
+      "total_value": 971889.64,
+      "cumulative_return": -0.02811
+    },
+    {
+      "date": "2025-06-03",
+      "total_value": 969861.46,
+      "cumulative_return": -0.030139
+    },
+    {
+      "date": "2025-06-04",
+      "total_value": 969240.46,
+      "cumulative_return": -0.03076
+    },
+    {
+      "date": "2025-06-05",
+      "total_value": 968673.46,
+      "cumulative_return": -0.031327
+    },
+    {
+      "date": "2025-06-06",
+      "total_value": 968348.55,
+      "cumulative_return": -0.031651
+    },
+    {
+      "date": "2025-06-09",
+      "total_value": 968348.55,
+      "cumulative_return": -0.031651
+    },
+    {
+      "date": "2025-06-10",
+      "total_value": 968378.82,
+      "cumulative_return": -0.031621
+    },
+    {
+      "date": "2025-06-11",
+      "total_value": 972794.82,
+      "cumulative_return": -0.027205
+    },
+    {
+      "date": "2025-06-12",
+      "total_value": 972242.82,
+      "cumulative_return": -0.027757
+    },
+    {
+      "date": "2025-06-13",
+      "total_value": 970110.77,
+      "cumulative_return": -0.029889
+    },
+    {
+      "date": "2025-06-16",
+      "total_value": 973642.77,
+      "cumulative_return": -0.026357
+    },
+    {
+      "date": "2025-06-17",
+      "total_value": 974680.77,
+      "cumulative_return": -0.025319
+    },
+    {
+      "date": "2025-06-18",
+      "total_value": 972946.84,
+      "cumulative_return": -0.027053
+    },
+    {
+      "date": "2025-06-19",
+      "total_value": 971428.84,
+      "cumulative_return": -0.028571
+    },
+    {
+      "date": "2025-06-20",
+      "total_value": 973912.84,
+      "cumulative_return": -0.026087
+    },
+    {
+      "date": "2025-06-23",
+      "total_value": 975706.84,
+      "cumulative_return": -0.024293
+    },
+    {
+      "date": "2025-06-24",
+      "total_value": 979156.84,
+      "cumulative_return": -0.020843
+    },
+    {
+      "date": "2025-06-25",
+      "total_value": 988647.91,
+      "cumulative_return": -0.011352
+    },
+    {
+      "date": "2025-06-26",
+      "total_value": 989741.91,
+      "cumulative_return": -0.010258
+    },
+    {
+      "date": "2025-06-27",
+      "total_value": 973746.57,
+      "cumulative_return": -0.026253
+    },
+    {
+      "date": "2025-06-30",
+      "total_value": 975014.57,
+      "cumulative_return": -0.024985
+    },
+    {
+      "date": "2025-07-01",
+      "total_value": 980582.57,
+      "cumulative_return": -0.019417
+    },
+    {
+      "date": "2025-07-02",
+      "total_value": 983685.53,
+      "cumulative_return": -0.016314
+    },
+    {
+      "date": "2025-07-03",
+      "total_value": 982958.53,
+      "cumulative_return": -0.017041
+    },
+    {
+      "date": "2025-07-04",
+      "total_value": 989240.53,
+      "cumulative_return": -0.010759
+    },
+    {
+      "date": "2025-07-07",
+      "total_value": 983107.53,
+      "cumulative_return": -0.016892
+    },
+    {
+      "date": "2025-07-08",
+      "total_value": 983983.53,
+      "cumulative_return": -0.016016
+    },
+    {
+      "date": "2025-07-09",
+      "total_value": 981987.46,
+      "cumulative_return": -0.018013
+    },
+    {
+      "date": "2025-07-10",
+      "total_value": 986249.55,
+      "cumulative_return": -0.01375
+    },
+    {
+      "date": "2025-07-11",
+      "total_value": 984822.47,
+      "cumulative_return": -0.015178
+    },
+    {
+      "date": "2025-07-14",
+      "total_value": 983082.47,
+      "cumulative_return": -0.016918
+    },
+    {
+      "date": "2025-07-15",
+      "total_value": 979508.47,
+      "cumulative_return": -0.020492
+    },
+    {
+      "date": "2025-07-16",
+      "total_value": 977017.28,
+      "cumulative_return": -0.022983
+    },
+    {
+      "date": "2025-07-17",
+      "total_value": 976186.11,
+      "cumulative_return": -0.023814
+    },
+    {
+      "date": "2025-07-18",
+      "total_value": 977896.11,
+      "cumulative_return": -0.022104
+    },
+    {
+      "date": "2025-07-21",
+      "total_value": 980434.11,
+      "cumulative_return": -0.019566
+    },
+    {
+      "date": "2025-07-22",
+      "total_value": 982534.11,
+      "cumulative_return": -0.017466
+    },
+    {
+      "date": "2025-07-23",
+      "total_value": 976093.78,
+      "cumulative_return": -0.023906
+    },
+    {
+      "date": "2025-07-24",
+      "total_value": 975547.78,
+      "cumulative_return": -0.024452
+    },
+    {
+      "date": "2025-07-25",
+      "total_value": 973727.98,
+      "cumulative_return": -0.026272
+    },
+    {
+      "date": "2025-07-28",
+      "total_value": 971275.98,
+      "cumulative_return": -0.028724
+    },
+    {
+      "date": "2025-07-29",
+      "total_value": 972016.21,
+      "cumulative_return": -0.027984
+    },
+    {
+      "date": "2025-07-30",
+      "total_value": 977300.21,
+      "cumulative_return": -0.0227
+    },
+    {
+      "date": "2025-07-31",
+      "total_value": 959567.21,
+      "cumulative_return": -0.040433
+    },
+    {
+      "date": "2025-08-01",
+      "total_value": 951393.25,
+      "cumulative_return": -0.048607
+    },
+    {
+      "date": "2025-08-04",
+      "total_value": 965121.88,
+      "cumulative_return": -0.034878
+    },
+    {
+      "date": "2025-08-05",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-06",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-07",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-08",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-11",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-12",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-13",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-14",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-15",
+      "total_value": 965069.06,
+      "cumulative_return": -0.034931
+    },
+    {
+      "date": "2025-08-18",
+      "total_value": 977217.53,
+      "cumulative_return": -0.022782
+    },
+    {
+      "date": "2025-08-19",
+      "total_value": 965834.46,
+      "cumulative_return": -0.034166
+    },
+    {
+      "date": "2025-08-20",
+      "total_value": 974714.12,
+      "cumulative_return": -0.025286
+    },
+    {
+      "date": "2025-08-21",
+      "total_value": 977457.12,
+      "cumulative_return": -0.022543
+    },
+    {
+      "date": "2025-08-22",
+      "total_value": 992825.12,
+      "cumulative_return": -0.007175
+    },
+    {
+      "date": "2025-08-25",
+      "total_value": 1001221.12,
+      "cumulative_return": 0.001221
+    },
+    {
+      "date": "2025-08-26",
+      "total_value": 999507.24,
+      "cumulative_return": -0.000493
+    },
+    {
+      "date": "2025-08-27",
+      "total_value": 978690.24,
+      "cumulative_return": -0.02131
+    },
+    {
+      "date": "2025-08-28",
+      "total_value": 984328.36,
+      "cumulative_return": -0.015672
+    },
+    {
+      "date": "2025-08-29",
+      "total_value": 998552.66,
+      "cumulative_return": -0.001447
+    },
+    {
+      "date": "2025-09-01",
+      "total_value": 998436.66,
+      "cumulative_return": -0.001563
+    },
+    {
+      "date": "2025-09-02",
+      "total_value": 997572.66,
+      "cumulative_return": -0.002427
+    },
+    {
+      "date": "2025-09-03",
+      "total_value": 997697.66,
+      "cumulative_return": -0.002302
+    },
+    {
+      "date": "2025-09-04",
+      "total_value": 984005.66,
+      "cumulative_return": -0.015994
+    },
+    {
+      "date": "2025-09-05",
+      "total_value": 997732.28,
+      "cumulative_return": -0.002268
+    },
+    {
+      "date": "2025-09-08",
+      "total_value": 997914.28,
+      "cumulative_return": -0.002086
+    },
+    {
+      "date": "2025-09-09",
+      "total_value": 994155.28,
+      "cumulative_return": -0.005845
+    },
+    {
+      "date": "2025-09-10",
+      "total_value": 991383.28,
+      "cumulative_return": -0.008617
+    },
+    {
+      "date": "2025-09-11",
+      "total_value": 995940.28,
+      "cumulative_return": -0.00406
+    },
+    {
+      "date": "2025-09-12",
+      "total_value": 997655.28,
+      "cumulative_return": -0.002345
+    },
+    {
+      "date": "2025-09-15",
+      "total_value": 1018445.28,
+      "cumulative_return": 0.018445
+    },
+    {
+      "date": "2025-09-16",
+      "total_value": 1017549.28,
+      "cumulative_return": 0.017549
+    },
+    {
+      "date": "2025-09-17",
+      "total_value": 1034125.28,
+      "cumulative_return": 0.034125
+    },
+    {
+      "date": "2025-09-18",
+      "total_value": 1027643.0,
+      "cumulative_return": 0.027643
+    },
+    {
+      "date": "2025-09-19",
+      "total_value": 1026203.0,
+      "cumulative_return": 0.026203
+    },
+    {
+      "date": "2025-09-22",
+      "total_value": 1029105.0,
+      "cumulative_return": 0.029105
+    },
+    {
+      "date": "2025-09-23",
+      "total_value": 1026485.0,
+      "cumulative_return": 0.026485
+    },
+    {
+      "date": "2025-09-24",
+      "total_value": 1049860.55,
+      "cumulative_return": 0.049861
+    },
+    {
+      "date": "2025-09-25",
+      "total_value": 1055402.55,
+      "cumulative_return": 0.055403
+    },
+    {
+      "date": "2025-09-26",
+      "total_value": 1046467.55,
+      "cumulative_return": 0.046468
+    },
+    {
+      "date": "2025-09-29",
+      "total_value": 1059596.55,
+      "cumulative_return": 0.059597
+    },
+    {
+      "date": "2025-09-30",
+      "total_value": 1060631.55,
+      "cumulative_return": 0.060632
+    },
+    {
+      "date": "2025-10-09",
+      "total_value": 1073091.43,
+      "cumulative_return": 0.073091
+    },
+    {
+      "date": "2025-10-10",
+      "total_value": 1043343.43,
+      "cumulative_return": 0.043343
+    },
+    {
+      "date": "2025-10-13",
+      "total_value": 1034428.43,
+      "cumulative_return": 0.034428
+    },
+    {
+      "date": "2025-10-14",
+      "total_value": 1027539.34,
+      "cumulative_return": 0.027539
+    },
+    {
+      "date": "2025-10-15",
+      "total_value": 1029034.5,
+      "cumulative_return": 0.029035
+    },
+    {
+      "date": "2025-10-16",
+      "total_value": 1032484.5,
+      "cumulative_return": 0.032484
+    },
+    {
+      "date": "2025-10-17",
+      "total_value": 1024945.21,
+      "cumulative_return": 0.024945
+    },
+    {
+      "date": "2025-10-20",
+      "total_value": 1025416.21,
+      "cumulative_return": 0.025416
+    },
+    {
+      "date": "2025-10-21",
+      "total_value": 1023588.99,
+      "cumulative_return": 0.023589
+    },
+    {
+      "date": "2025-10-22",
+      "total_value": 1024252.99,
+      "cumulative_return": 0.024253
+    },
+    {
+      "date": "2025-10-23",
+      "total_value": 1025420.99,
+      "cumulative_return": 0.025421
+    },
+    {
+      "date": "2025-10-24",
+      "total_value": 1024462.99,
+      "cumulative_return": 0.024463
+    },
+    {
+      "date": "2025-10-27",
+      "total_value": 1024073.99,
+      "cumulative_return": 0.024074
+    },
+    {
+      "date": "2025-10-28",
+      "total_value": 1024232.99,
+      "cumulative_return": 0.024233
+    },
+    {
+      "date": "2025-10-29",
+      "total_value": 1021918.06,
+      "cumulative_return": 0.021918
+    },
+    {
+      "date": "2025-10-30",
+      "total_value": 1024618.06,
+      "cumulative_return": 0.024618
+    },
+    {
+      "date": "2025-10-31",
+      "total_value": 1023028.06,
+      "cumulative_return": 0.023028
+    },
+    {
+      "date": "2025-11-03",
+      "total_value": 1025758.06,
+      "cumulative_return": 0.025758
+    },
+    {
+      "date": "2025-11-04",
+      "total_value": 1026058.06,
+      "cumulative_return": 0.026058
+    },
+    {
+      "date": "2025-11-05",
+      "total_value": 1026238.06,
+      "cumulative_return": 0.026238
+    },
+    {
+      "date": "2025-11-06",
+      "total_value": 1027468.06,
+      "cumulative_return": 0.027468
+    },
+    {
+      "date": "2025-11-07",
+      "total_value": 1026688.06,
+      "cumulative_return": 0.026688
+    },
+    {
+      "date": "2025-11-10",
+      "total_value": 1027888.06,
+      "cumulative_return": 0.027888
+    },
+    {
+      "date": "2025-11-11",
+      "total_value": 1026206.22,
+      "cumulative_return": 0.026206
+    },
+    {
+      "date": "2025-11-12",
+      "total_value": 1026222.22,
+      "cumulative_return": 0.026222
+    },
+    {
+      "date": "2025-11-13",
+      "total_value": 1026592.92,
+      "cumulative_return": 0.026593
+    },
+    {
+      "date": "2025-11-14",
+      "total_value": 1025214.92,
+      "cumulative_return": 0.025215
+    },
+    {
+      "date": "2025-11-17",
+      "total_value": 1027787.34,
+      "cumulative_return": 0.027787
+    },
+    {
+      "date": "2025-11-18",
+      "total_value": 1026449.73,
+      "cumulative_return": 0.02645
+    },
+    {
+      "date": "2025-11-19",
+      "total_value": 1025950.73,
+      "cumulative_return": 0.025951
+    },
+    {
+      "date": "2025-11-20",
+      "total_value": 1013575.46,
+      "cumulative_return": 0.013575
+    },
+    {
+      "date": "2025-11-21",
+      "total_value": 1006898.46,
+      "cumulative_return": 0.006898
+    },
+    {
+      "date": "2025-11-24",
+      "total_value": 1005438.46,
+      "cumulative_return": 0.005438
+    },
+    {
+      "date": "2025-11-25",
+      "total_value": 1004703.46,
+      "cumulative_return": 0.004703
+    },
+    {
+      "date": "2025-11-26",
+      "total_value": 1005153.46,
+      "cumulative_return": 0.005153
+    },
+    {
+      "date": "2025-11-27",
+      "total_value": 1003421.39,
+      "cumulative_return": 0.003421
+    },
+    {
+      "date": "2025-11-28",
+      "total_value": 1007551.39,
+      "cumulative_return": 0.007551
+    },
+    {
+      "date": "2025-12-01",
+      "total_value": 1020543.39,
+      "cumulative_return": 0.020543
+    },
+    {
+      "date": "2025-12-02",
+      "total_value": 1011317.39,
+      "cumulative_return": 0.011317
+    },
+    {
+      "date": "2025-12-03",
+      "total_value": 1009930.27,
+      "cumulative_return": 0.00993
+    },
+    {
+      "date": "2025-12-04",
+      "total_value": 1020595.16,
+      "cumulative_return": 0.020595
+    },
+    {
+      "date": "2025-12-05",
+      "total_value": 1021092.16,
+      "cumulative_return": 0.021092
+    },
+    {
+      "date": "2025-12-08",
+      "total_value": 1029842.16,
+      "cumulative_return": 0.029842
+    },
+    {
+      "date": "2025-12-09",
+      "total_value": 1020928.76,
+      "cumulative_return": 0.020929
+    },
+    {
+      "date": "2025-12-10",
+      "total_value": 1019312.76,
+      "cumulative_return": 0.019313
+    },
+    {
+      "date": "2025-12-11",
+      "total_value": 1018768.76,
+      "cumulative_return": 0.018769
+    },
+    {
+      "date": "2025-12-12",
+      "total_value": 1024885.76,
+      "cumulative_return": 0.024886
+    },
+    {
+      "date": "2025-12-15",
+      "total_value": 1025073.76,
+      "cumulative_return": 0.025074
+    },
+    {
+      "date": "2025-12-16",
+      "total_value": 1017052.76,
+      "cumulative_return": 0.017053
+    },
+    {
+      "date": "2025-12-17",
+      "total_value": 1019274.11,
+      "cumulative_return": 0.019274
+    },
+    {
+      "date": "2025-12-18",
+      "total_value": 1016718.2,
+      "cumulative_return": 0.016718
+    },
+    {
+      "date": "2025-12-19",
+      "total_value": 1017318.2,
+      "cumulative_return": 0.017318
+    },
+    {
+      "date": "2025-12-22",
+      "total_value": 1016814.2,
+      "cumulative_return": 0.016814
+    },
+    {
+      "date": "2025-12-23",
+      "total_value": 1019094.2,
+      "cumulative_return": 0.019094
+    },
+    {
+      "date": "2025-12-24",
+      "total_value": 1013330.87,
+      "cumulative_return": 0.013331
+    },
+    {
+      "date": "2025-12-25",
+      "total_value": 1013100.87,
+      "cumulative_return": 0.013101
+    },
+    {
+      "date": "2025-12-26",
+      "total_value": 1005936.8,
+      "cumulative_return": 0.005937
+    },
+    {
+      "date": "2025-12-29",
+      "total_value": 999759.8,
+      "cumulative_return": -0.00024
+    },
+    {
+      "date": "2025-12-30",
+      "total_value": 996645.53,
+      "cumulative_return": -0.003354
+    },
+    {
+      "date": "2025-12-31",
+      "total_value": 995685.53,
+      "cumulative_return": -0.004314
+    }
+  ]
+}

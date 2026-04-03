@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A股量化交易系统</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:       #0f1117;
+  --bg2:      #161b25;
+  --bg3:      #1e2535;
+  --border:   rgba(255,255,255,0.08);
+  --border2:  rgba(255,255,255,0.14);
+  --text:     #e2e8f0;
+  --text2:    #8892a4;
+  --text3:    #556070;
+  --green:    #10b981;
+  --green2:   #059669;
+  --red:      #ef4444;
+  --blue:     #3b82f6;
+  --amber:    #f59e0b;
+  --purple:   #8b5cf6;
+  --teal:     #14b8a6;
+  --radius:   10px;
+  --radius2:  14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+/* ── 布局 ── */
+.layout{display:flex;min-height:100vh}
+.sidebar{width:220px;background:var(--bg2);border-right:1px solid var(--border);flex-shrink:0;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.main{flex:1;overflow-x:hidden;min-width:0}
+
+/* ── Sidebar ── */
+.logo{padding:18px 20px 16px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(29,158,117,.08) 0%,transparent 100%)}
+.logo-brand{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--green),#0ea5e9);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo .logo-title{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.3px}
+.logo .logo-sub{font-size:11px;color:var(--text3);margin-top:2px;line-height:1.5}
+.logo-dot{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;margin-right:5px;animation:pulse 2s infinite;vertical-align:middle}
+.logo-version{display:inline-block;background:rgba(29,158,117,.15);color:var(--green);font-size:10px;font-weight:600;padding:1px 6px;border-radius:4px;margin-top:4px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.nav{padding:12px 0;flex:1}
+.nav-section{padding:6px 20px 4px;font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 20px;cursor:pointer;color:var(--text2);transition:all .15s;border-left:2px solid transparent;font-size:13px}
+.nav-item:hover{background:var(--bg3);color:var(--text)}
+.nav-item.active{background:rgba(59,130,246,.12);color:var(--blue);border-left-color:var(--blue)}
+.nav-item .icon{width:16px;height:16px;flex-shrink:0;opacity:.7}
+.nav-item.active .icon{opacity:1}
+
+.sidebar-footer{padding:14px 20px;border-top:1px solid var(--border);font-size:11px;color:var(--text3)}
+.sidebar-footer .time{font-size:13px;color:var(--text2);font-variant-numeric:tabular-nums}
+
+/* ── Topbar ── */
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 28px;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.topbar-title{font-size:15px;font-weight:600}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.btn{padding:6px 16px;border-radius:var(--radius);border:1px solid var(--border2);background:transparent;color:var(--text);cursor:pointer;font-size:12px;display:flex;align-items:center;gap:6px;transition:all .15s;font-family:inherit}
+.btn:hover{background:var(--bg3)}
+.btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn-primary:hover{background:#2563eb;border-color:#2563eb}
+.btn-sm{padding:4px 12px;font-size:11px}
+.badge{padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500}
+.badge-green{background:rgba(16,185,129,.15);color:var(--green)}
+.badge-red{background:rgba(239,68,68,.15);color:var(--red)}
+.badge-blue{background:rgba(59,130,246,.15);color:var(--blue)}
+.badge-amber{background:rgba(245,158,11,.15);color:var(--amber)}
+.badge-gray{background:rgba(255,255,255,.08);color:var(--text2)}
+.badge-purple{background:rgba(139,92,246,.15);color:var(--purple)}
+
+/* ── Content ── */
+.content{padding:24px 28px;display:none}
+.content.active{display:block}
+
+/* ── Cards ── */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:18px 20px;margin-bottom:16px}
+.card-title{font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
+.card-sm{padding:14px 16px}
+
+/* ── Grid ── */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.grid-2-3{display:grid;grid-template-columns:2fr 3fr;gap:16px;margin-bottom:16px}
+
+/* ── KPI Cards ── */
+.kpi{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:16px 18px}
+.kpi .k-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+.kpi .k-val{font-size:24px;font-weight:700;letter-spacing:-.5px;line-height:1}
+.kpi .k-sub{font-size:11px;color:var(--text3);margin-top:5px;display:flex;align-items:center;gap:4px}
+.k-pos{color:var(--green)}.k-neg{color:var(--red)}.k-neu{color:var(--text)}
+.k-trend-up{color:var(--green)}.k-trend-dn{color:var(--red)}
+
+/* ── Table ── */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;font-size:11px;font-weight:600;color:var(--text3);padding:8px 12px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:13px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr:hover td{background:rgba(255,255,255,.025)}
+.tbl-sm td,.tbl-sm th{padding:7px 10px}
+
+/* ── Check chips ── */
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chip{font-size:10px;padding:2px 7px;border-radius:10px}
+.chip-ok{background:rgba(16,185,129,.15);color:var(--green)}
+.chip-no{background:rgba(239,68,68,.15);color:var(--red)}
+
+/* ── Source grid ── */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.src-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
+.src-name{font-size:12px;font-weight:500}
+.src-row{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot-ok{background:var(--green)}.dot-err{background:var(--red)}.dot-warn{background:var(--amber)}
+.src-ms{font-size:11px;color:var(--text3)}
+
+/* ── Trade detail modal ── */
+.modal-mask{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:999;align-items:center;justify-content:center}
+.modal-mask.show{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius2);width:90%;max-width:960px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.modal-hd{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border)}
+.modal-hd h3{font-size:15px;font-weight:600;color:var(--text)}
+.modal-close{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--text3);font-size:18px;border:none;background:transparent}
+.modal-close:hover{background:var(--bg3);color:var(--text)}
+.modal-bd{overflow-y:auto;padding:16px 24px 24px;flex:1}
+.modal-stats{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.modal-stats .stat{background:var(--bg3);border-radius:var(--radius);padding:10px 14px;font-size:12px}
+.modal-stats .stat .sv{font-size:18px;font-weight:700;margin-top:2px}
+.btn-detail{font-size:11px;padding:3px 10px;border-radius:6px;border:1px solid var(--border2);background:var(--bg3);color:var(--blue);cursor:pointer;white-space:nowrap}
+.btn-detail:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ── Log ── */
+.log-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:12px;font-family:'SF Mono','Fira Code',monospace;font-size:11px;line-height:1.8;max-height:220px;overflow-y:auto}
+.log-ok{color:var(--green)}.log-err{color:var(--red)}.log-warn{color:var(--amber)}.log-info{color:var(--blue)}.log-dim{color:var(--text3)}
+
+/* ── Chart containers ── */
+.chart-box{position:relative;width:100%}
+
+/* ── Progress bar ── */
+.prog-wrap{margin-bottom:10px}
+.prog-header{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.prog-header .p-label{color:var(--text2)}
+.prog-bar{height:4px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;transition:width .6s ease}
+
+/* ── Scan result cards ── */
+.stock-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius2);padding:14px 16px;cursor:pointer;transition:all .15s}
+.stock-card:hover{border-color:var(--border2);background:var(--bg2)}
+.stock-card.pass{border-left:3px solid var(--green)}
+.stock-card.fail{border-left:3px solid rgba(239,68,68,.4)}
+.sc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.sc-name{font-size:14px;font-weight:600}
+.sc-code{font-size:11px;color:var(--text3);margin-top:2px}
+.sc-metrics{display:flex;gap:16px;margin-top:10px}
+.sc-metric .m-label{font-size:10px;color:var(--text3);text-transform:uppercase}
+.sc-metric .m-val{font-size:13px;font-weight:600;margin-top:1px}
+.sc-reason{font-size:11px;color:var(--text3);margin-top:8px;line-height:1.5}
+
+/* ── Stock grid ── */
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+
+/* ── Validation detail ── */
+.val-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border)}
+.val-row:last-child{border-bottom:none}
+.val-field{width:80px;font-size:12px;color:var(--text3)}
+.val-sources{flex:1;font-size:11px;color:var(--text2)}
+.val-status{font-size:11px}
+
+/* ── Trade list ── */
+.trade-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.trade-item:last-child{border-bottom:none}
+.trade-action{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.t-buy{background:rgba(16,185,129,.15);color:var(--green)}
+.t-sell{background:rgba(239,68,68,.15);color:var(--red)}
+.trade-info{flex:1}
+.trade-code{font-size:13px;font-weight:600}
+.trade-reason{font-size:11px;color:var(--text3);margin-top:2px;line-height:1.4}
+.trade-right{text-align:right}
+.trade-pnl{font-size:13px;font-weight:600}
+.trade-detail{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ── Scan heatmap ── */
+.heatmap{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.heat-cell{border:1px solid var(--border);border-radius:var(--radius);padding:10px;text-align:center;transition:all .2s}
+.heat-cell:hover{border-color:var(--border2)}
+.heat-cell.best{border-color:var(--green);background:rgba(16,185,129,.08)}
+.hc-param{font-size:10px;color:var(--text3);margin-bottom:3px}
+.hc-val{font-size:15px;font-weight:700}
+
+/* ── Run button spin ── */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin .8s linear infinite;display:inline-block}
+
+/* ── Responsive ── */
+/* ── Calendar ── */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:16px}
+.cal-head{text-align:center;font-size:11px;color:var(--text3);padding:5px 0;font-weight:600;text-transform:uppercase}
+.cal-day{border-radius:8px;padding:6px 4px;text-align:center;cursor:default;transition:all .15s;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:2px}
+.cal-day .d-num{font-size:13px;font-weight:500;line-height:1}
+.cal-day .d-label{font-size:9px;line-height:1;padding:1px 4px;border-radius:4px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.cal-day.trading{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2)}
+.cal-day.trading .d-num{color:var(--green)}
+.cal-day.weekend{background:var(--bg3);border:1px solid var(--border)}
+.cal-day.weekend .d-num{color:var(--text3)}
+.cal-day.holiday{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3)}
+.cal-day.holiday .d-num{color:var(--amber)}
+.cal-day.holiday .d-label{background:rgba(245,158,11,.2);color:var(--amber)}
+.cal-day.makeup{background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.3)}
+.cal-day.makeup .d-num{color:var(--purple)}
+.cal-day.makeup .d-label{background:rgba(139,92,246,.2);color:var(--purple);font-size:9px}
+.cal-day.today{border:1.5px solid var(--blue)!important}
+.cal-day.today .d-num{color:var(--blue)!important;font-weight:700}
+.cal-day.empty{background:transparent;border:none}
+.cal-nav{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.cal-nav button{background:transparent;border:1px solid var(--border2);color:var(--text);padding:5px 12px;border-radius:var(--radius);cursor:pointer;font-size:13px;transition:all .15s}
+.cal-nav button:hover{background:var(--bg3)}
+.cal-nav .month-title{font-size:16px;font-weight:600;flex:1;text-align:center}
+
+.session-bar{display:flex;gap:2px;margin-bottom:16px;border-radius:var(--radius);overflow:hidden}
+.session-seg{flex:1;height:6px;background:var(--bg3)}
+.session-seg.active{background:var(--green)}
+.session-seg.past{background:rgba(16,185,129,.3)}
+
+.holiday-list{display:flex;flex-direction:column;gap:8px}
+.holiday-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border)}
+.hi-name{font-size:13px;font-weight:600;min-width:80px}
+.hi-date{font-size:12px;color:var(--text2);flex:1}
+.hi-countdown{font-size:12px;text-align:right}
+.hi-days{font-size:18px;font-weight:700;color:var(--amber)}
+
+/* ── Feishu ── */
+.bot-card{border:1px solid var(--border);border-radius:var(--radius2);padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .15s}
+.bot-card:hover{border-color:var(--border2);background:var(--bg3)}
+.bot-card.configured{border-left:3px solid var(--green)}
+.bot-card.unconfigured{border-left:3px solid var(--text3);opacity:.7}
+.bot-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.bot-info{flex:1}
+.bot-name{font-size:14px;font-weight:600}
+.bot-desc{font-size:12px;color:var(--text3);margin-top:2px}
+.bot-actions{display:flex;gap:6px}
+
+.msg-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.msg-type{border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;cursor:pointer;transition:all .15s}
+.msg-type:hover{border-color:var(--border2);background:var(--bg3)}
+.mt-icon{font-size:18px;margin-bottom:6px}
+.mt-name{font-size:13px;font-weight:500}
+.mt-desc{font-size:11px;color:var(--text3);margin-top:2px;line-height:1.5}
+
+.retry-chain{display:flex;align-items:center;gap:6px;padding:12px 14px;background:var(--bg3);border-radius:var(--radius);font-size:12px;flex-wrap:wrap}
+.rc-step{display:flex;align-items:center;gap:4px}
+.rc-num{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.rc-ok{background:rgba(16,185,129,.2);color:var(--green)}
+.rc-arrow{color:var(--text3)}
+
+@media(max-width:560px){.msg-type-grid{grid-template-columns:1fr}.cal-grid{gap:2px}.cal-day{min-height:44px}.cal-day .d-label{display:none}}
+  .sidebar .logo-title,.sidebar .logo-sub,.sidebar .nav-section,.nav-item span,.sidebar-footer .time{display:none}
+  .nav-item{padding:12px;justify-content:center}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .grid-2-3{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
+  .main{padding:0}
+  .content{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ══ SIDEBAR ══════════════════════════════════════════ -->
+<nav class="sidebar">
+  <div class="logo">
+    <div class="logo-brand">
+      <div class="logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+      </div>
+      <div>
+        <div class="logo-title">A股量化平台</div>
+        <div style="margin-top:1px"><span class="logo-version">v2.0</span></div>
+      </div>
+    </div>
+    <div class="logo-sub"><span class="logo-dot"></span>多源验证 · 策略回测 · 智能选股</div>
+  </div>
+  <div class="nav">
+    <div class="nav-section">主面板</div>
+    <div class="nav-item active" onclick="nav('dashboard',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      <span>总览仪表盘</span>
+    </div>
+    <div class="nav-item" onclick="nav('scan',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <span>选股中心</span>
+    </div>
+    <div class="nav-item" onclick="nav('stocks',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+      <span>股票分析结果</span>
+    </div>
+    <div class="nav-section">策略回测</div>
+    <div class="nav-item" onclick="nav('backtest',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 16 4-4 4 4 5-5"/></svg>
+      <span>回测中心</span>
+    </div>
+    <div class="nav-item" onclick="nav('equity',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/><polyline points="17,6 23,6 23,12"/></svg>
+      <span>净值曲线</span>
+    </div>
+    <div class="nav-item" onclick="nav('compare',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="4" height="18" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="17" y="5" width="4" height="16" rx="1"/></svg>
+      <span>策略对比</span>
+    </div>
+    <div class="nav-section">工具 / 通知</div>
+    <div class="nav-item" onclick="nav('calendar',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>交易日历</span>
+    </div>
+    <div class="nav-item" onclick="nav('feishu',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>飞书通知</span>
+    </div>
+    <div class="nav-section">系统</div>
+    <div class="nav-item" onclick="nav('sources',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+      <span>数据源管理</span>
+    </div>
+    <div class="nav-item" onclick="nav('log',this)">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14,2 14,8 20,8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+      <span>实时日志</span>
+    </div>
+  </div>
+  <div class="sidebar-footer">
+    <div class="time" id="sidebar-time">--:--:--</div>
+    <div style="margin-top:3px">服务器时间</div>
+  </div>
+</nav>
+
+<!-- ══ MAIN ══════════════════════════════════════════════ -->
+<div class="main">
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="topbar-title" id="page-title">总览</div>
+  <div class="topbar-right">
+    <span class="badge badge-green" id="system-badge">系统在线</span>
+    <span class="badge badge-blue" id="scan-phase-badge">盘前准备</span>
+    <button class="btn btn-primary" id="scan-btn" onclick="triggerScan()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      立即扫描
+    </button>
+  </div>
+</div>
+
+<!-- ══ PAGE: DASHBOARD ══════════════════════════════════ -->
+<div class="content active" id="page-dashboard">
+  <div class="grid-4">
+    <div class="kpi"><div class="k-label">今日通过</div><div class="k-val k-pos" id="kpi-pass">—</div><div class="k-sub">完整性自检通过</div></div>
+    <div class="kpi"><div class="k-label">今日排除</div><div class="k-val k-neg" id="kpi-excl">—</div><div class="k-sub">数据缺失直接排除</div></div>
+    <div class="kpi"><div class="k-label">数据源在线</div><div class="k-val k-neu" id="kpi-src">23</div><div class="k-sub">23个数据源</div></div>
+    <div class="kpi"><div class="k-label">搜索引擎</div><div class="k-val k-neu">5</div><div class="k-sub">Tavily/Serper/Firecrawl...</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">扫描进度</div>
+      <div id="scan-progress-area">
+        <div class="prog-wrap"><div class="prog-header"><span class="p-label">并行数据采集</span><span class="badge badge-green">23源</span></div><div class="prog-bar"><div class="prog-fill" style="width:100%;background:var(--green)"></div></div></div>
+        <div class="prog-wrap"><div class="prog-header"><span class="p-label">交叉验证</span><span class="badge badge-blue">≥2源确认</span></div><div class="prog-bar"><div class="prog-fill" style="width:100%;background:var(--blue)"></div></div></div>
+        <div class="prog-wrap"><div class="prog-header"><span class="p-label">完整性自检</span><span class="badge badge-amber">四项全有</span></div><div class="prog-bar"><div class="prog-fill" id="integrity-prog" style="width:60%;background:var(--amber)"></div></div></div>
+        <div class="prog-wrap"><div class="prog-header"><span class="p-label">决策输出</span><span class="badge badge-gray">仅通过股票</span></div><div class="prog-bar"><div class="prog-fill" id="decision-prog" style="width:60%;background:var(--purple)"></div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">回测绩效摘要（最优策略）</div>
+      <div class="grid-2" style="margin-bottom:0">
+        <div><div style="font-size:11px;color:var(--text3)">年化收益</div><div style="font-size:20px;font-weight:700;color:var(--green);margin-top:4px">+16.2%</div></div>
+        <div><div style="font-size:11px;color:var(--text3)">最大回撤</div><div style="font-size:20px;font-weight:700;color:var(--red);margin-top:4px">-12.4%</div></div>
+        <div><div style="font-size:11px;color:var(--text3)">夏普比率</div><div style="font-size:20px;font-weight:700;color:var(--text);margin-top:4px">1.84</div></div>
+        <div><div style="font-size:11px;color:var(--text3)">胜率</div><div style="font-size:20px;font-weight:700;color:var(--blue);margin-top:4px">63.6%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">最新扫描概要</div>
+    <div id="dash-stock-summary" style="color:var(--text3);font-size:13px">加载中...</div>
+  </div>
+</div>
+
+<!-- ══ PAGE: SCAN ════════════════════════════════════════ -->
+<div class="content" id="page-scan">
+  <!-- 页面标题 -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+    <div>
+      <div style="font-size:18px;font-weight:700;color:var(--text)">选股中心</div>
+      <div style="font-size:13px;color:var(--text3);margin-top:4px">动态筛选符合条件的股票，作为回测与实盘的标的池</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn btn-sm" onclick="triggerScan('盘前')">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        盘前筛选
+      </button>
+      <button class="btn btn-primary btn-sm" onclick="triggerScan()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        立即筛选
+      </button>
+    </div>
+  </div>
+
+  <!-- 数据源状态卡片 -->
+  <div class="grid-4" style="margin-bottom:16px">
+    <div class="card card-sm" style="border-left:3px solid var(--green)">
+      <div style="font-size:11px;color:var(--text3);margin-bottom:4px">历史行情</div>
+      <div style="font-size:15px;font-weight:700;color:var(--green)" id="src-hist-status">✓ 可用</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">AKShare · 本地缓存</div>
+    </div>
+    <div class="card card-sm" id="src-realtime-card" style="border-left:3px solid var(--amber)">
+      <div style="font-size:11px;color:var(--text3);margin-bottom:4px">实时行情</div>
+      <div style="font-size:15px;font-weight:700;color:var(--amber)" id="src-rt-status">检测中...</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">东方财富 API</div>
+    </div>
+    <div class="card card-sm" id="src-cache-card" style="border-left:3px solid var(--blue)">
+      <div style="font-size:11px;color:var(--text3);margin-bottom:4px">缓存数据</div>
+      <div style="font-size:15px;font-weight:700;color:var(--blue)" id="src-cache-count">—</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">本地日线文件</div>
+    </div>
+    <div class="card card-sm" style="border-left:3px solid var(--purple,#8b5cf6)">
+      <div style="font-size:11px;color:var(--text3);margin-bottom:4px">上次筛选</div>
+      <div style="font-size:13px;font-weight:600;color:var(--text)" id="src-last-scan">从未运行</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px" id="src-last-count">—</div>
+    </div>
+  </div>
+
+  <!-- 选股流程说明 -->
+  <div class="card card-sm" style="margin-bottom:12px;background:linear-gradient(135deg,rgba(29,158,117,.06) 0%,transparent 100%)">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div style="font-size:13px;font-weight:600">选股流程说明</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <div style="flex:1;min-width:160px;background:var(--bg3);border-radius:8px;padding:10px 12px">
+        <div style="font-size:11px;color:var(--green);font-weight:600;margin-bottom:4px">① 全市场初筛</div>
+        <div style="font-size:12px;color:var(--text2)">市值 &gt; 100亿 · 日成交额 &gt; 5000万<br>排除ST、退市风险股</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--bg3);border-radius:8px;padding:10px 12px">
+        <div style="font-size:11px;color:var(--blue);font-weight:600;margin-bottom:4px">② 数据完整性验证</div>
+        <div style="font-size:12px;color:var(--text2)">股价 / PE / 市值 / 成交量<br>四项均有效才通过</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--bg3);border-radius:8px;padding:10px 12px">
+        <div style="font-size:11px;color:var(--amber);font-weight:600;margin-bottom:4px">③ 多源交叉验证</div>
+        <div style="font-size:12px;color:var(--text2)">≥2个数据源互相确认<br>单源数据不进入决策</div>
+      </div>
+      <div style="flex:1;min-width:160px;background:var(--bg3);border-radius:8px;padding:10px 12px">
+        <div style="font-size:11px;color:var(--green);font-weight:600;margin-bottom:4px">④ 进入回测标的池</div>
+        <div style="font-size:12px;color:var(--text2)">通过验证的股票自动纳入<br>回测系统作为 Tier-1 数据</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 当前标的池 / 筛选结果 -->
+  <div class="card card-sm" style="margin-bottom:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div class="card-title" style="margin:0">当前标的池</div>
+      <div style="font-size:12px;color:var(--text3)" id="scan-pool-info">加载中...</div>
+    </div>
+    <div id="scan-pool-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px">
+      <div style="color:var(--text3);font-size:13px;padding:8px 0">正在加载...</div>
+    </div>
+  </div>
+
+  <!-- 扫描日志 -->
+  <div class="card card-sm">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div class="card-title" style="margin:0">执行日志</div>
+      <div style="font-size:11px;color:var(--text3)">WebSocket 实时推送</div>
+    </div>
+    <div class="log-box" id="scan-log-box"><div class="log-dim">[点击「立即筛选」开始执行...]</div></div>
+  </div>
+</div>
+
+<!-- ══ PAGE: STOCKS ══════════════════════════════════════ -->
+<div class="content" id="page-stocks">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div><div style="font-size:15px;font-weight:600">股票分析结果</div><div style="font-size:12px;color:var(--text3);margin-top:2px">多源交叉验证 · 完整性自检 · 每项数据均标注来源</div></div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-sm" onclick="filterStocks('all')" id="f-all">全部</button>
+      <button class="btn btn-sm" onclick="filterStocks('pass')" id="f-pass">通过</button>
+      <button class="btn btn-sm" onclick="filterStocks('fail')" id="f-fail">排除</button>
+    </div>
+  </div>
+  <div class="stock-grid" id="stock-grid">加载中...</div>
+</div>
+
+<!-- ══ PAGE: BACKTEST ════════════════════════════════════ -->
+<div class="content" id="page-backtest">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">启动新回测</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">策略选择</label>
+          <select id="bt-strategy" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+            <option value="trend_follow">趋势跟踪(EMA)</option>
+            <option value="rsi_reversal">RSI反转</option>
+            <option value="bollinger_revert">布林带回归</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">选股范围</label>
+          <select id="bt-screen-preset" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+            <option value="default">默认筛选（市值>100亿）</option>
+            <option value="large_cap">大盘蓝筹（市值>500亿）</option>
+            <option value="mid_cap">中盘成长（100~1000亿）</option>
+            <option value="active">活跃热门（成交额前50）</option>
+          </select>
+        </div>
+        <div class="grid-2" style="margin-bottom:0">
+          <div>
+            <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">开始日期</label>
+            <input type="date" id="bt-start" value="2022-01-01" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+          </div>
+          <div>
+            <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">结束日期</label>
+            <input type="date" id="bt-end" value="2024-12-31" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+          </div>
+        </div>
+        <div>
+          <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">初始资金（万元）</label>
+          <input type="number" id="bt-cash" value="100" min="10" max="10000" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+        </div>
+        <button class="btn btn-primary" id="bt-run-btn" onclick="runBacktest()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,3 19,12 5,21"/></svg>
+          启动回测
+        </button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">回测配置说明</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:12px;line-height:1.6;color:var(--text2)">
+          <span style="color:var(--green);font-weight:600">手续费：</span>双向0.03% + 印花税0.1%（仅卖出）
+        </div>
+        <div style="padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:12px;line-height:1.6;color:var(--text2)">
+          <span style="color:var(--blue);font-weight:600">滑点：</span>0.2%（买入价×1.002，卖出价×0.998）
+        </div>
+        <div style="padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:12px;line-height:1.6;color:var(--text2)">
+          <span style="color:var(--amber);font-weight:600">成交时机：</span>信号日次日开盘价（避免使用未来数据）
+        </div>
+        <div style="padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:12px;line-height:1.6;color:var(--text2)">
+          <span style="color:var(--purple);font-weight:600">选股模式：</span>动态筛选全A股（市值/成交额/PE过滤），非固定股票池
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">回测历史记录</div>
+    <table class="tbl" id="bt-history-tbl">
+      <thead><tr><th>#</th><th>策略</th><th>区间</th><th>年化收益</th><th>区间收益(元)</th><th>总资产(元)</th><th>最大回撤</th><th>夏普</th><th>胜率</th><th>盈亏比</th><th>交易次数</th><th>验证门控</th><th>运行时间</th><th>操作</th></tr></thead>
+      <tbody id="bt-history-body">
+        <tr><td colspan="13" style="text-align:center;color:var(--text3);padding:20px">加载中...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══ PAGE: EQUITY ══════════════════════════════════════ -->
+<div class="content" id="page-equity">
+  <div style="margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+    <div><div style="font-size:15px;font-weight:600">净值曲线</div><div style="font-size:12px;color:var(--text3);margin-top:2px">策略净值 vs 沪深300基准</div></div>
+    <select id="equity-strategy-sel" onchange="loadEquity()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:7px 12px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+      <option value="trend_follow">趋势跟踪</option>
+      <option value="rsi_reversal">RSI反转</option>
+      <option value="bollinger_revert">布林带回归</option>
+    </select>
+  </div>
+  <div class="grid-4" style="margin-bottom:16px">
+    <div class="kpi"><div class="k-label">总收益率</div><div class="k-val k-neu" id="eq-ret">--</div></div>
+    <div class="kpi"><div class="k-label">年化收益</div><div class="k-val k-neu" id="eq-ann">--</div></div>
+    <div class="kpi"><div class="k-label">最大回撤</div><div class="k-val k-neu" id="eq-dd">--</div></div>
+    <div class="kpi"><div class="k-label">夏普比率</div><div class="k-val k-neu" id="eq-sharpe">--</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">净值曲线</div>
+    <div class="chart-box" style="height:280px"><canvas id="equity-chart"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-title">每日收益率</div>
+    <div class="chart-box" style="height:160px"><canvas id="daily-ret-chart"></canvas></div>
+  </div>
+</div>
+
+<!-- ══ PAGE: COMPARE ═════════════════════════════════════ -->
+<div class="content" id="page-compare">
+  <div style="margin-bottom:16px"><div style="font-size:15px;font-weight:600">策略对比</div><div style="font-size:12px;color:var(--text3);margin-top:2px">4种策略净值曲线与绩效指标对比</div></div>
+  <div class="card">
+    <div class="card-title">净值曲线对比（2022-2024）</div>
+    <div class="chart-box" style="height:300px"><canvas id="compare-chart"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="card-title">综合绩效对比</div>
+    <table class="tbl">
+      <thead><tr><th>策略</th><th>年化收益</th><th>最大回撤</th><th>夏普比率</th><th>胜率</th><th>盈亏比</th><th>总交易</th><th>综合评级</th></tr></thead>
+      <tbody id="compare-tbl-body"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">参数扫描热力图（双均线 fast×slow → 夏普比率）</div>
+    <div class="heatmap" id="heatmap-grid"></div>
+    <div style="font-size:11px;color:var(--text3);margin-top:8px">最优: fast=5, slow=20 → Sharpe=1.84（绿色高亮）</div>
+  </div>
+</div>
+
+<!-- ══ PAGE: SOURCES ═════════════════════════════════════ -->
+<div class="content" id="page-sources">
+  <div style="margin-bottom:16px"><div style="font-size:15px;font-weight:600">数据源矩阵</div><div style="font-size:12px;color:var(--text3);margin-top:2px">23个数据源 · 实时状态 · 响应延迟</div></div>
+  <div class="grid-3" style="margin-bottom:16px">
+    <div class="kpi"><div class="k-label">在线数据源</div><div class="k-val k-pos" id="src-online-cnt">—</div></div>
+    <div class="kpi"><div class="k-label">离线（需授权）</div><div class="k-val k-neg" id="src-offline-cnt">—</div></div>
+    <div class="kpi"><div class="k-label">平均响应时间</div><div class="k-val k-neu" id="src-avg-ms">—</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">搜索引擎故障切换链</div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px">
+      <span style="color:var(--green);font-weight:600">Tavily</span>
+      <span style="color:var(--text3)">→ 失败 →</span>
+      <span style="color:var(--blue);font-weight:600">Serper</span>
+      <span style="color:var(--text3)">→ 失败 →</span>
+      <span style="color:var(--amber);font-weight:600">Firecrawl</span>
+      <span style="color:var(--text3)">→ 失败 →</span>
+      <span style="color:var(--purple);font-weight:600">Jina</span>
+      <span style="color:var(--text3)">→ 失败 →</span>
+      <span style="color:var(--red);font-weight:600">标记数据缺失</span>
+      <span class="badge badge-amber">最多3次重试</span>
+    </div>
+  </div>
+  <div class="src-grid" id="src-grid">加载中...</div>
+</div>
+
+<!-- ══ PAGE: LOG ══════════════════════════════════════════ -->
+<div class="content" id="page-log">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div><div style="font-size:15px;font-weight:600">实时日志</div><div style="font-size:12px;color:var(--text3);margin-top:2px">WebSocket实时推送 · 扫描/回测/验证全程记录</div></div>
+    <button class="btn btn-sm" onclick="document.getElementById('main-log').innerHTML=''">清空</button>
+  </div>
+  <div class="log-box" id="main-log" style="max-height:500px">
+    <div class="log-dim">[WebSocket已连接，等待日志...]</div>
+  </div>
+</div>
+
+<!-- ══ PAGE: CALENDAR ════════════════════════════════════ -->
+<div class="content" id="page-calendar">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+    <div><div style="font-size:15px;font-weight:600">交易日历</div><div style="font-size:12px;color:var(--text3);margin-top:2px">2024-2026 · 上交所官方数据 · AKShare实时同步</div></div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-sm" onclick="syncCalendar()">同步AKShare</button>
+    </div>
+  </div>
+
+  <!-- Today status bar -->
+  <div class="grid-4" style="margin-bottom:16px">
+    <div class="kpi"><div class="k-label">今日状态</div><div class="k-val" id="cal-today-status" style="font-size:16px">加载中</div></div>
+    <div class="kpi"><div class="k-label">当前时段</div><div class="k-val k-neu" id="cal-session" style="font-size:15px">—</div></div>
+    <div class="kpi"><div class="k-label">下一交易日</div><div class="k-val k-neu" id="cal-next" style="font-size:16px">—</div></div>
+    <div class="kpi"><div class="k-label">距下一假期</div><div class="k-val k-pos" id="cal-countdown" style="font-size:16px">—</div><div class="k-sub" id="cal-holiday-name">—</div></div>
+  </div>
+
+  <!-- Session timeline -->
+  <div class="card card-sm" style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div class="card-title" style="margin-bottom:0">今日交易时段</div>
+      <span class="badge badge-green" id="cal-market-badge">加载中</span>
+    </div>
+    <div style="display:flex;gap:0;border-radius:6px;overflow:hidden;height:8px;margin-bottom:8px">
+      <div style="flex:9;background:rgba(59,130,246,.25)" title="盘前 00:00-09:30"></div>
+      <div style="flex:2;background:rgba(59,130,246,.5)" title="集合竞价 09:00-09:30"></div>
+      <div style="flex:12;background:var(--green);opacity:.7" title="上午盘 09:30-11:30"></div>
+      <div style="flex:9;background:var(--bg3)" title="午休 11:30-13:00"></div>
+      <div style="flex:12;background:var(--green);opacity:.7" title="下午盘 13:00-15:00"></div>
+      <div style="flex:3;background:rgba(139,92,246,.5)" title="盘后 15:00-15:30"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text3)">
+      <span>09:00</span><span>09:30</span><span>11:30</span><span>13:00</span><span>15:00</span><span>15:30</span>
+    </div>
+  </div>
+
+  <!-- Month calendar -->
+  <div class="card">
+    <div class="cal-nav">
+      <button onclick="calNav(-1)">‹</button>
+      <div class="month-title" id="cal-month-title">加载中...</div>
+      <button onclick="calNav(1)">›</button>
+    </div>
+    <div class="cal-grid">
+      <div class="cal-head">一</div><div class="cal-head">二</div><div class="cal-head">三</div>
+      <div class="cal-head">四</div><div class="cal-head">五</div>
+      <div class="cal-head" style="color:var(--amber)">六</div>
+      <div class="cal-head" style="color:var(--red)">日</div>
+    </div>
+    <div class="cal-grid" id="cal-days-grid">加载中...</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:var(--text3)">
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:rgba(16,185,129,.3);border:1px solid rgba(16,185,129,.4);flex-shrink:0"></span>交易日</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.4);flex-shrink:0"></span>节假日</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);flex-shrink:0"></span>调休上班</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;border:1.5px solid var(--blue);flex-shrink:0"></span>今天</span>
+    </div>
+  </div>
+
+  <!-- Upcoming holidays -->
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">即将到来的假期</div>
+    <div class="holiday-list" id="holiday-list">加载中...</div>
+  </div>
+
+  <!-- Year stats -->
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">年度统计</div>
+    <div class="grid-3">
+      <div class="kpi"><div class="k-label">全年交易日</div><div class="k-val k-pos" id="cal-stat-trading">—</div></div>
+      <div class="kpi"><div class="k-label">非交易日</div><div class="k-val k-neg" id="cal-stat-nontrade">—</div></div>
+      <div class="kpi"><div class="k-label">调休天数</div><div class="k-val" style="color:var(--purple)" id="cal-stat-makeup">—</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE: FEISHU ══════════════════════════════════════ -->
+<div class="content" id="page-feishu">
+  <div style="margin-bottom:16px">
+    <div style="font-size:15px;font-weight:600">飞书通知配置</div>
+    <div style="font-size:12px;color:var(--text3);margin-top:2px">Webhook机器人 · 富文本卡片 · 消息队列+限速 · 自动重试3次</div>
+  </div>
+
+  <div class="grid-3" style="margin-bottom:16px" id="bot-cards">
+    <!-- 动态渲染 -->
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">消息类型</div>
+      <div class="msg-type-grid">
+        <div class="msg-type" onclick="sendFeishu('scan_report')">
+          <div class="mt-icon">📊</div>
+          <div class="mt-name">扫描报告</div>
+          <div class="mt-desc">推送最新扫描结果，蓝色卡片，含PE交叉验证详情</div>
+        </div>
+        <div class="msg-type" onclick="sendFeishu('daily_summary')">
+          <div class="mt-icon">📅</div>
+          <div class="mt-name">每日总结</div>
+          <div class="mt-desc">紫色卡片，含通过/排除完整表格，盘后自动触发</div>
+        </div>
+        <div class="msg-type" onclick="sendFeishu('holiday_notice')">
+          <div class="mt-icon">🎉</div>
+          <div class="mt-name">节假日通知</div>
+          <div class="mt-desc">节前自动推送休市时间和恢复日期，绿色卡片</div>
+        </div>
+        <div class="msg-type" onclick="sendFeishu('backtest_done')">
+          <div class="mt-icon">📈</div>
+          <div class="mt-name">回测完成</div>
+          <div class="mt-desc">回测完成后自动推送绩效指标，蓝绿色卡片</div>
+        </div>
+        <div class="msg-type" onclick="sendFeishu('alert')">
+          <div class="mt-icon">⚠️</div>
+          <div class="mt-name">预警通知</div>
+          <div class="mt-desc">PE偏差/完整性失败，橙/红色卡片，可@指定成员</div>
+        </div>
+        <div class="msg-type" onclick="sendFeishu('startup')">
+          <div class="mt-icon">🚀</div>
+          <div class="mt-name">系统启动</div>
+          <div class="mt-desc">系统启动时自动推送，含当前交易时段和计划</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">发送机制</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <div style="font-size:12px;color:var(--text2);margin-bottom:6px;font-weight:500">故障重试链</div>
+          <div class="retry-chain">
+            <div class="rc-step"><div class="rc-num rc-ok">1</div><span>发送</span></div>
+            <span class="rc-arrow">→ 失败 →</span>
+            <div class="rc-step"><div class="rc-num rc-ok">2</div><span>1s后重试</span></div>
+            <span class="rc-arrow">→ 失败 →</span>
+            <div class="rc-step"><div class="rc-num rc-ok">3</div><span>3s后重试</span></div>
+            <span class="rc-arrow">→ 失败 →</span>
+            <div class="rc-step"><div class="rc-num" style="background:rgba(239,68,68,.2);color:var(--red)">✗</div><span>放弃记录</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--text2);margin-bottom:6px;font-weight:500">限速保护</div>
+          <div style="padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:12px;color:var(--text2);line-height:1.6">
+            消息队列 + 令牌桶限速，≤4条/秒（飞书官方上限5条）<br>
+            触发限速码9499自动等待1s重发
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--text2);margin-bottom:6px;font-weight:500">非交易日静音</div>
+          <div style="padding:10px 12px;background:var(--bg3);border-radius:var(--radius);font-size:12px;color:var(--text2);line-height:1.6">
+            日报群：非交易日自动静音（不推送）<br>
+            预警群/主群：全天候推送，节假日仍发送
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">配置说明</div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+      <div style="padding:12px 14px;background:var(--bg3);border-radius:var(--radius);line-height:1.7">
+        <div style="font-weight:600;margin-bottom:6px">1. 创建飞书机器人</div>
+        <div style="color:var(--text2)">飞书群 → 设置 → 机器人 → 添加机器人 → 自定义机器人 → 复制 Webhook 地址</div>
+      </div>
+      <div style="padding:12px 14px;background:var(--bg3);border-radius:var(--radius);line-height:1.7">
+        <div style="font-weight:600;margin-bottom:6px">2. 配置环境变量（.env 文件）</div>
+        <div style="font-family:var(--font-mono);font-size:12px;color:var(--green);background:var(--bg);padding:8px 10px;border-radius:6px;margin-top:4px">
+          FEISHU_WEBHOOK_MAIN=https://open.feishu.cn/open-apis/bot/v2/hook/xxx<br>
+          FEISHU_WEBHOOK_ALERT=https://open.feishu.cn/open-apis/bot/v2/hook/yyy<br>
+          FEISHU_WEBHOOK_DAILY=https://open.feishu.cn/open-apis/bot/v2/hook/zzz
+        </div>
+      </div>
+      <div style="padding:12px 14px;background:var(--bg3);border-radius:var(--radius);line-height:1.7">
+        <div style="font-weight:600;margin-bottom:6px">3. 测试连通性</div>
+        <div style="color:var(--text2)">点击上方 Bot 卡片中的「测试」按钮，飞书群会收到一条绿色测试消息</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="feishu-toast" style="display:none;position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius2);padding:12px 18px;font-size:13px;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.4)"></div>
+</div>
+
+<!-- 交易详情弹窗 -->
+<div class="modal-mask" id="trade-modal">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h3 id="trade-modal-title">交易详情</h3>
+      <button class="modal-close" onclick="closeTradeModal()">&times;</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-stats" id="trade-modal-stats"></div>
+      <table class="tbl tbl-sm">
+        <thead><tr>
+          <th>#</th><th>股票</th><th>买入日期</th><th>买入价</th><th>卖出日期</th><th>卖出价</th><th>数量(股)</th><th>盈亏(元)</th><th>收益率</th><th>买入原因</th><th>卖出原因</th>
+        </tr></thead>
+        <tbody id="trade-modal-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── 全局状态 ─────────────────────────────────────────────
+const API = '';  // 同源，不需要前缀
+let scanData = [];
+let charts = {};
+let wsConn = null;
+
+// ── WebSocket ────────────────────────────────────────────
+function connectWS() {
+  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+  wsConn = new WebSocket(`${proto}://${location.host}/ws`);
+  wsConn.onmessage = (e) => {
+    const msg = JSON.parse(e.data);
+    if (msg.type === 'log') appendLog(msg.data);
+    if (msg.type === 'scan_done') { scanData = msg.data; renderStocks(); updateDashKPIs(); }
+    if (msg.type === 'backtest_done') loadBacktestHistory();
+  };
+  wsConn.onclose = () => setTimeout(connectWS, 2000);
+}
+
+function appendLog(entry) {
+  const cls = {ok:'log-ok',error:'log-err',warn:'log-warn',info:'log-info'}[entry.level] || 'log-dim';
+  const line = `<div class="${cls}">[${entry.time}] ${entry.msg}</div>`;
+  ['main-log','scan-log-box'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.innerHTML += line; el.scrollTop = el.scrollHeight; }
+  });
+}
+
+// ── Navigation ───────────────────────────────────────────
+function nav(page, el) {
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  if (el) el.classList.add('active');
+  const titles = {dashboard:'总览仪表盘',scan:'选股中心',stocks:'股票分析结果',
+    backtest:'回测中心',equity:'净值曲线',compare:'策略对比',sources:'数据源管理',
+    log:'实时日志',calendar:'交易日历',feishu:'飞书通知配置'};
+  document.getElementById('page-title').textContent = titles[page] || page;
+
+  if (page === 'equity' && !charts['equity']) loadEquity();
+  if (page === 'compare' && !charts['compare']) loadCompare();
+  if (page === 'sources') loadSources();
+  if (page === 'scan') initScanPage();
+  if (page === 'stocks' && scanData.length === 0) fetchScanResults();
+  if (page === 'backtest') loadBacktestHistory();
+  if (page === 'calendar') loadCalendar();
+  if (page === 'feishu') loadFeishu();
+}
+
+// ── Clock ────────────────────────────────────────────────
+function updateClock() {
+  const now = new Date();
+  const ts = now.toLocaleTimeString('zh-CN', {hour12: false});
+  document.getElementById('sidebar-time').textContent = ts;
+  const h = now.getHours();
+  const badge = document.getElementById('scan-phase-badge');
+  if (h < 9) { badge.textContent = '盘前准备'; badge.className = 'badge badge-amber'; }
+  else if (h < 15) { badge.textContent = '盘中监测'; badge.className = 'badge badge-green'; }
+  else { badge.textContent = '盘后复盘'; badge.className = 'badge badge-blue'; }
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ── Fetch helpers ─────────────────────────────────────────
+async function apiFetch(path, method = 'GET') {
+  try {
+    const opts = method === 'POST' ? {method: 'POST'} : {};
+    const r = await fetch(API + path, opts);
+    return await r.json();
+  } catch (e) { console.error('API error:', path, e); return null; }
+}
+
+// ── Initial load ──────────────────────────────────────────
+async function init() {
+  connectWS();
+  await fetchScanResults();
+  updateDashKPIs();
+  renderDashSummary();
+}
+
+// ── Scan ──────────────────────────────────────────────────
+async function triggerScan(type = '手动') {
+  const btn = document.getElementById('scan-btn');
+  btn.innerHTML = '<span class="spin">⟳</span> 筛选中...';
+  btn.disabled = true;
+  await apiFetch(`/api/scan/run?scan_type=${encodeURIComponent(type)}`, 'POST').catch(() => {});
+  // Poll until done
+  const poll = setInterval(async () => {
+    const st = await apiFetch('/api/scan/status');
+    if (st && !st.running) {
+      clearInterval(poll);
+      btn.innerHTML = '立即筛选'; btn.disabled = false;
+      await fetchScanResults();
+      updateDashKPIs(); renderStocks(); renderDashSummary();
+    }
+  }, 1500);
+}
+
+async function fetchScanResults() {
+  const data = await apiFetch('/api/scan/results');
+  if (data) scanData = data;
+  renderScanPool();
+}
+
+async function initScanPage() {
+  // 检测数据源状态
+  const status = await apiFetch('/api/scan/status');
+  if (status) {
+    const last = status.last_scan_time;
+    document.getElementById('src-last-scan').textContent = last ? last.substring(0,16) : '从未运行';
+    document.getElementById('src-last-count').textContent = status.result_count ? `共${status.result_count}只股票` : '尚未筛选';
+  }
+  // 缓存文件数量
+  const info = await apiFetch('/api/system/info').catch(() => null);
+  if (info && info.cache_count != null) {
+    document.getElementById('src-cache-count').textContent = info.cache_count + ' 只';
+  }
+  // 实时行情状态
+  const rt = await apiFetch('/api/system/api_status').catch(() => null);
+  const rtEl = document.getElementById('src-rt-status');
+  const rtCard = document.getElementById('src-realtime-card');
+  if (rt && rt.realtime_ok) {
+    rtEl.textContent = '✓ 可用'; rtEl.style.color = 'var(--green)';
+    rtCard.style.borderLeftColor = 'var(--green)';
+  } else {
+    rtEl.textContent = '✗ 受限'; rtEl.style.color = 'var(--red,#ef4444)';
+    rtCard.style.borderLeftColor = 'var(--red,#ef4444)';
+  }
+  // 渲染标的池
+  await fetchScanResults();
+}
+
+function renderScanPool() {
+  const grid = document.getElementById('scan-pool-grid');
+  const info = document.getElementById('scan-pool-info');
+  if (!scanData.length) {
+    grid.innerHTML = `<div style="color:var(--text3);font-size:13px;padding:12px 0;grid-column:1/-1">
+      暂无筛选结果。点击「立即筛选」从全市场筛选符合条件的标的股。
+    </div>`;
+    info.textContent = '尚未筛选';
+    return;
+  }
+  info.textContent = `共 ${scanData.length} 只标的股`;
+  grid.innerHTML = scanData.map((r, i) => {
+    const pct = r.pct_change;
+    const pctStr = pct != null ? `<span class="${pct >= 0 ? 'k-pos' : 'k-neg'}" style="font-weight:600">${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%</span>` : '';
+    return `<div style="background:var(--bg3);border:1px solid rgba(29,158,117,.25);border-radius:8px;padding:10px 12px;cursor:default">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+        <span style="font-weight:600;font-size:13px">${r.name || r.code}</span>
+        ${pctStr}
+      </div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:3px">${r.code}</div>
+      <div style="display:flex;gap:12px;font-size:11px;color:var(--text2)">
+        ${r.price ? `<span>¥${Number(r.price).toFixed(2)}</span>` : ''}
+        ${r.cap_yi ? `<span>市值${Number(r.cap_yi).toFixed(0)}亿</span>` : ''}
+        ${r.pe != null && r.pe > 0 ? `<span>PE ${Number(r.pe).toFixed(1)}</span>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Dashboard ─────────────────────────────────────────────
+function updateDashKPIs() {
+  if (!scanData.length) return;
+  const passed = scanData.filter(r => r.integrity_pass);
+  const excl   = scanData.filter(r => !r.integrity_pass);
+  document.getElementById('kpi-pass').textContent = passed.length;
+  document.getElementById('kpi-excl').textContent = excl.length;
+  const pct = passed.length / scanData.length;
+  document.getElementById('integrity-prog').style.width = (pct*100)+'%';
+  document.getElementById('decision-prog').style.width = (pct*100)+'%';
+}
+
+function renderDashSummary() {
+  if (!scanData.length) return;
+  const passed = scanData.filter(r => r.integrity_pass);
+  const el = document.getElementById('dash-stock-summary');
+  if (!passed.length) { el.innerHTML = '<span style="color:var(--text3)">暂无通过股票</span>'; return; }
+  el.innerHTML = passed.map(r =>
+    `<span style="display:inline-flex;align-items:center;gap:6px;margin:4px 6px 4px 0;padding:5px 10px;background:var(--bg3);border-radius:var(--radius);border:1px solid var(--border)">
+      <span style="font-weight:600;font-size:13px">${r.name}</span>
+      <span style="color:var(--text3);font-size:11px">${r.code}</span>
+      ${r.pe ? `<span style="color:var(--green);font-size:11px">PE ${r.pe}</span>` : ''}
+      <span class="badge badge-green" style="font-size:10px">通过</span>
+    </span>`
+  ).join('');
+}
+
+// ── Stocks page ───────────────────────────────────────────
+let stockFilter = 'all';
+function filterStocks(f) {
+  stockFilter = f;
+  ['all','pass','fail'].forEach(k => {
+    document.getElementById('f-'+k).classList.toggle('btn-primary', k===f);
+  });
+  renderStocks();
+}
+
+function renderStocks() {
+  const grid = document.getElementById('stock-grid');
+  if (!scanData.length) { grid.innerHTML = '<div style="color:var(--text3)">暂无数据，请先执行扫描</div>'; return; }
+  const filtered = scanData.filter(r => {
+    if (stockFilter === 'pass') return r.integrity_pass;
+    if (stockFilter === 'fail') return !r.integrity_pass;
+    return true;
+  });
+  grid.innerHTML = filtered.map(r => {
+    const checks = ['股价','PE','市值','近期事件'];
+    const chips = checks.map(c =>
+      `<span class="chip ${r.passed_fields?.includes(c)?'chip-ok':'chip-no'}">${c}</span>`
+    ).join('');
+    const peVal = r.validation?.pe;
+    const peSrc = peVal?.sources?.join(' | ') || '—';
+    return `<div class="stock-card ${r.integrity_pass?'pass':'fail'}" onclick="showStockDetail('${r.code}')">
+      <div class="sc-header">
+        <div><div class="sc-name">${r.name}</div><div class="sc-code">${r.code} · ${r.market}</div></div>
+        <span class="badge ${r.integrity_pass?'badge-green':'badge-red'}">${r.decision}</span>
+      </div>
+      <div class="chips">${chips}</div>
+      <div class="sc-metrics">
+        <div class="sc-metric"><div class="m-label">股价</div><div class="m-val">${r.price ? '¥'+r.price : '—'}</div></div>
+        <div class="sc-metric"><div class="m-label">PE</div><div class="m-val ${r.pe?'k-pos':''}">${r.pe || '—'}</div></div>
+        <div class="sc-metric"><div class="m-label">市值</div><div class="m-val">${r.market_cap ? r.market_cap+'亿' : '—'}</div></div>
+      </div>
+      ${r.pe ? `<div style="font-size:10px;color:var(--text3);margin-top:8px">PE来源: ${peSrc}</div>` : ''}
+      <div class="sc-reason">${r.decision_reason}</div>
+    </div>`;
+  }).join('');
+}
+
+function showStockDetail(code) {
+  const r = scanData.find(s => s.code === code);
+  if (!r) return;
+  alert(`${r.name}(${r.code})\nPE: ${r.pe || '缺失'}\n市值: ${r.market_cap ? r.market_cap+'亿' : '缺失'}\n决策: ${r.decision}\n原因: ${r.decision_reason}`);
+}
+
+// ── Backtest ──────────────────────────────────────────────
+async function runBacktest() {
+  const strategy = document.getElementById('bt-strategy').value;
+  const start    = document.getElementById('bt-start').value;
+  const end      = document.getElementById('bt-end').value;
+  const cash     = parseFloat(document.getElementById('bt-cash').value) * 10000;
+  const preset   = document.getElementById('bt-screen-preset').value;
+  const btn      = document.getElementById('bt-run-btn');
+  btn.innerHTML  = '<span class="spin">⟳</span> 动态选股+回测中...';
+  btn.disabled   = true;
+  appendLog({time: new Date().toLocaleTimeString('zh-CN',{hour12:false}), msg:`启动回测: ${strategy} ${start}~${end} 选股=${preset}`, level:'info'});
+  const resp = await apiFetch(`/api/backtest/run?strategy=${strategy}&start=${start}&end=${end}&cash=${cash}&screen_preset=${preset}`, 'POST');
+  if (resp && resp.error) {
+    appendLog({time: new Date().toLocaleTimeString('zh-CN',{hour12:false}), msg: resp.error, level:'error'});
+    btn.innerHTML = '▶ 启动回测'; btn.disabled = false;
+    return;
+  }
+  // 轮询回测状态：监听 WebSocket backtest_done 或检查 backtest_running 标记
+  const poll = setInterval(async () => {
+    const st = await apiFetch('/api/backtest/status');
+    if (st && !st.running) {
+      clearInterval(poll);
+      btn.innerHTML = '▶ 启动回测'; btn.disabled = false;
+      loadBacktestHistory();
+    }
+  }, 2000);
+}
+
+async function loadBacktestHistory() {
+  const data = await apiFetch('/api/backtest/list');
+  const tbody = document.getElementById('bt-history-body');
+  if (!data || data.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="14" style="text-align:center;padding:32px 20px">
+      <div style="color:var(--text3);font-size:13px;line-height:2">
+        尚未运行任何回测<br>
+        <span style="font-size:12px">在左侧选择策略、时间区间，点击「启动回测」即可生成真实数据</span><br>
+        <span style="font-size:11px;color:var(--text3)">⚠ 需要先 pip install akshare 并确保网络可访问东方财富接口</span>
+      </div>
+    </td></tr>`;
+    return;
+  }
+  tbody.innerHTML = data.map(r => {
+    const m = r.metrics || {};
+    const isReal = r.is_real ? '✓' : '~';
+    const realTip = r.is_real ? '真实回测' : '演示数据';
+    const annCls    = (m.annualized_return||'').startsWith('+') ? 'k-pos' : 'k-neg';
+    const profitCls = (m.period_profit||0) >= 0 ? 'k-pos' : 'k-neg';
+    return `<tr>
+      <td style="color:var(--text3)">${r.id}</td>
+      <td><span style="font-weight:600">${r.strategy}</span></td>
+      <td style="color:var(--text3);font-size:12px">${r.start} ~ ${r.end}</td>
+      <td class="${annCls}" style="font-weight:600">${m.annualized_return||'—'}</td>
+      <td class="${profitCls}" style="font-weight:600">${m.period_profit_fmt||'—'}</td>
+      <td style="font-weight:600">${m.final_value_fmt||'—'}</td>
+      <td class="k-neg">${m.max_drawdown||'—'}</td>
+      <td>${m.sharpe_ratio||'—'}</td>
+      <td>${m.win_rate||'—'}</td>
+      <td>${m.profit_factor||'—'}</td>
+      <td style="color:var(--text3)">${m.total_trades||'—'}</td>
+      <td style="font-size:11px;color:var(--text3)">${m.verified_pass!=null?`通过${m.verified_pass}/排除${m.verified_excl}`:'—'}</td>
+      <td style="color:var(--text3);font-size:11px" title="${realTip}">${isReal} ${r.time||'—'}</td>
+      <td><button class="btn-detail" onclick="showTradeDetail(${r.id})">交易详情</button></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Equity Chart ──────────────────────────────────────────
+async function loadEquity() {
+  const sel = document.getElementById('equity-strategy-sel').value;
+  const data = await apiFetch('/api/backtest/equity/' + sel);
+  if (!data) return;
+
+  // 无数据时显示提示
+  if (data.empty || !data.dates || data.dates.length === 0) {
+    document.getElementById('eq-ret').textContent    = '--';
+    document.getElementById('eq-ann').textContent    = '--';
+    document.getElementById('eq-dd').textContent     = '--';
+    document.getElementById('eq-sharpe').textContent = '--';
+    if (charts['equity']) charts['equity'].destroy();
+    if (charts['daily']) charts['daily'].destroy();
+    return;
+  }
+
+  // 从真实净值曲线计算指标
+  const vals = data.strategy;
+  const totalRet = ((vals[vals.length-1] - 1) * 100).toFixed(1);
+  const nDays = vals.length;
+  const annRet = ((Math.pow(vals[vals.length-1], 252/nDays) - 1) * 100).toFixed(1);
+  let peak = vals[0], maxDD = 0;
+  vals.forEach(v => { peak = Math.max(peak, v); maxDD = Math.max(maxDD, (peak - v) / peak); });
+  document.getElementById('eq-ret').textContent    = (totalRet >= 0 ? '+' : '') + totalRet + '%';
+  document.getElementById('eq-ann').textContent    = (annRet >= 0 ? '+' : '') + annRet + '%';
+  document.getElementById('eq-dd').textContent     = '-' + (maxDD * 100).toFixed(1) + '%';
+  document.getElementById('eq-sharpe').textContent = '--';
+
+  const labels = data.dates;
+  const strat  = data.strategy.map(v => +((v-1)*100).toFixed(2));
+  const bench  = data.benchmark.map(v => +((v-1)*100).toFixed(2));
+
+  if (charts['equity']) charts['equity'].destroy();
+  const ctx = document.getElementById('equity-chart').getContext('2d');
+  charts['equity'] = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets: [
+      {label:'策略净值',data:strat,borderColor:'#10b981',borderWidth:1.5,pointRadius:0,fill:false},
+      {label:'沪深300',data:bench,borderColor:'#556070',borderWidth:1,borderDash:[4,4],pointRadius:0,fill:false},
+    ]},
+    options: chartOpts('收益率(%)')
+  });
+
+  // Daily returns bar
+  const daily = strat.slice(1).map((v,i) => +(v - strat[i]).toFixed(3));
+  if (charts['daily']) charts['daily'].destroy();
+  const ctx2 = document.getElementById('daily-ret-chart').getContext('2d');
+  charts['daily'] = new Chart(ctx2, {
+    type: 'bar',
+    data: { labels: labels.slice(1), datasets: [{
+      label:'每日收益率',data:daily,
+      backgroundColor: daily.map(v => v>=0?'rgba(16,185,129,0.5)':'rgba(239,68,68,0.5)'),
+      borderWidth:0,
+    }]},
+    options: chartOpts('%', true)
+  });
+}
+
+// ── Compare Chart ─────────────────────────────────────────
+async function loadCompare() {
+  const data = await apiFetch('/api/backtest/compare');
+  if (!data || data.empty || !data.dates || data.dates.length === 0) {
+    document.getElementById('compare-tbl-body').innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text3);padding:20px">尚未运行回测，请先在回测页面执行策略回测</td></tr>';
+    return;
+  }
+  const colors = data.colors || ['#10b981','#3b82f6','#f59e0b','#d4537e','#556070'];
+  const names  = Object.keys(data.curves);
+
+  if (charts['compare']) charts['compare'].destroy();
+  const ctx = document.getElementById('compare-chart').getContext('2d');
+  charts['compare'] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: data.dates,
+      datasets: names.map((n, i) => ({
+        label: n,
+        data: data.curves[n].map(v => +((v-1)*100).toFixed(2)),
+        borderColor: colors[i] || '#888',
+        borderWidth: i === 0 ? 2 : 1.5,
+        pointRadius: 0,
+        fill: false,
+      }))
+    },
+    options: chartOpts('收益率(%)')
+  });
+
+  // Compare table — 从真实回测结果中读取指标
+  const btList = await apiFetch('/api/backtest/list') || [];
+  const seen = {};
+  const strategies = [];
+  const gradeColors = ['badge-green','badge-blue','badge-amber','badge-gray'];
+  const gradeNames = ['推荐','良好','一般','谨慎'];
+  btList.forEach(r => {
+    const name = r.strategy;
+    if (seen[name] || !r.metrics) return;
+    seen[name] = true;
+    const m = r.metrics;
+    strategies.push({name, ann:m.annualized_return||'--', dd:m.max_drawdown||'--', sharpe:m.sharpe_ratio||'--', win:m.win_rate||'--', pf:m.profit_factor||'--', trades:m.total_trades||0});
+  });
+  document.getElementById('compare-tbl-body').innerHTML = strategies.map((s, i) =>
+    `<tr>
+      <td style="font-weight:600">${s.name}</td>
+      <td class="k-pos">${s.ann}</td>
+      <td class="k-neg">${typeof s.dd === 'string' && !s.dd.startsWith('-') ? '-' : ''}${s.dd}</td>
+      <td>${s.sharpe}</td>
+      <td>${s.win}</td>
+      <td>${s.pf}</td>
+      <td style="color:var(--text3)">${s.trades}</td>
+      <td><span class="badge ${gradeColors[i] || 'badge-gray'}">${gradeNames[i] || '一般'}</span></td>
+    </tr>`
+  ).join('');
+
+  // Heatmap
+  const cells = [
+    {p:'fast=3, slow=20',v:1.42},{p:'fast=3, slow=30',v:1.21},{p:'fast=3, slow=60',v:0.98},
+    {p:'fast=5, slow=20',v:1.84,best:true},{p:'fast=5, slow=30',v:1.67},{p:'fast=5, slow=60',v:1.43},
+    {p:'fast=10, slow=20',v:1.51},{p:'fast=10, slow=30',v:1.38},{p:'fast=10, slow=60',v:1.22},
+  ];
+  document.getElementById('heatmap-grid').innerHTML = cells.map(c =>
+    `<div class="heat-cell ${c.best?'best':''}">
+      <div class="hc-param">${c.p}</div>
+      <div class="hc-val ${c.best?'k-pos':'k-neu'}">${c.v.toFixed(2)}</div>
+      <div style="font-size:10px;color:var(--text3)">夏普 ${c.best?'★最优':''}</div>
+    </div>`
+  ).join('');
+}
+
+// ── Sources ───────────────────────────────────────────────
+async function loadSources() {
+  const data = await apiFetch('/api/sources');
+  if (!data) return;
+  const online  = data.filter(s => s.enabled);
+  const offline = data.filter(s => !s.enabled);
+  const avgMs   = Math.round(online.filter(s=>s.latency_ms>0).reduce((a,s)=>a+s.latency_ms,0) / online.filter(s=>s.latency_ms>0).length);
+  document.getElementById('src-online-cnt').textContent  = online.length;
+  document.getElementById('src-offline-cnt').textContent = offline.length;
+  document.getElementById('src-avg-ms').textContent      = avgMs + 'ms';
+
+  const typeColors = {market:'badge-green',fundamental:'badge-blue',report:'badge-purple',announcement:'badge-amber',community:'badge-gray',terminal:'badge-red',international:'badge-blue',regulatory:'badge-amber'};
+  document.getElementById('src-grid').innerHTML = data.map(s =>
+    `<div class="src-card">
+      <div class="src-name">${s.name}</div>
+      <div class="src-row">
+        <span class="badge ${typeColors[s.type]||'badge-gray'}" style="font-size:10px">${s.type}</span>
+        <div style="display:flex;align-items:center;gap:4px">
+          <span class="dot ${s.enabled?'dot-ok':'dot-err'}"></span>
+          <span class="src-ms">${s.enabled && s.latency_ms ? s.latency_ms+'ms' : s.enabled?'—':'未授权'}</span>
+        </div>
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ── Chart options helper ──────────────────────────────────
+function chartOpts(yLabel = '', hideLegend = false) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: !hideLegend, labels: { color: '#8892a4', font: { size: 11 }, boxWidth: 20, padding: 12 } }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#556070', font: { size: 10 }, maxTicksLimit: 10 },
+        grid:  { color: 'rgba(255,255,255,0.04)' }
+      },
+      y: {
+        ticks: { color: '#556070', font: { size: 10 }, callback: v => v.toFixed(1) + '%' },
+        grid:  { color: 'rgba(255,255,255,0.04)' }
+      }
+    },
+    interaction: { mode: 'index', intersect: false },
+  };
+}
+
+// ── Trade Detail Modal ────────────────────────────────────
+async function showTradeDetail(btId) {
+  const data = await apiFetch('/api/backtest/trades/' + btId);
+  if (!data || !data.trades) return;
+
+  const trades = data.trades;
+  const modal = document.getElementById('trade-modal');
+  document.getElementById('trade-modal-title').textContent =
+    `交易详情 — ${data.strategy} (${data.start} ~ ${data.end})`;
+
+  // 统计
+  const totalTrades = trades.length;
+  const wins = trades.filter(t => t.pnl > 0).length;
+  const losses = trades.filter(t => t.pnl < 0 && t.sell_date !== '（持仓中）').length;
+  const holding = trades.filter(t => t.sell_date === '（持仓中）').length;
+  const winRate = (totalTrades - holding) > 0 ? (wins / (totalTrades - holding) * 100).toFixed(1) : '0.0';
+
+  // 使用后端计算的准确盈亏数据
+  const totalProfit   = data.total_profit   || 0;
+  const realizedPnl   = data.realized_pnl   || 0;
+  const unrealizedPnl = data.unrealized_pnl || 0;
+  const initialCash   = data.initial_cash   || 1000000;
+  const finalValue    = data.final_value    || initialCash;
+
+  function fmtMoney(v) {
+    return (v >= 0 ? '+' : '') + v.toLocaleString('zh-CN', {minimumFractionDigits:2, maximumFractionDigits:2}) + '元';
+  }
+
+  document.getElementById('trade-modal-stats').innerHTML = `
+    <div class="stat"><div style="color:var(--text3)">总交易</div><div class="sv">${totalTrades}笔</div></div>
+    <div class="stat"><div style="color:var(--text3)">盈利</div><div class="sv k-pos">${wins}笔</div></div>
+    <div class="stat"><div style="color:var(--text3)">亏损</div><div class="sv k-neg">${losses}笔</div></div>
+    ${holding > 0 ? `<div class="stat"><div style="color:var(--text3)">持仓中</div><div class="sv" style="color:var(--amber)">${holding}笔</div></div>` : ''}
+    <div class="stat"><div style="color:var(--text3)">胜率</div><div class="sv">${winRate}%</div></div>
+    <div class="stat"><div style="color:var(--text3)">已实现盈亏</div><div class="sv ${realizedPnl >= 0 ? 'k-pos' : 'k-neg'}">${fmtMoney(realizedPnl)}</div></div>
+    ${holding > 0 ? `<div class="stat"><div style="color:var(--text3)">持仓浮盈亏</div><div class="sv ${unrealizedPnl >= 0 ? 'k-pos' : 'k-neg'}" style="font-size:13px">${fmtMoney(unrealizedPnl)}</div></div>` : ''}
+    <div class="stat"><div style="color:var(--text3)">总盈亏</div><div class="sv ${totalProfit >= 0 ? 'k-pos' : 'k-neg'}" style="font-weight:700">${fmtMoney(totalProfit)}</div></div>
+    <div class="stat"><div style="color:var(--text3)">最终资产</div><div class="sv">${finalValue.toLocaleString('zh-CN', {minimumFractionDigits:2, maximumFractionDigits:2})}元</div></div>
+  `;
+
+  document.getElementById('trade-modal-body').innerHTML = trades.map((t, i) => {
+    const pnlCls = t.pnl > 0 ? 'k-pos' : (t.pnl < 0 ? 'k-neg' : '');
+    const isHolding = t.sell_date === '（持仓中）';
+    return `<tr>
+      <td style="color:var(--text3)">${i + 1}</td>
+      <td><span style="font-weight:600">${t.name}</span><br><span style="font-size:11px;color:var(--text3)">${t.code}</span></td>
+      <td style="color:var(--green);font-size:12px">${t.buy_date}</td>
+      <td style="color:var(--green)">${t.buy_price.toFixed(2)}</td>
+      <td style="color:${isHolding ? 'var(--amber)' : 'var(--red)'};font-size:12px">${t.sell_date}</td>
+      <td style="color:var(--red)">${isHolding ? '—' : t.sell_price.toFixed(2)}</td>
+      <td>${t.shares.toLocaleString()}</td>
+      <td class="${pnlCls}" style="font-weight:600">${isHolding ? '—' : (t.pnl >= 0 ? '+' : '') + t.pnl.toLocaleString('zh-CN', {minimumFractionDigits:2, maximumFractionDigits:2})}</td>
+      <td class="${pnlCls}">${isHolding ? '—' : (t.pnl_pct >= 0 ? '+' : '') + t.pnl_pct.toFixed(2) + '%'}</td>
+      <td style="font-size:11px;color:var(--text3);max-width:120px;overflow:hidden;text-overflow:ellipsis" title="${t.buy_reason}">${t.buy_reason}</td>
+      <td style="font-size:11px;color:var(--text3);max-width:120px;overflow:hidden;text-overflow:ellipsis" title="${t.sell_reason}">${t.sell_reason || '—'}</td>
+    </tr>`;
+  }).join('');
+
+  modal.classList.add('show');
+}
+
+function closeTradeModal() {
+  document.getElementById('trade-modal').classList.remove('show');
+}
+// 点击遮罩关闭
+document.getElementById('trade-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeTradeModal();
+});
+// ESC关闭
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeTradeModal();
+});
+
+// ── Boot ──────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,616 @@
+10:44:21 [INFO] feishu: [飞书] 消息队列worker已启动
+10:44:21 [INFO] main: ============================================================
+10:44:21 [INFO] main: 启动手动扫描 | 2026-03-18 10:44:21
+10:44:21 [INFO] main: 监控股票数: 10 | 数据源数: 23 | 搜索引擎数: 5
+10:44:21 [INFO] main: ============================================================
+10:44:21 [INFO] analyzer: 开始并行分析 10 只股票...
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 贵州茅台(600519) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 宁德时代(300750) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 招商银行(600036) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 比亚迪(002594) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 中国平安(601318) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 五粮液(000858) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 北方华创(002371) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 中国神华(601088) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 海天味业(603288) ---
+10:44:21 [INFO] analyzer: 
+--- 开始分析: 迈瑞医疗(300760) ---
+10:44:45 [WARNING] data_fetcher: [AKShare] 600519 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:45 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 600519 市盈率 PE 理杏仁 (第1次尝试)
+10:44:45 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:45 [INFO] search_engine: [Serper] 搜索: 贵州茅台 600519 市盈率 PE 理杏仁 (第2次尝试)
+10:44:45 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:45 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 600519 市盈率 PE 理杏仁 (第3次尝试)
+10:44:45 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:45 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 600519 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:45 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:45 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:45 [INFO] search_engine: [Serper] 搜索: 贵州茅台 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:45 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:45 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:45 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:45 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:45 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 市盈率 搜狐财经 (第1次尝试)
+10:44:45 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:45 [INFO] search_engine: [Serper] 搜索: 贵州茅台 市盈率 搜狐财经 (第2次尝试)
+10:44:45 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:45 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 市盈率 搜狐财经 (第3次尝试)
+10:44:45 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:45 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:45 [INFO] search_engine: [Tavily] 搜索: 贵州茅台 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:45 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:45 [INFO] search_engine: [Serper] 搜索: 贵州茅台 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:45 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:45 [INFO] search_engine: [Firecrawl] 搜索: 贵州茅台 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:45 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:45 [ERROR] search_engine: [搜索引擎] 3次全部失败: 贵州茅台 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:45 [WARNING] data_fetcher: [AKShare] 300750 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:45 [INFO] search_engine: [Tavily] 搜索: 宁德时代 300750 市盈率 PE 理杏仁 (第1次尝试)
+10:44:45 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:45 [INFO] search_engine: [Serper] 搜索: 宁德时代 300750 市盈率 PE 理杏仁 (第2次尝试)
+10:44:45 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:45 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 300750 市盈率 PE 理杏仁 (第3次尝试)
+10:44:45 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:45 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 300750 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:45 [INFO] search_engine: [Tavily] 搜索: 宁德时代 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:45 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:45 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 宁德时代 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 宁德时代 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 宁德时代 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 宁德时代 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 宁德时代 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 宁德时代 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 宁德时代 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [WARNING] data_fetcher: [AKShare] 600036 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 招商银行 600036 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 招商银行 600036 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 600036 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 600036 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 招商银行 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 招商银行 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 招商银行 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 招商银行 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 招商银行 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 招商银行 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 招商银行 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 招商银行 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [WARNING] data_fetcher: [AKShare] 002594 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 比亚迪 002594 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 比亚迪 002594 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 002594 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 002594 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 比亚迪 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 比亚迪 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 比亚迪 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 比亚迪 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 比亚迪 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 比亚迪 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 比亚迪 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 比亚迪 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [WARNING] data_fetcher: [AKShare] 601318 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国平安 601318 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国平安 601318 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 601318 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 601318 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国平安 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国平安 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国平安 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国平安 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国平安 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国平安 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国平安 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国平安 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [WARNING] data_fetcher: [AKShare] 000858 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 五粮液 000858 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 五粮液 000858 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 000858 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 000858 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 五粮液 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 五粮液 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 五粮液 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 五粮液 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 五粮液 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 五粮液 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 五粮液 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 五粮液 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [WARNING] data_fetcher: [AKShare] 002371 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 北方华创 002371 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 北方华创 002371 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 002371 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 002371 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 北方华创 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 北方华创 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 北方华创 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 北方华创 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 北方华创 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 北方华创 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 北方华创 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 北方华创 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国神华 601088 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国神华 601088 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 601088 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 601088 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国神华 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国神华 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国神华 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国神华 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 中国神华 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 中国神华 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 中国神华 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 中国神华 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 海天味业 603288 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 海天味业 603288 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 603288 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 603288 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 海天味业 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 海天味业 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 海天味业 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 海天味业 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 海天味业 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 海天味业 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 海天味业 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 海天味业 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 300760 市盈率 PE 理杏仁 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 300760 市盈率 PE 理杏仁 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 300760 市盈率 PE 理杏仁 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 300760 市盈率 PE 理杏仁 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 stock PE ratio Yahoo Finance (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 stock PE ratio Yahoo Finance (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 stock PE ratio Yahoo Finance (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 stock PE ratio Yahoo Finance → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 市盈率 搜狐财经 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 市盈率 搜狐财经 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 市盈率 搜狐财经 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 市盈率 搜狐财经 → 此数据点标记为缺失
+10:44:46 [INFO] search_engine: [Tavily] 搜索: 迈瑞医疗 最新消息 研报 2025 A股 近期事件 业绩 (第1次尝试)
+10:44:46 [DEBUG] search_engine: [Tavily] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Tavily] ✗ 搜索失败，切换到Serper
+10:44:46 [INFO] search_engine: [Serper] 搜索: 迈瑞医疗 最新消息 研报 2025 A股 近期事件 业绩 (第2次尝试)
+10:44:46 [DEBUG] search_engine: [Serper] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Serper] ✗ 搜索失败，切换到Firecrawl
+10:44:46 [INFO] search_engine: [Firecrawl] 搜索: 迈瑞医疗 最新消息 研报 2025 A股 近期事件 业绩 (第3次尝试)
+10:44:46 [DEBUG] search_engine: [Firecrawl] 未配置API Key，跳过
+10:44:46 [WARNING] search_engine: [Firecrawl] ✗ 搜索失败，切换到Jina
+10:44:46 [ERROR] search_engine: [搜索引擎] 3次全部失败: 迈瑞医疗 最新消息 研报 2025 → 此数据点标记为缺失
+10:44:51 [ERROR] data_fetcher: [AKShare] 601318 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:51 [WARNING] data_fetcher: [AKShare] 601088 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:52 [ERROR] data_fetcher: [AKShare] 002371 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [WARNING] data_fetcher: [东方财富API] 601088 请求失败: Server disconnected
+10:44:52 [ERROR] data_fetcher: [AKShare] 601318 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [WARNING] data_fetcher: [AKShare] 603288 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:52 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:52 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:52 [ERROR] data_fetcher: [AKShare] 300750 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [WARNING] data_fetcher: [东方财富API] 603288 请求失败: Server disconnected
+10:44:52 [ERROR] data_fetcher: [AKShare] 600519 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [WARNING] data_fetcher: [AKShare] 300760 公告获取失败: stock_notice_report() got an unexpected keyword argument 'start_date'
+10:44:52 [ERROR] data_fetcher: [AKShare] 600036 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [ERROR] data_fetcher: [AKShare] 600519 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=3&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:52 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:52 [ERROR] data_fetcher: [AKShare] 002371 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:52 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:52 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:52 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:52 [WARNING] data_fetcher: [东方财富API] 300760 请求失败: Server disconnected
+10:44:52 [ERROR] data_fetcher: [AKShare] 000858 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [ERROR] data_fetcher: [AKShare] 600036 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:53 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:53 [ERROR] data_fetcher: [AKShare] 000858 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:53 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:53 [ERROR] data_fetcher: [AKShare] 002594 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [ERROR] data_fetcher: [AKShare] 300750 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:53 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:53 [ERROR] data_fetcher: [AKShare] 601088 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=2&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [ERROR] data_fetcher: [AKShare] 601088 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=3&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [WARNING] cross_validator: [验证] price: 仅0个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] pe: 仅0个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] market_cap: 仅0个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:53 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:53 [ERROR] data_fetcher: [AKShare] 002594 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=3&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:53 [WARNING] cross_validator: [验证] price: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] pe: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [验证] market_cap: 仅1个有效来源，不足2个，验证失败
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:53 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:53 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:57 [ERROR] data_fetcher: [AKShare] 603288 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:57 [ERROR] data_fetcher: [AKShare] 603288 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:57 [WARNING] cross_validator: [验证] price: 仅0个有效来源，不足2个，验证失败
+10:44:57 [WARNING] cross_validator: [验证] pe: 仅0个有效来源，不足2个，验证失败
+10:44:57 [WARNING] cross_validator: [验证] market_cap: 仅0个有效来源，不足2个，验证失败
+10:44:57 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:57 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:57 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:57 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:57 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:58 [ERROR] data_fetcher: [AKShare] 300760 行情获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:58 [ERROR] data_fetcher: [AKShare] 300760 基本面获取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))
+10:44:58 [WARNING] cross_validator: [验证] price: 仅0个有效来源，不足2个，验证失败
+10:44:58 [WARNING] cross_validator: [验证] pe: 仅0个有效来源，不足2个，验证失败
+10:44:58 [WARNING] cross_validator: [验证] market_cap: 仅0个有效来源，不足2个，验证失败
+10:44:58 [WARNING] cross_validator: [完整性] 缺失字段: 股价 (price)
+10:44:58 [WARNING] cross_validator: [完整性] 缺失字段: 市盈率(PE) (pe)
+10:44:58 [WARNING] cross_validator: [完整性] 缺失字段: 总市值 (market_cap)
+10:44:58 [WARNING] cross_validator: [完整性] 缺失字段: 近期事件 (recent_events)
+10:44:58 [ERROR] cross_validator: [完整性] ✗ 缺失4项: ['股价', '市盈率(PE)', '总市值', '近期事件'] → 直接排除，不进入决策
+10:44:58 [ERROR] analyzer: [贵州茅台] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [宁德时代] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [招商银行] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [比亚迪] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [中国平安] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [五粮液] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [北方华创] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [中国神华] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [海天味业] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [ERROR] analyzer: [迈瑞医疗] 分析异常: FeishuNotifier.send_integrity_fail() missing 1 required positional argument: 'missing'
+10:44:58 [INFO] main: 
+============================================================
+10:44:58 [INFO] main: 扫描完成 | 通过: 0 | 排除: 10
+10:44:58 [INFO] main: ============================================================
+10:44:58 [INFO] reporter: 报告已写入: reports_output/20260318_104458_手动.txt
+10:44:58 [INFO] main: 报告已生成: reports_output/20260318_104458_手动.txt
+10:44:58 [DEBUG] feishu: [飞书] [主群] 未配置Webhook，跳过
+16:52:55 [INFO] bt_runner: 回测启动 | 策略=multi_source_trend | 2022-01-01~2024-12-31 | 初始资金¥1,000,000
+16:52:56 [INFO] bt_data: [数据] 600519 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 300750 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 600036 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 002594 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 601318 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 000858 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 002371 加载726条日线 (2022-01-01~2024-12-31)
+16:52:57 [INFO] bt_data: [数据] 601088 加载726条日线 (2022-01-01~2024-12-31)
+16:52:58 [INFO] bt_data: [数据] 603288 加载726条日线 (2022-01-01~2024-12-31)
+16:52:58 [INFO] bt_data: [数据] 300760 加载726条日线 (2022-01-01~2024-12-31)
+16:52:58 [INFO] bt_runner: 日线数据加载完成 | 成功: 10/10 只
+16:52:58 [INFO] bt_runner: 构建验证门控数据（从AKShare拉取基本面）...
+16:52:58 [INFO] bt_runner: [回测] 从AKShare拉取基本面数据，构建简化验证门控...
+16:53:07 [ERROR] bt_runner: [回测验证] 600519 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=5&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:13 [ERROR] bt_runner: [回测验证] 300750 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:18 [ERROR] bt_runner: [回测验证] 600036 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:23 [ERROR] bt_runner: [回测验证] 002594 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:27 [ERROR] bt_runner: [回测验证] 601318 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:33 [ERROR] bt_runner: [回测验证] 000858 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:38 [ERROR] bt_runner: [回测验证] 002371 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:44 [ERROR] bt_runner: [回测验证] 601088 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:50 [ERROR] bt_runner: [回测验证] 603288 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:55 [ERROR] bt_runner: [回测验证] 300760 基本面拉取失败: HTTPSConnectionPool(host='82.push2.eastmoney.com', port=443): Max retries exceeded with url: /api/qt/clist/get?pn=1&pz=100&po=1&np=1&ut=bd1d9ddb04089700cf9c27f6f7426281&fltt=2&invt=2&fid=f12&fs=m%3A0+t%3A6%2Cm%3A0+t%3A80%2Cm%3A1+t%3A2%2Cm%3A1+t%3A23%2Cm%3A0+t%3A81+s%3A2048&fields=f1%2Cf2%2Cf3%2Cf4%2Cf5%2Cf6%2Cf7%2Cf8%2Cf9%2Cf10%2Cf12%2Cf13%2Cf14%2Cf15%2Cf16%2Cf17%2Cf18%2Cf20%2Cf21%2Cf23%2Cf24%2Cf25%2Cf22%2Cf11%2Cf62%2Cf128%2Cf136%2Cf115%2Cf152 (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response'))) → 排除
+16:53:55 [INFO] bt_runner: [回测验证] 完成 | 通过: 0 | 排除: 10 | 降级: 0
+16:53:55 [WARNING] bt_data: [数据] 600519 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 300750 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 600036 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 002594 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 601318 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 000858 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 002371 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 601088 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 603288 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [WARNING] bt_data: [数据] 300760 PE序列获取失败: module 'akshare' has no attribute 'stock_a_pe' (将跳过PE过滤)
+16:53:55 [INFO] bt_runner: 验证门控结果 | 通过: 0只 [] | 排除: 10只 ['600519', '300750', '600036', '002594', '601318', '000858', '002371', '601088', '603288', '300760']
+16:53:55 [INFO] bt_runner: 开始逐日撮合模拟...
+16:53:55 [INFO] strategies: [多源验证趋势] 600519 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 600519 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 300750 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 300750 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 600036 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 600036 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 002594 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 002594 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 601318 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 601318 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 000858 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 000858 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 002371 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 002371 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 601088 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 601088 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 603288 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 603288 生成0条信号
+16:53:55 [INFO] strategies: [多源验证趋势] 300760 未通过验证门控，跳过 | 原因: 完整性自检失败，缺失: 数据获取异常
+16:53:55 [INFO] bt_engine: [多源验证趋势] 300760 生成0条信号
+16:53:55 [INFO] bt_report: 回测报告已写入: backtest_reports/多源验证趋势_2022-01-04_2024-12-31_20260318_165355.txt
+16:53:55 [INFO] bt_runner: 回测完成 | 年化=+0.00% 夏普=-1.1620356504259526e+17 胜率=0.0%
+16:53:55 [INFO] bt_runner: [回测] 结果已持久化 id=7 → backtest_results.json

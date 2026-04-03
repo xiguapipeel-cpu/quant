@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "hour": 15,
+  "minute": 35,
+  "notify_wechat": true,
+  "last_run": "2026-03-31 15:35",
+  "last_status": "完成 | 0只信号"
+}
