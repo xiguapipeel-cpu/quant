@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
-import { Card, Row, Col, Button, Select, DatePicker, InputNumber, Table, Typography, Modal, Statistic, message, Space, Empty, Input, Radio } from 'antd';
+import { Card, Row, Col, Button, Select, DatePicker, InputNumber, Table, Typography, Modal, Statistic, message, Space, Empty, Input, Radio, Popover, Tag, Tooltip } from 'antd';
 import { PlayCircleOutlined, EyeOutlined, LineChartOutlined, LoadingOutlined, SearchOutlined } from '@ant-design/icons';
 import { apiFetch } from '../api/client';
 import dayjs from 'dayjs';
@@ -192,7 +192,24 @@ export default function BacktestCenter() {
 
   const tradeColumns = [
     { title: '#', key: 'idx', width: 40, render: (_: any, __: any, i: number) => i + 1 },
-    { title: '股票', key: 'stock', render: (_: any, t: any) => <><Text strong>{t.name}</Text><br /><Text type="secondary" style={{ fontSize: 11 }}>{t.code}</Text></> },
+    { title: '股票', key: 'stock', render: (_: any, t: any) => (
+      <div
+        style={{ cursor: 'pointer' }}
+        onClick={() => {
+          apiFetch('/api/open-ths', 'POST', { code: t.code })
+            .then((r: any) => {
+              if (r.ok) message.success(r.auto_paste ? `已在同花顺中打开 ${t.code}` : `已打开同花顺，${t.code} 已复制到剪贴板，⌘V 粘贴`);
+              else message.error(r.msg || '打开失败');
+            })
+            .catch(() => message.error('请求失败'));
+        }}
+      >
+        <Text strong style={{ color: '#60a5fa' }}>{t.name && t.name !== t.code ? t.name : t.code}</Text>
+        {t.name && t.name !== t.code && (
+          <><br /><Text type="secondary" style={{ fontSize: 11 }}>{t.code}</Text></>
+        )}
+      </div>
+    )},
     { title: '买入日期', dataIndex: 'buy_date', key: 'bd', render: (v: string) => <Text style={{ color: '#10b981', fontSize: 12 }}>{v}</Text> },
     { title: '买入价', dataIndex: 'buy_price', key: 'bp', render: (v: number) => <Text style={{ color: '#10b981' }}>{v?.toFixed(2)}</Text> },
     { title: '卖出日期', dataIndex: 'sell_date', key: 'sd', render: (v: string) => <Text style={{ color: v === '（持仓中）' ? '#f59e0b' : '#ef4444', fontSize: 12 }}>{v}</Text> },
@@ -206,8 +223,71 @@ export default function BacktestCenter() {
       if (t.sell_date === '（持仓中）') return '—';
       return <Text style={{ color: moneyColor(v) }}>{(v >= 0 ? '+' : '') + v?.toFixed(2)}%</Text>;
     }},
-    { title: '买入原因', dataIndex: 'buy_reason', key: 'br', ellipsis: true, width: 140 },
-    { title: '卖出原因', dataIndex: 'sell_reason', key: 'sr', ellipsis: true, width: 140 },
+    { title: '买入详情', key: 'br', width: 160, render: (_: any, t: any) => {
+      const meta = t.buy_meta || {};
+      const conf = meta.confidence ?? t.confidence ?? 0;
+      const hasMeta = !!(meta.trigger || meta.accumulation_days);
+
+      const confColor = conf >= 0.8 ? '#e74c3c' : conf >= 0.6 ? '#f39c12' : '#8892a4';
+
+      // 信号日时间线（最多展示最近10条）
+      const sigDates: string[] = Array.isArray(meta.watch_signal_dates) ? meta.watch_signal_dates : [];
+      const showDates = sigDates.slice(-10);
+
+      const popContent = (
+        <div style={{ fontSize: 12, lineHeight: '22px', maxWidth: 300 }}>
+          {meta.trigger && (
+            <div style={{ marginBottom: 6 }}>
+              <Tag color="blue" style={{ fontSize: 11 }}>{meta.trigger}</Tag>
+            </div>
+          )}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px 12px' }}>
+            {meta.accumulation_days != null && <><span style={{ color: '#8892a4' }}>观察期</span><span><strong>{meta.accumulation_days}</strong> 天</span></>}
+            {conf > 0 && <><span style={{ color: '#8892a4' }}>贴合度</span><span style={{ color: confColor, fontWeight: 600 }}>{Math.round(conf * 100)} 分</span></>}
+            {meta.rsi != null && <><span style={{ color: '#8892a4' }}>RSI</span><span><strong>{meta.rsi}</strong></span></>}
+            {meta.yy_ratio != null && <><span style={{ color: '#8892a4' }}>阳阴量比</span><span><strong>{meta.yy_ratio}</strong></span></>}
+            {meta.near_low_pct != null && <><span style={{ color: '#8892a4' }}>距近期低点</span><span><strong>{meta.near_low_pct}%</strong></span></>}
+            {meta.ma_converge_pct != null && <><span style={{ color: '#8892a4' }}>均线粘合</span><span><strong>{meta.ma_converge_pct}%</strong></span></>}
+            {meta.sbv_count > 0 && <><span style={{ color: '#8892a4' }}>缩幅放量</span><span><strong style={{ color: '#f39c12' }}>{meta.sbv_count}</strong> 次</span></>}
+            {meta.bb_narrow && <><span style={{ color: '#8892a4' }}>布林带</span><span style={{ color: '#10b981' }}>已收窄</span></>}
+          </div>
+          {showDates.length > 0 && (
+            <div style={{ marginTop: 8, borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 6 }}>
+              <div style={{ color: '#8892a4', marginBottom: 4 }}>建仓信号日（近{showDates.length}条）</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+                {showDates.map((d, i) => (
+                  <span key={i} style={{ fontSize: 10, background: 'rgba(96,165,250,0.12)', color: '#60a5fa', padding: '1px 5px', borderRadius: 3 }}>{d}</span>
+                ))}
+                {sigDates.length > 10 && <span style={{ fontSize: 10, color: '#8892a4' }}>…共{sigDates.length}条</span>}
+              </div>
+            </div>
+          )}
+          {!hasMeta && t.buy_reason && <div style={{ color: '#c0c8d8' }}>{t.buy_reason}</div>}
+        </div>
+      );
+
+      if (!hasMeta && !t.buy_reason) return <Text type="secondary" style={{ fontSize: 11 }}>—</Text>;
+
+      return (
+        <Popover content={popContent} title="买入分析" trigger="click" overlayStyle={{ maxWidth: 320 }}>
+          <div style={{ cursor: 'pointer' }}>
+            <Text style={{ color: '#60a5fa', fontSize: 11 }}>
+              {meta.trigger || (t.buy_reason || '').split('|')[0].replace('建仓完毕: ', '') || '查看'}
+            </Text>
+            {conf > 0 && (
+              <><br /><Text style={{ fontSize: 10, color: confColor }}>{Math.round(conf * 100)}分</Text>
+              {meta.accumulation_days > 0 && <Text type="secondary" style={{ fontSize: 10 }}> · {meta.accumulation_days}天</Text>}</>
+            )}
+          </div>
+        </Popover>
+      );
+    }},
+    { title: '卖出原因', dataIndex: 'sell_reason', key: 'sr', width: 140, render: (v: string) => (
+      <Tooltip title={v} placement="topLeft">
+        <Text style={{ fontSize: 11, color: '#8892a4', cursor: 'default' }}
+          ellipsis>{v || '—'}</Text>
+      </Tooltip>
+    )},
   ];
 
   // ── ECharts option（useMemo 避免缩放重置）───────────

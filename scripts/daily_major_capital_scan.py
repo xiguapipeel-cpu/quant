@@ -157,6 +157,21 @@ async def _analyze_stock(stock: dict, today_str: str, semaphore: asyncio.Semapho
         }
 
 
+def _safe_end_date() -> str:
+    """
+    返回数据截止日期：
+    - 盘中（09:30~15:00 交易时段内）→ 上一个已完整收盘的交易日，避免使用盘中不完整 bar
+    - 其他时段（盘前/盘后/非交易日）→ 今日（当日 bar 已完整或尚未产生）
+    """
+    from holidays.trading_calendar import TradingCalendar
+    cal = TradingCalendar()
+    if cal.is_market_open():
+        # 盘中：用上一个完整收盘日
+        prev = cal.prev_trading_day()
+        return prev.strftime("%Y-%m-%d")
+    return datetime.now().strftime("%Y-%m-%d")
+
+
 async def run_daily_scan(
     trigger: str = "定时",
     notify_wechat: bool = True,
@@ -167,8 +182,8 @@ async def run_daily_scan(
     Returns: 有近期 WATCH/BUY 信号的股票列表
     """
     scan_time = datetime.now().strftime("%Y-%m-%d %H:%M")
-    today_str = datetime.now().strftime("%Y-%m-%d")
-    logger.info(f"[日扫描] 开始 {trigger} 主力建仓选股 @ {scan_time}")
+    today_str = _safe_end_date()  # 盘中触发时自动退回上一完整收盘日
+    logger.info(f"[日扫描] 开始 {trigger} 主力建仓选股 @ {scan_time} | 数据截止={today_str}")
 
     # ── Step 1：初筛候选股 ────────────────────────────────
     try:

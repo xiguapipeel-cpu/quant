@@ -24,6 +24,41 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 CACHE_DIR = ROOT / "backtest_cache"
+_NAME_CACHE_FILE = CACHE_DIR / "stock_names.json"
+_NAME_CACHE_TTL  = 86400  # 24 小时
+
+
+def _load_stock_name_cache() -> dict:
+    """从本地缓存或 akshare 获取「代码→名称」映射（{code: name}）"""
+    import time
+    # 命中有效缓存
+    if _NAME_CACHE_FILE.exists():
+        age = time.time() - _NAME_CACHE_FILE.stat().st_mtime
+        if age < _NAME_CACHE_TTL:
+            try:
+                with open(_NAME_CACHE_FILE, encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception:
+                pass
+    # 重新拉取（绕过系统代理，与 screener._bypass_proxy 逻辑相同）
+    proxy_keys = ["http_proxy", "https_proxy", "HTTP_PROXY", "HTTPS_PROXY",
+                  "all_proxy", "ALL_PROXY"]
+    saved_env = {k: os.environ.pop(k) for k in proxy_keys if k in os.environ}
+    try:
+        import akshare as ak
+        df = ak.stock_info_a_code_name()  # 返回 code / name 两列，数据稳定
+        if 'code' in df.columns and 'name' in df.columns:
+            name_map = {str(row['code']).zfill(6): str(row['name']).strip()
+                        for _, row in df.iterrows()}
+            CACHE_DIR.mkdir(exist_ok=True)
+            with open(_NAME_CACHE_FILE, 'w', encoding='utf-8') as f:
+                json.dump(name_map, f, ensure_ascii=False)
+            return name_map
+    except Exception:
+        pass
+    finally:
+        os.environ.update(saved_env)
+    return {}
 
 
 # ══════════════════════════════════════════════════════════════
@@ -165,6 +200,7 @@ class MajorCapitalBT(bt.Strategy):
         return {
             'watch_start': None,
             'accumulation_days': 0,
+            'watch_signal_dates': [],   # 每日满足建仓条件的日期列表（最多保留60条）
             'in_position': False,
             'buy_price': 0.0,
             'highest_since_buy': 0.0,
@@ -433,14 +469,21 @@ class MajorCapitalBT(bt.Strategy):
             state['accumulation_days'] += 1
             if state['watch_start'] is None:
                 state['watch_start'] = len(d)
+            # 记录满足建仓条件的日期（去重，最多保留60条）
+            today_iso = self.datetime.date(0).isoformat()
+            if not state['watch_signal_dates'] or state['watch_signal_dates'][-1] != today_iso:
+                state['watch_signal_dates'].append(today_iso)
+                if len(state['watch_signal_dates']) > 60:
+                    state['watch_signal_dates'] = state['watch_signal_dates'][-60:]
         else:
             if state['accumulation_days'] < self.p.min_watch_days:
                 state['watch_start'] = None
                 state['accumulation_days'] = 0
+                state['watch_signal_dates'] = []
 
         # 阶段2：BUY 临界信号
         if state['watch_start'] is None or state['accumulation_days'] < self.p.min_watch_days:
-            return None, 0
+            return None, 0, {}
 
         trigger = ''
         trigger_strength = 0
@@ -503,23 +546,23 @@ class MajorCapitalBT(bt.Strategy):
                     trigger_strength = 2
 
         if not trigger:
-            return None, 0
+            return None, 0, {}
 
         # ★ 优化：RSI 上限过滤（拒绝超买入场）
         if rsi > self.p.rsi_buy_max:
-            return None, 0
+            return None, 0, {}
 
         # ★ 优化：单日涨幅上限（超过 breakout_max_pct 视为追高）
         prev_close = float(d.close[-1]) if len(d) > 1 else close
         day_pct = (close - prev_close) / prev_close * 100 if prev_close > 0 else 0
         if day_pct > self.p.breakout_max_pct:
-            return None, 0
+            return None, 0, {}
 
         # ★ 优化：趋势过滤（要求 MA20 > MA60，中期趋势向上）
         if self.p.trend_filter:
             ma60_val = float(ind['ma60'][0])
             if ma60_val == ma60_val and ma20_val <= ma60_val:
-                return None, 0
+                return None, 0, {}
 
         # ── 计算信心 ──
         conf = 0.3 + trigger_strength * 0.1
@@ -545,7 +588,18 @@ class MajorCapitalBT(bt.Strategy):
             f"累计{state['accumulation_days']}天 "
             f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}"
         )
-        return reason, conf
+        meta = {
+            'trigger':            trigger,
+            'accumulation_days':  state['accumulation_days'],
+            'watch_signal_dates': list(state['watch_signal_dates']),
+            'confidence':         round(conf, 3),
+            'rsi':                round(rsi, 1),
+            'near_low_pct':       round(near_low, 1) if near_low is not None else None,
+            'ma_converge_pct':    round(conv, 2) if conv is not None else None,
+            'yy_ratio':           round(yy_ratio, 2) if yy_ratio is not None else None,
+            'bb_narrow':          bb_narrow,
+        }
+        return reason, conf, meta
 
     # ══════════════════════════════════════════════════════════
     # 4. 核心 next — 信号收集 + 优先级排序 + 批量执行
@@ -571,11 +625,14 @@ class MajorCapitalBT(bt.Strategy):
                 except Exception:
                     state['breakout_day_low'] = order.executed.price * 0.95
                 self.trade_log.append({
-                    'date': self.datetime.date(0).isoformat(),
-                    'code': name, 'action': 'BUY',
-                    'price': order.executed.price,
-                    'size': order.executed.size,
-                    'reason': getattr(order, '_reason', ''),
+                    'date':       self.datetime.date(0).isoformat(),
+                    'code':       name,
+                    'action':     'BUY',
+                    'price':      order.executed.price,
+                    'size':       order.executed.size,
+                    'reason':     getattr(order, '_reason', ''),
+                    'confidence': getattr(order, '_conf', 0),
+                    'buy_meta':   getattr(order, '_buy_meta', {}),
                 })
             else:
                 state['in_position'] = False
@@ -641,9 +698,9 @@ class MajorCapitalBT(bt.Strategy):
                 continue
 
             # ── 未持仓 → 检查买入 ──
-            reason, conf = self._check_buy(d, state, ind)
+            reason, conf, meta = self._check_buy(d, state, ind)
             if reason:
-                buy_signals.append((d, reason, conf))
+                buy_signals.append((d, reason, conf, meta))
 
         # ── Phase 2：执行 SELL（优先释放仓位和资金） ──────
         for d, reason in sell_signals:
@@ -659,7 +716,7 @@ class MajorCapitalBT(bt.Strategy):
         n_freeing = len(sell_signals)
         available_slots = self.p.max_positions - n_held + n_freeing
 
-        for d, reason, conf in buy_signals:
+        for d, reason, conf, meta in buy_signals:
             if available_slots <= 0:
                 break
             name = d._name
@@ -678,6 +735,8 @@ class MajorCapitalBT(bt.Strategy):
 
             o = self.buy(data=d, size=shares)
             o._reason = reason
+            o._conf = conf
+            o._buy_meta = meta
             self.order_dict[name] = o
             available_slots -= 1
 
@@ -685,6 +744,7 @@ class MajorCapitalBT(bt.Strategy):
             state = self.stock_state[name]
             state['watch_start'] = None
             state['accumulation_days'] = 0
+            state['watch_signal_dates'] = []
 
 
 # ══════════════════════════════════════════════════════════════
@@ -1038,6 +1098,15 @@ async def run_for_web(strategy_name: str, start: str, end: str, cash: float,
     if loaded == 0:
         return {"error": "无有效历史数据可加载"}
 
+    # 用本地缓存（或 akshare）补全股票名称
+    try:
+        name_cache = _load_stock_name_cache()
+        for code in list(code_name_map.keys()):
+            if code in name_cache:
+                code_name_map[code] = name_cache[code]
+    except Exception:
+        pass
+
     log(f"加载 {loaded}/{n_stocks} 只股票数据")
 
     cerebro.addstrategy(
@@ -1165,6 +1234,8 @@ async def run_for_web(strategy_name: str, start: str, end: str, cash: float,
                 "pnl_pct":     pnl_pct,
                 "buy_reason":  bt_trade.get('reason', '') if bt_trade else '',
                 "sell_reason": t.get('reason', ''),
+                "confidence":  bt_trade.get('confidence', 0) if bt_trade else 0,
+                "buy_meta":    bt_trade.get('buy_meta', {}) if bt_trade else {},
             })
             # 逐股盈亏
             ps = per_stock.setdefault(code, {"trades": 0, "pnl": 0.0})
@@ -1186,6 +1257,8 @@ async def run_for_web(strategy_name: str, start: str, end: str, cash: float,
                 "pnl_pct":     0,
                 "buy_reason":  bt_trade.get('reason', ''),
                 "sell_reason": "持仓中",
+                "confidence":  bt_trade.get('confidence', 0),
+                "buy_meta":    bt_trade.get('buy_meta', {}),
             })
 
     # 按卖出日期降序排列（持仓中排最前）
@@ -1207,6 +1280,9 @@ async def run_for_web(strategy_name: str, start: str, end: str, cash: float,
         ps["pnl_pct"] = round(ps["pnl"] / total_buy * 100, 2) if total_buy > 0 else 0
 
     metrics["per_stock"] = per_stock
+    # 用 trades_paired 长度覆盖 total_trades，与交易详情"总交易"保持一致
+    # （Backtrader TradeAnalyzer.total.total 可能将分批买入计为多笔，导致数值偏大）
+    metrics["total_trades"] = len(trades_paired)
 
     log(f"回测完成: 收益={total_return*100:+.2f}% 夏普={sharpe:.2f} "
         f"最大回撤={max_dd*100:.2f}% 交易={total_trades}笔 胜率={win_rate*100:.1f}%")

@@ -1,0 +1,66 @@
+20:37:36 [INFO] mysql: [MySQL] 创建连接池...
+20:37:36 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+20:37:55 [INFO] mysql: [MySQL] 创建连接池...
+20:37:55 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+20:38:18 [INFO] mysql: [MySQL] 创建连接池...
+20:38:18 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:05:23 [INFO] mysql: [MySQL] 创建连接池...
+23:05:23 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:05:23 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+23:05:23 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+23:05:23 [INFO] migrate: [迁移] schedule_config: enabled=True
+23:05:23 [INFO] migrate: [迁移] 全部完成
+23:05:23 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+23:05:23 [INFO] web_app: [App] 调度器已启动
+23:05:23 [INFO] web_app: [调度器] 启动
+23:07:28 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=48 strategy=major_capital_accumulation
+23:11:47 [INFO] mysql: [MySQL] 连接池已关闭
+23:11:47 [INFO] web_app: [App] 调度器+连接池已停止
+23:14:59 [INFO] mysql: [MySQL] 创建连接池...
+23:14:59 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:14:59 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+23:14:59 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+23:14:59 [INFO] migrate: [迁移] schedule_config: enabled=True
+23:14:59 [INFO] migrate: [迁移] 全部完成
+23:14:59 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+23:14:59 [INFO] web_app: [App] 调度器已启动
+23:14:59 [INFO] web_app: [调度器] 启动
+23:15:35 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=49 strategy=major_capital_accumulation
+23:15:46 [INFO] mysql: [MySQL] 连接池已关闭
+23:15:46 [INFO] web_app: [App] 调度器+连接池已停止
+23:41:47 [INFO] mysql: [MySQL] 创建连接池...
+23:41:47 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:52:27 [INFO] mysql: [MySQL] 创建连接池...
+23:52:27 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:52:27 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+23:52:27 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+23:52:27 [INFO] migrate: [迁移] schedule_config: enabled=True
+23:52:27 [INFO] migrate: [迁移] 全部完成
+23:52:27 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+23:52:27 [INFO] web_app: [App] 调度器已启动
+23:52:27 [INFO] web_app: [调度器] 启动
+23:53:03 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=54 strategy=major_capital_accumulation
+23:55:20 [INFO] mysql: [MySQL] 连接池已关闭
+23:55:20 [INFO] web_app: [App] 调度器+连接池已停止
+23:55:29 [INFO] mysql: [MySQL] 创建连接池...
+23:55:29 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:55:29 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+23:55:29 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+23:55:29 [INFO] migrate: [迁移] schedule_config: enabled=True
+23:55:29 [INFO] migrate: [迁移] 全部完成
+23:55:29 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+23:55:29 [INFO] web_app: [App] 调度器已启动
+23:55:29 [INFO] web_app: [调度器] 启动
+23:56:23 [INFO] mysql: [MySQL] 连接池已关闭
+23:56:23 [INFO] web_app: [App] 调度器+连接池已停止
+23:56:35 [INFO] mysql: [MySQL] 创建连接池...
+23:56:35 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:56:35 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+23:56:35 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+23:56:35 [INFO] migrate: [迁移] schedule_config: enabled=True
+23:56:35 [INFO] migrate: [迁移] 全部完成
+23:56:35 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+23:56:35 [INFO] web_app: [App] 调度器已启动
+23:56:35 [INFO] web_app: [调度器] 启动
+00:35:43 [INFO] mysql: [MySQL] 连接池已关闭
+00:35:43 [INFO] web_app: [App] 调度器+连接池已停止

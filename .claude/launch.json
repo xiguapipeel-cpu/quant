@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "quant-web",
+      "runtimeExecutable": "/usr/local/bin/python3.14",
+      "runtimeArgs": ["-m", "uvicorn", "web.app:app", "--port", "8000"],
+      "port": 8000
+    }
+  ]
+}

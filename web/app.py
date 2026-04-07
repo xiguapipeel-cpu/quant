@@ -583,6 +583,17 @@ async def backtest_trades(bt_id: int):
                 final    = m.get("final_value", initial)
                 total_profit = round(final - initial, 2)
                 trades   = r.get("trades", [])
+                # 动态补全股票名称（兼容历史记录 name=code 的情况）
+                try:
+                    from backtest.bt_major_capital import _load_stock_name_cache
+                    name_cache = _load_stock_name_cache()
+                    if name_cache:
+                        for t in trades:
+                            code = t.get("code", "")
+                            if code and (not t.get("name") or t.get("name") == code):
+                                t["name"] = name_cache.get(code, code)
+                except Exception:
+                    pass
                 realized = round(sum(t.get("pnl", 0) for t in trades
                                      if t.get("sell_date") != "（持仓中）"), 2)
                 unrealized = round(total_profit - realized, 2)
@@ -1176,26 +1187,36 @@ async def open_ths(req: dict):
         return {"ok": False, "msg": "缺少股票代码"}
 
     try:
-        # 1. 将股票代码复制到系统剪贴板
+        # 1. 将股票代码复制到系统剪贴板（备用）
         subprocess.run(["pbcopy"], input=code.encode(), check=True)
 
-        # 2. 激活同花顺并尝试自动粘贴搜索
+        # 2. 激活同花顺，直接键入代码（大多数行情软件支持全局键盘截获直接跳转）
+        #    先键入代码，若失败再回退到 Cmd+V 粘贴
         script = f'''
             tell application "同花顺" to activate
-            delay 0.6
+            delay 0.8
             tell application "System Events"
-                keystroke "v" using command down
-                delay 0.2
+                -- 先按 Escape 退出当前搜索状态
+                key code 53
+                delay 0.3
+                -- 逐字符键入股票代码，每字符间隔50ms，确保同花顺搜索框完整接收
+                set theCode to "{code}"
+                repeat with c in characters of theCode
+                    keystroke c
+                    delay 0.05
+                end repeat
+                -- 等待同花顺完成搜索结果渲染后再按回车
+                delay 1.0
                 keystroke return
             end tell
         '''
         result = subprocess.run(
             ["osascript", "-e", script],
-            capture_output=True, text=True, timeout=5,
+            capture_output=True, text=True, timeout=8,
         )
 
         if result.returncode != 0:
-            # 自动粘贴失败（无辅助功能权限），仅打开同花顺 + 剪贴板已复制
+            # AppleScript 失败（无辅助功能权限），仅打开同花顺 + 剪贴板已复制
             subprocess.run(["open", "-a", "同花顺"], check=True)
             return {
                 "ok": True,

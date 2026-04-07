@@ -505,9 +505,11 @@ body{background:var(--bg);color:var(--text);font-family:'SF Pro Display',-apple-
         <div>
           <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">策略选择</label>
           <select id="bt-strategy" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+            <option value="major_capital_accumulation">主力建仓（核心策略）</option>
             <option value="trend_follow">趋势跟踪(EMA)</option>
             <option value="rsi_reversal">RSI反转</option>
             <option value="bollinger_revert">布林带回归</option>
+            <option value="major_capital_pump">主力拉升</option>
           </select>
         </div>
         <div>
@@ -522,11 +524,11 @@ body{background:var(--bg);color:var(--text);font-family:'SF Pro Display',-apple-
         <div class="grid-2" style="margin-bottom:0">
           <div>
             <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">开始日期</label>
-            <input type="date" id="bt-start" value="2022-01-01" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+            <input type="date" id="bt-start" value="2025-01-01" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
           </div>
           <div>
             <label style="font-size:12px;color:var(--text2);display:block;margin-bottom:5px">结束日期</label>
-            <input type="date" id="bt-end" value="2024-12-31" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+            <input type="date" id="bt-end" value="2026-03-31" style="width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:8px 10px;border-radius:var(--radius);font-family:inherit;font-size:13px">
           </div>
         </div>
         <div>
@@ -574,9 +576,11 @@ body{background:var(--bg);color:var(--text);font-family:'SF Pro Display',-apple-
   <div style="margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
     <div><div style="font-size:15px;font-weight:600">净值曲线</div><div style="font-size:12px;color:var(--text3);margin-top:2px">策略净值 vs 沪深300基准</div></div>
     <select id="equity-strategy-sel" onchange="loadEquity()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:7px 12px;border-radius:var(--radius);font-family:inherit;font-size:13px">
+      <option value="major_capital_accumulation">主力建仓</option>
       <option value="trend_follow">趋势跟踪</option>
       <option value="rsi_reversal">RSI反转</option>
       <option value="bollinger_revert">布林带回归</option>
+      <option value="major_capital_pump">主力拉升</option>
     </select>
   </div>
   <div class="grid-4" style="margin-bottom:16px">

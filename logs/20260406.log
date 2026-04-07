@@ -1,0 +1,539 @@
+14:15:18 [INFO] mysql: [MySQL] 创建连接池...
+14:15:19 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+14:15:40 [INFO] mysql: [MySQL] 创建连接池...
+14:15:40 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+14:15:53 [INFO] mysql: [MySQL] 创建连接池...
+14:15:53 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+14:16:15 [INFO] mysql: [MySQL] 创建连接池...
+14:16:15 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+14:16:15 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+14:16:15 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+14:16:15 [INFO] migrate: [迁移] schedule_config: enabled=True
+14:16:15 [INFO] migrate: [迁移] 全部完成
+14:16:15 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+14:16:15 [INFO] web_app: [App] 调度器已启动
+14:16:15 [INFO] web_app: [调度器] 启动
+14:27:41 [DEBUG] strategies: [主力建仓] 002155 验证通过 | 验证通过 | 来源: cache
+14:27:41 [DEBUG] strategies: [主力建仓] 601069 验证通过 | 验证通过 | 来源: cache
+14:27:41 [DEBUG] strategies: [主力建仓] 600143 验证通过 | 验证通过 | 来源: cache
+14:27:41 [DEBUG] strategies: [主力建仓] 002402 验证通过 | 验证通过 | 来源: cache
+14:27:41 [DEBUG] strategies: [主力建仓] 300611 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 002155 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 002155 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 601069 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 601069 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 600143 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 600143 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 002402 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 002402 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 300611 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 300611 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 002440 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 002440 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 000536 验证通过 | 验证通过 | 来源: cache
+14:27:56 [DEBUG] strategies: [主力建仓] 000536 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002250 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002250 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300132 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300132 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 003011 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 003011 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300409 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300409 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600251 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600251 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000792 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000792 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000688 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000688 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300702 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300702 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301607 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301607 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300772 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300772 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600310 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600310 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300456 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300456 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002440 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002440 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688557 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688557 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300394 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300394 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600105 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600105 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301161 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301161 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 003002 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 003002 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603566 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603566 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688772 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688772 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002487 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002487 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300940 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300940 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600429 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600429 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002448 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002448 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688600 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688600 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002237 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002237 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002130 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002130 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688518 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688518 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002170 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002170 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000988 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000988 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600195 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600195 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000547 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000547 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002755 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002755 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002824 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002824 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000600 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000600 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688136 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688136 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301155 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301155 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300573 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300573 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688049 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688049 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603358 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603358 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600389 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600389 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600867 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600867 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688099 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688099 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600143 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600143 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600549 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600549 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000803 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000803 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002171 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002171 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002384 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002384 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002957 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002957 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688006 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688006 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603162 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603162 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001389 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001389 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301381 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301381 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002192 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002192 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600498 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600498 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603101 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603101 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002010 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002010 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300502 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300502 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 003017 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 003017 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002637 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002637 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001309 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001309 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600595 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600595 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600497 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600497 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002209 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002209 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300827 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300827 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002155 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002155 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301031 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301031 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603151 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603151 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600392 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600392 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688410 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688410 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601233 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601233 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300763 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300763 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603890 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603890 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 605020 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 605020 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603379 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603379 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300136 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300136 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000815 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000815 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601899 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601899 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601968 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601968 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002203 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002203 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301235 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 301235 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688269 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688269 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002015 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002015 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600983 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600983 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002006 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002006 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300083 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300083 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601069 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601069 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001696 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001696 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300611 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300611 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600685 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600685 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300602 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300602 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600666 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600666 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688501 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688501 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603678 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603678 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002594 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002594 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688639 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688639 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688117 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688117 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000935 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000935 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300059 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300059 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688665 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688665 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000576 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000576 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603259 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603259 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600487 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600487 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000877 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 000877 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603486 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603486 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001288 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 001288 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603969 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 603969 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600276 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 600276 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002565 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002565 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601318 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601318 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601872 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 601872 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688162 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 688162 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002511 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 002511 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300274 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300274 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300757 验证通过 | 验证通过 | 来源: cache
+14:28:16 [DEBUG] strategies: [主力建仓] 300757 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600519 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600519 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603997 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603997 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688213 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688213 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002361 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002361 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300473 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300473 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301283 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301283 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301220 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301220 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603659 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603659 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688205 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688205 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002428 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002428 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603081 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603081 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600036 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600036 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002050 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002050 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600989 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600989 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300760 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300760 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300342 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300342 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688379 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688379 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688525 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688525 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002688 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002688 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603313 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603313 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000893 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000893 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002553 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002553 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301356 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301356 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601016 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601016 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300438 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300438 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300201 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300201 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 605189 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 605189 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600711 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600711 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002396 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002396 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002545 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002545 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000938 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000938 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300967 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300967 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603612 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603612 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300251 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300251 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000617 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000617 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603737 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603737 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000876 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000876 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603506 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603506 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600166 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600166 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688236 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688236 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600930 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600930 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603778 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603778 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300790 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300790 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603876 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603876 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600686 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600686 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601138 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601138 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600089 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600089 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 001228 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 001228 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601636 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601636 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002402 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002402 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300035 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300035 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002475 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002475 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 003010 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 003010 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300041 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300041 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300681 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300681 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300389 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300389 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603236 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603236 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002340 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002340 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002225 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002225 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002928 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002928 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300644 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300644 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301446 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301446 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300475 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300475 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603288 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603288 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002734 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002734 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688313 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688313 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688411 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688411 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300383 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300383 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601020 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601020 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603601 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603601 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300750 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300750 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603538 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603538 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 689009 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 689009 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002970 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002970 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300207 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300207 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002202 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002202 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600821 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600821 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002463 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002463 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600726 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600726 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002371 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002371 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301308 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301308 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 001896 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 001896 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002497 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002497 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002258 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002258 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688521 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688521 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002281 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002281 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002709 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002709 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603986 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603986 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300014 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300014 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688048 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688048 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601088 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601088 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002460 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002460 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300476 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300476 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300620 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300620 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603993 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603993 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000858 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000858 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688041 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688041 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688008 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688008 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002790 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002790 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603270 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603270 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300138 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300138 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600649 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600649 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002284 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002284 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601869 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 601869 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688195 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 688195 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603186 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603186 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002309 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002309 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002721 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002721 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603267 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603267 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000536 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000536 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301345 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 301345 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000592 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 000592 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300130 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300130 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002222 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 002222 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603628 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 603628 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600522 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 600522 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300548 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300548 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300053 验证通过 | 验证通过 | 来源: cache
+14:28:17 [DEBUG] strategies: [主力建仓] 300053 验证通过 | 验证通过 | 来源: cache
+14:40:10 [INFO] mysql: [MySQL] 创建连接池...
+14:40:10 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+15:33:07 [INFO] mysql: [MySQL] 创建连接池...
+15:33:07 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+15:33:07 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+15:33:07 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+15:33:07 [INFO] migrate: [迁移] schedule_config: enabled=True
+15:33:07 [INFO] migrate: [迁移] 全部完成
+15:33:07 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+15:33:07 [INFO] web_app: [App] 调度器已启动
+15:33:07 [INFO] web_app: [调度器] 启动
+15:34:12 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=60 strategy=major_capital_accumulation
+15:53:11 [INFO] mysql: [MySQL] 连接池已关闭
+15:53:11 [INFO] web_app: [App] 调度器+连接池已停止
+15:53:11 [INFO] mysql: [MySQL] 连接池已关闭
+15:53:11 [INFO] web_app: [App] 调度器+连接池已停止
+15:53:13 [INFO] mysql: [MySQL] 创建连接池...
+15:53:13 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+15:53:13 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+15:53:13 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+15:53:13 [INFO] migrate: [迁移] schedule_config: enabled=True
+15:53:13 [INFO] migrate: [迁移] 全部完成
+15:53:13 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+15:53:13 [INFO] web_app: [App] 调度器已启动
+15:53:13 [INFO] web_app: [调度器] 启动
+23:14:12 [INFO] mysql: [MySQL] 连接池已关闭
+23:14:12 [INFO] web_app: [App] 调度器+连接池已停止
+23:14:14 [INFO] mysql: [MySQL] 创建连接池...
+23:14:14 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:14:14 [INFO] migrate: [迁移] scan_results.json 不存在，跳过
+23:14:14 [INFO] migrate: [迁移] backtest_results.json 不存在，跳过
+23:14:14 [INFO] migrate: [迁移] schedule_config: enabled=True
+23:14:14 [INFO] migrate: [迁移] 全部完成
+23:14:14 [INFO] web_app: [App] MySQL 就绪，已恢复扫描数据
+23:14:14 [INFO] web_app: [App] 调度器已启动
+23:14:14 [INFO] web_app: [调度器] 启动
+23:19:10 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=61 strategy=major_capital_accumulation
+14:58:02 [INFO] mysql: [MySQL] 连接池已关闭
+14:58:02 [INFO] web_app: [App] 调度器+连接池已停止

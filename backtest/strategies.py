@@ -690,10 +690,10 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         ma_slope_max:       float = 0.05,
         bb_period:          int   = 20,
         bb_narrow_ratio:    float = 0.85,
-        vol_yang_yin_min:   float = 1.03,
+        vol_yang_yin_min:   float = 0.98,     # ★ v3优化：1.03→0.98（数据覆盖率6%→合理）
         vol_lookback:       int   = 30,
         rsi_watch_min:      float = 25.0,
-        rsi_watch_max:      float = 62.0,
+        rsi_watch_max:      float = 68.0,    # ★ v3优化：62→68（关键！62覆盖率0%）
         # ── 阶段2（BUY 临界信号）参数 ──
         min_watch_days:     int   = 15,     # WATCH 后至少观察N天才能触发 BUY
         breakout_pct:       float = 4.0,    # 突破涨幅阈值（比建仓期更高）
@@ -715,6 +715,12 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         dist_shadow_pct:    float = 0.35,   # 上影线占K线总幅度的比例阈值
         dist_min_gain:      float = 0.10,   # 只有已盈利≥此比例时才启用出货检测
         dist_confirm_ma:    int   = 10,     # 冲高回落后跌破此均线才确认出场（MA10）
+        # ── 缩幅放量（SBV）检测 ──
+        sbv_body_ratio:     float = 0.8,    # ★ v3新增：实体<均值80%视为"小柱体"
+        sbv_vol_ratio:      float = 1.5,    # ★ v3新增：量比≥1.5视为"放量"
+        sbv_min_count:      int   = 3,      # ★ v3新增：建仓期至少出现3次缩幅放量
+        sbv_lookback:       int   = 60,     # ★ v3新增：回溯窗口
+        sbv_confidence_boost: float = 0.15, # ★ v3新增：满足SBV条件时信心加分
     ):
         self.low_lookback = low_lookback
         self.max_above_low_pct = max_above_low_pct
@@ -743,6 +749,11 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         self.dist_shadow_pct = dist_shadow_pct
         self.dist_min_gain = dist_min_gain
         self.dist_confirm_ma = dist_confirm_ma
+        self.sbv_body_ratio = sbv_body_ratio
+        self.sbv_vol_ratio = sbv_vol_ratio
+        self.sbv_min_count = sbv_min_count
+        self.sbv_lookback = sbv_lookback
+        self.sbv_confidence_boost = sbv_confidence_boost
 
     # ── 辅助指标 ──────────────────────────────────────────
 
@@ -828,6 +839,30 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
             return False
         return bb_bw[i] < (sum(recent) / len(recent)) * self.bb_narrow_ratio
 
+    # ── 缩幅放量检测 ──────────────────────────────────────
+    def _check_sbv(self, closes, opens, volumes, i):
+        """检测小柱体+大成交量（主力隐蔽建仓特征）"""
+        if i < 20:
+            return False
+        prev_close = closes[i - 1]
+        if prev_close <= 0:
+            return False
+        body_pct = abs(closes[i] - opens[i]) / prev_close * 100
+        # 计算近期平均柱体
+        lookback = min(self.sbv_lookback, i)
+        recent_bodies = []
+        for j in range(i - lookback, i):
+            pc = closes[j - 1] if j > 0 else opens[j]
+            if pc > 0:
+                recent_bodies.append(abs(closes[j] - opens[j]) / pc * 100)
+        if not recent_bodies:
+            return False
+        avg_body = sum(recent_bodies) / len(recent_bodies)
+        # 计算量比
+        avg_vol = sum(volumes[i - 20:i]) / 20
+        vol_ratio = volumes[i] / avg_vol if avg_vol > 0 else 0
+        return body_pct <= avg_body * self.sbv_body_ratio and vol_ratio >= self.sbv_vol_ratio
+
     # ── 核心信号（两阶段） ────────────────────────────────
 
     def _signals(self, code: str, bars: list[dict], extra: dict) -> list[Signal]:
@@ -867,6 +902,7 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         # ★ 两阶段核心状态
         watch_start_idx: Optional[int] = None   # WATCH 阶段起始 bar 索引
         accumulation_days = 0                     # 满足建仓条件的累计天数
+        sbv_count = 0                             # ★ v3新增：缩幅放量天数计数
 
         for i in range(min_len, len(bars)):
             close = closes[i]
@@ -1016,6 +1052,10 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
             # 未持仓 → 两阶段检测
             # ════════════════════════════════════════════
 
+            # ── 缩幅放量检测（每日独立，不依赖 is_accumulating） ──
+            if self._check_sbv(closes, opens, volumes, i):
+                sbv_count += 1
+
             # ── 检测当前是否满足"建仓中"条件 ──
             near_low = self._near_low(closes, i, self.low_lookback)
             conv = self._ma_convergence(ma5, ma10, ma20, i)
@@ -1051,10 +1091,15 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
                 if accumulation_days < self.min_watch_days:
                     watch_start_idx = None
                     accumulation_days = 0
+                    sbv_count = 0  # 重置缩幅放量计数
 
             # ── 阶段2：建仓完毕临界信号 → BUY ──
+            # ★ v3优化：缩幅放量充分时，缩短最小观察天数（20→12）
+            effective_min_days = self.min_watch_days
+            if sbv_count >= self.sbv_min_count:
+                effective_min_days = max(12, self.min_watch_days - 8)
             # 前提：已观察到足够长的建仓期
-            if watch_start_idx is None or accumulation_days < self.min_watch_days:
+            if watch_start_idx is None or accumulation_days < effective_min_days:
                 continue
 
             watched_days = i - watch_start_idx
@@ -1115,13 +1160,18 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
                 self._is_bb_narrow(bb_bw, j) for j in range(max(min_len, i - 10), i))
             if bb_narrow:
                 conf += 0.10
+            # ★ v3新增：缩幅放量信心加分
+            has_sbv = sbv_count >= self.sbv_min_count
+            if has_sbv:
+                conf += self.sbv_confidence_boost
             conf = min(conf, 1.0)
 
+            sbv_tag = f" SBV={sbv_count}天" if sbv_count > 0 else ""
             signals.append(Signal(
                 dates[i], code, "BUY", close,
                 f"建仓完毕即将拉升: {trigger} | "
                 f"已建仓{accumulation_days}天 观察{watched_days}天 "
-                f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}",
+                f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}{sbv_tag}",
                 confidence=conf,
             ))
             in_position = True
@@ -1132,6 +1182,7 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
             # 重置观察状态
             watch_start_idx = None
             accumulation_days = 0
+            sbv_count = 0
 
         return signals
 

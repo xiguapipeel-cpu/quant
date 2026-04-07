@@ -77,7 +77,7 @@ class DynamicScreener:
         max_price:      float = 500.0,    # 最高股价
         exclude_st:     bool  = True,     # 排除ST
         min_list_days:  int   = 120,      # 最少上市天数
-        top_n:          int   = 50,       # 最多选多少只
+        top_n:          int   = 300,      # 最多选多少只
         trend_filter:   bool  = False,    # 是否启用趋势过滤（价格>MA60）
     ):
         self.min_cap_yi = min_cap_yi
@@ -422,22 +422,22 @@ SCREEN_PRESETS = {
     "large_cap": {
         "label": "大盘蓝筹",
         "desc":  "市值>500亿，成交活跃",
-        "params": {"min_cap_yi": 500, "min_amount_wan": 10000, "top_n": 30},
+        "params": {"min_cap_yi": 500, "min_amount_wan": 10000, "top_n": 100},
     },
     "mid_cap": {
         "label": "中盘成长",
         "desc":  "市值100~1000亿，成长性好",
-        "params": {"min_cap_yi": 100, "max_cap_yi": 1000, "min_amount_wan": 5000, "top_n": 50},
+        "params": {"min_cap_yi": 100, "max_cap_yi": 1000, "min_amount_wan": 5000, "top_n": 300},
     },
     "active": {
         "label": "活跃热门",
-        "desc":  "成交额前50，不限市值",
-        "params": {"min_cap_yi": 50, "min_amount_wan": 10000, "top_n": 50},
+        "desc":  "成交额前300，不限市值",
+        "params": {"min_cap_yi": 50, "min_amount_wan": 10000, "top_n": 300},
     },
     "default": {
         "label": "默认筛选",
         "desc":  "市值>100亿，成交>5000万",
-        "params": {"min_cap_yi": 100, "min_amount_wan": 5000, "top_n": 50},
+        "params": {"min_cap_yi": 100, "min_amount_wan": 5000, "top_n": 300},
     },
     "major_capital_pump": {
         "label": "主力拉升",
@@ -450,7 +450,7 @@ SCREEN_PRESETS = {
             "max_price":      200.0,
             "exclude_st":     True,
             "min_list_days":  180,    # 上市半年以上，排除次新
-            "top_n":          80,     # 更大候选池，增加覆盖率
+            "top_n":          300,    # 大幅扩大候选池
         },
     },
     "major_capital_accumulation": {
@@ -464,7 +464,7 @@ SCREEN_PRESETS = {
             "max_price":      50.0,   # 放宽至50元（建仓期低价，拉升后价格上涨）
             "exclude_st":     True,
             "min_list_days":  360,    # 上市1年以上，有足够历史数据
-            "top_n":          200,    # 更大候选池
+            "top_n":          500,    # 大幅扩大候选池
         },
     },
 }

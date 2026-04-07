@@ -34,3 +34,36 @@
 16:57:27 [INFO] daily_scan:   WATCH 600143 金发科技 信号日=2026-04-01
 16:57:27 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=28 保留旧标的=5 总计=33
 16:57:27 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=28
+18:04:24 [INFO] daily_scan: [日扫描] 开始 手动 主力建仓选股 @ 2026-04-03 18:04
+18:04:24 [INFO] daily_scan: [日扫描] 初筛候选股 111 只
+18:04:25 [INFO] daily_scan: [日扫描] 命中 BUY=0 WATCH=28
+18:04:25 [INFO] daily_scan:   WATCH 300035 中科电气 信号日=2026-04-02
+18:04:25 [INFO] daily_scan:   WATCH 300772 运达股份 信号日=2026-04-02
+18:04:25 [INFO] daily_scan:   WATCH 300702 天宇股份 信号日=2026-04-02
+18:04:25 [INFO] daily_scan:   WATCH 603737 三棵树 信号日=2026-04-02
+18:04:25 [INFO] daily_scan:   WATCH 600143 金发科技 信号日=2026-04-01
+18:04:25 [INFO] push: [企业微信] 失败: {'errcode': 40058, 'errmsg': 'markdown.content exceed max length 4096. invalid Request Parameter, hint: [1775210665499302537034989], from ip: 27.37.20.35, more info at https://open.work.weixin.qq.com/devtool/query?e=40058'}
+18:04:25 [INFO] push: [推送] 完成 0/1 渠道成功
+18:04:25 [INFO] daily_scan: [日扫描] 推送完成: 0/1 渠道成功
+18:04:25 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=28 保留旧标的=5 总计=33
+18:04:25 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=28
+14:19:01 [INFO] daily_scan: [日扫描] 开始 手动 主力建仓选股 @ 2026-04-06 14:19
+14:19:02 [INFO] daily_scan: [日扫描] 初筛候选股 113 只
+14:19:04 [INFO] daily_scan: [日扫描] 命中 BUY=0 WATCH=36
+14:19:04 [INFO] daily_scan:   WATCH 002340 格林美 信号日=2026-04-03
+14:19:04 [INFO] daily_scan:   WATCH 300681 英搏尔 信号日=2026-04-03
+14:19:04 [INFO] daily_scan:   WATCH 600251 冠农股份 信号日=2026-04-03
+14:19:04 [INFO] daily_scan:   WATCH 603162 海通发展 信号日=2026-04-03
+14:19:04 [INFO] daily_scan:   WATCH 600429 三元股份 信号日=2026-04-03
+14:19:04 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=36 保留旧标的=4 总计=40
+14:19:04 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=36
+14:30:35 [INFO] daily_scan: [日扫描] 开始 手动 主力建仓选股 @ 2026-04-06 14:30
+14:30:35 [INFO] daily_scan: [日扫描] 初筛候选股 113 只
+14:30:35 [INFO] daily_scan: [日扫描] 命中 BUY=0 WATCH=36
+14:30:35 [INFO] daily_scan:   WATCH 002340 格林美 信号日=2026-04-03
+14:30:35 [INFO] daily_scan:   WATCH 300681 英搏尔 信号日=2026-04-03
+14:30:35 [INFO] daily_scan:   WATCH 600251 冠农股份 信号日=2026-04-03
+14:30:35 [INFO] daily_scan:   WATCH 603162 海通发展 信号日=2026-04-03
+14:30:35 [INFO] daily_scan:   WATCH 600429 三元股份 信号日=2026-04-03
+14:30:35 [INFO] daily_scan: [日扫描] 合并结果: 新增/更新=36 保留旧标的=4 总计=40
+14:30:35 [INFO] daily_scan: [日扫描] Web 状态已更新并持久化 | BUY=0 WATCH=36
