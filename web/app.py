@@ -721,6 +721,141 @@ async def run_screen(preset: str = "default"):
     return {"count": len(stocks), "stocks": stocks[:100]}
 
 
+# ══════════════════════════════════════════════════════════
+# API: 本地数据仓库（选股中心）
+# ══════════════════════════════════════════════════════════
+
+@app.get("/api/market/status")
+async def market_status():
+    """返回本地数据仓库状态：股票数量、最新数据日期、K线覆盖情况"""
+    try:
+        from backtest.local_screener import get_data_warehouse_status
+        status = await get_data_warehouse_status()
+        return {"ok": True, **status}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
+@app.post("/api/market/update")
+async def trigger_market_update(
+    background_tasks: BackgroundTasks,
+    skip_kline: bool = False,
+):
+    """
+    手动触发每日行情数据更新（通常由 crontab 自动调用，也可在此手动触发）。
+    skip_kline=true 时只更新快照（约30秒），skip_kline=false 时同时更新K线（约20分钟）。
+    """
+    if state.get("market_update_running"):
+        return JSONResponse({"error": "数据更新已在进行中"}, status_code=409)
+
+    async def _do_update():
+        state["market_update_running"] = True
+        try:
+            from scripts.daily_data_update import run_daily_update
+            result = await run_daily_update(skip_kline=skip_kline)
+            await ws_manager.broadcast({"type": "market_update_done", "data": result})
+            logger.info(f"[Web] 行情更新完成: {result}")
+        except Exception as e:
+            logger.error(f"[Web] 行情更新失败: {e}")
+            await ws_manager.broadcast({"type": "market_update_error", "data": str(e)})
+        finally:
+            state["market_update_running"] = False
+
+    state["market_update_running"] = False  # 确保 key 存在
+    background_tasks.add_task(_do_update)
+    return {"message": "行情数据更新已启动", "skip_kline": skip_kline}
+
+
+@app.get("/api/market/presets")
+async def market_screen_presets():
+    """返回本地选股预设列表（含扩展预设如 value、high_turnover）"""
+    from backtest.local_screener import LOCAL_SCREEN_PRESETS
+    return [{"id": k, **v} for k, v in LOCAL_SCREEN_PRESETS.items()]
+
+
+@app.post("/api/market/screen")
+async def market_screen(
+    preset:         str   = "default",
+    min_cap_yi:     float = 0,
+    max_cap_yi:     float = 0,
+    min_amount_wan: float = 0,
+    min_price:      float = 0,
+    max_price:      float = 0,
+    exclude_st:     bool  = True,
+    min_list_days:  int   = 0,
+    industry:       str   = "",
+    min_pe:         Optional[float] = None,
+    max_pe:         Optional[float] = None,
+    min_pb:         Optional[float] = None,
+    min_turnover:   Optional[float] = None,
+    order_by:       str   = "amount DESC",
+    top_n:          int   = 500,
+    with_signals:   bool  = False,   # 是否追加 Backtrader 策略信号分析
+    strategy:       str   = "",      # with_signals=True 时使用的策略名
+):
+    """
+    从本地数据仓库执行 SQL 选股。
+    with_signals=True 时，额外对筛选结果跑 Backtrader 策略分析，
+    返回 signal_date / signal_dates / match_score（与实时行情模式完全一致）。
+    """
+    from backtest.local_screener import LocalScreener, LOCAL_SCREEN_PRESETS
+
+    base_params = {}
+    if preset and preset in LOCAL_SCREEN_PRESETS:
+        base_params = dict(LOCAL_SCREEN_PRESETS[preset].get("params", {}))
+
+    overrides = {
+        "min_cap_yi":     min_cap_yi,
+        "max_cap_yi":     max_cap_yi,
+        "min_amount_wan": min_amount_wan,
+        "min_price":      min_price,
+        "max_price":      max_price,
+        "exclude_st":     exclude_st,
+        "min_list_days":  min_list_days,
+        "top_n":          top_n,
+        "order_by":       order_by,
+    }
+    if industry:
+        overrides["industry"] = industry
+    if min_pe is not None:
+        overrides["min_pe"] = min_pe
+    if max_pe is not None:
+        overrides["max_pe"] = max_pe
+    if min_pb is not None:
+        overrides["min_pb"] = min_pb
+    if min_turnover is not None:
+        overrides["min_turnover"] = min_turnover
+
+    for k, v in overrides.items():
+        if isinstance(v, (int, float)) and v != 0:
+            base_params[k] = v
+        elif isinstance(v, str) and v and k not in ("order_by",):
+            base_params[k] = v
+        elif k in ("exclude_st", "order_by", "industry", "min_pe", "max_pe", "min_pb", "min_turnover"):
+            base_params[k] = v
+
+    screener = LocalScreener(**base_params)
+    try:
+        candidates = await screener.screen()
+    except Exception as e:
+        return JSONResponse({"error": str(e), "stocks": []}, status_code=500)
+
+    # 可选：追加 Backtrader 策略信号分析
+    if with_signals and candidates:
+        from backtest.strategy_analyzer import analyze_stocks
+        strategy_name = strategy or preset  # 策略名默认与 preset 对齐
+        stocks = await analyze_stocks(candidates, strategy_name=strategy_name)
+    else:
+        stocks = candidates
+
+    return {
+        "count":        len(stocks),
+        "preset":       preset,
+        "with_signals": with_signals,
+        "stocks":       stocks,
+    }
+
+
 @app.get("/api/system/info")
 async def system_info():
     from config.settings import DATA_SOURCES, SEARCH_ENGINES

@@ -1041,3 +1041,71 @@
 17:50:36 [INFO] web_app: [App] 调度器已启动
 17:50:36 [INFO] web_app: [调度器] 启动
 17:51:09 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=72 strategy=major_capital_accumulation
+23:37:30 [INFO] daily_update: ============================================================
+23:37:30 [INFO] daily_update: [更新] 开始每日数据更新 2026-04-07 23:37:30
+23:37:30 [INFO] daily_update: ============================================================
+23:38:41 [INFO] daily_update: ============================================================
+23:38:41 [INFO] daily_update: [更新] 开始每日数据更新 2026-04-07 23:38:41
+23:38:41 [INFO] daily_update: ============================================================
+23:38:41 [INFO] mysql: [MySQL] 创建连接池...
+23:38:41 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:38:41 [INFO] daily_update: [快照] 开始拉取全市场行情 (ak.stock_zh_a_spot_em)...
+23:38:51 [ERROR] daily_update: [快照] AkShare 拉取失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+23:38:51 [ERROR] daily_update: [更新] 快照更新失败: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+23:38:51 [INFO] daily_update: [基础信息] 无需补全，所有股票信息完整
+23:38:51 [INFO] daily_update: [更新] 全部完成，总耗时 10s
+23:38:51 [INFO] daily_update: [更新] 结果: {'snapshot': {'error': "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}, 'basic': {'updated': 0}, 'kline': {'skipped': True}}
+23:41:32 [INFO] daily_update: ============================================================
+23:41:32 [INFO] daily_update: [更新] 开始每日数据更新 2026-04-07 23:41:32
+23:41:32 [INFO] daily_update: ============================================================
+23:41:32 [INFO] mysql: [MySQL] 创建连接池...
+23:41:32 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:41:32 [INFO] daily_update: [快照] 开始拉取全市场行情 (EastMoney xuangu 直连)...
+23:41:33 [ERROR] daily_update: [更新] 快照更新失败: 500 Server Error: Internal Error for url: https://data.eastmoney.com/dataapi/xuangu/list?sty=SECUCODE%2CSECURITY_NAME_ABBR%2CNEW_PRICE%2CCHANGE_RATE%2CVOLUME%2CDEAL_AMOUNT%2CTOTAL_MARKET_CAP%2CFREE_MARKET_CAP%2CPE_TTM%2CPB_MRQ%2CTURNOVERRATE%2CAMPLITUDE%2CHIGH_PRICE%2CLOW_PRICE%2COPEN_PRICE%2CPRE_CLOSE_PRICE%2CVOLUME_RATIO%2CLISTING_DATE%2CINDUSTRY&filter=&p=1&ps=3000&fd=
+23:41:33 [INFO] daily_update: [基础信息] 无需补全，所有股票信息完整
+23:41:33 [INFO] daily_update: [更新] 全部完成，总耗时 1s
+23:41:33 [INFO] daily_update: [更新] 结果: {'snapshot': {'error': '500 Server Error: Internal Error for url: https://data.eastmoney.com/dataapi/xuangu/list?sty=SECUCODE%2CSECURITY_NAME_ABBR%2CNEW_PRICE%2CCHANGE_RATE%2CVOLUME%2CDEAL_AMOUNT%2CTOTAL_MARKET_CAP%2CFREE_MARKET_CAP%2CPE_TTM%2CPB_MRQ%2CTURNOVERRATE%2CAMPLITUDE%2CHIGH_PRICE%2CLOW_PRICE%2COPEN_PRICE%2CPRE_CLOSE_PRICE%2CVOLUME_RATIO%2CLISTING_DATE%2CINDUSTRY&filter=&p=1&ps=3000&fd='}, 'basic': {'updated': 0}, 'kline': {'skipped': True}}
+23:47:45 [INFO] daily_update: ============================================================
+23:47:45 [INFO] daily_update: [更新] 开始每日数据更新 2026-04-07 23:47:45
+23:47:45 [INFO] daily_update: ============================================================
+23:47:45 [INFO] mysql: [MySQL] 创建连接池...
+23:47:45 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:47:45 [INFO] daily_update: [快照] 开始拉取全市场行情 (EastMoney xuangu 直连)...
+23:47:45 [INFO] daily_update: [快照] 第1页 100 条，累计 100/5484
+23:47:46 [INFO] daily_update: [快照] 第2页 33 条，累计 133/5484
+23:47:46 [INFO] daily_update: [快照] 获取 133 条原始数据，耗时 1.0s，开始处理...
+23:47:46 [INFO] daily_update: [快照] 完成：133 只股票，受影响 133 行，耗时 1.1s
+23:47:46 [INFO] daily_update: [基础信息] 无需补全，所有股票信息完整
+23:47:46 [INFO] daily_update: [更新] 全部完成，总耗时 1s
+23:47:46 [INFO] daily_update: [更新] 结果: {'snapshot': {'total': 133, 'inserted': 133, 'trade_date': '2026-04-07'}, 'basic': {'updated': 0}, 'kline': {'skipped': True}}
+23:56:54 [INFO] daily_update: ============================================================
+23:56:54 [INFO] daily_update: [更新] 开始每日数据更新 2026-04-07 23:56:54
+23:56:54 [INFO] daily_update: ============================================================
+23:56:54 [INFO] mysql: [MySQL] 创建连接池...
+23:56:54 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:56:54 [INFO] daily_update: [快照] Step-A 拉取新浪全量行情 (ak.stock_zh_a_spot)...
+23:56:55 [ERROR] daily_update: [更新] 快照更新失败: Can not decode value starting with character '<'
+23:56:55 [INFO] daily_update: [基础信息] 无需补全，所有股票信息完整
+23:56:55 [INFO] daily_update: [更新] 全部完成，总耗时 1s
+23:56:55 [INFO] daily_update: [更新] 结果: {'snapshot': {'error': "Can not decode value starting with character '<'"}, 'basic': {'updated': 0}, 'kline': {'skipped': True}}
+23:57:14 [INFO] daily_update: ============================================================
+23:57:14 [INFO] daily_update: [更新] 开始每日数据更新 2026-04-07 23:57:14
+23:57:14 [INFO] daily_update: ============================================================
+23:57:14 [INFO] mysql: [MySQL] 创建连接池...
+23:57:14 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+23:57:14 [INFO] daily_update: [快照] Step-A 拉取新浪全量行情 (ak.stock_zh_a_spot)...
+23:57:15 [WARNING] daily_update: [快照] 新浪第1次速率限制（返回HTML），5秒后重试...
+23:57:21 [WARNING] daily_update: [快照] 新浪第2次速率限制（返回HTML），5秒后重试...
+23:57:26 [WARNING] daily_update: [快照] 新浪第3次速率限制（返回HTML），5秒后重试...
+23:57:31 [ERROR] daily_update: [更新] 快照更新失败: [快照] ak.stock_zh_a_spot() 三次重试均失败
+23:57:31 [INFO] daily_update: [基础信息] 无需补全，所有股票信息完整
+23:57:31 [INFO] daily_update: [更新] 全部完成，总耗时 17s
+23:57:31 [INFO] daily_update: [更新] 结果: {'snapshot': {'error': '[快照] ak.stock_zh_a_spot() 三次重试均失败'}, 'basic': {'updated': 0}, 'kline': {'skipped': True}}
+15:35:21 [INFO] web_app: [调度器] 触发主力拉升选股 15:35
+15:35:21 [DEBUG] sched_dao: [sched_dao] 配置已更新: {'last_run': '2026-04-08 15:35', 'last_status': 'running'}
+15:35:25 [INFO] scan_dao: [scan_dao] major_capital_accumulation 写入 59 条扫描结果
+15:35:25 [DEBUG] sched_dao: [sched_dao] 配置已更新: {'last_status': '完成 | 48只信号'}
+10:51:17 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=75 strategy=major_capital_accumulation
+16:22:00 [INFO] bt_dao: [bt_dao] 回测结果已入库 id=76 strategy=major_capital_accumulation
+17:03:31 [INFO] mysql: [MySQL] 连接池已关闭
+17:03:31 [INFO] web_app: [App] 调度器+连接池已停止

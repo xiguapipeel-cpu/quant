@@ -1,0 +1,44 @@
+08:54:08 [INFO] mysql: [MySQL] 创建连接池...
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Integer display width is deprecated and will be removed in a future release.
+  await self._query(query)
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Table 'stock_basic' already exists
+  await self._query(query)
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Table 'stock_snapshot' already exists
+  await self._query(query)
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Table 'stock_daily' already exists
+  await self._query(query)
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Table 'scan_results' already exists
+  await self._query(query)
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Table 'backtest_results' already exists
+  await self._query(query)
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: Table 'schedule_config' already exists
+  await self._query(query)
+08:54:09 [INFO] mysql: [MySQL] 连接池就绪，表结构已检查
+08:54:09 [INFO] init_history: ============================================================
+08:54:09 [INFO] init_history: [初始化] 历史数据范围: 2024-04-09 ~ 2026-04-09（2年）
+08:54:09 [INFO] init_history: ============================================================
+login success!
+08:54:10 [INFO] init_history: [Baostock] 登录成功
+08:54:20 [INFO] init_history: [股票列表] 共 5195 只上市 A 股
+08:54:20 [INFO] init_history: [断点续传] 已跳过 419 只有历史数据的股票
+08:54:20 [INFO] init_history: [拉取] 共 4776 只股票，4 进程并发（每进程约 1194 只）...
+09:17:05 [INFO] init_history: [进度] 1194/4776 (25%) | 已写 567752 行 | 耗时 22.8min
+09:17:59 [INFO] init_history: [进度] 2388/4776 (50%) | 已写 1111833 行 | 耗时 23.7min
+09:18:52 [INFO] init_history: [进度] 3582/4776 (75%) | 已写 1648149 行 | 耗时 24.5min
+09:21:34 [INFO] init_history: [进度] 4776/4776 (100%) | 已写 2019821 行 | 耗时 27.2min
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+09:21:34 [INFO] init_history: [拉取完成] 共写入 2019821 行日线数据
+/Users/zhuzhu/Documents/quant_system/venv/lib/python3.14/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+logout failed!
+09:21:35 [INFO] init_history: [Baostock] 已退出登录
+09:21:35 [INFO] init_history: [完成] 历史数据初始化完毕，总耗时 27.3 分钟
+09:21:41 [INFO] init_history: [结果] stock_daily: 2222756 行 | 覆盖 5499 只 | 最新日期 2026-04-08
+09:21:41 [INFO] mysql: [MySQL] 连接池已关闭

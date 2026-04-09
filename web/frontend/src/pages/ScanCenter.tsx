@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import {
   Card, Row, Col, Button, Typography, Steps, Empty, Statistic, Tooltip,
-  Select, Tag, message, Switch, InputNumber, Form, Alert, Input, Modal, Space, Radio,
+  Select, Tag, message, Switch, InputNumber, Form, Alert, Input, Modal, Space, Radio, Pagination,
 } from 'antd';
 import {
   SearchOutlined, CheckCircleOutlined, LoadingOutlined,
@@ -429,6 +429,15 @@ function SchedulePanel({ strategy, strategyCfg }: { strategy: string; strategyCf
 }
 
 
+// ── 策略 → 本地预设 映射 ──────────────────────────────────────
+const STRATEGY_LOCAL_PRESET: Record<string, string> = {
+  trend_follow:               'large_cap',
+  rsi_reversal:               'mid_cap',
+  bollinger_revert:           'default',
+  major_capital_pump:         'major_capital_pump',
+  major_capital_accumulation: 'major_capital_accumulation',
+};
+
 // ── 主组件 ────────────────────────────────────────────────────
 export default function ScanCenter() {
   const [stocks, setStocks] = useState<any[]>([]);
@@ -436,41 +445,64 @@ export default function ScanCenter() {
   const [status, setStatus] = useState<any>(null);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [cacheCount, setCacheCount] = useState<number | null>(null);
-  const [strategy, setStrategy] = useState('major_capital_pump');
+  const [strategy, setStrategy] = useState('major_capital_accumulation');
   const [signalFilter, setSignalFilter] = useState<'all' | 'BUY' | 'WATCH'>('all');
+  const [dataSource, setDataSource] = useState<'realtime' | 'local'>('realtime');
+  const [warehouseStatus, setWarehouseStatus] = useState<any>(null);
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 15;
   const { scanDone } = useContext(WsContext);
 
   const cfg = STRATEGY_CONFIG[strategy];
-  // 切换策略时重置信号过滤
-  useEffect(() => { setSignalFilter('all'); }, [strategy]);
+  // 切换策略时重置信号过滤和分页
+  useEffect(() => { setSignalFilter('all'); setPage(1); }, [strategy]);
+  // 切换信号过滤时重置分页
+  useEffect(() => { setPage(1); }, [signalFilter]);
 
   const load = async (strat: string = strategy) => {
-    const [res, st, info, api] = await Promise.all([
+    const [res, st, info, api, wh] = await Promise.all([
       apiFetch(`/api/scan/results?strategy=${strat}`).catch(() => []),
       apiFetch(`/api/scan/status?strategy=${strat}`).catch(() => null),
       apiFetch('/api/system/info').catch(() => null),
       apiFetch('/api/system/api_status').catch(() => null),
+      apiFetch('/api/market/status').catch(() => null),
     ]);
-    setStocks(res || []);
+    setStocks(res || []); setPage(1);
     setStatus(st);
     if (info?.cache_count != null) setCacheCount(info.cache_count);
     if (api) setApiOk(api.realtime_ok);
+    if (wh) setWarehouseStatus(wh);
   };
 
   useEffect(() => { load(strategy); }, [scanDone, strategy]);
 
   const triggerScan = async () => {
     setScanning(true);
+    setStocks([]);
     try {
-      await apiFetch(`/api/scan/run?scan_type=手动&strategy=${strategy}`, 'POST');
-      const poll = setInterval(async () => {
-        const st = await apiFetch('/api/scan/status').catch(() => null);
-        if (st && !st.running) {
-          clearInterval(poll);
-          setScanning(false);
-          load();
-        }
-      }, 1500);
+      if (dataSource === 'local') {
+        // 本地数据库模式：SQL 初筛 + Backtrader 策略信号分析
+        const preset = STRATEGY_LOCAL_PRESET[strategy] || 'default';
+        const res = await apiFetch(
+          `/api/market/screen?preset=${preset}&with_signals=true&strategy=${strategy}`,
+          'POST'
+        );
+        setStocks(res?.stocks || []); setPage(1);
+        const hint = res?.with_signals ? `含策略信号分析` : `仅基础筛选`;
+        message.success(`本地筛选完成，共 ${res?.count ?? 0} 只（${hint}）`);
+        setScanning(false);
+      } else {
+        // 实时行情模式：异步任务，轮询等待
+        await apiFetch(`/api/scan/run?scan_type=手动&strategy=${strategy}`, 'POST');
+        const poll = setInterval(async () => {
+          const st = await apiFetch('/api/scan/status').catch(() => null);
+          if (st && !st.running) {
+            clearInterval(poll);
+            setScanning(false);
+            load();
+          }
+        }, 1500);
+      }
     } catch {
       message.error('筛选启动失败');
       setScanning(false);
@@ -488,7 +520,22 @@ export default function ScanCenter() {
           <Title level={4} style={{ margin: 0 }}>选股中心</Title>
           <Text type="secondary">根据交易策略动态筛选标的股，进入回测与实盘标的池</Text>
         </div>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+          {/* 数据源切换 */}
+          <Radio.Group
+            value={dataSource}
+            onChange={e => { setDataSource(e.target.value); setStocks([]); }}
+            optionType="button"
+            buttonStyle="solid"
+            size="small"
+          >
+            <Radio.Button value="realtime">
+              <ThunderboltOutlined /> 实时行情
+            </Radio.Button>
+            <Radio.Button value="local">
+              🗄️ 本地数据库
+            </Radio.Button>
+          </Radio.Group>
           <Select
             value={strategy}
             onChange={setStrategy}
@@ -544,43 +591,98 @@ export default function ScanCenter() {
       </Card>
 
       {/* 数据源状态 */}
-      <Row gutter={[12, 12]} style={{ marginBottom: 16 }}>
-        <Col xs={12} sm={6}>
-          <Card size="small" style={{ borderLeft: '3px solid #10b981' }}>
-            <Statistic title="历史行情" value="可用" valueStyle={{ color: '#10b981', fontSize: 15 }} prefix={<CheckCircleOutlined />} />
-            <Text type="secondary" style={{ fontSize: 11 }}>AKShare · 本地缓存</Text>
-          </Card>
-        </Col>
-        <Col xs={12} sm={6}>
-          <Card size="small" style={{ borderLeft: `3px solid ${apiOk ? '#10b981' : '#ef4444'}` }}>
-            <Statistic
-              title="实时行情"
-              value={apiOk === null ? '检测中' : apiOk ? '可用' : '受限'}
-              valueStyle={{ color: apiOk ? '#10b981' : '#ef4444', fontSize: 15 }}
-            />
-            <Text type="secondary" style={{ fontSize: 11 }}>东方财富 API</Text>
-          </Card>
-        </Col>
-        <Col xs={12} sm={6}>
-          <Card size="small" style={{ borderLeft: '3px solid #3b82f6' }}>
-            <Statistic title="缓存数据" value={cacheCount ?? '—'} suffix="只" valueStyle={{ fontSize: 15, color: '#3b82f6' }} />
-            <Text type="secondary" style={{ fontSize: 11 }}>本地日线文件</Text>
-          </Card>
-        </Col>
-        <Col xs={12} sm={6}>
-          <Card size="small" style={{ borderLeft: `3px solid ${presetMatch ? '#8b5cf6' : '#f59e0b'}` }}>
-            <Statistic
-              title="上次筛选"
-              value={status?.last_scan_time ? status.last_scan_time.substring(0, 16) : '从未运行'}
-              valueStyle={{ fontSize: 13 }}
-            />
-            <Text type="secondary" style={{ fontSize: 11 }}>
-              {status?.result_count != null ? `共${status.result_count}只` : '—'}
-              {!presetMatch && <span style={{ color: '#f59e0b', marginLeft: 4 }}>（暂无{cfg.label}结果，请点击筛选）</span>}
-            </Text>
-          </Card>
-        </Col>
-      </Row>
+      {dataSource === 'local' ? (
+        /* 本地数据库模式状态卡 */
+        <Row gutter={[12, 12]} style={{ marginBottom: 16 }}>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: '3px solid #10b981' }}>
+              <Statistic
+                title="快照股票数"
+                value={warehouseStatus?.snapshot?.total ?? '—'}
+                suffix="只"
+                valueStyle={{ color: '#10b981', fontSize: 15 }}
+                prefix={<CheckCircleOutlined />}
+              />
+              <Text type="secondary" style={{ fontSize: 11 }}>stock_snapshot · MySQL</Text>
+            </Card>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: '3px solid #3b82f6' }}>
+              <Statistic
+                title="日线覆盖"
+                value={warehouseStatus?.daily?.covered_stocks ?? '—'}
+                suffix="只"
+                valueStyle={{ color: '#3b82f6', fontSize: 15 }}
+              />
+              <Text type="secondary" style={{ fontSize: 11 }}>
+                共 {warehouseStatus?.daily?.total_rows != null
+                  ? `${(warehouseStatus.daily.total_rows / 10000).toFixed(0)}万` : '—'} 行历史
+              </Text>
+            </Card>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: '3px solid #f59e0b' }}>
+              <Statistic
+                title="数据日期"
+                value={warehouseStatus?.snapshot?.last_trade_date ?? '—'}
+                valueStyle={{ fontSize: 13, color: '#f59e0b' }}
+              />
+              <Text type="secondary" style={{ fontSize: 11 }}>最近快照更新日期</Text>
+            </Card>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: `3px solid ${presetMatch ? '#8b5cf6' : '#64748b'}` }}>
+              <Statistic
+                title="本次筛选"
+                value={stocks.length > 0 ? `${stocks.length} 只` : '尚未筛选'}
+                valueStyle={{ fontSize: 13, color: '#8b5cf6' }}
+              />
+              <Text type="secondary" style={{ fontSize: 11 }}>
+                预设：{STRATEGY_LOCAL_PRESET[strategy] || 'default'}
+              </Text>
+            </Card>
+          </Col>
+        </Row>
+      ) : (
+        /* 实时行情模式状态卡 */
+        <Row gutter={[12, 12]} style={{ marginBottom: 16 }}>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: '3px solid #10b981' }}>
+              <Statistic title="历史行情" value="可用" valueStyle={{ color: '#10b981', fontSize: 15 }} prefix={<CheckCircleOutlined />} />
+              <Text type="secondary" style={{ fontSize: 11 }}>AKShare · 本地缓存</Text>
+            </Card>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: `3px solid ${apiOk ? '#10b981' : '#ef4444'}` }}>
+              <Statistic
+                title="实时行情"
+                value={apiOk === null ? '检测中' : apiOk ? '可用' : '受限'}
+                valueStyle={{ color: apiOk ? '#10b981' : '#ef4444', fontSize: 15 }}
+              />
+              <Text type="secondary" style={{ fontSize: 11 }}>东方财富 API</Text>
+            </Card>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: '3px solid #3b82f6' }}>
+              <Statistic title="缓存数据" value={cacheCount ?? '—'} suffix="只" valueStyle={{ fontSize: 15, color: '#3b82f6' }} />
+              <Text type="secondary" style={{ fontSize: 11 }}>本地日线文件</Text>
+            </Card>
+          </Col>
+          <Col xs={12} sm={6}>
+            <Card size="small" style={{ borderLeft: `3px solid ${presetMatch ? '#8b5cf6' : '#f59e0b'}` }}>
+              <Statistic
+                title="上次筛选"
+                value={status?.last_scan_time ? status.last_scan_time.substring(0, 16) : '从未运行'}
+                valueStyle={{ fontSize: 13 }}
+              />
+              <Text type="secondary" style={{ fontSize: 11 }}>
+                {status?.result_count != null ? `共${status.result_count}只` : '—'}
+                {!presetMatch && <span style={{ color: '#f59e0b', marginLeft: 4 }}>（暂无{cfg.label}结果，请点击筛选）</span>}
+              </Text>
+            </Card>
+          </Col>
+        </Row>
+      )}
 
       {/* 标的池 */}
       <Card
@@ -666,14 +768,18 @@ export default function ScanCenter() {
               </span>
             </div>
           )}
-          <Row gutter={[10, 10]}>
-            {stocks.filter(s =>
+          {(() => {
+            const filtered = stocks.filter(s =>
               signalFilter === 'all' || s.signal_type === signalFilter || !s.signal_type
             ).sort((a: any, b: any) => {
               const sa = typeof a.match_score === 'object' ? (a.match_score?.total ?? 0) : (a.match_score ?? 0);
               const sb = typeof b.match_score === 'object' ? (b.match_score?.total ?? 0) : (b.match_score ?? 0);
               return sb - sa;
-            }).map((s: any) => {
+            });
+            const pageStocks = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+            return (<>
+          <Row gutter={[10, 10]}>
+            {pageStocks.map((s: any) => {
               const pct = s.pct_change;
               const hasSignal = !!s.signal_date;
               const isBuy = s.signal_type === 'BUY';
@@ -707,89 +813,89 @@ export default function ScanCenter() {
                     style={{ background: '#1e2535', border: `1px solid ${isBuy ? '#e74c3c80' : isWatch ? '#f39c1260' : cfg.color + '40'}`, cursor: 'pointer' }}
                     bodyStyle={{ padding: '10px 12px' }}
                   >
-                    {/* 第一行：名称(代码) + 涨幅 */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
-                      <Text strong style={{ fontSize: 13 }}>
-                        {s.name}<Text type="secondary" style={{ fontSize: 11, fontWeight: 'normal' }}>({s.code})</Text>
-                      </Text>
-                      {pct != null && (
-                        <Text style={{ color: pct >= 0 ? '#e74c3c' : '#27ae60', fontWeight: 600, fontSize: 12, flexShrink: 0, marginLeft: 4 }}>
+                    {/* 第一行：涨幅（最醒目，独占一行） */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
+                      {pct != null ? (
+                        <Text style={{ color: pct >= 0 ? '#e74c3c' : '#27ae60', fontWeight: 700, fontSize: 14 }}>
                           {pct >= 0 ? '+' : ''}{pct.toFixed(2)}%
                         </Text>
-                      )}
-                    </div>
-                    {/* 第二行：价格 / 市值 / PE / 策略评分 */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 11, color: '#8892a4' }}>
-                      <div style={{ display: 'flex', gap: 8 }}>
-                        {s.price > 0 && <span>¥{Number(s.price).toFixed(2)}</span>}
-                        {s.cap_yi > 0 && <span>{Number(s.cap_yi).toFixed(0)}亿</span>}
-                        {s.pe > 0 && <span>PE {Number(s.pe).toFixed(1)}</span>}
-                      </div>
+                      ) : <span />}
                       {score > 0 && (
                         <Tooltip
                           title={
                             <div style={{ fontSize: 12, lineHeight: '22px' }}>
-                              <div style={{ fontWeight: 600, marginBottom: 6, fontSize: 13 }}>策略贴合度 {score} 分</div>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                                <span>信号密度</span>
-                                <span style={{ fontWeight: 600 }}>{scoreObj.density ?? '-'}<span style={{ opacity: 0.5 }}>/25</span></span>
-                              </div>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                                <span>策略置信度</span>
-                                <span style={{ fontWeight: 600 }}>{scoreObj.confidence ?? '-'}<span style={{ opacity: 0.5 }}>/30</span></span>
-                              </div>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                                <span>当前状态</span>
-                                <span style={{ fontWeight: 600 }}>{scoreObj.status ?? '-'}<span style={{ opacity: 0.5 }}>/20</span></span>
-                              </div>
-                              <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                                <span>信号时效</span>
-                                <span style={{ fontWeight: 600 }}>{scoreObj.recency ?? '-'}<span style={{ opacity: 0.5 }}>/25</span></span>
-                              </div>
-                              <div style={{ marginTop: 6, opacity: 0.6, fontSize: 11 }}>≥70 高贴合 · ≥50 中等 · &lt;50 偏弱</div>
+                              <div style={{ fontWeight: 600, marginBottom: 4, fontSize: 13 }}>策略贴合度 {score} 分</div>
+                              {[['信号密度', scoreObj.density, 25], ['策略置信度', scoreObj.confidence, 30], ['当前状态', scoreObj.status, 20], ['信号时效', scoreObj.recency, 25]].map(([label, val, max]) => (
+                                <div key={label as string} style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
+                                  <span>{label}</span>
+                                  <span style={{ fontWeight: 600 }}>{val ?? '-'}<span style={{ opacity: 0.5 }}>/{max}</span></span>
+                                </div>
+                              ))}
+                              <div style={{ marginTop: 4, opacity: 0.6, fontSize: 11 }}>≥70 高贴合 · ≥50 中等 · &lt;50 偏弱</div>
                             </div>
                           }
                           placement="left"
                         >
-                          <span
-                            style={{
-                              fontSize: 12, fontWeight: 700, color: scoreColor,
-                              cursor: 'help', flexShrink: 0,
-                            }}
-                          >
-                            {score}<span style={{ fontSize: 10, fontWeight: 400, opacity: 0.7 }}>分</span>
+                          <span style={{ fontSize: 11, fontWeight: 700, color: scoreColor, cursor: 'help' }}>
+                            {score}<span style={{ fontSize: 9, fontWeight: 400, opacity: 0.6 }}>分</span>
                           </span>
                         </Tooltip>
                       )}
                     </div>
-                    {/* 第三行：信号日时间线 */}
+                    {/* 第二行：股票名称 + 代码（独占一行，保证可见） */}
+                    <div style={{ marginBottom: 4, overflow: 'hidden' }}>
+                      <Text strong style={{ fontSize: 12, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block', lineHeight: '18px' }}>
+                        {s.name}
+                      </Text>
+                      <Text type="secondary" style={{ fontSize: 10, display: 'block' }}>{s.code}</Text>
+                    </div>
+                    {/* 第三行：价格 / 市值 / PE（两种模式完全相同）*/}
+                    <div style={{ fontSize: 11, color: '#8892a4', display: 'flex', gap: 6 }}>
+                      {s.price > 0 && <span>¥{Number(s.price).toFixed(2)}</span>}
+                      {s.cap_yi > 0 && <span>{Number(s.cap_yi).toFixed(0)}亿</span>}
+                      {s.pe != null && s.pe > 0 && <span>PE {Number(s.pe).toFixed(1)}</span>}
+                    </div>
+                    {/* 第四行：信号时间线 */}
                     {allDates.length > 0 && (
-                      <div style={{ marginTop: 6, display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-                        {allDates.map((d, idx) => {
-                          const dIsBuy = d.type === 'BUY';
-                          const dColor = dIsBuy ? '#e74c3c' : '#f39c12';
-                          const dLabel = dIsBuy ? '▲' : '●';
-                          return (
-                            <Tag
-                              key={idx}
-                              style={{
-                                fontSize: 10, lineHeight: '16px', padding: '0 4px',
-                                background: `${dColor}15`, borderColor: `${dColor}50`, color: dColor,
-                                cursor: d.reason ? 'help' : 'default',
-                              }}
-                              title={d.reason || ''}
-                            >
-                              {dLabel} {d.date}
-                            </Tag>
-                          );
-                        })}
-                      </div>
+                        <div style={{ marginTop: 6, display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+                          {allDates.map((d, idx) => {
+                            const dIsBuy = d.type === 'BUY';
+                            const dColor = dIsBuy ? '#e74c3c' : '#f39c12';
+                            const dLabel = dIsBuy ? '▲' : '●';
+                            return (
+                              <Tag
+                                key={idx}
+                                style={{
+                                  fontSize: 10, lineHeight: '16px', padding: '0 4px',
+                                  background: `${dColor}15`, borderColor: `${dColor}50`, color: dColor,
+                                  cursor: d.reason ? 'help' : 'default',
+                                }}
+                                title={d.reason || ''}
+                              >
+                                {dLabel} {d.date}
+                              </Tag>
+                            );
+                          })}
+                        </div>
                     )}
                   </Card>
                 </Col>
               );
             })}
           </Row>
+          {filtered.length > PAGE_SIZE && (
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
+              <Pagination
+                current={page}
+                pageSize={PAGE_SIZE}
+                total={filtered.length}
+                onChange={(p) => setPage(p)}
+                showTotal={(total) => `共 ${total} 只`}
+                size="small"
+              />
+            </div>
+          )}
+          </>); })()}
         </>)}
       </Card>
 

@@ -36,6 +36,8 @@ export default function BacktestCenter() {
   const [btList, setBtList] = useState<any[]>([]);
   const [running, setRunning] = useState(false);
   const [form, setForm] = useState({ strategy: 'major_capital_accumulation', start: '2025-01-01', end: dayjs().format('YYYY-MM-DD'), cash: 100000 });
+  const startDayjs = useMemo(() => dayjs(form.start), [form.start]);
+  const endDayjs   = useMemo(() => dayjs(form.end),   [form.end]);
   const [tradeModal, setTradeModal] = useState<any>(null);
   const [equityModal, setEquityModal] = useState<any>(null);
   const [tradeSearch, setTradeSearch] = useState('');
@@ -230,9 +232,12 @@ export default function BacktestCenter() {
 
       const confColor = conf >= 0.8 ? '#e74c3c' : conf >= 0.6 ? '#f39c12' : '#8892a4';
 
-      // 信号日时间线（最多展示最近10条）
-      const sigDates: string[] = Array.isArray(meta.watch_signal_dates) ? meta.watch_signal_dates : [];
-      const showDates = sigDates.slice(-10);
+      // 信号日时间线：倒序排列，最多显示6条，溢出 hover tooltip 展示全部
+      const sigDates: string[] = Array.isArray(meta.watch_signal_dates)
+        ? [...meta.watch_signal_dates].sort((a, b) => b.localeCompare(a))
+        : [];
+      const showDates = sigDates.slice(0, 7);
+      const hiddenDates = sigDates.slice(7);
 
       const popContent = (
         <div style={{ fontSize: 12, lineHeight: '22px', maxWidth: 300 }}>
@@ -253,12 +258,27 @@ export default function BacktestCenter() {
           </div>
           {showDates.length > 0 && (
             <div style={{ marginTop: 8, borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 6 }}>
-              <div style={{ color: '#8892a4', marginBottom: 4 }}>建仓信号日（近{showDates.length}条）</div>
+              <div style={{ color: '#8892a4', marginBottom: 4 }}>建仓信号日（共{sigDates.length}条）</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
                 {showDates.map((d, i) => (
                   <span key={i} style={{ fontSize: 10, background: 'rgba(96,165,250,0.12)', color: '#60a5fa', padding: '1px 5px', borderRadius: 3 }}>{d}</span>
                 ))}
-                {sigDates.length > 10 && <span style={{ fontSize: 10, color: '#8892a4' }}>…共{sigDates.length}条</span>}
+                {hiddenDates.length > 0 && (
+                  <Tooltip
+                    title={
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, maxWidth: 240 }}>
+                        {hiddenDates.map((d, i) => (
+                          <span key={i} style={{ fontSize: 10, background: 'rgba(96,165,250,0.12)', color: '#60a5fa', padding: '1px 5px', borderRadius: 3 }}>{d}</span>
+                        ))}
+                      </div>
+                    }
+                    placement="bottom"
+                  >
+                    <span style={{ fontSize: 10, color: '#8892a4', cursor: 'help', padding: '1px 5px', borderRadius: 3, background: 'rgba(255,255,255,0.06)' }}>
+                      +{hiddenDates.length} 更多
+                    </span>
+                  </Tooltip>
+                )}
               </div>
             </div>
           )}
@@ -377,7 +397,7 @@ export default function BacktestCenter() {
           <div>
             <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>开始日期</Text>
             <DatePicker
-              value={dayjs(form.start)}
+              value={startDayjs}
               onChange={d => d && setForm({ ...form, start: d.format('YYYY-MM-DD') })}
               allowClear={false}
               style={{ width: 140 }}
@@ -388,7 +408,7 @@ export default function BacktestCenter() {
           <div>
             <Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>结束日期</Text>
             <DatePicker
-              value={dayjs(form.end)}
+              value={endDayjs}
               onChange={d => d && setForm({ ...form, end: d.format('YYYY-MM-DD') })}
               allowClear={false}
               style={{ width: 140 }}

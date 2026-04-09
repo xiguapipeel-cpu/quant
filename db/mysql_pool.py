@@ -28,6 +28,80 @@ DB_CONFIG = {
 # ── 建表 DDL ─────────────────────────────────────────────
 
 _DDL = [
+    # ── 本地行情仓库 ──────────────────────────────────────────
+
+    # A. 股票基础信息（代码、名称、行业、上市日期）
+    """
+    CREATE TABLE IF NOT EXISTS stock_basic (
+        code        VARCHAR(10)  NOT NULL PRIMARY KEY,
+        name        VARCHAR(50)  NOT NULL DEFAULT '',
+        market      VARCHAR(5)   NOT NULL DEFAULT 'SZ',
+        industry    VARCHAR(50)  DEFAULT NULL,
+        list_date   DATE         DEFAULT NULL,
+        is_st       TINYINT(1)   NOT NULL DEFAULT 0,
+        updated_at  DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP
+                                 ON UPDATE CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB
+    """,
+
+    # B. 每日行情快照（每日15:30全量更新，供选股直接查询）
+    """
+    CREATE TABLE IF NOT EXISTS stock_snapshot (
+        code          VARCHAR(10)    NOT NULL PRIMARY KEY,
+        name          VARCHAR(50)    NOT NULL DEFAULT '',
+        market        VARCHAR(5)     NOT NULL DEFAULT 'SZ',
+        price         DECIMAL(10,3)  DEFAULT NULL,
+        pct_change    DECIMAL(8,4)   DEFAULT NULL,
+        volume        BIGINT         DEFAULT NULL,
+        amount        DECIMAL(20,2)  DEFAULT NULL,
+        market_cap    DECIMAL(20,2)  DEFAULT NULL,
+        float_cap     DECIMAL(20,2)  DEFAULT NULL,
+        pe_ttm        DECIMAL(10,3)  DEFAULT NULL,
+        pb            DECIMAL(10,3)  DEFAULT NULL,
+        turnover_rate DECIMAL(8,4)   DEFAULT NULL,
+        amplitude     DECIMAL(8,4)   DEFAULT NULL,
+        high          DECIMAL(10,3)  DEFAULT NULL,
+        low           DECIMAL(10,3)  DEFAULT NULL,
+        open_price    DECIMAL(10,3)  DEFAULT NULL,
+        prev_close    DECIMAL(10,3)  DEFAULT NULL,
+        vol_ratio     DECIMAL(8,4)   DEFAULT NULL,
+        pct_60d       DECIMAL(8,4)   DEFAULT NULL,
+        pct_ytd       DECIMAL(8,4)   DEFAULT NULL,
+        industry      VARCHAR(50)    DEFAULT NULL,
+        list_date     DATE           DEFAULT NULL,
+        is_st         TINYINT(1)     NOT NULL DEFAULT 0,
+        trade_date    DATE           DEFAULT NULL,
+        updated_at    DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP
+                                     ON UPDATE CURRENT_TIMESTAMP,
+        KEY idx_market_cap (market_cap),
+        KEY idx_trade_date (trade_date),
+        KEY idx_industry (industry),
+        KEY idx_pe_ttm (pe_ttm)
+    ) ENGINE=InnoDB
+    """,
+
+    # C. 日线K线数据（增量更新，用于技术指标计算）
+    """
+    CREATE TABLE IF NOT EXISTS stock_daily (
+        id            BIGINT         AUTO_INCREMENT PRIMARY KEY,
+        code          VARCHAR(10)    NOT NULL,
+        trade_date    DATE           NOT NULL,
+        open_price    DECIMAL(10,3)  DEFAULT NULL,
+        high          DECIMAL(10,3)  DEFAULT NULL,
+        low           DECIMAL(10,3)  DEFAULT NULL,
+        close         DECIMAL(10,3)  DEFAULT NULL,
+        volume        BIGINT         DEFAULT NULL,
+        amount        DECIMAL(20,2)  DEFAULT NULL,
+        pct_change    DECIMAL(8,4)   DEFAULT NULL,
+        turnover_rate DECIMAL(8,4)   DEFAULT NULL,
+        UNIQUE KEY uk_code_date (code, trade_date),
+        KEY idx_trade_date (trade_date),
+        KEY idx_code (code)
+    ) ENGINE=InnoDB
+    """,
+
+    # ── 原有业务表 ────────────────────────────────────────────
+
     # 1. 扫描结果（按策略分组，每条是一只股票）
     """
     CREATE TABLE IF NOT EXISTS scan_results (
