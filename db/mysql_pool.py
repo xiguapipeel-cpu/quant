@@ -100,6 +100,33 @@ _DDL = [
     ) ENGINE=InnoDB
     """,
 
+    # D. 个股资金流向（主力/超大单/大单/中单/小单 净流入）
+    # 来源：akshare.stock_individual_fund_flow（东方财富）
+    # 限制：API 仅返回最近 ~120 个交易日，需要每日增量采集才能积累历史
+    """
+    CREATE TABLE IF NOT EXISTS stock_fund_flow (
+        code              VARCHAR(10)    NOT NULL,
+        trade_date        DATE           NOT NULL,
+        close_price       DECIMAL(10,3)  DEFAULT NULL,
+        pct_change        DECIMAL(8,4)   DEFAULT NULL,
+        main_net_amount   DECIMAL(20,2)  DEFAULT NULL,   -- 主力净流入-净额（元）
+        main_net_pct      DECIMAL(8,4)   DEFAULT NULL,   -- 主力净流入-净占比（%）
+        super_large_net   DECIMAL(20,2)  DEFAULT NULL,
+        super_large_pct   DECIMAL(8,4)   DEFAULT NULL,
+        large_net         DECIMAL(20,2)  DEFAULT NULL,
+        large_pct         DECIMAL(8,4)   DEFAULT NULL,
+        medium_net        DECIMAL(20,2)  DEFAULT NULL,
+        medium_pct        DECIMAL(8,4)   DEFAULT NULL,
+        small_net         DECIMAL(20,2)  DEFAULT NULL,
+        small_pct         DECIMAL(8,4)   DEFAULT NULL,
+        updated_at        DATETIME       NOT NULL DEFAULT CURRENT_TIMESTAMP
+                                         ON UPDATE CURRENT_TIMESTAMP,
+        UNIQUE KEY uk_code_date (code, trade_date),
+        KEY idx_trade_date (trade_date),
+        KEY idx_code (code)
+    ) ENGINE=InnoDB
+    """,
+
     # ── 原有业务表 ────────────────────────────────────────────
 
     # 1. 扫描结果（按策略分组，每条是一只股票）
@@ -223,6 +250,19 @@ async def _ensure_tables():
                         "ALTER TABLE scan_results MODIFY COLUMN match_score TEXT DEFAULT NULL"
                     )
                     logger.info("[MySQL] match_score 列类型 INT→TEXT")
+            # 增量迁移：backtest_results 新增 data_source 列
+            await cur.execute(
+                "SELECT COUNT(*) FROM information_schema.COLUMNS "
+                "WHERE TABLE_SCHEMA=%s AND TABLE_NAME='backtest_results' "
+                "AND COLUMN_NAME='data_source'",
+                (DB_CONFIG["db"],),
+            )
+            (cnt3,) = await cur.fetchone()
+            if cnt3 == 0:
+                await cur.execute(
+                    "ALTER TABLE backtest_results ADD COLUMN data_source VARCHAR(32) NOT NULL DEFAULT 'cache' AFTER is_real"
+                )
+                logger.info("[MySQL] backtest_results 新增 data_source 列")
 
 
 async def close_pool():

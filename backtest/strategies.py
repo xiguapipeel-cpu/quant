@@ -160,13 +160,15 @@ class BaseStrategy(ABC):
 # 策略1：趋势跟踪（EMA交叉 + 大趋势过滤 + 追踪止损）
 #
 # 核心逻辑：
-#   入场：EMA10 上穿 EMA30 且 价格 > EMA60（确认大趋势向上）
-#   出场：追踪止损（从最高价回撤 trailing_pct）或 EMA10 下穿 EMA30
+#   入场：EMA12 上穿 EMA26 + 价格 > EMA60 + RSI>50 + 成交量放大
+#   出场：追踪止损6% 或 硬止损-5% 或 EMA12 下穿 EMA26
 #
-# 为什么有效：
-#   - EMA60 过滤掉下跌趋势，避免熊市频繁买入
-#   - 追踪止损保护已有利润，不会等到死叉才卖
-#   - EMA 比 SMA 对近期价格更敏感，信号更及时
+# v2 优化要点（针对胜率低/回撤大问题）：
+#   1. RSI(14)>50 确认多头动量，过滤震荡假金叉
+#   2. 成交量>20日均量×1.2，量价配合才入场
+#   3. 追踪止损从8%收紧到6%，更快锁定利润
+#   4. 新增-5%硬止损，防止单票大亏（原版没有硬止损）
+#   5. 卖出后同一股票5日冷静期，杜绝过度交易
 # ══════════════════════════════════════════════════════════
 class TrendFollowStrategy(BaseStrategy):
     name = "趋势跟踪"
@@ -175,40 +177,74 @@ class TrendFollowStrategy(BaseStrategy):
 
     def __init__(
         self,
-        fast:          int   = 10,
-        slow:          int   = 30,
+        fast:          int   = 12,
+        slow:          int   = 26,
         trend:         int   = 60,     # 大趋势EMA周期
-        trailing_pct:  float = 0.08,   # 追踪止损比例
+        trailing_pct:  float = 0.06,   # 追踪止损比例（收紧至6%）
+        hard_stop_pct: float = 0.05,   # 硬止损：买入价下跌5%强制卖出
+        cool_days:     int   = 5,      # 卖出后冷静期（天数）
+        vol_ratio:     float = 1.2,    # 成交量确认倍数（相对20日均量）
+        rsi_min:       float = 50.0,   # 入场时RSI最低要求
     ):
         self.fast = fast
         self.slow = slow
         self.trend = trend
         self.trailing_pct = trailing_pct
+        self.hard_stop_pct = hard_stop_pct
+        self.cool_days = cool_days
+        self.vol_ratio = vol_ratio
+        self.rsi_min = rsi_min
+
+    def _vol_ma(self, volumes: list[float], n: int) -> list[Optional[float]]:
+        result = [None] * len(volumes)
+        for i in range(n - 1, len(volumes)):
+            result[i] = sum(volumes[i - n + 1: i + 1]) / n
+        return result
 
     def _signals(self, code: str, bars: list[dict], extra: dict) -> list[Signal]:
-        closes = [b["close"] for b in bars]
-        dates  = [b["date"] for b in bars]
+        closes  = [b["close"] for b in bars]
+        volumes = [b.get("volume", 0) or 0 for b in bars]
+        dates   = [b["date"] for b in bars]
 
         ema_fast  = self._ema(closes, self.fast)
         ema_slow  = self._ema(closes, self.slow)
         ema_trend = self._ema(closes, self.trend)
+        rsi_vals  = self._rsi(closes, 14)
+        vol_ma20  = self._vol_ma(volumes, 20)
 
         signals = []
         in_position = False
+        buy_price = 0.0
         highest_since_buy = 0.0
+        last_sell_idx = -999  # 记录上次卖出的 bar 索引，用于冷静期
 
         for i in range(1, len(bars)):
             ef0, ef1 = ema_fast[i - 1], ema_fast[i]
             es0, es1 = ema_slow[i - 1], ema_slow[i]
-            et = ema_trend[i]
+            et  = ema_trend[i]
+            rsi = rsi_vals[i]
+            vma = vol_ma20[i]
 
-            if None in (ef0, ef1, es0, es1, et):
+            if None in (ef0, ef1, es0, es1, et, rsi):
                 continue
 
             close = closes[i]
+            vol   = volumes[i]
 
             if in_position:
                 highest_since_buy = max(highest_since_buy, close)
+
+                # 硬止损：买入后跌超 hard_stop_pct
+                hard_loss = (buy_price - close) / buy_price
+                if hard_loss >= self.hard_stop_pct:
+                    signals.append(Signal(
+                        dates[i], code, "SELL", close,
+                        f"硬止损 买入{buy_price:.2f}→{close:.2f} 亏损{hard_loss:.1%}",
+                    ))
+                    in_position = False
+                    last_sell_idx = i
+                    continue
+
                 # 追踪止损
                 drawdown = (highest_since_buy - close) / highest_since_buy
                 if drawdown >= self.trailing_pct:
@@ -217,7 +253,9 @@ class TrendFollowStrategy(BaseStrategy):
                         f"追踪止损 最高{highest_since_buy:.2f}→{close:.2f} 回撤{drawdown:.1%}",
                     ))
                     in_position = False
+                    last_sell_idx = i
                     continue
+
                 # 死叉卖出
                 if ef0 > es0 and ef1 <= es1:
                     signals.append(Signal(
@@ -225,14 +263,26 @@ class TrendFollowStrategy(BaseStrategy):
                         f"EMA{self.fast}下穿EMA{self.slow} 趋势转弱",
                     ))
                     in_position = False
+                    last_sell_idx = i
             else:
-                # 入场：快线上穿慢线 + 价格在趋势线上方
-                if ef0 <= es0 and ef1 > es1 and close > et:
+                # 冷静期内不入场
+                if (i - last_sell_idx) < self.cool_days:
+                    continue
+
+                # 成交量确认（量数据为0时跳过该过滤）
+                vol_ok = (vma is None or vma == 0) or (vol >= vma * self.vol_ratio)
+
+                # 入场：金叉 + 大趋势向上 + RSI动量 + 量能放大
+                if (ef0 <= es0 and ef1 > es1
+                        and close > et
+                        and rsi >= self.rsi_min
+                        and vol_ok):
                     signals.append(Signal(
                         dates[i], code, "BUY", close,
-                        f"EMA{self.fast}上穿EMA{self.slow} 价格>{self.trend}日趋势线",
+                        f"EMA{self.fast}上穿EMA{self.slow} RSI={rsi:.1f} 量比{vol/(vma or 1):.1f}x",
                     ))
                     in_position = True
+                    buy_price = close
                     highest_since_buy = close
 
         return signals
@@ -721,6 +771,19 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         sbv_min_count:      int   = 3,      # ★ v3新增：建仓期至少出现3次缩幅放量
         sbv_lookback:       int   = 60,     # ★ v3新增：回溯窗口
         sbv_confidence_boost: float = 0.15, # ★ v3新增：满足SBV条件时信心加分
+        # ── 信号E：三线多头排列持续向上发散 ──
+        ma_diverge_lookback:     int   = 5,    # 发散加速判断回溯天数
+        # ── 信号F：横盘整理尾端量先萎缩后温和放大 ──
+        vol_shrink_days:         int   = 15,   # 萎缩期天数
+        vol_expand_days:         int   = 5,    # 扩张期天数
+        vol_shrink_max_ratio:    float = 0.80, # 萎缩期均量/基准均量 ≤ 此值
+        vol_expand_min_ratio:    float = 1.2,  # 扩张期均量/萎缩期均量 ≥ 此值
+        vol_expand_max_ratio:    float = 2.5,  # 扩张期均量/萎缩期均量 ≤ 此值（排除异常放量）
+        # ── 信号G：持续均匀大买单 ──
+        orderflow_days:          int   = 10,   # 买单分析回溯天数
+        orderflow_bull_min:      float = 0.6,  # 最低阳线比例
+        orderflow_vol_cv_max:    float = 0.5,  # 量的变异系数上限（越小越均匀）
+        orderflow_max_daily_pct: float = 4.0,  # 单日涨跌幅上限(%)，超过视为非均匀买入
     ):
         self.low_lookback = low_lookback
         self.max_above_low_pct = max_above_low_pct
@@ -754,6 +817,16 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         self.sbv_min_count = sbv_min_count
         self.sbv_lookback = sbv_lookback
         self.sbv_confidence_boost = sbv_confidence_boost
+        self.ma_diverge_lookback = ma_diverge_lookback
+        self.vol_shrink_days = vol_shrink_days
+        self.vol_expand_days = vol_expand_days
+        self.vol_shrink_max_ratio = vol_shrink_max_ratio
+        self.vol_expand_min_ratio = vol_expand_min_ratio
+        self.vol_expand_max_ratio = vol_expand_max_ratio
+        self.orderflow_days = orderflow_days
+        self.orderflow_bull_min = orderflow_bull_min
+        self.orderflow_vol_cv_max = orderflow_vol_cv_max
+        self.orderflow_max_daily_pct = orderflow_max_daily_pct
 
     # ── 辅助指标 ──────────────────────────────────────────
 
@@ -838,6 +911,122 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         if not recent:
             return False
         return bb_bw[i] < (sum(recent) / len(recent)) * self.bb_narrow_ratio
+
+    # ── 信号E：三线多头排列持续向上发散 ────────────────────
+    def _check_ma_diverge(self, ma5, ma10, ma20, i):
+        """
+        三条均线同时满足：
+          1. 多头排列：MA5 > MA10 > MA20
+          2. 三线斜率均为正且依次递减（短期斜率 > 中期 > 长期，形态发散）
+          3. MA5-MA20 间距在过去 lookback 天内持续扩大（发散加速）
+        返回 (passed, slope5, slope10, slope20)
+        """
+        if ma5[i] is None or ma10[i] is None or ma20[i] is None:
+            return False, None, None, None
+        if not (ma5[i] > ma10[i] > ma20[i]):
+            return False, None, None, None
+
+        lb = self.ma_diverge_lookback
+        slope5  = self._ma_slope(ma5,  i, lb)
+        slope10 = self._ma_slope(ma10, i, lb)
+        slope20 = self._ma_slope(ma20, i, lb)
+        if None in (slope5, slope10, slope20):
+            return False, None, None, None
+        # 三线均向上且短期斜率最大（加速发散）
+        if not (slope5 > slope10 > slope20 > 0):
+            return False, None, None, None
+
+        # 发散度加速：当前 MA5-MA20 间距 > lb 日前间距
+        if i < lb or ma5[i - lb] is None or ma20[i - lb] is None:
+            return False, slope5, slope10, slope20
+        prev_gap = (ma5[i - lb] - ma20[i - lb]) / ma20[i - lb]
+        cur_gap  = (ma5[i]      - ma20[i])      / ma20[i]
+        if cur_gap <= prev_gap:
+            return False, slope5, slope10, slope20
+        return True, slope5, slope10, slope20
+
+    # ── 信号F：横盘整理尾端量先萎缩后温和放大 ──────────────
+    def _check_vol_shrink_expand(self, volumes, i):
+        """
+        将当前时点往前分三段：
+          基准期（10日）→ 萎缩期（vol_shrink_days）→ 扩张期（vol_expand_days，最近）
+        判断条件：
+          shrink_ratio = avg_shrink / avg_baseline ≤ vol_shrink_max_ratio  （量能萎缩）
+          expand_ratio = avg_expand / avg_shrink    ∈ [expand_min, expand_max] （温和放大）
+        返回 (passed, shrink_ratio, expand_ratio)
+        """
+        baseline_days = 10
+        need = baseline_days + self.vol_shrink_days + self.vol_expand_days
+        if i < need - 1:
+            return False, None, None
+
+        expand_end   = i + 1
+        expand_start = expand_end   - self.vol_expand_days
+        shrink_end   = expand_start
+        shrink_start = shrink_end   - self.vol_shrink_days
+        base_end     = shrink_start
+        base_start   = base_end     - baseline_days
+
+        expand_vols  = volumes[expand_start:expand_end]
+        shrink_vols  = volumes[shrink_start:shrink_end]
+        base_vols    = volumes[base_start:base_end]
+
+        if not base_vols or not shrink_vols or not expand_vols:
+            return False, None, None
+
+        avg_base   = sum(base_vols)   / len(base_vols)
+        avg_shrink = sum(shrink_vols) / len(shrink_vols)
+        avg_expand = sum(expand_vols) / len(expand_vols)
+
+        if avg_base <= 0 or avg_shrink <= 0:
+            return False, None, None
+
+        shrink_ratio = avg_shrink / avg_base
+        expand_ratio = avg_expand / avg_shrink
+        passed = (
+            shrink_ratio <= self.vol_shrink_max_ratio
+            and self.vol_expand_min_ratio <= expand_ratio <= self.vol_expand_max_ratio
+        )
+        return passed, shrink_ratio, expand_ratio
+
+    # ── 信号G：持续均匀大买单（OHLCV 近似主力有序吸筹） ───
+    def _check_orderflow(self, closes, opens, volumes, i):
+        """
+        近 orderflow_days 天内同时满足：
+          1. 阳线占比 ≥ orderflow_bull_min（收盘持续高于开盘）
+          2. 成交量变异系数（CV = std/mean） ≤ orderflow_vol_cv_max（量均匀有序）
+          3. 单日最大涨跌幅 ≤ orderflow_max_daily_pct（温和推进，无异常波动）
+        返回 (passed, bull_ratio, vol_cv)
+        """
+        n = self.orderflow_days
+        if i < n:
+            return False, None, None
+
+        bull_count = sum(
+            1 for j in range(i - n + 1, i + 1)
+            if closes[j] >= opens[j]
+        )
+        bull_ratio = bull_count / n
+
+        recent_vols = volumes[i - n + 1: i + 1]
+        avg_vol = sum(recent_vols) / len(recent_vols)
+        if avg_vol <= 0:
+            return False, None, None
+        vol_std = (sum((v - avg_vol) ** 2 for v in recent_vols) / len(recent_vols)) ** 0.5
+        vol_cv  = vol_std / avg_vol
+
+        max_daily_pct = max(
+            abs((closes[j] - closes[j - 1]) / closes[j - 1] * 100)
+            for j in range(i - n + 1, i + 1)
+            if j > 0 and closes[j - 1] > 0
+        )
+
+        passed = (
+            bull_ratio >= self.orderflow_bull_min
+            and vol_cv  <= self.orderflow_vol_cv_max
+            and max_daily_pct <= self.orderflow_max_daily_pct
+        )
+        return passed, bull_ratio, vol_cv
 
     # ── 缩幅放量检测 ──────────────────────────────────────
     def _check_sbv(self, closes, opens, volumes, i):
@@ -1122,6 +1311,36 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
                     trigger = f"突破布林上轨{bb_upper[i]:.2f}"
                     trigger_strength = 3
 
+            # ────────────────────────────────────────────────────────
+            # 信号优先级：A(放量突破) > B(布林上轨) >
+            #             E(三线发散) > F(量萎缩放大) >   ← 建仓末期主信号
+            #             C(均线转正) > D(MACD金叉) > G(均匀买单)
+            # E/F 是用户明确指出的三大建仓完毕信号中最核心的两个，
+            # 置于 C/D 之前，确保在"无大涨、无布林突破"的温和启动行情中能触发。
+            # ────────────────────────────────────────────────────────
+
+            # 信号E：三线多头排列持续向上发散（形态修复，拉升前兆）
+            # ★ 追高门槛：价格需仍在建仓区间内（距60日低点 ≤ max_above_low_pct×1.5）
+            if not trigger:
+                _near_low_e = self._near_low(closes, i, self.low_lookback)
+                if (_near_low_e is not None
+                        and _near_low_e <= self.max_above_low_pct * 1.5):
+                    div_ok, s5, s10, s20 = self._check_ma_diverge(ma5, ma10, ma20, i)
+                    if div_ok:
+                        trigger = f"三线多头发散加速 斜率{s5:.4f}>{s10:.4f}>{s20:.4f}"
+                        trigger_strength = 3
+
+            # 信号F：横盘整理尾端量先萎缩后温和放大（建仓完毕诱多信号）
+            # ★ 同样加近低门槛
+            if not trigger:
+                _near_low_f = self._near_low(closes, i, self.low_lookback)
+                if (_near_low_f is not None
+                        and _near_low_f <= self.max_above_low_pct * 1.5):
+                    vsb_ok, shrink_r, expand_r = self._check_vol_shrink_expand(volumes, i)
+                    if vsb_ok:
+                        trigger = f"量先萎缩后温和放大 缩量比{shrink_r:.2f} 扩量比{expand_r:.2f}"
+                        trigger_strength = 3
+
             # 信号C：均线多头发散 + MA20 斜率转正
             if not trigger:
                 ma20_slope = self._ma_slope(ma20, i, 5)
@@ -1144,6 +1363,14 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
                         and dif >= 0):  # 零轴上方金叉
                     trigger = "MACD零轴上方金叉"
                     trigger_strength = 2
+
+            # 信号G：持续均匀大买单
+            # ★ 回测验证：G 单独作为 BUY 触发时胜率过低，暂停纳入入场决策链
+            # if not trigger:
+            #     of_ok, bull_r, vol_cv = self._check_orderflow(closes, opens, volumes, i)
+            #     if of_ok:
+            #         trigger = f"持续均匀买单 阳线{bull_r:.0%} 量均匀CV={vol_cv:.2f}"
+            #         trigger_strength = 2
 
             if not trigger:
                 continue

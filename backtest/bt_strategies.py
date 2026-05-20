@@ -18,9 +18,17 @@ from backtest.bt_major_capital import WilderRSI
 class _BTStrategyBase(bt.Strategy):
     """所有 BT 策略的公共基类"""
 
+    # 子类 params 中可包含 trade_start_date=None，预热期内不交易
     def _base_init(self):
         self.order_dict = {}
         self.trade_log = []
+        self._trade_start = getattr(self.p, 'trade_start_date', None)
+
+    def _before_trade_start(self):
+        """当前 bar 是否在交易起始日之前（预热期）"""
+        if self._trade_start is None:
+            return False
+        return self.datetime.date(0) < self._trade_start
 
     def notify_order(self, order):
         if order.status == order.Completed:
@@ -94,14 +102,19 @@ class _BTStrategyBase(bt.Strategy):
 
 class TrendFollowBT(_BTStrategyBase):
     """
-    入场：EMA_fast 上穿 EMA_slow + 价格 > EMA_trend
-    出场：追踪止损 trailing_pct 或 EMA_fast 下穿 EMA_slow
+    v2: EMA12/26 金叉 + EMA60大趋势 + RSI>50 + 成交量放大
+        硬止损5% + 追踪止损6% + 5日冷静期
     """
     params = dict(
-        fast=10, slow=30, trend=60,
-        trailing_pct=0.08,
+        fast=12, slow=26, trend=60,
+        trailing_pct=0.06,
+        hard_stop_pct=0.05,
+        cool_days=5,
+        vol_ratio=1.2,
+        rsi_min=50.0,
         max_positions=5,
         position_pct=0.20,
+        trade_start_date=None,
     )
 
     def __init__(self):
@@ -114,16 +127,23 @@ class TrendFollowBT(_BTStrategyBase):
                 'ema_fast':  bt.indicators.EMA(d.close, period=self.p.fast),
                 'ema_slow':  bt.indicators.EMA(d.close, period=self.p.slow),
                 'ema_trend': bt.indicators.EMA(d.close, period=self.p.trend),
+                'rsi':       WilderRSI(d.close, period=14),
+                'vol_ma':    bt.indicators.SMA(d.volume, period=20),
             }
             self.stock_state[d._name] = {
                 'in_position': False,
                 'buy_price': 0.0,
                 'highest_since_buy': 0.0,
+                'last_sell_bar': -999,
             }
 
     def next(self):
+        if self._before_trade_start():
+            return
+
         sell_signals = []
         buy_signals = []
+        cur_bar = len(self)
 
         for d in self.datas:
             name = d._name
@@ -135,33 +155,61 @@ class TrendFollowBT(_BTStrategyBase):
             if len(d) < self.p.trend + 2:
                 continue
 
-            ef0 = float(ind['ema_fast'][-1])
-            ef1 = float(ind['ema_fast'][0])
-            es0 = float(ind['ema_slow'][-1])
-            es1 = float(ind['ema_slow'][0])
-            et  = float(ind['ema_trend'][0])
+            ef0   = float(ind['ema_fast'][-1])
+            ef1   = float(ind['ema_fast'][0])
+            es0   = float(ind['ema_slow'][-1])
+            es1   = float(ind['ema_slow'][0])
+            et    = float(ind['ema_trend'][0])
+            rsi   = float(ind['rsi'][0])
+            vma   = float(ind['vol_ma'][0])
+            vol   = float(d.volume[0])
             close = float(d.close[0])
 
-            if any(v != v for v in [ef0, ef1, es0, es1, et]):
+            if any(v != v for v in [ef0, ef1, es0, es1, et, rsi]):
                 continue
 
             if state['in_position']:
                 state['highest_since_buy'] = max(state['highest_since_buy'], close)
+
+                # 硬止损
+                hard_loss = (state['buy_price'] - close) / state['buy_price']
+                if hard_loss >= self.p.hard_stop_pct:
+                    sell_signals.append((d,
+                        f"硬止损 买入{state['buy_price']:.2f}→{close:.2f} "
+                        f"亏损{hard_loss:.1%}"))
+                    state['last_sell_bar'] = cur_bar
+                    continue
+
+                # 追踪止损
                 drawdown = (state['highest_since_buy'] - close) / state['highest_since_buy']
                 if drawdown >= self.p.trailing_pct:
                     sell_signals.append((d,
                         f"追踪止损 最高{state['highest_since_buy']:.2f}→{close:.2f} "
                         f"回撤{drawdown:.1%}"))
+                    state['last_sell_bar'] = cur_bar
                     continue
+
+                # 死叉卖出
                 if ef0 > es0 and ef1 <= es1:
                     sell_signals.append((d,
                         f"EMA{self.p.fast}下穿EMA{self.p.slow} 趋势转弱"))
+                    state['last_sell_bar'] = cur_bar
             else:
-                if ef0 <= es0 and ef1 > es1 and close > et:
+                # 冷静期
+                if cur_bar - state['last_sell_bar'] < self.p.cool_days:
+                    continue
+
+                # 成交量过滤
+                vol_ok = (vma != vma or vma < 1e-9) or (vol >= vma * self.p.vol_ratio)
+
+                if (ef0 <= es0 and ef1 > es1
+                        and close > et
+                        and rsi >= self.p.rsi_min
+                        and vol_ok):
                     buy_signals.append((d,
                         f"EMA{self.p.fast}上穿EMA{self.p.slow} "
-                        f"价格>{self.p.trend}日趋势线",
-                        0.5))
+                        f"RSI={rsi:.1f} 量比{vol/(vma or 1):.1f}x",
+                        0.5 + min(rsi - 50, 20) / 100))
 
         self._execute_signals(sell_signals, buy_signals)
 
@@ -183,6 +231,7 @@ class RSIReversalBT(_BTStrategyBase):
         stop_loss_pct=0.06,
         max_positions=5,
         position_pct=0.20,
+        trade_start_date=None,
     )
 
     def __init__(self):
@@ -202,6 +251,9 @@ class RSIReversalBT(_BTStrategyBase):
             }
 
     def next(self):
+        if self._before_trade_start():
+            return
+
         sell_signals = []
         buy_signals = []
 
@@ -265,6 +317,7 @@ class BollingerRevertBT(_BTStrategyBase):
         take_profit_target='mid',  # 'mid' or 'upper'
         max_positions=5,
         position_pct=0.20,
+        trade_start_date=None,
     )
 
     def __init__(self):
@@ -284,6 +337,9 @@ class BollingerRevertBT(_BTStrategyBase):
             }
 
     def next(self):
+        if self._before_trade_start():
+            return
+
         sell_signals = []
         buy_signals = []
 
@@ -357,6 +413,7 @@ class MajorCapitalPumpBT(_BTStrategyBase):
         trailing_pct=0.10,
         max_positions=5,
         position_pct=0.20,
+        trade_start_date=None,
     )
 
     def __init__(self):
@@ -400,6 +457,9 @@ class MajorCapitalPumpBT(_BTStrategyBase):
         return (high - top) / full
 
     def next(self):
+        if self._before_trade_start():
+            return
+
         min_len = self.p.macd_slow + self.p.macd_signal + 5
         sell_signals = []
         buy_signals = []

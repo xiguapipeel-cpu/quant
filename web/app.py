@@ -67,6 +67,11 @@ state = {
     "last_scan_time":  None,
     "scan_preset":     "default",
     "ws_clients":      [],
+    # ── 参数热力图扫描（独立于 backtest_running，不阻塞主流程）──
+    "sweep_running":   False,
+    "sweep_key":       None,   # "{strategy}:{start}:{end}"
+    "sweep_result":    None,   # 完成后存 {p1, p2, matrix}
+    "sweep_error":     None,
 }
 
 # 策略 → 选股预设映射
@@ -462,15 +467,16 @@ async def run_backtest(
     end:      str  = "2024-12-31",
     cash:     float = 1000000.0,
     screen_preset: str = "default",
+    data_source:   str = "cache",   # "cache" | "local_db"
 ):
     if state["backtest_running"]:
         return JSONResponse({"error": "回测已在运行中"}, status_code=409)
     state["backtest_error"] = None          # 清空上次错误
-    background_tasks.add_task(_do_backtest, strategy, start, end, cash, screen_preset)
-    return {"message": f"回测已启动: {strategy} ({start}~{end})"}
+    background_tasks.add_task(_do_backtest, strategy, start, end, cash, screen_preset, data_source)
+    return {"message": f"回测已启动: {strategy} ({start}~{end}) 数据源={data_source}"}
 
 
-async def _do_backtest(strategy: str, start: str, end: str, cash: float, screen_preset: str = "default"):
+async def _do_backtest(strategy: str, start: str, end: str, cash: float, screen_preset: str = "default", data_source: str = "cache"):
     state["backtest_running"] = True
 
     def log(msg, level="info"):
@@ -479,82 +485,57 @@ async def _do_backtest(strategy: str, start: str, end: str, cash: float, screen_
         asyncio.create_task(ws_manager.broadcast({"type": "log", "data": entry}))
 
     try:
-        log(f"回测启动: {strategy} | {start}~{end} | 初始资金¥{cash:,.0f} | 选股={screen_preset}")
+        src_label = "本地数据库" if data_source == "local_db" else "缓存数据"
+        log(f"回测启动: {strategy} | {start}~{end} | 初始资金¥{cash:,.0f} | 数据源={src_label}")
 
-        # ★ 主力建仓策略使用 Backtrader 引擎
-        if strategy == "major_capital_accumulation":
-            log("引擎: Backtrader v2（自定义RSI + 信号优先级 + 策略内选股）")
-            from backtest.bt_major_capital import run_for_web
-            result = await run_for_web(
-                strategy_name=strategy,
-                start=start, end=end, cash=cash,
-                log_fn=lambda m: log(m),
-                screen_preset=screen_preset,
-            )
+        # 所有策略统一使用 Backtrader 引擎
+        log(f"引擎: Backtrader | {src_label}")
+        from backtest.bt_runner import run_for_web
+        result = await run_for_web(
+            strategy_name=strategy,
+            start=start, end=end, cash=cash,
+            log_fn=lambda m: log(m),
+            screen_preset=screen_preset,
+            data_source=data_source,
+        )
 
-            if "error" in result:
-                state["backtest_error"] = result["error"]
-                log(f"回测失败: {result['error']}", "error")
-                await ws_manager.broadcast({"type": "backtest_error", "data": result})
-                return
+        if "error" in result:
+            state["backtest_error"] = result["error"]
+            log(f"回测失败: {result['error']}", "error")
+            await ws_manager.broadcast({"type": "backtest_error", "data": result})
+            return
 
-            metrics = result["metrics"]
-            equity_data = result.get("equity_data")
-            trades_paired = result.get("trades_paired", [])
-
-        else:
-            # 其他策略走原有引擎
-            log("Step1: 动态选股筛选...")
-            log("Step2: 加载历史日线 + 构建验证门控...")
-
-            from backtest.runner import run_backtest as _run
-            scan_results = state.get("scan_results") or None
-            result = await _run(
-                strategy_name=strategy,
-                start=start, end=end,
-                initial_cash=cash,
-                scan_results=scan_results,
-                screen_preset=screen_preset,
-                log_fn=lambda m: log(m),
-            )
-
-            if "error" in result:
-                state["backtest_error"] = result["error"]
-                log(f"回测失败: {result['error']}", "error")
-                log("请确认: pip install akshare 已执行，且网络可访问东方财富接口", "warn")
-                await ws_manager.broadcast({"type": "backtest_error", "data": result})
-                return
-
-            metrics = result["metrics"]
-            equity_data = None
-            trades_paired = None
+        metrics = result["metrics"]
+        equity_data = result.get("equity_data")
+        trades_paired = result.get("trades_paired", [])
 
         # ── 内存缓存 ──
         entry = {
-            "id":       len(state["backtest_results"]) + 1,
-            "strategy": strategy, "start": start, "end": end,
-            "cash":     cash,     "metrics": metrics,
-            "time":     datetime.now().strftime("%Y-%m-%d %H:%M"),
-            "is_real":  True,
+            "id":          len(state["backtest_results"]) + 1,
+            "strategy":    strategy, "start": start, "end": end,
+            "cash":        cash,     "metrics": metrics,
+            "time":        datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "is_real":     True,
+            "data_source": data_source,
         }
         state["backtest_results"].insert(0, entry)
 
-        # ── MySQL 持久化（Backtrader 结果也存入，与原引擎一致） ──
-        if equity_data or trades_paired:
-            try:
-                from db.backtest_dao import save_backtest
-                await save_backtest(
-                    strategy=strategy,
-                    start=start, end=end,
-                    initial_cash=cash,
-                    metrics=metrics,
-                    equity_data=equity_data,
-                    trades_data=trades_paired,
-                    is_real=True,
-                )
-                log("回测结果已持久化到 MySQL", "ok")
-            except Exception as e:
-                logger.warning(f"[回测] Backtrader结果MySQL持久化失败: {e}")
+        # ── MySQL 持久化（所有策略均持久化） ──
+        try:
+            from db.backtest_dao import save_backtest
+            await save_backtest(
+                strategy=strategy,
+                start=start, end=end,
+                initial_cash=cash,
+                metrics=metrics,
+                equity_data=equity_data,
+                trades_data=trades_paired,
+                is_real=True,
+                data_source=data_source,
+            )
+            log("回测结果已持久化到 MySQL", "ok")
+        except Exception as e:
+            logger.warning(f"[回测] MySQL持久化失败: {e}")
 
         log(f"回测完成 ✓ | 年化={metrics.get('annualized_return','N/A')} "
             f"夏普={metrics.get('sharpe_ratio','N/A')} "
@@ -568,6 +549,450 @@ async def _do_backtest(strategy: str, start: str, end: str, cash: float, screen_
         logger.exception("回测异常详情")
     finally:
         state["backtest_running"] = False
+
+
+# ── 样本外测试（OOS）──────────────────────────────────────────────────────────
+
+@app.post("/api/backtest/run_oos")
+async def run_oos_backtest(
+    background_tasks: BackgroundTasks,
+    strategy:    str            = "trend_follow",
+    train_start: Optional[str]  = None,
+    train_end:   Optional[str]  = None,
+    test_start:  str            = "2022-01-01",
+    test_end:    str            = "2023-12-31",
+    cash:        float          = 1000000.0,
+    data_source: str            = "cache",
+):
+    if state["backtest_running"]:
+        return JSONResponse({"error": "回测已在运行中"}, status_code=409)
+    state["backtest_error"] = None
+    background_tasks.add_task(
+        _do_oos_backtest, strategy, train_start, train_end, test_start, test_end, cash, data_source
+    )
+    train_desc = f"{train_start}~{train_end}" if train_start else "无"
+    return {"message": f"样本外测试已启动: {strategy} 训练={train_desc} 测试={test_start}~{test_end}"}
+
+
+async def _do_oos_backtest(
+    strategy: str,
+    train_start: Optional[str], train_end: Optional[str],
+    test_start: str,  test_end: str,
+    cash: float,
+    data_source: str,
+):
+    state["backtest_running"] = True
+
+    def log(msg, level="info"):
+        entry = {"time": datetime.now().strftime("%H:%M:%S"), "msg": msg, "level": level}
+        state["scan_log"].append(entry)
+        asyncio.create_task(ws_manager.broadcast({"type": "log", "data": entry}))
+
+    try:
+        src_label = "本地数据库" if data_source == "local_db" else "缓存数据"
+        has_train = bool(train_start and train_end)
+        log(f"样本外测试启动: {strategy} | 数据源={src_label} | 训练集={'有' if has_train else '无'}")
+
+        from backtest.bt_runner import run_for_web
+
+        def _pct_val(s: str) -> float:
+            """'+12.34%' → 12.34"""
+            try:
+                return float(s.replace('%', '').replace('+', ''))
+            except Exception:
+                return 0.0
+
+        train_result = None
+        train_m = {}
+        train_ret = None
+
+        # ── 训练集回测（可选）──
+        if has_train:
+            log(f"[训练集] 加载行情数据 {train_start} ~ {train_end} ...")
+            train_result = await run_for_web(
+                strategy_name=strategy,
+                start=train_start, end=train_end, cash=cash,
+                log_fn=lambda m: log(f"[训练] {m}"),
+                data_source=data_source,
+            )
+            if "error" in train_result:
+                state["backtest_error"] = f"训练集失败: {train_result['error']}"
+                log(f"训练集回测失败: {train_result['error']}", "error")
+                await ws_manager.broadcast({"type": "backtest_error", "data": train_result})
+                return
+            train_m = train_result["metrics"]
+            train_ret = _pct_val(train_m.get("total_return", "0%"))
+
+        # ── 测试集回测（用相同初始资金，独立计算）──
+        log(f"[测试集] 加载行情数据 {test_start} ~ {test_end} ...")
+        test_result = await run_for_web(
+            strategy_name=strategy,
+            start=test_start, end=test_end, cash=cash,
+            log_fn=lambda m: log(f"[测试] {m}"),
+            data_source=data_source,
+        )
+        if "error" in test_result:
+            state["backtest_error"] = f"测试集失败: {test_result['error']}"
+            log(f"测试集回测失败: {test_result['error']}", "error")
+            await ws_manager.broadcast({"type": "backtest_error", "data": test_result})
+            return
+
+        test_m  = test_result["metrics"]
+        test_ret = _pct_val(test_m.get("total_return", "0%"))
+
+        # ── OOS 判定逻辑（多维过拟合评分）──
+        # 评分维度（每项 0–20，总分 100）：
+        #   1. 年化收益一致性（test_ann / train_ann）
+        #   2. 夏普比率一致性（test_sharpe / train_sharpe）
+        #   3. 最大回撤恶化程度（test_dd / train_dd，越大越差）
+        #   4. 胜率漂移（|test_wr - train_wr|）
+        #   5. 测试集交易频次（统计显著性）
+        # 综合评分 + 硬否决条件共同得出 verdict
+        if not has_train:
+            verdict = "N/A"
+            verdict_reason = f"未提供训练集，仅展示测试区间结果（{test_start}~{test_end}），无法判断过拟合"
+            oof_score = None
+            score_detail = None
+        else:
+            # 取指标（优先用年化收益，避免区间长度偏差）
+            train_ann = _pct_val(train_m.get("annualized_return", "0%"))
+            test_ann  = _pct_val(test_m.get("annualized_return",  "0%"))
+            train_sh  = float(train_m.get("sharpe_ratio", 0) or 0)
+            test_sh   = float(test_m.get("sharpe_ratio",  0) or 0)
+            train_dd  = _pct_val(train_m.get("max_drawdown", "0%"))
+            test_dd   = _pct_val(test_m.get("max_drawdown",  "0%"))
+            train_wr  = _pct_val(train_m.get("win_rate", "0%"))
+            test_wr   = _pct_val(test_m.get("win_rate",  "0%"))
+            test_n    = int(test_m.get("total_trades", 0) or 0)
+
+            def _band(ratio: float, bands: list) -> int:
+                """根据区间返回分值，bands=[(阈值, 分值), ...] 从高到低"""
+                for thr, pts in bands:
+                    if ratio >= thr:
+                        return pts
+                return 0
+
+            # 1. 年化收益一致性
+            if train_ann > 0:
+                ann_ratio = test_ann / train_ann
+                ann_pts = _band(ann_ratio, [(0.7, 20), (0.4, 12), (0.1, 6), (0, 3)])
+            else:
+                ann_ratio = 0
+                ann_pts = 0
+
+            # 2. 夏普一致性
+            if train_sh > 0:
+                sh_ratio = test_sh / train_sh
+                sh_pts = _band(sh_ratio, [(0.7, 20), (0.4, 12), (0.1, 6), (0, 3)])
+            else:
+                sh_ratio = 0
+                sh_pts = 0
+
+            # 3. 回撤恶化（反向评分：越小越好）
+            if train_dd > 0:
+                dd_ratio = test_dd / train_dd
+                if   dd_ratio <= 1.2: dd_pts = 20
+                elif dd_ratio <= 1.5: dd_pts = 12
+                elif dd_ratio <= 2.0: dd_pts = 6
+                else:                 dd_pts = 0
+            else:
+                dd_ratio = 1.0 if test_dd <= 5 else 2.0
+                dd_pts = 20 if test_dd <= 5 else 6
+
+            # 4. 胜率漂移
+            wr_drift = abs(test_wr - train_wr)
+            if   wr_drift <= 5:  wr_pts = 20
+            elif wr_drift <= 10: wr_pts = 12
+            elif wr_drift <= 20: wr_pts = 6
+            else:                 wr_pts = 0
+
+            # 5. 测试集交易频次（统计显著性）
+            if   test_n >= 30: n_pts = 20
+            elif test_n >= 15: n_pts = 12
+            elif test_n >= 5:  n_pts = 6
+            else:               n_pts = 0
+
+            oof_score = ann_pts + sh_pts + dd_pts + wr_pts + n_pts
+            score_detail = {
+                "ann_pts":  ann_pts, "ann_ratio":  round(ann_ratio, 3),
+                "sh_pts":   sh_pts,  "sh_ratio":   round(sh_ratio,  3),
+                "dd_pts":   dd_pts,  "dd_ratio":   round(dd_ratio,  3),
+                "wr_pts":   wr_pts,  "wr_drift":   round(wr_drift,  2),
+                "n_pts":    n_pts,   "test_n":     test_n,
+            }
+
+            # ── 硬否决：训练亏损 / 测试大亏 / 测试样本过少 ──
+            if train_ann <= 0:
+                verdict = "FAIL"
+                verdict_reason = f"训练集年化亏损({train_ann:+.2f}%)，策略本身存在问题，非过拟合"
+            elif test_ann < -5:
+                verdict = "FAIL"
+                verdict_reason = f"训练年化{train_ann:+.2f}% 但测试年化{test_ann:+.2f}%，典型过拟合（评分{oof_score}/100）"
+            elif test_n < 3:
+                verdict = "WARN"
+                verdict_reason = f"测试区间仅{test_n}笔交易，样本量不足以验证（评分{oof_score}/100）"
+            elif oof_score >= 75:
+                verdict = "PASS"
+                verdict_reason = (f"综合评分{oof_score}/100 · 年化一致性{ann_ratio*100:.0f}% · "
+                                  f"夏普一致性{sh_ratio*100:.0f}% · 回撤比{dd_ratio:.2f} · "
+                                  f"胜率漂移{wr_drift:.1f}pp · {test_n}笔交易，策略鲁棒性良好")
+            elif oof_score >= 50:
+                verdict = "WARN"
+                verdict_reason = (f"综合评分{oof_score}/100 · 年化一致性{ann_ratio*100:.0f}% · "
+                                  f"回撤比{dd_ratio:.2f} · 胜率漂移{wr_drift:.1f}pp，存在一定衰减")
+            else:
+                verdict = "FAIL"
+                verdict_reason = (f"综合评分{oof_score}/100 · 年化一致性{ann_ratio*100:.0f}% · "
+                                  f"回撤比{dd_ratio:.2f}，过拟合风险高")
+
+        oos_entry = {
+            "id":          len(state["backtest_results"]) + 1,
+            "strategy":    strategy,
+            "oos":         True,
+            "train_start": train_start, "train_end": train_end,
+            "test_start":  test_start,  "test_end":  test_end,
+            "cash":        cash,
+            "time":        datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "data_source": data_source,
+            "train_metrics":  train_m,
+            "test_metrics":   test_m,
+            "train_equity":   train_result.get("equity_data") if train_result else None,
+            "test_equity":    test_result.get("equity_data"),
+            "verdict":        verdict,
+            "verdict_reason": verdict_reason,
+            "train_ret":      train_ret,
+            "test_ret":       test_ret,
+            "oof_score":      oof_score,
+            "score_detail":   score_detail,
+        }
+        state["backtest_results"].insert(0, oos_entry)
+
+        # ── MySQL 持久化 ──
+        try:
+            from db.backtest_dao import save_backtest
+            oos_metrics = {
+                "oos":            True,
+                "verdict":        verdict,
+                "verdict_reason": verdict_reason,
+                "train_start":    train_start,
+                "train_end":      train_end,
+                "test_start":     test_start,
+                "test_end":       test_end,
+                "train_ret":      train_ret,
+                "test_ret":       test_ret,
+                "train_metrics":  train_m,
+                "test_metrics":   test_m,
+                "initial_cash":   cash,
+                "oof_score":      oof_score,
+                "score_detail":   score_detail,
+            }
+            oos_equity = {
+                "train": train_result.get("equity_data") if train_result else None,
+                "test":  test_result.get("equity_data"),
+            }
+            saved_id = await save_backtest(
+                strategy=f"oos:{strategy}",
+                start=train_start or test_start, end=test_end,
+                initial_cash=cash,
+                metrics=oos_metrics,
+                equity_data=oos_equity,
+                trades_data=None,
+                is_real=True,
+                data_source=data_source,
+            )
+            oos_entry["id"] = saved_id
+            log(f"样本外测试结果已持久化到 MySQL id={saved_id}", "ok")
+        except Exception as e:
+            logger.warning(f"[OOS] MySQL 持久化失败: {e}")
+
+        train_desc = f"训练={train_ret:+.2f}% " if train_ret is not None else ""
+        log(
+            f"样本外测试完成 ✓ | {train_desc}测试={test_ret:+.2f}% 结论={verdict}",
+            "ok" if verdict == "PASS" else ("warn" if verdict == "WARN" else "error"),
+        )
+        await ws_manager.broadcast({"type": "backtest_done", "data": oos_entry})
+
+    except Exception as e:
+        state["backtest_error"] = str(e)
+        log(f"样本外测试异常: {type(e).__name__}: {e}", "error")
+        logger.exception("OOS回测异常详情")
+    finally:
+        state["backtest_running"] = False
+
+
+@app.get("/api/backtest/oos_result")
+async def get_oos_result():
+    """返回最近一次样本外测试结果（内存优先，内存无则从 DB 读取）"""
+    # 先找内存
+    for r in state["backtest_results"]:
+        if r.get("oos"):
+            return JSONResponse(sanitize(r))
+    # 再从 DB 读
+    try:
+        from db.backtest_dao import load_backtest_results
+        records = await load_backtest_results()
+        for r in records:
+            if r.get("oos"):
+                return JSONResponse(sanitize(r))
+    except Exception:
+        pass
+    return JSONResponse({"error": "暂无样本外测试记录"}, status_code=404)
+
+
+# ── 参数热力图扫描（OOS）────────────────────────────────────────────────────────
+
+# 每个策略的两个可调参数及候选值（5×4 ~ 5×5 网格）
+PARAM_SWEEP_CONFIG: dict = {
+    "trend_follow": {
+        "p1": {"name": "fast",        "label": "快EMA周期",  "values": [8, 10, 12, 15, 20]},
+        "p2": {"name": "slow",        "label": "慢EMA周期",  "values": [20, 25, 30, 35, 40]},
+    },
+    "rsi_reversal": {
+        "p1": {"name": "entry_low",   "label": "RSI超卖阈值", "values": [20, 25, 30, 35, 40]},
+        "p2": {"name": "take_profit", "label": "RSI止盈阈值", "values": [55, 60, 65, 70, 75]},
+    },
+    "bollinger_revert": {
+        "p1": {"name": "period",      "label": "布林周期",    "values": [15, 20, 25, 30]},
+        "p2": {"name": "num_std",     "label": "标准差倍数",  "values": [1.5, 2.0, 2.5, 3.0]},
+    },
+    "major_capital_pump": {
+        "p1": {"name": "pct_entry",    "label": "入场涨幅%",  "values": [2.0, 3.0, 4.0, 5.0, 6.0]},
+        "p2": {"name": "trailing_pct", "label": "追踪止损%",  "values": [0.08, 0.10, 0.12, 0.15]},
+    },
+    "major_capital_accumulation": {
+        "p1": {"name": "min_watch_days", "label": "最少观察天",  "values": [10, 15, 20, 25]},
+        "p2": {"name": "stop_loss_pct",  "label": "硬止损幅度%", "values": [0.06, 0.08, 0.10, 0.12]},
+    },
+}
+
+
+async def _do_param_sweep(strategy: str, start: str, end: str,
+                          cash: float, data_source: str, sweep_key: str):
+    """后台任务：参数网格扫描，结果写入 state，不阻塞主流程"""
+    from backtest.bt_runner import run_for_web
+
+    cfg = PARAM_SWEEP_CONFIG[strategy]
+    p1, p2 = cfg["p1"], cfg["p2"]
+    sem = asyncio.Semaphore(3)   # 最多 3 个并行，避免内存爆炸
+
+    async def _run_one(v1, v2):
+        async with sem:
+            try:
+                r = await run_for_web(
+                    strategy_name=strategy,
+                    start=start, end=end, cash=cash,
+                    data_source=data_source,
+                    extra_params={p1["name"]: v1, p2["name"]: v2},
+                )
+                if "error" in r:
+                    return None
+                ann = r["metrics"].get("annualized_return", "0%")
+                return round(float(ann.replace("%", "").replace("+", "")), 2)
+            except Exception:
+                return None
+
+    try:
+        tasks = [_run_one(v1, v2) for v1 in p1["values"] for v2 in p2["values"]]
+        flat = await asyncio.gather(*tasks)
+        nc = len(p2["values"])
+        matrix = [list(flat[i * nc:(i + 1) * nc]) for i in range(len(p1["values"]))]
+        result = {"p1": p1, "p2": p2, "matrix": matrix}
+        # 仅当 key 未被新任务替换时才写结果
+        if state["sweep_key"] == sweep_key:
+            state["sweep_result"] = result
+            state["sweep_error"]  = None
+        # 持久化到数据库（strategy 列用 sweep: 前缀区分）
+        try:
+            from db.backtest_dao import save_backtest
+            await save_backtest(
+                strategy=f"sweep:{strategy}",
+                start=start, end=end,
+                initial_cash=cash,
+                metrics={"sweep_key": sweep_key, "p1": p1, "p2": p2, "matrix": matrix},
+                is_real=False,
+                data_source=data_source,
+            )
+            logger.info(f"[sweep] 结果已持久化到数据库 key={sweep_key}")
+        except Exception as e:
+            logger.warning(f"[sweep] 持久化失败（不影响内存结果）: {e}")
+    except Exception as e:
+        if state["sweep_key"] == sweep_key:
+            state["sweep_error"] = str(e)
+    finally:
+        if state["sweep_key"] == sweep_key:
+            state["sweep_running"] = False
+    logger.info(f"[sweep] 完成 key={sweep_key}")
+
+
+@app.post("/api/backtest/param_sweep")
+async def param_sweep(
+    background_tasks: BackgroundTasks,
+    strategy:    str   = "trend_follow",
+    start:       str   = "2022-01-01",
+    end:         str   = "2023-12-31",
+    cash:        float = 100000.0,
+    data_source: str   = "local_db",
+):
+    """
+    参数热力图：启动后台扫描，立即返回。
+    用 GET /api/backtest/param_sweep/status 轮询进度。
+    """
+    cfg = PARAM_SWEEP_CONFIG.get(strategy)
+    if not cfg:
+        return JSONResponse({"error": f"策略 {strategy} 暂不支持参数热力图"}, status_code=400)
+
+    sweep_key = f"{strategy}:{start}:{end}"
+
+    # 若当前 key 已在跑或已有结果，直接告知
+    if state["sweep_running"] and state["sweep_key"] == sweep_key:
+        return {"status": "already_running", "key": sweep_key}
+    if not state["sweep_running"] and state["sweep_key"] == sweep_key and state["sweep_result"]:
+        return {"status": "already_done", "key": sweep_key}
+
+    # 启动新任务
+    state["sweep_running"] = True
+    state["sweep_key"]     = sweep_key
+    state["sweep_result"]  = None
+    state["sweep_error"]   = None
+    background_tasks.add_task(_do_param_sweep, strategy, start, end, cash, data_source, sweep_key)
+    logger.info(f"[sweep] 启动后台扫描 key={sweep_key}")
+    return {"status": "started", "key": sweep_key}
+
+
+async def _load_sweep_from_db(sweep_key: str) -> dict | None:
+    """从数据库中查找最近一次指定 key 的热力图结果"""
+    try:
+        from db.backtest_dao import load_backtest_results
+        records = await load_backtest_results()
+        strategy = sweep_key.split(":")[0]
+        for r in records:
+            m = r.get("metrics", {})
+            if r.get("strategy") == f"sweep:{strategy}" and m.get("sweep_key") == sweep_key:
+                return {"p1": m["p1"], "p2": m["p2"], "matrix": m["matrix"]}
+    except Exception:
+        pass
+    return None
+
+
+@app.get("/api/backtest/param_sweep/status")
+async def param_sweep_status(key: str = ""):
+    """轮询参数热力图扫描状态；若内存无结果则从 DB 兜底查询"""
+    result = state["sweep_result"]
+    # 内存无结果且不在运行时，尝试从 DB 恢复
+    if not state["sweep_running"] and result is None and key:
+        db_result = await _load_sweep_from_db(key)
+        if db_result:
+            # 恢复到内存（下次直接命中）
+            if not state["sweep_running"]:
+                state["sweep_key"]    = key
+                state["sweep_result"] = db_result
+            result = db_result
+    return {
+        "running": state["sweep_running"],
+        "key":     state["sweep_key"] or key,
+        "result":  result,
+        "error":   state["sweep_error"],
+    }
 
 
 @app.get("/api/backtest/trades/{bt_id}")

@@ -119,9 +119,12 @@ class MajorCapitalBT(bt.Strategy):
     params = dict(
         # ── 阶段1 WATCH ──
         low_lookback=60,
-        max_above_low_pct=20.0,
-        ma_converge_pct=5.0,
-        ma_slope_max=0.05,
+        max_above_low_pct=15.0,          # ★ 20→15 收紧，剔除下跌中继平台
+        # ── 真正低位确认：距 120 日最高 ≥ 30% ──
+        high_lookback=120,
+        min_below_high_pct=30.0,
+        ma_converge_pct=3.0,             # ★ 5→3 真正的粘合极差在 2-3%，纳入 MA60 四线收敛
+        ma_slope_max=0.01,               # ★ 日斜率 ≤ 1%，允许缓慢上升/下降
         bb_period=20,
         bb_narrow_ratio=0.85,
         vol_yang_yin_min=1.03,
@@ -129,9 +132,9 @@ class MajorCapitalBT(bt.Strategy):
         rsi_watch_min=25.0,
         rsi_watch_max=62.0,
         # ── 阶段2 BUY ──
-        min_watch_days=20,              # ★ 优化：15→20 要求更长建仓确认
+        min_watch_days=15,              # ★ 滚动 30 天窗口内满足 ≥ 15 天即确认
         breakout_pct=4.0,
-        breakout_vol_ratio=2.0,         # ★ 优化：1.8→2.0 更强量能确认
+        breakout_vol_ratio=4.0,         # ★ 优化：2.0→4.0 要求超强量能确认
         breakout_max_pct=8.0,           # ★ 新增：单日涨幅上限，超过视为追高
         rsi_buy_max=70.0,               # ★ 新增：买入时RSI上限，拒绝超买入场
         ma_slope_up_min=0.002,
@@ -162,13 +165,139 @@ class MajorCapitalBT(bt.Strategy):
         screen_min_amount_wan=300,     # 日均成交额下限（万元）建仓期成交低是特征
         screen_min_bars=80,            # 最少历史 bar 数（需覆盖 low_lookback=60 + buffer）
         screen_vol_window=20,          # 成交额计算窗口
+        # ── 信号E：三线多头排列持续向上发散 ──
+        ma_diverge_lookback=5,
+        # ── 信号F：横盘整理尾端量先萎缩后温和放大 ──
+        vol_shrink_days=15,
+        vol_expand_days=5,
+        vol_shrink_max_ratio=0.80,
+        vol_expand_min_ratio=1.2,
+        vol_expand_max_ratio=2.5,
+        # ── 信号G：持续均匀大买单 ──
+        orderflow_days=10,
+        orderflow_bull_min=0.6,
+        orderflow_vol_cv_max=0.5,
+        orderflow_max_daily_pct=4.0,
+        # ── 交易起始日（预热期内只计算指标，不下单） ──
+        # 用于"本地数据库"模式：数据从更早加载，但实际交易从 start 开始
+        trade_start_date=None,          # datetime.date 对象，None=不限制
+        # ── 大盘过滤 ──
+        market_filter=True,             # 大盘下跌趋势时禁止买入
+        market_code='idx_sh',           # 指数 data feed 的 name
+        market_ma_fast=20,              # 大盘快线
+        market_ma_slow=60,              # 大盘慢线
+        # 扩展过滤（P3，默认 off；通过 extra_params 启用并对照测试）
+        market_rsi_period=14,           # 指数 RSI 周期
+        market_rsi_min=0.0,             # 指数 RSI 下限（0 = 关闭；建议 50）
+        market_breadth_min=0.0,         # 涨跌家数比下限（0 = 关闭；建议 1.0 即上涨家数 ≥ 下跌家数）
+        # ══════════════════════════════════════════════════════════
+        # 方案 A：自适应阈值（替代 breakout_vol_ratio / breakout_pct /
+        #            stop_loss_pct / trailing_pct 等硬编码值，降低过拟合）
+        # ══════════════════════════════════════════════════════════
+        adaptive_lookback=60,           # 历史分位数窗口
+        vol_ratio_percentile=0.85,      # 放量要求：近60日5日量比序列 85 分位
+        breakout_pct_percentile=0.75,   # 突破涨幅：近60日涨幅序列 75 分位
+        vol_ratio_min=2.0,              # 放量下限（保底，避免分位数太低）
+        breakout_pct_min=3.0,           # 涨幅下限（同上）
+        # P5：新阈值定义（>0 启用，取代上述 percentile 系列）
+        # 涨幅用 ATR 倍数自适应不同股票波动率；量用原始 60 日量分位
+        breakout_atr_k=0.0,             # >0：要求 (close - prev_close) ≥ k × ATR
+        vol_raw_percentile=0.0,         # >0：要求 today_vol > Q(N%) of prev 60d volume
+        atr_period=20,                  # ATR 周期
+        atr_stop_k=2.0,                 # 硬止损 = k × ATR（自适应）
+        atr_trail_k=2.0,                # 追踪止损 = k × ATR — P0 #1 验证：3.0→2.0 stage1 收紧
+        # ══════════════════════════════════════════════════════════
+        # 持仓管理：金字塔加仓 + 动态追踪止损（放大盈利单）
+        # ══════════════════════════════════════════════════════════
+        pyramid_enabled=True,
+        pyramid_trigger_gain=0.08,       # 浮盈 ≥ 8% 且创持仓新高触发加仓
+        pyramid_size_ratio=0.5,          # 每次加仓 = 0.5 × 初始仓位
+        pyramid_max_adds=2,              # 单只股票最多加仓次数
+        pyramid_min_gap_days=5,          # 两次加仓之间至少间隔 N 日
+        # 动态追踪止损：反转哲学（P0 #1）— 盈利越大，trail k 越紧，锁住浮盈
+        # 旧值（baseline，越大越宽）: stage2_gain=0.15 k=5.0; stage3_gain=0.30 k=7.0
+        # 新值（tight，4 折 OOS 累计 -15% → -8%）: 越赚越紧
+        trail_stage2_gain=0.05,          # 盈利 ≥ 5% 后切换 stage2（早启动保护）
+        trail_stage2_k=1.5,              # stage2 trail = 1.5 × ATR
+        trail_stage3_gain=0.15,          # 盈利 ≥ 15% 后切换 stage3
+        trail_stage3_k=1.0,              # stage3 trail = 1.0 × ATR（最紧锁利）
+        # 注：旧版本曾有 lock_floor_t1/t2/t3 + pyramid_require_highest_gain 共 7 个参数
+        # 4 折 OOS 全部 0 触发（trail 包络其上 → max(trail, hard, floor) = trail），
+        # 已删除以减少自由度避免过拟合心理依赖（参考 CLAUDE.md 决策追溯）
+        # ══════════════════════════════════════════════════════════
+        # 方案 B：信号精简开关
+        # ══════════════════════════════════════════════════════════
+        enable_signal_a=True,           # 放量突破（核心）
+        enable_signal_f=False,          # 量萎缩后放大 — P1-B walk-forward 验证：4 折累计 -20pp，关闭。
+                                        #   P1-A 诊断：5日胜率 78.6% 但 final 均亏 1.78%（典型假突破后回吐）
+                                        #   关闭后 4 折累计由 -7.83% 改善至 +12.29%（Δ +20.12pp，4/4 折改善或持平）
+        # 信号 A 质量过滤 — P2-A walk-forward 验证：4 折累计 +22.60% (vs +12.31% 未过滤，Δ +10.29pp)
+        # P1-A 诊断：rsi 低分位 final 均亏 -1.83%；rsi 与 ma_diverge 强相关
+        # 砍掉的入场是 Fold 1 的 4 月关税黑天鹅灾难单（如 600611 -17.77%）+ Fold 2 噪音区
+        # Fold 2 闭仓胜率从 58% → 83.3%；Fold 3 几乎不影响
+        # 注：旧版本曾有 signal_a_min_ma_diverge_pct（mdiv≥0）配合使用，4 折逐笔等价
+        # 已删除（P2-A dissect 证明 rsi/mdiv 测同一件事，砍同一批 6 笔；保留 rsi 即可）
+        signal_a_min_rsi=55.0,                   # A_breakout 要求 rsi ≥ 55（P2-A）
+        # P4：突破需"close > max(high[-1..-N])" 才算真突破（解决随机放量大阳线假信号）
+        # 4 折 OOS 累计 +22.60% → +30.52%（Δ +7.92pp，4/4 折改善或持平）
+        # Fold 2/3 闭仓胜率均从 83% 升至 100%；BH_10/20 等价（同砍 2 笔），BH_30 在 Fold 3 多 +3.35pp
+        # 30 日窗口与策略 watch 期（30 日滚动窗口 ≥15 天累计）哲学一致
+        signal_a_break_high_lookback=30,         # 0=关闭；>0 时 close 必须 > max(high[-1..-N])
+        # B/C/D/E/G 已删除：过拟合痕迹明显，经统计显著性不足
+        # ══════════════════════════════════════════════════════════
+        # 滚动窗口建仓计数（替代"中途断档清零"刚性逻辑）
+        # 过去 watch_rolling_window 天内满足 ≥ min_watch_days 天即确认
+        # 允许主力洗盘期间条件短暂失效
+        # ══════════════════════════════════════════════════════════
+        watch_rolling_window=30,        # 滚动窗口天数
+        # ══════════════════════════════════════════════════════════
+        # 量能维度：地量特征 或 换手温和（主力低位吸筹特征）
+        # ══════════════════════════════════════════════════════════
+        vol_compression_short=20,       # 短期均量窗口
+        vol_compression_long=120,       # 长期均量窗口
+        vol_compression_max=0.70,       # 短均量 / 长均量 ≤ 0.70 → 地量
+        # ══════════════════════════════════════════════════════════
+        # 资金流二次确认（依赖 stock_fund_flow 表）
+        # 数据来源：akshare.stock_individual_fund_flow（单股最近 ~120 个交易日）
+        # 默认 disabled — 仅当外部把 fund_flow_data 注入并启用后生效。
+        # 数据不足时（lookback 不够）按 strict_mode 决定通过/拒绝。
+        # ══════════════════════════════════════════════════════════
+        fund_flow_enabled=False,
+        fund_flow_data=None,                # dict: {code: pd.DataFrame indexed by date}
+        fund_flow_lookback=20,
+        fund_flow_min_avg_pct=0.0,          # 主力净占比近 N 日均值 ≥ 此值（%）
+        fund_flow_pos_days_ratio=0.45,      # 主力流入天数占比 ≥ 此值
+        fund_flow_require_pos_breakout=True, # 突破日主力净流入必须为正
+        fund_flow_strict_mode=False,        # 数据不足时：False=放行(降级) True=拒绝
     )
 
     def __init__(self):
         self.indicators = {}
         self.active_datas = []   # 通过选股过滤的 data feeds
 
+        # ── 大盘指数指标 ──
+        self._market_data = None
+        self._market_ma_fast = None
+        self._market_ma_slow = None
+        self._market_rsi = None
+        if self.p.market_filter:
+            for d in self.datas:
+                if d._name == self.p.market_code:
+                    self._market_data = d
+                    self._market_ma_fast = bt.indicators.SMA(
+                        d.close, period=self.p.market_ma_fast)
+                    self._market_ma_slow = bt.indicators.SMA(
+                        d.close, period=self.p.market_ma_slow)
+                    self._market_rsi = bt.indicators.RSI(
+                        d.close, period=self.p.market_rsi_period)
+                    break
+        # 涨跌家数缓存（按交易日缓存，避免每只股票重复遍历）
+        self._breadth_cache_date = None
+        self._breadth_cache_value = None
+
         for d in self.datas:
+            if d._name == self.p.market_code:
+                continue   # 指数不参与个股逻辑
             ind = {}
             ind['ma5'] = bt.indicators.SMA(d.close, period=5)
             ind['ma10'] = bt.indicators.SMA(d.close, period=10)
@@ -184,11 +313,15 @@ class MajorCapitalBT(bt.Strategy):
             )
             ind['bb'] = bt.indicators.BollingerBands(d.close, period=self.p.bb_period)
             ind['ma_dist'] = bt.indicators.SMA(d.close, period=self.p.dist_confirm_ma)
+            # ★ 方案A：ATR 用于自适应止损/追踪
+            ind['atr'] = bt.indicators.ATR(d, period=self.p.atr_period)
             self.indicators[d._name] = ind
 
-        # 每只股票的状态
+        # 每只股票的状态（跳过指数）
         self.stock_state = {}
         for d in self.datas:
+            if d._name == self.p.market_code:
+                continue
             self.stock_state[d._name] = self._init_state()
 
         self.order_dict = {}
@@ -200,9 +333,15 @@ class MajorCapitalBT(bt.Strategy):
         return {
             'watch_start': None,
             'accumulation_days': 0,
+            'watch_history': [],        # 滚动窗口布尔队列：最近 N 日每天是否满足建仓条件
             'watch_signal_dates': [],   # 每日满足建仓条件的日期列表（最多保留60条）
             'in_position': False,
-            'buy_price': 0.0,
+            'buy_price': 0.0,            # 加权均价
+            'total_cost': 0.0,           # 累计成本（含所有加仓）
+            'total_shares': 0,           # 累计股数
+            'init_shares': 0,            # 初次买入股数（用于加仓基数）
+            'add_count': 0,              # 已加仓次数
+            'last_add_day': 0,           # 上次加仓时 days_since_buy
             'highest_since_buy': 0.0,
             'days_below_ma': 0,
             'days_since_buy': 0,
@@ -211,7 +350,8 @@ class MajorCapitalBT(bt.Strategy):
             'dist_warn_info': '',
             'dist_warn_high': 0.0,
             'bb_bw_history': [],
-            'breakout_day_low': 0.0,   # ★ 新增：突破日最低价（用于3日失败止损）
+            'breakout_day_low': 0.0,   # ★ 新增：突破日最低价（用于3日突破失败止损）
+            'pending_breakout': None,  # ★ 新增：A/B信号挂起，等待次日收盘确认
         }
 
     # ══════════════════════════════════════════════════════════
@@ -266,11 +406,123 @@ class MajorCapitalBT(bt.Strategy):
     # 2. 辅助指标（与原策略一致）
     # ══════════════════════════════════════════════════════════
 
+    def _market_breadth_ratio(self):
+        """当日涨跌家数比 = up_count / down_count（缓存到日，避免重复遍历）。
+        下跌家数为 0 时返回 inf。len(d) < 2 的 data 跳过。"""
+        today = self.datetime.date(0)
+        if self._breadth_cache_date == today:
+            return self._breadth_cache_value
+        up = down = 0
+        for d in self.datas:
+            if d is self._market_data:
+                continue
+            if len(d) < 2:
+                continue
+            try:
+                c0 = float(d.close[0])
+                c1 = float(d.close[-1])
+                if c0 != c0 or c1 != c1 or c1 <= 0:
+                    continue
+                if c0 > c1:
+                    up += 1
+                elif c0 < c1:
+                    down += 1
+            except Exception:
+                pass
+        ratio = (up / down) if down > 0 else float('inf')
+        self._breadth_cache_date = today
+        self._breadth_cache_value = ratio
+        return ratio
+
     def _vol_ratio(self, d, period=5):
         if len(d) < period + 1:
             return None
         avg = sum(float(d.volume[-j]) for j in range(1, period + 1)) / period
         return float(d.volume[0]) / avg if avg > 1e-9 else None
+
+    def _volume_compression(self, d, short_n=None, long_n=None):
+        """
+        量能萎缩比 = 近 short_n 日均量 / 近 long_n 日均量
+        值 ≤ vol_compression_max（默认 0.70）视为"地量特征"（主力低位吸筹标志）
+        数据不足时退化：若至少有 short_n*2 日，用 short_n*2 作长窗口；仍不足则返回 None
+        """
+        short_n = short_n or self.p.vol_compression_short
+        long_n = long_n or self.p.vol_compression_long
+        if len(d) < short_n + 1:
+            return None
+        if len(d) < long_n + 1:
+            long_n = min(len(d) - 1, short_n * 2)
+            if long_n <= short_n:
+                return None
+        short_avg = sum(float(d.volume[-j]) for j in range(1, short_n + 1)) / short_n
+        long_avg = sum(float(d.volume[-j]) for j in range(1, long_n + 1)) / long_n
+        if long_avg <= 1e-9:
+            return None
+        return short_avg / long_avg
+
+    # ── 方案A 自适应阈值辅助 ────────────────────────────────────
+    def _adaptive_vol_threshold(self, d):
+        """
+        返回"放量"的自适应门槛：
+          取过去 adaptive_lookback 日中每日的 5日量比分布，返回 percentile 分位数
+          与 vol_ratio_min 取大（下限保底）
+        """
+        lb = self.p.adaptive_lookback
+        need = lb + 6
+        if len(d) < need:
+            return self.p.vol_ratio_min
+        samples = []
+        for j in range(1, lb + 1):   # j=1..lb，跳过今日本身
+            avg5 = sum(float(d.volume[-j - k]) for k in range(1, 6)) / 5.0
+            if avg5 > 0:
+                samples.append(float(d.volume[-j]) / avg5)
+        if len(samples) < 20:
+            return self.p.vol_ratio_min
+        samples.sort()
+        idx = min(int(self.p.vol_ratio_percentile * len(samples)), len(samples) - 1)
+        return max(samples[idx], self.p.vol_ratio_min)
+
+    def _adaptive_breakout_pct(self, d):
+        """
+        返回"大涨"的自适应门槛（百分比）：
+          过去 adaptive_lookback 日单日涨幅的 percentile 分位数，与 breakout_pct_min 取大
+        """
+        lb = self.p.adaptive_lookback
+        if len(d) < lb + 2:
+            return self.p.breakout_pct_min
+        samples = []
+        for j in range(1, lb + 1):
+            prev = float(d.close[-j - 1])
+            cur = float(d.close[-j])
+            if prev > 0:
+                samples.append((cur - prev) / prev * 100)
+        if len(samples) < 20:
+            return self.p.breakout_pct_min
+        samples.sort()
+        idx = min(int(self.p.breakout_pct_percentile * len(samples)), len(samples) - 1)
+        return max(samples[idx], self.p.breakout_pct_min)
+
+    def _vol_raw_threshold(self, d):
+        """
+        返回"今日成交量需超越"的绝对值门槛（P5 新逻辑）：
+          过去 adaptive_lookback 日成交量的 percentile 分位数（不做 5 日平滑）
+        返回 None 表示数据不足或未启用。
+        """
+        if self.p.vol_raw_percentile <= 0:
+            return None
+        lb = self.p.adaptive_lookback
+        if len(d) < lb + 1:
+            return None
+        vols = []
+        for j in range(1, lb + 1):
+            v = float(d.volume[-j])
+            if v > 0 and v == v:   # 排除 0 和 NaN
+                vols.append(v)
+        if len(vols) < 20:
+            return None
+        vols.sort()
+        idx = min(int(self.p.vol_raw_percentile * len(vols)), len(vols) - 1)
+        return vols[idx]
 
     def _yang_yin_vol_ratio(self, d, lookback=30):
         n = min(lookback, len(d))
@@ -285,10 +537,19 @@ class MajorCapitalBT(bt.Strategy):
         return (sum(yang_vols) / len(yang_vols)) / (sum(yin_vols) / len(yin_vols))
 
     def _ma_convergence(self, ind):
+        """
+        MA5/10/20/60 四线极差率（%）。
+        真正底部区域四条均线同时收敛 — 仅用 MA5/10/20 会把缓慢下跌的状态误判为粘合。
+        数据不足时（ma60 NaN）退化为三线计算，保持兼容。
+        """
         vals = [float(ind['ma5'][0]), float(ind['ma10'][0]), float(ind['ma20'][0])]
+        ma60_v = float(ind['ma60'][0])
+        if ma60_v == ma60_v:   # 非 NaN 则纳入
+            vals.append(ma60_v)
         if any(v != v for v in vals):
             return None
-        mid_val = sorted(vals)[1]
+        vals_sorted = sorted(vals)
+        mid_val = vals_sorted[len(vals_sorted) // 2]
         if mid_val <= 0:
             return None
         return (max(vals) - min(vals)) / mid_val * 100
@@ -309,6 +570,14 @@ class MajorCapitalBT(bt.Strategy):
             return None
         return (float(d.close[0]) - low) / low * 100
 
+    def _below_high(self, d, lookback=120):
+        """当前收盘距近 lookback 日最高点的跌幅百分比（正值越大代表越低）"""
+        n = min(lookback, len(d))
+        high = max(float(d.high[-j]) for j in range(n))
+        if high <= 0:
+            return None
+        return (high - float(d.close[0])) / high * 100
+
     def _bb_bandwidth(self, ind):
         top = float(ind['bb'].top[0])
         bot = float(ind['bb'].bot[0])
@@ -316,6 +585,114 @@ class MajorCapitalBT(bt.Strategy):
         if mid <= 0 or mid != mid:
             return None
         return (top - bot) / mid * 100
+
+    # ── 信号E helper：三线多头排列持续向上发散 ──────────────
+    def _check_ma_diverge(self, ind):
+        """
+        三条均线同时满足：
+          1. 多头排列：MA5 > MA10 > MA20
+          2. 三线斜率均为正且依次递减（短期 > 中期 > 长期）
+          3. MA5-MA20 间距在过去 lookback 天内扩大（发散加速）
+        返回 (passed, description_str)
+        """
+        lb = self.p.ma_diverge_lookback
+        ma5_v  = float(ind['ma5'][0])
+        ma10_v = float(ind['ma10'][0])
+        ma20_v = float(ind['ma20'][0])
+        if any(v != v for v in [ma5_v, ma10_v, ma20_v]):
+            return False, None
+        if not (ma5_v > ma10_v > ma20_v):
+            return False, None
+
+        s5  = self._ma_slope(ind['ma5'],  lb)
+        s10 = self._ma_slope(ind['ma10'], lb)
+        s20 = self._ma_slope(ind['ma20'], lb)
+        if None in (s5, s10, s20):
+            return False, None
+        if not (s5 > s10 > s20 > 0):
+            return False, None
+
+        try:
+            ma5_prev  = float(ind['ma5'][-lb])
+            ma20_prev = float(ind['ma20'][-lb])
+        except Exception:
+            return False, None
+        if ma5_prev != ma5_prev or ma20_prev != ma20_prev or ma20_prev <= 0:
+            return False, None
+
+        prev_gap = (ma5_prev - ma20_prev) / ma20_prev
+        cur_gap  = (ma5_v   - ma20_v)    / ma20_v
+        if cur_gap <= prev_gap:
+            return False, None
+        return True, f"三线多头发散加速 斜率{s5:.4f}>{s10:.4f}>{s20:.4f}"
+
+    # ── 信号F helper：横盘整理尾端量先萎缩后温和放大 ─────────
+    def _check_vol_shrink_expand(self, d):
+        """
+        将当前时点往前分三段：
+          基准期（10日）→ 萎缩期（vol_shrink_days）→ 扩张期（vol_expand_days，最近）
+        """
+        baseline_days = 10
+        ed = self.p.vol_expand_days
+        sd = self.p.vol_shrink_days
+        need = baseline_days + sd + ed
+        if len(d) < need + 1:
+            return False, None
+
+        expand_vols  = [float(d.volume[-j]) for j in range(0, ed)]
+        shrink_vols  = [float(d.volume[-j]) for j in range(ed, ed + sd)]
+        base_vols    = [float(d.volume[-j]) for j in range(ed + sd, ed + sd + baseline_days)]
+
+        avg_base   = sum(base_vols)   / baseline_days
+        avg_shrink = sum(shrink_vols) / sd
+        avg_expand = sum(expand_vols) / ed
+
+        if avg_base <= 0 or avg_shrink <= 0:
+            return False, None
+
+        shrink_ratio = avg_shrink / avg_base
+        expand_ratio = avg_expand / avg_shrink
+        if (shrink_ratio <= self.p.vol_shrink_max_ratio
+                and self.p.vol_expand_min_ratio <= expand_ratio <= self.p.vol_expand_max_ratio):
+            return True, f"量先萎缩后温和放大 缩量比{shrink_ratio:.2f} 扩量比{expand_ratio:.2f}"
+        return False, None
+
+    # ── 信号G helper：持续均匀大买单（OHLCV 近似） ───────────
+    def _check_orderflow(self, d):
+        """
+        近 orderflow_days 天满足：
+          阳线占比 ≥ orderflow_bull_min
+          量的变异系数（CV）≤ orderflow_vol_cv_max
+          单日最大涨跌幅 ≤ orderflow_max_daily_pct
+        """
+        n = self.p.orderflow_days
+        if len(d) < n + 1:
+            return False, None
+
+        bull_count = sum(
+            1 for j in range(0, n)
+            if float(d.close[-j]) >= float(d.open[-j])
+        )
+        bull_ratio = bull_count / n
+
+        recent_vols = [float(d.volume[-j]) for j in range(0, n)]
+        avg_vol = sum(recent_vols) / n
+        if avg_vol <= 0:
+            return False, None
+        vol_std = (sum((v - avg_vol) ** 2 for v in recent_vols) / n) ** 0.5
+        vol_cv  = vol_std / avg_vol
+
+        max_daily_pct = max(
+            abs((float(d.close[-j]) - float(d.close[-j - 1])) / float(d.close[-j - 1]) * 100)
+            for j in range(0, n)
+            if float(d.close[-j - 1]) > 0
+        )
+
+        if (bull_ratio >= self.p.orderflow_bull_min
+                and vol_cv  <= self.p.orderflow_vol_cv_max
+                and max_daily_pct <= self.p.orderflow_max_daily_pct):
+            return True, f"持续均匀买单 阳线{bull_count}/{n}日 量均匀CV={vol_cv:.2f}"
+        return False, None
 
     def _is_bb_narrow(self, state, current_bw):
         if current_bw is None:
@@ -326,6 +703,90 @@ class MajorCapitalBT(bt.Strategy):
             return False
         return current_bw < (sum(recent) / len(recent)) * self.p.bb_narrow_ratio
 
+    # ── 资金流二次确认 ──────────────────────────────────────
+    def _check_fund_flow(self, code: str):
+        """
+        基于 stock_fund_flow 表的二次确认。
+
+        通过条件（同时满足）：
+          1. 近 lookback 日 main_net_pct 均值 ≥ fund_flow_min_avg_pct
+          2. 近 lookback 日 main_net_amount > 0 的天数占比 ≥ fund_flow_pos_days_ratio
+          3. （可选）突破日 main_net_amount > 0
+
+        数据不足或缺失：strict_mode=False 时降级放行；True 时拒绝。
+
+        返回 (passed: bool, reason_str: str, meta: dict)
+        """
+        ff_data = self.p.fund_flow_data
+        if not ff_data:
+            return self._ff_fallback("fund_flow_data 未注入")
+
+        df = ff_data.get(code)
+        if df is None or len(df) == 0:
+            return self._ff_fallback(f"{code} 无资金流数据")
+
+        # 当前 bar 日期
+        try:
+            cur_dt = self.datetime.date(0)
+        except Exception:
+            return self._ff_fallback("无法获取当前 bar 日期")
+
+        # 取 ≤ 当日的所有行（DataFrame index 是 Timestamp，比较时转 date）
+        try:
+            cur_ts = __import__('pandas').Timestamp(cur_dt)
+            prior = df[df.index <= cur_ts]
+        except Exception as e:
+            return self._ff_fallback(f"切片失败: {e}")
+
+        lookback = self.p.fund_flow_lookback
+        if len(prior) < lookback:
+            return self._ff_fallback(
+                f"近 {lookback} 日数据不足（实际 {len(prior)}）"
+            )
+
+        recent = prior.tail(lookback)
+        # 容错：列存在但全为 NaN
+        main_pct_series = recent['main_net_pct'].dropna()
+        main_amt_series = recent['main_net_amount'].dropna()
+        if len(main_pct_series) < lookback // 2:
+            return self._ff_fallback("main_net_pct 有效样本不足")
+
+        avg_pct = float(main_pct_series.mean())
+        pos_days = int((main_amt_series > 0).sum())
+        valid_days = int(len(main_amt_series))
+        pos_ratio = pos_days / valid_days if valid_days > 0 else 0.0
+
+        meta = {
+            'ff_avg_main_pct':       round(avg_pct, 3),
+            'ff_pos_days_ratio':     round(pos_ratio, 3),
+            'ff_lookback_used':      valid_days,
+        }
+
+        # 累计期均值检查
+        if avg_pct < self.p.fund_flow_min_avg_pct:
+            return False, f"主力净占比均值{avg_pct:+.2f}% <阈{self.p.fund_flow_min_avg_pct}", meta
+
+        # 主力流入天数占比
+        if pos_ratio < self.p.fund_flow_pos_days_ratio:
+            return False, f"主力流入天数{pos_days}/{valid_days}={pos_ratio:.0%}<阈{self.p.fund_flow_pos_days_ratio:.0%}", meta
+
+        # 突破日主力净流入必须为正
+        if self.p.fund_flow_require_pos_breakout:
+            today_amt = recent['main_net_amount'].iloc[-1]
+            today_amt = float(today_amt) if today_amt == today_amt else None  # NaN check
+            meta['ff_today_main_amt'] = round(today_amt, 0) if today_amt is not None else None
+            if today_amt is None or today_amt <= 0:
+                return False, f"突破日主力净流入={today_amt} (≤0)", meta
+
+        return True, f"资金流确认 均值{avg_pct:+.2f}% 正流入{pos_ratio:.0%}", meta
+
+    def _ff_fallback(self, reason: str):
+        """资金流数据缺失/不足时的降级行为，根据 strict_mode 决定。"""
+        meta = {'ff_skip_reason': reason}
+        if self.p.fund_flow_strict_mode:
+            return False, f"资金流严格模式拒绝: {reason}", meta
+        return True, f"资金流降级放行: {reason}", meta
+
     def _n_positions(self):
         return sum(1 for d in self.datas if self.getposition(d).size > 0)
 
@@ -335,90 +796,46 @@ class MajorCapitalBT(bt.Strategy):
 
     def _check_sell(self, d, state, ind):
         """
-        检查出场条件，返回 (sell_reason, None) 或 (None, None)。
-        仅判断、不下单。
+        方案B：出场逻辑简化为 2 个条件（删除所有过拟合痕迹）
+          1. ATR 自适应止损（兼顾硬止损 + 追踪止损：用 max(初始止损线, 追踪止损线)）
+          2. 跌破 MA20 连续 N 日
+        删除：RSI超买回落 / 冲高回落 / 3日突破失败 / 时间止损 / 固定百分比止损
         """
         close = float(d.close[0])
-        open_ = float(d.open[0])
-        high = float(d.high[0])
-        low = float(d.low[0])
-        rsi = float(ind['rsi'][0])
         ma20_val = float(ind['ma20'][0])
         buy_price = state['buy_price']
 
         state['highest_since_buy'] = max(state['highest_since_buy'], close)
         state['days_since_buy'] += 1
 
-        prev_close = float(d.close[-1]) if len(d) > 1 else close
-        daily_pct = (close - prev_close) / prev_close * 100 if prev_close > 0 else 0
-        is_limit_up = daily_pct >= 9.5
-
-        # 止盈1：RSI 超买回落
-        if rsi >= self.p.rsi_exit and not is_limit_up:
-            state['rsi_peaked'] = True
-        if state['rsi_peaked'] and rsi < self.p.rsi_exit - self.p.rsi_exit_drop and not is_limit_up:
-            gain = (close - buy_price) / buy_price
-            return f"超买回落: RSI→{rsi:.0f} 收益{gain:+.1%}"
-
-        # 止盈2：放量冲高回落 + 跌破短期均线（两步确认）
-        cur_gain = (close - buy_price) / buy_price
-        if cur_gain >= self.p.dist_min_gain:
-            k_range = high - low
-            if k_range > 0 and high >= state['highest_since_buy']:
-                body_top = max(open_, close)
-                upper_shadow = (high - body_top) / k_range
-                vr_i = self._vol_ratio(d, 5)
-                if (upper_shadow >= self.p.dist_shadow_pct
-                        and vr_i is not None
-                        and vr_i >= self.p.dist_vol_ratio):
-                    state['dist_warned'] = True
-                    state['dist_warn_high'] = state['highest_since_buy']
-                    state['dist_warn_info'] = (
-                        f"冲高回落: 影{upper_shadow:.0%} 量比{vr_i:.1f}x"
-                    )
-
-        if state['dist_warned']:
-            if close > state['dist_warn_high']:
-                state['dist_warned'] = False
-                state['dist_warn_info'] = ''
-                state['dist_warn_high'] = 0.0
+        # ── 止损/止盈：ATR 自适应（含动态 trailing） ──
+        atr_val = float(ind['atr'][0])
+        if atr_val == atr_val and atr_val > 0:
+            # 动态 trail_k：盈利越大，止损越宽（让大赢单跑）
+            cur_gain = (close - buy_price) / buy_price if buy_price > 0 else 0
+            if cur_gain >= self.p.trail_stage3_gain:
+                dyn_trail_k = self.p.trail_stage3_k
+            elif cur_gain >= self.p.trail_stage2_gain:
+                dyn_trail_k = self.p.trail_stage2_k
             else:
-                ma_dist_val = float(ind['ma_dist'][0])
-                if ma_dist_val == ma_dist_val and close < ma_dist_val:
-                    gain = (close - buy_price) / buy_price
-                    return (
-                        f"{state['dist_warn_info']}→破MA{self.p.dist_confirm_ma} "
-                        f"收益{gain:+.1%}"
-                    )
+                dyn_trail_k = self.p.atr_trail_k
+            # 追踪止损线 = 最高价 - k × ATR
+            trail_line = state['highest_since_buy'] - dyn_trail_k * atr_val
+            # 初始硬止损线 = 买入价 - k × ATR（仅在未盈利时有效）
+            hard_line = buy_price - self.p.atr_stop_k * atr_val
+            # 有效止损线 = max(追踪线, 硬止损线)
+            # 盈利期：trail_line 高于 hard_line，用 trail
+            # 亏损期：trail_line 接近 hard_line，两者等效
+            stop_line = max(trail_line, hard_line)
+            if close <= stop_line:
+                gain = (close - buy_price) / buy_price
+                if close <= hard_line and state['highest_since_buy'] <= buy_price * 1.02:
+                    return f"ATR硬止损(k={self.p.atr_stop_k}): {gain:+.1%}"
+                else:
+                    dd = (state['highest_since_buy'] - close) / state['highest_since_buy'] if state['highest_since_buy'] > 0 else 0
+                    return f"ATR追踪止损(k={dyn_trail_k}) 回撤{dd:.1%} 收益{gain:+.1%}"
 
-        # 止损3a：3日突破失败止损（突破后3日内跌破突破日低点）
-        if (self.p.breakout_fail_days > 0
-                and state['days_since_buy'] <= self.p.breakout_fail_days
-                and state['breakout_day_low'] > 0
-                and close < state['breakout_day_low']):
-            loss = (close - buy_price) / buy_price
-            return f"突破失败({state['days_since_buy']}日): 破突破日低点 {loss:.1%}"
-
-        # 止损3b：10日不盈利则止损（死钱退出）
-        if (self.p.time_stop_days > 0
-                and state['days_since_buy'] >= self.p.time_stop_days
-                and close <= buy_price):
-            loss = (close - buy_price) / buy_price
-            return f"时间止损({state['days_since_buy']}日未盈利): {loss:.1%}"
-
-        # 止损3：硬止损
-        loss = (close - buy_price) / buy_price
-        if loss <= -self.p.stop_loss_pct:
-            return f"硬止损: {loss:.1%}"
-
-        # 止盈3：追踪止损
-        highest = state['highest_since_buy']
-        drawdown = (highest - close) / highest if highest > 0 else 0
-        if drawdown >= self.p.trailing_pct and highest > buy_price:
-            gain = (close - buy_price) / buy_price
-            return f"追踪止损: 回撤{drawdown:.1%} 收益{gain:+.1%}"
-
-        # 止损4：跌破 MA20 连续 N 日
+        # ── 趋势反转：跌破 MA20 连续 N 日 ──
         if state['days_since_buy'] > self.p.ma_exit_grace:
             if close < ma20_val:
                 state['days_below_ma'] += 1
@@ -438,6 +855,33 @@ class MajorCapitalBT(bt.Strategy):
         检查两阶段买入信号，返回 (trigger, confidence) 或 (None, 0)。
         仅判断、不下单。
         """
+        # DB模式：trade_start_date 之前完全跳过，不更新建仓状态
+        # 2024年数据仅供指标预热，建仓计数从 trade_start_date 起算（避免924行情扰乱）
+        if self.p.trade_start_date is not None:
+            current_date = self.datetime.date(0)
+            if current_date < self.p.trade_start_date:
+                return None, 0, {}
+
+        # ── 大盘过滤：MA20 < MA60 + 可选 RSI/breadth ──
+        if self.p.market_filter and self._market_ma_fast is not None:
+            try:
+                mf = float(self._market_ma_fast[0])
+                ms = float(self._market_ma_slow[0])
+                if mf == mf and ms == ms and mf < ms:
+                    return None, 0, {}   # 大盘下跌趋势，拒绝入场
+                # 指数 RSI 下限（默认 off）
+                if self.p.market_rsi_min > 0 and self._market_rsi is not None:
+                    mr = float(self._market_rsi[0])
+                    if mr == mr and mr < self.p.market_rsi_min:
+                        return None, 0, {}
+                # 涨跌家数比下限（默认 off）
+                if self.p.market_breadth_min > 0:
+                    br = self._market_breadth_ratio()
+                    if br < self.p.market_breadth_min:
+                        return None, 0, {}
+            except Exception:
+                pass
+
         close = float(d.close[0])
         open_ = float(d.open[0])
         rsi = float(ind['rsi'][0])
@@ -446,122 +890,152 @@ class MajorCapitalBT(bt.Strategy):
         ma20_val = float(ind['ma20'][0])
 
         if any(v != v for v in [rsi, dif, dea, ma20_val]):
-            return None, 0
+            return None, 0, {}
 
         is_bull = close >= open_
 
         # ── 检测建仓中条件 ──
         near_low = self._near_low(d, self.p.low_lookback)
+        below_high = self._below_high(d, self.p.high_lookback)
         conv = self._ma_convergence(ind)
         slope = self._ma_slope(ind['ma20'], 5)
         yy_ratio = self._yang_yin_vol_ratio(d, self.p.vol_lookback)
 
+        # ── 量能维度：地量特征（主力低位吸筹的量能标志） ──
+        vol_comp = self._volume_compression(d)
+
         is_accumulating = (
             near_low is not None and near_low <= self.p.max_above_low_pct
+            and below_high is not None and below_high >= self.p.min_below_high_pct
             and conv is not None and conv <= self.p.ma_converge_pct
             and (slope is None or abs(slope) <= self.p.ma_slope_max)
             and self.p.rsi_watch_min <= rsi <= self.p.rsi_watch_max
             and yy_ratio is not None and yy_ratio >= self.p.vol_yang_yin_min
+            and vol_comp is not None and vol_comp <= self.p.vol_compression_max
         )
 
-        # 阶段1：WATCH
+        # 阶段1：WATCH — 滚动窗口计数法（替代"中途断档清零"）
+        # 过去 watch_rolling_window 天内满足 ≥ min_watch_days 天即确认建仓
+        # 允许主力洗盘期间条件短暂失效（真实建仓少有 20 天连续完美）
+        state['watch_history'].append(bool(is_accumulating))
+        if len(state['watch_history']) > self.p.watch_rolling_window:
+            state['watch_history'] = state['watch_history'][-self.p.watch_rolling_window:]
+
+        window_hits = sum(1 for x in state['watch_history'] if x)
+        state['accumulation_days'] = window_hits   # 语义：滚动窗口内命中天数
+
         if is_accumulating:
-            state['accumulation_days'] += 1
             if state['watch_start'] is None:
                 state['watch_start'] = len(d)
-            # 记录满足建仓条件的日期（去重，最多保留60条）
             today_iso = self.datetime.date(0).isoformat()
             if not state['watch_signal_dates'] or state['watch_signal_dates'][-1] != today_iso:
                 state['watch_signal_dates'].append(today_iso)
                 if len(state['watch_signal_dates']) > 60:
                     state['watch_signal_dates'] = state['watch_signal_dates'][-60:]
-        else:
-            if state['accumulation_days'] < self.p.min_watch_days:
-                state['watch_start'] = None
-                state['accumulation_days'] = 0
-                state['watch_signal_dates'] = []
 
-        # 阶段2：BUY 临界信号
-        if state['watch_start'] is None or state['accumulation_days'] < self.p.min_watch_days:
+        # 阶段2：BUY — 滚动窗口内命中天数不足时不触发
+        if window_hits < self.p.min_watch_days:
             return None, 0, {}
+        if state['watch_start'] is None:
+            state['watch_start'] = len(d)
 
+        # ════════════════════════════════════════════════════════
+        # 方案 B：仅保留信号 A (放量突破) + F (量萎缩放大)
+        # 删除：B/C/D/E/G（过拟合痕迹明显）
+        # 删除：所有趋势过滤 bypass 规则（旁路就是过拟合补丁）
+        # ════════════════════════════════════════════════════════
         trigger = ''
         trigger_strength = 0
 
-        # 信号A：放量大阳线突破
-        prev_close = float(d.close[-1]) if len(d) > 1 else close
-        pct_chg = (close - prev_close) / prev_close * 100 if prev_close > 0 else 0
-        vr = self._vol_ratio(d, 5)
-        if (is_bull and pct_chg >= self.p.breakout_pct
-                and vr is not None and vr >= self.p.breakout_vol_ratio):
-            trigger = f"放量突破+{pct_chg:.1f}% 量比{vr:.1f}x"
-            trigger_strength = 3
+        # ── 自适应阈值 ──
+        # 旧版：percentile 涨幅 + 5日量比分位（默认仍在用，向后兼容）
+        # P5 新版：>0 启用 ATR 倍数涨幅 + 原始量分位（更适应不同股票波动率/流动性）
+        adaptive_vol_thr = self._adaptive_vol_threshold(d)
+        adaptive_pct_thr = self._adaptive_breakout_pct(d)
+        atr_val = float(ind['atr'][0])
 
-        # 信号B：突破布林上轨（从收窄状态）
-        if not trigger:
-            bb_top = float(ind['bb'].top[0])
-            if bb_top == bb_top and close > bb_top:
-                was_narrow = False
-                for j in range(1, min(11, len(state['bb_bw_history']))):
-                    bw_j = state['bb_bw_history'][-j] if j <= len(state['bb_bw_history']) else None
-                    if bw_j is not None:
-                        recent_bws = [x for x in state['bb_bw_history'][-30 - j:-j] if x is not None]
-                        if recent_bws and bw_j < (sum(recent_bws) / len(recent_bws)) * self.p.bb_narrow_ratio:
-                            was_narrow = True
-                            break
-                if was_narrow:
-                    trigger = f"突破布林上轨{bb_top:.2f}"
+        # 信号A：放量大阳线突破
+        if self.p.enable_signal_a:
+            prev_close = float(d.close[-1]) if len(d) > 1 else close
+            pct_chg = (close - prev_close) / prev_close * 100 if prev_close > 0 else 0
+            vr = self._vol_ratio(d, 5)
+            _high = float(d.high[0])
+            _low = float(d.low[0])
+            _close_pct_of_range = ((close - _low) / (_high - _low)) if _high > _low else 1.0
+
+            # 涨幅检查：P5 ATR 倍数 优先于旧 percentile 涨幅
+            if self.p.breakout_atr_k > 0:
+                _pct_pass = (atr_val == atr_val and atr_val > 0
+                             and (close - prev_close) >= self.p.breakout_atr_k * atr_val)
+                _pct_desc = f"涨{(close - prev_close):.2f}≥{self.p.breakout_atr_k}×ATR({atr_val:.2f})"
+            else:
+                _pct_pass = pct_chg >= adaptive_pct_thr
+                _pct_desc = f"涨+{pct_chg:.1f}%(阈{adaptive_pct_thr:.1f}%)"
+
+            # 量比检查：P5 原始量分位 优先于旧 5日量比分位
+            if self.p.vol_raw_percentile > 0:
+                _vol_q = self._vol_raw_threshold(d)
+                _today_vol = float(d.volume[0])
+                _vol_pass = _vol_q is not None and _today_vol > _vol_q
+                _vol_desc = f"量{_today_vol:.0f}>Q{int(self.p.vol_raw_percentile*100)}({_vol_q:.0f})" if _vol_q else "量分位数据不足"
+            else:
+                _vol_pass = vr is not None and vr >= adaptive_vol_thr
+                _vol_desc = f"量比{vr:.1f}x(阈{adaptive_vol_thr:.1f}x)" if vr else "量比数据不足"
+
+            if (is_bull and _pct_pass and _vol_pass and _close_pct_of_range >= 0.5):
+                # P2-A 信号 A 质量过滤：rsi ≥ signal_a_min_rsi（默认 55）
+                _qa_ok = self.p.signal_a_min_rsi <= 0 or rsi >= self.p.signal_a_min_rsi
+                # P4 突破需"close > 前 N 日最高价"（默认 off）
+                _break_high = None
+                if _qa_ok and self.p.signal_a_break_high_lookback > 0:
+                    lb = self.p.signal_a_break_high_lookback
+                    if len(d) >= lb + 1:
+                        try:
+                            _break_high = max(float(d.high[-j]) for j in range(1, lb + 1))
+                            if close <= _break_high:
+                                _qa_ok = False
+                        except Exception:
+                            pass
+                if _qa_ok:
+                    _bh_part = f" 破{self.p.signal_a_break_high_lookback}日高{_break_high:.2f}" if _break_high is not None else ""
+                    trigger = f"突破 {_pct_desc} {_vol_desc}{_bh_part}"
                     trigger_strength = 3
 
-        # 信号C：均线多头发散 + MA20 斜率转正
-        if not trigger:
-            ma5_val = float(ind['ma5'][0])
-            ma10_val = float(ind['ma10'][0])
-            ma20_slope = self._ma_slope(ind['ma20'], 5)
-            if (ma5_val > ma10_val > ma20_val
-                    and ma20_slope is not None
-                    and ma20_slope >= self.p.ma_slope_up_min):
-                prev_slope = None
-                if len(ind['ma20']) > 10:
-                    try:
-                        base_val = float(ind['ma20'][-10])
-                        mid_val = float(ind['ma20'][-5])
-                        if base_val == base_val and mid_val == mid_val and base_val > 0:
-                            prev_slope = (mid_val - base_val) / base_val / 5
-                    except (IndexError, ValueError):
-                        pass
-                if prev_slope is not None and prev_slope < self.p.ma_slope_up_min:
-                    trigger = f"均线多头发散 MA20↑{ma20_slope:.4f}"
-                    trigger_strength = 2
-
-        # 信号D：MACD零轴上方金叉
-        if not trigger:
-            if len(ind['macd'].macd) > 1:
-                prev_dif = float(ind['macd'].macd[-1])
-                prev_dea = float(ind['macd'].signal[-1])
-                if (prev_dif == prev_dif and prev_dea == prev_dea
-                        and prev_dif <= prev_dea and dif > dea
-                        and dif >= 0):
-                    trigger = "MACD零轴上方金叉"
-                    trigger_strength = 2
+        # 信号F：横盘整理尾端量先萎缩后温和放大
+        # 保留"建仓区间内"前提（与策略立意一致，不是补丁）
+        if self.p.enable_signal_f and not trigger:
+            _in_range = near_low is not None and near_low <= self.p.max_above_low_pct * 1.5
+            if _in_range:
+                vsb_ok, vsb_desc = self._check_vol_shrink_expand(d)
+                if vsb_ok:
+                    trigger = vsb_desc
+                    trigger_strength = 3
 
         if not trigger:
             return None, 0, {}
 
-        # ★ 优化：RSI 上限过滤（拒绝超买入场）
+        # ── 统一入场过滤（保留以防极端情况，但不再有策略特例 bypass） ──
+        # RSI 上限：避免超买追高
         if rsi > self.p.rsi_buy_max:
             return None, 0, {}
 
-        # ★ 优化：单日涨幅上限（超过 breakout_max_pct 视为追高）
-        prev_close = float(d.close[-1]) if len(d) > 1 else close
-        day_pct = (close - prev_close) / prev_close * 100 if prev_close > 0 else 0
+        # 单日涨幅上限：避免追涨停
+        prev_close_x = float(d.close[-1]) if len(d) > 1 else close
+        day_pct = (close - prev_close_x) / prev_close_x * 100 if prev_close_x > 0 else 0
         if day_pct > self.p.breakout_max_pct:
             return None, 0, {}
 
-        # ★ 优化：趋势过滤（要求 MA20 > MA60，中期趋势向上）
+        # 趋势过滤：MA20 > MA60（严格，无 bypass）
         if self.p.trend_filter:
             ma60_val = float(ind['ma60'][0])
             if ma60_val == ma60_val and ma20_val <= ma60_val:
+                return None, 0, {}
+
+        # ── 资金流二次确认（可选） ──
+        ff_meta = {}
+        if self.p.fund_flow_enabled:
+            ff_pass, ff_reason, ff_meta = self._check_fund_flow(d._name)
+            if not ff_pass:
                 return None, 0, {}
 
         # ── 计算信心 ──
@@ -588,17 +1062,34 @@ class MajorCapitalBT(bt.Strategy):
             f"累计{state['accumulation_days']}天 "
             f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}"
         )
+        # 补充新信号的量化指标（用于报告溯源）
+        _ma5_v  = float(ind['ma5'][0])
+        _ma20_v = float(ind['ma20'][0])
+        _lb = self.p.ma_diverge_lookback
+        try:
+            _ma5_prev  = float(ind['ma5'][-_lb])
+            _ma20_prev = float(ind['ma20'][-_lb])
+            _ma_diverge_pct = round((_ma5_v - _ma20_v) / _ma20_v * 100, 2) if _ma20_v > 0 else None
+            _ma_diverge_prev_pct = round((_ma5_prev - _ma20_prev) / _ma20_prev * 100, 2) if _ma20_prev > 0 else None
+        except Exception:
+            _ma_diverge_pct = _ma_diverge_prev_pct = None
+
         meta = {
-            'trigger':            trigger,
-            'accumulation_days':  state['accumulation_days'],
-            'watch_signal_dates': list(state['watch_signal_dates']),
-            'confidence':         round(conf, 3),
-            'rsi':                round(rsi, 1),
-            'near_low_pct':       round(near_low, 1) if near_low is not None else None,
-            'ma_converge_pct':    round(conv, 2) if conv is not None else None,
-            'yy_ratio':           round(yy_ratio, 2) if yy_ratio is not None else None,
-            'bb_narrow':          bb_narrow,
+            'trigger':              trigger,
+            'accumulation_days':    state['accumulation_days'],
+            'watch_signal_dates':   list(state['watch_signal_dates']),
+            'confidence':           round(conf, 3),
+            'rsi':                  round(rsi, 1),
+            'near_low_pct':         round(near_low, 1) if near_low is not None else None,
+            'ma_converge_pct':      round(conv, 2) if conv is not None else None,
+            'yy_ratio':             round(yy_ratio, 2) if yy_ratio is not None else None,
+            'bb_narrow':            bb_narrow,
+            # 信号E 指标
+            'ma_diverge_pct':       _ma_diverge_pct,
+            'ma_diverge_prev_pct':  _ma_diverge_prev_pct,
         }
+        if ff_meta:
+            meta.update(ff_meta)
         return reason, conf, meta
 
     # ══════════════════════════════════════════════════════════
@@ -610,12 +1101,31 @@ class MajorCapitalBT(bt.Strategy):
             name = order.data._name
             state = self.stock_state[name]
             if order.isbuy():
-                state['in_position'] = True
-                state['buy_price'] = order.executed.price
-                state['highest_since_buy'] = order.executed.price
-                state['days_below_ma'] = 0
-                state['days_since_buy'] = 0
-                state['rsi_peaked'] = False
+                exec_price = order.executed.price
+                exec_size = order.executed.size
+                is_add = state.get('in_position', False) and getattr(order, '_is_pyramid', False)
+                if is_add:
+                    # 加仓：更新加权均价
+                    new_total_cost = state['total_cost'] + exec_price * exec_size
+                    new_total_shares = state['total_shares'] + exec_size
+                    state['total_cost'] = new_total_cost
+                    state['total_shares'] = new_total_shares
+                    state['buy_price'] = new_total_cost / new_total_shares if new_total_shares > 0 else exec_price
+                    state['add_count'] += 1
+                    state['last_add_day'] = state['days_since_buy']
+                else:
+                    # 初次买入
+                    state['in_position'] = True
+                    state['buy_price'] = exec_price
+                    state['total_cost'] = exec_price * exec_size
+                    state['total_shares'] = exec_size
+                    state['init_shares'] = exec_size
+                    state['add_count'] = 0
+                    state['last_add_day'] = 0
+                    state['highest_since_buy'] = exec_price
+                    state['days_below_ma'] = 0
+                    state['days_since_buy'] = 0
+                    state['rsi_peaked'] = False
                 state['dist_warned'] = False
                 state['dist_warn_info'] = ''
                 state['dist_warn_high'] = 0.0
@@ -638,6 +1148,12 @@ class MajorCapitalBT(bt.Strategy):
                 state['in_position'] = False
                 state['watch_start'] = None
                 state['accumulation_days'] = 0
+                state['watch_history'] = []
+                state['total_cost'] = 0.0
+                state['total_shares'] = 0
+                state['init_shares'] = 0
+                state['add_count'] = 0
+                state['last_add_day'] = 0
                 self.trade_log.append({
                     'date': self.datetime.date(0).isoformat(),
                     'code': name, 'action': 'SELL',
@@ -660,9 +1176,12 @@ class MajorCapitalBT(bt.Strategy):
         # ── Phase 1：收集所有信号 ──────────────────────────
         sell_signals = []   # [(data, reason)]
         buy_signals = []    # [(data, reason, confidence)]
+        add_signals = []    # [(data, reason, shares)]  金字塔加仓
 
         for d in self.datas:
             name = d._name
+            if name == self.p.market_code:
+                continue   # 指数 feed 不参与个股逻辑
             if name in self.order_dict:
                 continue
 
@@ -691,6 +1210,20 @@ class MajorCapitalBT(bt.Strategy):
                     pos = self.getposition(d)
                     if pos.size > 0:
                         sell_signals.append((d, sell_reason))
+                    continue
+                # 金字塔加仓检查（不出场才考虑加仓）
+                if self.p.pyramid_enabled and state.get('add_count', 0) < self.p.pyramid_max_adds:
+                    close = float(d.close[0])
+                    buy_price = state['buy_price']
+                    if buy_price > 0:
+                        gain = (close - buy_price) / buy_price
+                        gap_ok = (state['days_since_buy'] - state.get('last_add_day', 0)) >= self.p.pyramid_min_gap_days
+                        new_high = close >= state.get('highest_since_buy', close)
+                        if gain >= self.p.pyramid_trigger_gain and gap_ok and new_high:
+                            init_shares = state.get('init_shares', 0)
+                            add_shares = int(init_shares * self.p.pyramid_size_ratio / 100) * 100
+                            if add_shares >= 100:
+                                add_signals.append((d, f"金字塔加仓#{state['add_count']+1} 浮盈{gain:+.1%}", add_shares))
                 continue
 
             # ── 动态选股过滤 ──
@@ -707,6 +1240,26 @@ class MajorCapitalBT(bt.Strategy):
             o = self.close(data=d)
             o._reason = reason
             self.order_dict[d._name] = o
+
+        # 预热期内只计算指标、不下单（DB 模式：数据从更早加载但交易从 start 开始）
+        if self.p.trade_start_date is not None:
+            current_date = self.datetime.date(0)
+            if current_date < self.p.trade_start_date:
+                return
+
+        # ── Phase 2.5：金字塔加仓（只用可用现金，不占 slot） ──
+        for d, reason, add_shares in add_signals:
+            name = d._name
+            if name in self.order_dict:
+                continue
+            price = float(d.close[0])
+            cash = self.broker.getcash()
+            if cash < price * add_shares * 1.01:
+                continue
+            o = self.buy(data=d, size=add_shares)
+            o._reason = reason
+            o._is_pyramid = True
+            self.order_dict[name] = o
 
         # ── Phase 3：执行 BUY（按信心降序，受仓位限制） ──
         buy_signals.sort(key=lambda x: -x[2])
@@ -744,6 +1297,7 @@ class MajorCapitalBT(bt.Strategy):
             state = self.stock_state[name]
             state['watch_start'] = None
             state['accumulation_days'] = 0
+            state['watch_history'] = []
             state['watch_signal_dates'] = []
 
 
@@ -867,6 +1421,110 @@ def get_all_cached_stocks(start, end):
         stocks.append({'code': code, 'name': code, 'market': market})
     print(f"[数据源] 缓存中发现 {len(stocks)} 只股票")
     return stocks
+
+
+# ══════════════════════════════════════════════════════════════
+# 本地数据库（MySQL stock_daily）加载
+# ══════════════════════════════════════════════════════════════
+
+async def get_all_db_stocks(start: str, end: str) -> list[dict]:
+    """
+    从 MySQL stock_daily 表获取在回测区间内有足够数据的股票列表。
+    同时尝试从 stock_snapshot 获取股票名称。
+
+    Survivorship 缓解：JOIN stock_basic 拿 list_date，剔除"区间起点时还没上市/上市未满 60 交易日"的股票。
+    （注：仍无法修复"区间内已退市"的偏差——需要付费数据源历史快照。详见 CLAUDE.md）
+    """
+    from db.mysql_pool import get_pool
+    from datetime import datetime, timedelta
+    # ≥60 交易日 ≈ 90 自然日，给个安全裕量
+    listing_cutoff = (datetime.strptime(start, '%Y-%m-%d') - timedelta(days=90)).date().isoformat()
+    pool = await get_pool()
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            # 取有≥30条记录的股票，LEFT JOIN 拿名称和上市日
+            await cur.execute("""
+                SELECT sd.code,
+                       COALESCE(ss.name, sb.name, sd.code) AS name,
+                       COALESCE(ss.market, sb.market, IF(sd.code LIKE '6%%', 'SH', 'SZ')) AS market,
+                       sb.list_date
+                FROM stock_daily sd
+                LEFT JOIN stock_snapshot ss ON ss.code = sd.code
+                LEFT JOIN stock_basic    sb ON sb.code = sd.code
+                WHERE sd.trade_date >= %s AND sd.trade_date <= %s
+                  AND sd.code NOT LIKE 'idx!_%%' ESCAPE '!'
+                  -- list_date 缺失则放行（保留向后兼容）；存在则要求早于 cutoff
+                  AND (sb.list_date IS NULL OR sb.list_date <= %s)
+                GROUP BY sd.code, ss.name, sb.name, ss.market, sb.market, sb.list_date
+                HAVING COUNT(sd.code) >= 30
+            """, (start, end, listing_cutoff))
+            rows = await cur.fetchall()
+    stocks = [{'code': r[0], 'name': r[1] or r[0],
+                'market': r[2] or ('SH' if r[0].startswith('6') else 'SZ'),
+                'list_date': r[3]}
+               for r in rows]
+    print(f"[数据源-本地DB] 发现 {len(stocks)} 只股票 ({start}~{end}, list_date ≤ {listing_cutoff})")
+    return stocks
+
+
+async def load_all_db_data(codes: list, start: str, end: str) -> dict:
+    """
+    批量从 MySQL stock_daily 加载多只股票的日线数据。
+    一次 SQL 查询取全量，按 code 分组后转为 DataFrame。
+    返回 {code: pd.DataFrame} 字典（已设置 date 为索引）。
+    """
+    import pandas as pd
+    from collections import defaultdict
+    from db.mysql_pool import get_pool
+
+    if not codes:
+        return {}
+
+    pool = await get_pool()
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            placeholders = ','.join(['%s'] * len(codes))
+            await cur.execute(f"""
+                SELECT code, trade_date, open_price, high, low, close, volume, amount
+                FROM stock_daily
+                WHERE code IN ({placeholders})
+                  AND trade_date >= %s
+                  AND trade_date <= %s
+                ORDER BY code, trade_date
+            """, (*codes, start, end))
+            rows = await cur.fetchall()
+
+    # 把 trade_date 一并存入 bar，避免后续重建索引时出现长度不一致
+    by_code = defaultdict(list)
+    for code, trade_date, open_p, high, low, close_, volume, amount in rows:
+        if None in (open_p, high, low, close_):
+            continue
+        by_code[code].append({
+            'date':   trade_date,
+            'open':   float(open_p),
+            'high':   float(high),
+            'low':    float(low),
+            'close':  float(close_),
+            'volume': int(volume or 0),
+        })
+
+    result = {}
+    for code, bars in by_code.items():
+        if len(bars) < 60:   # MA60 需要至少60条，低于此数的数据加载进 Backtrader 会 IndexError
+            continue
+        dates = pd.to_datetime([b['date'] for b in bars])
+        df = pd.DataFrame(
+            [{k: v for k, v in b.items() if k != 'date'} for b in bars],
+            index=dates,
+        )
+        df.index.name = 'date'
+        df = df.sort_index()
+        for col in ('open', 'high', 'low', 'close', 'volume'):
+            df[col] = df[col].astype(float)
+        result[code] = df
+
+    print(f"[数据源-本地DB] 成功加载 {len(result)}/{len(codes)} 只股票日线")
+    return result
 
 
 # ══════════════════════════════════════════════════════════════

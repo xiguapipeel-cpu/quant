@@ -1,0 +1,10 @@
+{
+  "atr_stop_k": [2.0],
+  "min_watch_days": [10],
+  "vol_ratio_percentile": [0.85],
+  "atr_trail_k": [2.0],
+  "trail_stage2_gain": [0.05],
+  "trail_stage2_k": [1.5],
+  "trail_stage3_gain": [0.15],
+  "trail_stage3_k": [1.0]
+}
