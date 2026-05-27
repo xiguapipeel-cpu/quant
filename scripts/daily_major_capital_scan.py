@@ -147,12 +147,13 @@ async def run_daily_scan(
         try:
             from db.position_dao import upsert_position, list_open
             from db.stock_dao import get_daily_history
+            from config.execution_rules import evaluate_next_open
             from datetime import timedelta as _td
             # 拉当前所有 open 持仓的 code，建立 set 用于去重
             open_positions = await list_open('major_capital_accumulation')
             open_codes = {p['code'] for p in open_positions}
 
-            n_added = n_skipped_open = 0
+            n_added = n_skipped_open = n_pending_entry = n_filtered = 0
             for s in buy_stocks:
                 code = s.get('code')
                 sd = s.get('signal_date')
@@ -168,14 +169,17 @@ async def run_daily_scan(
                     (datetime.strptime(sd, "%Y-%m-%d") + _td(days=15)).strftime("%Y-%m-%d"),
                 )
                 entry_bar = next((r for r in rows if str(r['trade_date']) > sd), None)
-                if entry_bar:
-                    entry_date = str(entry_bar['trade_date'])
-                    entry_price = float(entry_bar['open_price'])
-                else:
-                    entry_date = sd
-                    entry_price = float(s.get('price') or 0)
+                signal_price = float(s.get('signal_price') or s.get('price') or 0)
+                if not entry_bar:
+                    n_pending_entry += 1
+                    logger.info(f"  PENDING {code} {s.get('name', code)} 等待信号日后首个开盘价")
+                    continue
+
+                entry_date = str(entry_bar['trade_date'])
+                entry_price = float(entry_bar['open_price'])
                 if entry_price <= 0:
                     continue
+                allowed, exec_reason, gap_pct = evaluate_next_open(signal_price, entry_price)
                 await upsert_position(
                     strategy='major_capital_accumulation',
                     code=code, name=s.get('name', code),
@@ -183,9 +187,20 @@ async def run_daily_scan(
                     entry_date=entry_date,
                     entry_price=entry_price,
                     is_real=0,
+                    signal_price=signal_price,
+                    entry_gap_pct=gap_pct,
+                    execution_reason=exec_reason,
+                    status='open' if allowed else 'skipped',
                 )
-                n_added += 1
-            logger.info(f"[日扫描] position_monitor 登记: 新增 {n_added} 笔，跳过 {n_skipped_open} 笔（已 open）")
+                if allowed:
+                    n_added += 1
+                else:
+                    n_filtered += 1
+            logger.info(
+                f"[日扫描] position_monitor 登记: 新增 {n_added} 笔, "
+                f"执行过滤 {n_filtered} 笔, 等待次开 {n_pending_entry} 笔, "
+                f"跳过 {n_skipped_open} 笔（已 open）"
+            )
         except Exception as e:
             logger.warning(f"[日扫描] position_monitor 登记失败: {e}")
 

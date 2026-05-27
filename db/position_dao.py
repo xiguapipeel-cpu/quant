@@ -15,21 +15,34 @@ async def upsert_position(
     entry_price: float,
     is_real: int = 0,
     shares: Optional[int] = None,
+    signal_price: Optional[float] = None,
+    entry_gap_pct: Optional[float] = None,
+    execution_reason: str = '',
+    status: str = 'open',
 ) -> None:
-    """同 (strategy, code, signal_date) 视为同一笔。is_real / shares 可后续标记真实持仓时更新。"""
+    """同 (strategy, code, signal_date) 视为同一笔。status 可为 open/skipped。"""
     pool = await get_pool()
     async with pool.acquire() as conn:
         async with conn.cursor() as cur:
             await cur.execute("""
                 INSERT INTO position_monitor
                   (strategy, code, name, signal_date, entry_date, entry_price,
+                   signal_price, entry_gap_pct, execution_reason,
                    is_real, shares, status)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, 'open')
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE
                   name = VALUES(name),
+                  entry_date = VALUES(entry_date),
+                  entry_price = VALUES(entry_price),
+                  signal_price = VALUES(signal_price),
+                  entry_gap_pct = VALUES(entry_gap_pct),
+                  execution_reason = VALUES(execution_reason),
                   is_real = GREATEST(is_real, VALUES(is_real)),
-                  shares = COALESCE(VALUES(shares), shares)
-            """, (strategy, code, name, signal_date, entry_date, entry_price, is_real, shares))
+                  shares = COALESCE(VALUES(shares), shares),
+                  status = VALUES(status)
+            """, (strategy, code, name, signal_date, entry_date, entry_price,
+                  signal_price, entry_gap_pct, execution_reason[:255] if execution_reason else None,
+                  is_real, shares, status))
 
 
 async def mark_as_real(position_id: int, shares: int) -> bool:

@@ -198,6 +198,9 @@ _DDL = [
         signal_date     DATE         NOT NULL,
         entry_date      DATE         NOT NULL,
         entry_price     DECIMAL(10,3) NOT NULL,
+        signal_price    DECIMAL(10,3) DEFAULT NULL,
+        entry_gap_pct   DECIMAL(8,4) DEFAULT NULL,
+        execution_reason VARCHAR(255) DEFAULT NULL,
         -- 双轨：is_real=0 模拟（BUY 信号自动登记，不推送），1 真实（手工标记，离场推送）
         is_real         TINYINT(1)   NOT NULL DEFAULT 0,
         shares          INT          DEFAULT NULL,            -- 仅真实持仓有意义
@@ -209,7 +212,7 @@ _DDL = [
         days_held       INT          NOT NULL DEFAULT 0,
         last_check_date DATE         DEFAULT NULL,
         -- 状态
-        status          VARCHAR(20)  NOT NULL DEFAULT 'open', -- open/exited
+        status          VARCHAR(20)  NOT NULL DEFAULT 'open', -- open/exited/skipped
         exit_date       DATE         DEFAULT NULL,      -- 信号触发日（今日收盘判定）
         exit_price      DECIMAL(10,3) DEFAULT NULL,     -- 信号触发收盘价（参考）
         exit_reason     VARCHAR(255) DEFAULT NULL,
@@ -362,6 +365,26 @@ async def _ensure_tables():
                         f"ALTER TABLE pattern_outcome ADD COLUMN {col_name} {col_def}"
                     )
                     logger.info(f"[MySQL] pattern_outcome 新增 {col_name} 列")
+
+            # 增量迁移：position_monitor 记录执行层过滤信息
+            position_cols = [
+                ("signal_price", "DECIMAL(10,3) DEFAULT NULL AFTER entry_price"),
+                ("entry_gap_pct", "DECIMAL(8,4) DEFAULT NULL AFTER signal_price"),
+                ("execution_reason", "VARCHAR(255) DEFAULT NULL AFTER entry_gap_pct"),
+            ]
+            for col_name, col_def in position_cols:
+                await cur.execute(
+                    "SELECT COUNT(*) FROM information_schema.COLUMNS "
+                    "WHERE TABLE_SCHEMA=%s AND TABLE_NAME='position_monitor' "
+                    "AND COLUMN_NAME=%s",
+                    (DB_CONFIG["db"], col_name),
+                )
+                (cnt_col,) = await cur.fetchone()
+                if cnt_col == 0:
+                    await cur.execute(
+                        f"ALTER TABLE position_monitor ADD COLUMN {col_name} {col_def}"
+                    )
+                    logger.info(f"[MySQL] position_monitor 新增 {col_name} 列")
 
 
 async def close_pool():

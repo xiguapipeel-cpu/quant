@@ -5,6 +5,7 @@ daily_exit_scan.py — 持仓离场扫描 + 真实持仓推送
 对 position_monitor 中所有 status='open' 的持仓，跑 tight_trail 离场逻辑：
   - ATR 自适应 trail（越赚越紧）：stage1 k=2.0 / stage2 k=1.5 / stage3 k=1.0
   - ATR 硬止损：-2 × ATR（仅在峰值 ≤ +2% 时生效，防 gap-down）
+  - 单笔最大亏损硬限：收盘亏损 ≥ 10% 强制离场
   - MA20 反转：连续 N 日跌破 MA20
 
 命中后：写 exit_*；若 is_real=1 → 推送企业微信。
@@ -34,6 +35,7 @@ from db.position_dao import (
     list_pending_push, mark_notified,
     list_pending_actual_fill, fill_actual_exit,
 )
+from config.execution_rules import MAX_SINGLE_LOSS_PCT
 from utils.logger import setup_logger
 
 logger = setup_logger("exit_scan")
@@ -97,6 +99,10 @@ def check_exit(
 
     # 2. 当前浮盈
     cur_gain = (close - entry_price) / entry_price
+
+    # 2.5 单笔最大亏损硬限：执行层风控，不改变入场形态
+    if cur_gain <= -MAX_SINGLE_LOSS_PCT:
+        return True, f"单笔硬止损({MAX_SINGLE_LOSS_PCT:.0%}): {cur_gain:+.1%}", close, 0
 
     # 3. 动态 trail k（越赚越紧）
     if cur_gain >= TRAIL_STAGE3_GAIN:
