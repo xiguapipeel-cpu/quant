@@ -3,6 +3,7 @@ pattern_outcome 表 DAO
 =======================
 形态命中事件 + 后续 5/10/30/60 日表现追踪
 """
+import json
 from datetime import date
 from typing import Optional, Iterable
 from db.mysql_pool import get_pool
@@ -17,6 +18,10 @@ async def upsert_event(
     signal_type: str,
     signal_reason: str = '',
     confidence: float = 0.0,
+    strategy_version: str = '',
+    parameter_snapshot: Optional[str] = None,
+    signal_meta: Optional[dict] = None,
+    scan_time: Optional[str] = None,
 ) -> None:
     """
     新增/更新一条命中事件。
@@ -28,15 +33,24 @@ async def upsert_event(
         async with conn.cursor() as cur:
             await cur.execute("""
                 INSERT INTO pattern_outcome
-                  (strategy, code, name, signal_date, signal_type, signal_reason, confidence, status)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, 'pending')
+                  (strategy, code, name, signal_date, signal_type, signal_reason, confidence,
+                   strategy_version, parameter_snapshot, signal_meta, scan_time, status)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 'pending')
                 ON DUPLICATE KEY UPDATE
                   name=VALUES(name),
                   signal_type=VALUES(signal_type),
                   signal_reason=VALUES(signal_reason),
-                  confidence=VALUES(confidence)
+                  confidence=VALUES(confidence),
+                  strategy_version=VALUES(strategy_version),
+                  parameter_snapshot=VALUES(parameter_snapshot),
+                  signal_meta=VALUES(signal_meta),
+                  scan_time=VALUES(scan_time)
             """, (strategy, code, name, signal_date, signal_type,
-                  signal_reason[:255] if signal_reason else None, confidence))
+                  signal_reason[:255] if signal_reason else None, confidence,
+                  strategy_version or None,
+                  parameter_snapshot,
+                  json.dumps(signal_meta or {}, ensure_ascii=False, sort_keys=True),
+                  scan_time))
 
 
 # ── 写入：更新某条事件的 outcome 字段 ──

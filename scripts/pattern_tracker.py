@@ -33,6 +33,10 @@ if str(ROOT) not in sys.path:
 from db.mysql_pool import get_pool, close_pool
 from db.pattern_dao import upsert_event, update_outcome, list_pending
 from db.stock_dao import get_daily_history
+from config.strategy_versions import (
+    MAJOR_CAPITAL_FROZEN_VERSION,
+    major_capital_param_snapshot,
+)
 from utils.logger import setup_logger
 
 logger = setup_logger("pattern_tracker")
@@ -93,6 +97,9 @@ async def bootstrap_from_scan_results(strategy: str) -> int:
                 signal_type=t,
                 signal_reason=r,
                 confidence=float(conf or 0.0),
+                strategy_version=MAJOR_CAPITAL_FROZEN_VERSION,
+                parameter_snapshot=major_capital_param_snapshot(),
+                signal_meta={"source": "scan_results.bootstrap"},
             )
             n_events += 1
 

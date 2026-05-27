@@ -237,6 +237,10 @@ _DDL = [
         signal_type    VARCHAR(16)  NOT NULL,                  -- BUY / WATCH
         signal_reason  VARCHAR(255) DEFAULT NULL,
         confidence     DOUBLE       NOT NULL DEFAULT 0,
+        strategy_version VARCHAR(96) DEFAULT NULL,
+        parameter_snapshot TEXT DEFAULT NULL,
+        signal_meta     TEXT DEFAULT NULL,
+        scan_time       DATETIME     DEFAULT NULL,
         -- 入场基线（信号日次交易日开盘价；若 stock_daily 无次日数据则 NULL）
         buy_price      DECIMAL(10,3) DEFAULT NULL,
         buy_date       DATE         DEFAULT NULL,
@@ -337,6 +341,27 @@ async def _ensure_tables():
                     "ALTER TABLE backtest_results ADD COLUMN data_source VARCHAR(32) NOT NULL DEFAULT 'cache' AFTER is_real"
                 )
                 logger.info("[MySQL] backtest_results 新增 data_source 列")
+
+            # 增量迁移：pattern_outcome 记录冻结版本、参数快照、信号元数据与扫描时间
+            pattern_cols = [
+                ("strategy_version", "VARCHAR(96) DEFAULT NULL AFTER confidence"),
+                ("parameter_snapshot", "TEXT DEFAULT NULL AFTER strategy_version"),
+                ("signal_meta", "TEXT DEFAULT NULL AFTER parameter_snapshot"),
+                ("scan_time", "DATETIME DEFAULT NULL AFTER signal_meta"),
+            ]
+            for col_name, col_def in pattern_cols:
+                await cur.execute(
+                    "SELECT COUNT(*) FROM information_schema.COLUMNS "
+                    "WHERE TABLE_SCHEMA=%s AND TABLE_NAME='pattern_outcome' "
+                    "AND COLUMN_NAME=%s",
+                    (DB_CONFIG["db"], col_name),
+                )
+                (cnt_col,) = await cur.fetchone()
+                if cnt_col == 0:
+                    await cur.execute(
+                        f"ALTER TABLE pattern_outcome ADD COLUMN {col_name} {col_def}"
+                    )
+                    logger.info(f"[MySQL] pattern_outcome 新增 {col_name} 列")
 
 
 async def close_pool():

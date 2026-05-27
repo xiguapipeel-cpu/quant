@@ -35,7 +35,7 @@ async def run_daily_scan(
     执行完整的每日主力建仓选股扫描。
     Returns: 有近期 WATCH/BUY 信号的股票列表
     """
-    scan_time = datetime.now().strftime("%Y-%m-%d %H:%M")
+    scan_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     today_str = safe_end_date()
     logger.info(f"[日扫描] 开始 {trigger} 主力建仓选股 @ {scan_time} | 数据截止={today_str}")
 
@@ -75,6 +75,54 @@ async def run_daily_scan(
         logger.info(f"  BUY   {s['code']} {s['name']} 信号日={s['signal_date']} 置信={s.get('confidence',0):.2f}")
     for s in watch_stocks[:5]:
         logger.info(f"  WATCH {s['code']} {s['name']} 信号日={s['signal_date']}")
+
+    # ── Step 2.5：完整记录所有 WATCH / BUY 信号事件 ─────────────
+    # 不依赖 scan_results 的 7 日保留池；每次扫描把 signal_dates 内的每个事件直接 upsert。
+    try:
+        from db.pattern_dao import upsert_event
+        from config.strategy_versions import (
+            MAJOR_CAPITAL_FROZEN_VERSION,
+            major_capital_param_snapshot,
+        )
+        param_snapshot = major_capital_param_snapshot()
+        n_events = 0
+        for s in hit_stocks:
+            for ev in s.get("signal_dates") or []:
+                ev_date = ev.get("date")
+                ev_type = ev.get("type")
+                if not ev_date or ev_type not in ("WATCH", "BUY"):
+                    continue
+                await upsert_event(
+                    strategy="major_capital_accumulation",
+                    code=s.get("code", ""),
+                    name=s.get("name") or s.get("code", ""),
+                    signal_date=ev_date,
+                    signal_type=ev_type,
+                    signal_reason=ev.get("reason") or s.get("signal_reason", ""),
+                    confidence=float(ev.get("confidence", s.get("confidence", 0)) or 0),
+                    strategy_version=MAJOR_CAPITAL_FROZEN_VERSION,
+                    parameter_snapshot=param_snapshot,
+                    scan_time=scan_time,
+                    signal_meta={
+                        "source": "daily_major_capital_scan",
+                        "latest_signal_type": s.get("signal_type"),
+                        "latest_signal_date": s.get("signal_date"),
+                        "match_score": s.get("match_score") or {},
+                        "price": s.get("price"),
+                        "signal_price": ev.get("price"),
+                        "pct_change": s.get("pct_change"),
+                        "market": s.get("market", "SZ"),
+                        "cap_yi": s.get("cap_yi"),
+                        "amount_wan": s.get("amount_wan"),
+                    },
+                )
+                n_events += 1
+        logger.info(
+            f"[日扫描] pattern_outcome 记录 {n_events} 条事件 | "
+            f"version={MAJOR_CAPITAL_FROZEN_VERSION}"
+        )
+    except Exception as e:
+        logger.warning(f"[日扫描] pattern_outcome 记录失败: {e}")
 
     # ── Step 3：多渠道推送 ─────────────────────────────────
     if notify_wechat:
