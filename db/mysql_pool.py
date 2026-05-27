@@ -186,6 +186,80 @@ _DDL = [
         updated_at     DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB
     """,
+
+    # 5. 持仓监控（双轨：模拟 / 真实）+ 离场跟踪（daily_exit_scan.py 维护）
+    """
+    CREATE TABLE IF NOT EXISTS position_monitor (
+        id              BIGINT       AUTO_INCREMENT PRIMARY KEY,
+        strategy        VARCHAR(64)  NOT NULL,
+        code            VARCHAR(16)  NOT NULL,
+        name            VARCHAR(32)  NOT NULL DEFAULT '',
+        -- 入场（signal_date 次开盘）
+        signal_date     DATE         NOT NULL,
+        entry_date      DATE         NOT NULL,
+        entry_price     DECIMAL(10,3) NOT NULL,
+        -- 双轨：is_real=0 模拟（BUY 信号自动登记，不推送），1 真实（手工标记，离场推送）
+        is_real         TINYINT(1)   NOT NULL DEFAULT 0,
+        shares          INT          DEFAULT NULL,            -- 仅真实持仓有意义
+        -- trail 状态（每日 update）
+        highest_price   DECIMAL(10,3) DEFAULT NULL,
+        highest_date    DATE         DEFAULT NULL,
+        lowest_price    DECIMAL(10,3) DEFAULT NULL,
+        lowest_date     DATE         DEFAULT NULL,
+        days_held       INT          NOT NULL DEFAULT 0,
+        last_check_date DATE         DEFAULT NULL,
+        -- 状态
+        status          VARCHAR(20)  NOT NULL DEFAULT 'open', -- open/exited
+        exit_date       DATE         DEFAULT NULL,      -- 信号触发日（今日收盘判定）
+        exit_price      DECIMAL(10,3) DEFAULT NULL,     -- 信号触发收盘价（参考）
+        exit_reason     VARCHAR(255) DEFAULT NULL,
+        actual_exit_date  DATE         DEFAULT NULL,    -- 实际成交日（次交易日）
+        actual_exit_price DECIMAL(10,3) DEFAULT NULL,   -- 实际成交价（次日 open）
+        actual_filled     TINYINT(1)   NOT NULL DEFAULT 0,  -- 1=已用次日 open 填充 PnL
+        exit_pnl_pct    DECIMAL(8,4) DEFAULT NULL,      -- 优先用 actual_exit_price 算
+        notified        TINYINT(1)   NOT NULL DEFAULT 0,      -- 推送状态（避免重发）
+        created_at      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        UNIQUE KEY uk_strat_code_signal (strategy, code, signal_date),
+        KEY idx_status_real (status, is_real),
+        KEY idx_strategy (strategy)
+    ) ENGINE=InnoDB
+    """,
+
+    # 4. 形态命中事件 + 后续走势（pattern_tracker.py 维护）
+    """
+    CREATE TABLE IF NOT EXISTS pattern_outcome (
+        id             BIGINT       AUTO_INCREMENT PRIMARY KEY,
+        strategy       VARCHAR(64)  NOT NULL,
+        code           VARCHAR(16)  NOT NULL,
+        name           VARCHAR(32)  NOT NULL DEFAULT '',
+        signal_date    DATE         NOT NULL,
+        signal_type    VARCHAR(16)  NOT NULL,                  -- BUY / WATCH
+        signal_reason  VARCHAR(255) DEFAULT NULL,
+        confidence     DOUBLE       NOT NULL DEFAULT 0,
+        -- 入场基线（信号日次交易日开盘价；若 stock_daily 无次日数据则 NULL）
+        buy_price      DECIMAL(10,3) DEFAULT NULL,
+        buy_date       DATE         DEFAULT NULL,
+        -- 后续 N 个交易日收益（基于 buy_price 后第 5/10/30/60 个交易日 close）
+        ret_5d         DECIMAL(8,4) DEFAULT NULL,
+        ret_10d        DECIMAL(8,4) DEFAULT NULL,
+        ret_30d        DECIMAL(8,4) DEFAULT NULL,
+        ret_60d        DECIMAL(8,4) DEFAULT NULL,
+        -- 60 交易日内极值（基于 buy_price）
+        peak_ret       DECIMAL(8,4) DEFAULT NULL,
+        trough_ret     DECIMAL(8,4) DEFAULT NULL,
+        peak_date      DATE         DEFAULT NULL,
+        trough_date    DATE         DEFAULT NULL,
+        -- 跟踪进度
+        bars_seen      INT          NOT NULL DEFAULT 0,        -- buy_date 后已观察到的 bar 数
+        status         VARCHAR(20)  NOT NULL DEFAULT 'pending',-- pending/partial/completed/no_data
+        updated_at     DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        UNIQUE KEY uk_strat_code_date (strategy, code, signal_date),
+        KEY idx_strategy (strategy),
+        KEY idx_signal_date (signal_date),
+        KEY idx_status (status)
+    ) ENGINE=InnoDB
+    """,
 ]
 
 

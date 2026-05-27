@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import {
   Card, Row, Col, Button, Typography, Steps, Empty, Statistic, Tooltip,
   Select, Tag, message, Switch, InputNumber, Form, Alert, Input, Modal, Space, Radio, Pagination,
+  Divider, Table, Spin,
 } from 'antd';
 import {
   SearchOutlined, CheckCircleOutlined, LoadingOutlined,
@@ -899,6 +900,654 @@ export default function ScanCenter() {
         </>)}
       </Card>
 
+      {/* ── 持仓监控（仅主力建仓策略）────────────────────────── */}
+      <PositionMonitorPanel strategy={strategy} />
+
+      {/* ── 历史命中表现（仅主力建仓策略）─────────────────────── */}
+      <PatternOutcomePanel strategy={strategy} />
+
     </div>
+  );
+}
+
+
+// ══════════════════════════════════════════════════════════════════
+// 持仓监控 — 双轨（模拟 + 真实）+ 离场触发跟踪
+// ══════════════════════════════════════════════════════════════════
+function PositionMonitorPanel({ strategy }: { strategy: string }) {
+  const [tab,        setTab]        = useState<'open' | 'exited' | 'real'>('open');
+  const [positions,  setPositions]  = useState<any[]>([]);
+  const [stats,      setStats]      = useState<any>(null);
+  const [loading,    setLoading]    = useState(false);
+  const [addOpen,    setAddOpen]    = useState(false);
+  const [markModal,  setMarkModal]  = useState<any>(null);
+  const [form]       = Form.useForm();
+
+  const reload = async () => {
+    if (strategy !== 'major_capital_accumulation') return;
+    setLoading(true);
+    const params = new URLSearchParams();
+    if (tab === 'open')       { params.set('status', 'open');   params.set('is_real', '-1'); }
+    else if (tab === 'exited'){ params.set('status', 'exited'); params.set('is_real', '-1'); params.set('limit', '2000'); }
+    else if (tab === 'real')  { params.set('status', '');       params.set('is_real', '1');  params.set('limit', '500'); }
+    try {
+      const [p, s] = await Promise.all([
+        apiFetch(`/api/position/list?${params}`).catch(() => []),
+        apiFetch(`/api/position/stats?strategy=${strategy}`).catch(() => null),
+      ]);
+      setPositions(p || []);
+      setStats(s);
+    } finally { setLoading(false); }
+  };
+  useEffect(() => { reload(); }, [strategy, tab]);
+
+  if (strategy !== 'major_capital_accumulation') return null;
+
+  const fmtPrice = (v: any) => v == null ? '—' : `¥${parseFloat(v).toFixed(2)}`;
+  const fmtPct   = (v: any) => v == null ? '—' : `${(parseFloat(v) * 100).toFixed(2)}%`;
+
+  // 点击代码 / 名称 → 在同花顺中打开
+  const openInThs = async (code: string) => {
+    try {
+      const r: any = await apiFetch('/api/open-ths', 'POST', { code });
+      if (r?.ok) {
+        message.success(r.auto_paste ? `已在同花顺中打开 ${code}` : `已打开同花顺，${code} 已复制到剪贴板，⌘V 粘贴`);
+      } else {
+        message.error(r?.msg || '打开失败');
+      }
+    } catch {
+      message.error('请求失败');
+    }
+  };
+  const codeRender = (code: string) => (
+    <a onClick={() => openInThs(code)} style={{ color: '#7eb6ff' }}>{code}</a>
+  );
+  const nameRender = (name: string, r: any) => (
+    <a onClick={() => openInThs(r.code)} style={{ color: '#7eb6ff' }}>{name || r.code}</a>
+  );
+
+  const handleAdd = async () => {
+    try {
+      const v = await form.validateFields();
+      const qs = new URLSearchParams({
+        code: v.code, name: v.name || v.code,
+        entry_date: v.entry_date,
+        entry_price: String(v.entry_price),
+        shares: String(v.shares),
+      });
+      const r = await apiFetch(`/api/position/add?${qs}`, 'POST');
+      if (r?.ok) { message.success('已添加真实持仓'); setAddOpen(false); form.resetFields(); reload(); }
+      else { message.error(r?.error || '添加失败'); }
+    } catch (e) {}
+  };
+
+  const handleMarkReal = async (id: number, shares: number) => {
+    const qs = new URLSearchParams({ position_id: String(id), shares: String(shares) });
+    const r = await apiFetch(`/api/position/mark_real?${qs}`, 'POST');
+    if (r?.ok) { message.success('已标记为真实持仓（离场将推送）'); setMarkModal(null); reload(); }
+    else { message.error('标记失败'); }
+  };
+
+  const ov = stats?.overview;
+  const by_reason = stats?.by_reason || [];
+
+  // 计算开仓中的实时 PnL（基于 highest_price 与 entry_price 推算「假设当前价 = highest_price」的浮盈上限）
+  const enrichOpen = (rows: any[]) => rows.map((r: any) => {
+    const e = parseFloat(r.entry_price);
+    const h = r.highest_price ? parseFloat(r.highest_price) : null;
+    const l = r.lowest_price  ? parseFloat(r.lowest_price)  : null;
+    return {
+      ...r,
+      peak_pct:   h && e ? (h / e - 1) : null,
+      trough_pct: l && e ? (l / e - 1) : null,
+    };
+  });
+
+  return (
+    <Card
+      size="small"
+      style={{ marginTop: 16 }}
+      title={
+        <span>
+          📥 持仓监控
+          <Text type="secondary" style={{ fontSize: 12, marginLeft: 8 }}>
+            自动登记 BUY → 跑 tight_trail → 真实持仓离场推送企业微信
+          </Text>
+        </span>
+      }
+      extra={
+        <Space>
+          <Radio.Group size="small" value={tab} onChange={e => setTab(e.target.value)}
+                       optionType="button" buttonStyle="solid">
+            <Radio.Button value="open">开仓中</Radio.Button>
+            <Radio.Button value="real">仅真实</Radio.Button>
+            <Radio.Button value="exited">最近已离场</Radio.Button>
+          </Radio.Group>
+          <Button size="small" type="primary" onClick={() => setAddOpen(true)}>+ 添加真实持仓</Button>
+        </Space>
+      }
+    >
+      {/* 总览卡片（基于 stats，覆盖全部 exited 样本） */}
+      {ov && (
+        <>
+          <div style={{ fontSize: 11, color: '#8892a4', marginBottom: 6 }}>
+            📊 统计基于<strong style={{ color: '#7eb6ff' }}>全部 {ov.n_exited} 笔已离场</strong>样本（不含 {ov.n_open} 笔开仓中浮赢）
+          </div>
+          <Row gutter={12} style={{ marginBottom: 12 }}>
+            <Col span={4}>
+              <Statistic title="开仓中" value={ov.n_open} />
+            </Col>
+            <Col span={4}>
+              <Statistic title="已离场" value={ov.n_exited} />
+            </Col>
+            <Col span={4}>
+              <Statistic
+                title="离场平均 PnL"
+                value={ov.avg_pnl != null ? (ov.avg_pnl * 100).toFixed(2) : '0'}
+                suffix="%"
+                valueStyle={{ color: (ov.avg_pnl ?? 0) >= 0 ? '#52c41a' : '#e74c3c' }}
+              />
+            </Col>
+            <Col span={4}>
+              <Statistic
+                title="离场胜率"
+                value={ov.win_rate != null ? (ov.win_rate * 100).toFixed(1) : '0'}
+                suffix="%"
+                valueStyle={{ color: ov.win_rate >= 0.5 ? '#52c41a' : '#f59e0b' }}
+              />
+            </Col>
+            <Col span={4}>
+              <Statistic title="离场平均持仓" value={ov.avg_days != null ? ov.avg_days.toFixed(1) : '0'} suffix="d" />
+            </Col>
+            <Col span={4}>
+              <Tooltip title="基于全部 11000+ 笔已离场样本；下方列表仅展示最近 1000 笔，点击 PnL 列头可排序查看极值">
+                <Statistic
+                  title="最大单笔 / 最大单亏"
+                  value={
+                    ov.max_pnl != null
+                      ? `${(ov.max_pnl * 100).toFixed(0)}% / ${(ov.min_pnl * 100).toFixed(0)}%`
+                      : '—'
+                  }
+                />
+              </Tooltip>
+            </Col>
+          </Row>
+        </>
+      )}
+
+      {/* 离场原因分布（仅 exited tab 显示） */}
+      {tab === 'exited' && by_reason.length > 0 && (
+        <>
+          <Divider style={{ margin: '8px 0' }}>离场原因分布</Divider>
+          <Row gutter={8} style={{ marginBottom: 12 }}>
+            {by_reason.map((r: any) => (
+              <Col span={Math.floor(24 / by_reason.length) || 6} key={r.reason}>
+                <Card size="small" style={{ background: '#161d2a' }}>
+                  <Text strong style={{ fontSize: 12 }}>{r.reason}</Text>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 4 }}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>n</Text>
+                    <Text>{r.n}</Text>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>均 PnL</Text>
+                    <Text style={{ color: r.avg_pnl >= 0 ? '#52c41a' : '#e74c3c' }}>
+                      {(r.avg_pnl * 100).toFixed(2)}%
+                    </Text>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>胜率</Text>
+                    <Text>{(r.win_rate * 100).toFixed(0)}%</Text>
+                  </div>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
+
+      {/* 范围说明 */}
+      {tab === 'exited' && positions.length > 0 && (
+        <div style={{ fontSize: 11, color: '#8892a4', marginBottom: 6 }}>
+          📋 下方列表展示最近 <strong style={{ color: '#7eb6ff' }}>{positions.length}</strong> 笔离场（按离场日倒序）；
+          点 <strong>PnL</strong> / <strong>离场日</strong> / <strong>持仓天数</strong> 列头可排序。
+          要看完整极值见上方统计卡（基于全部 {ov?.n_exited ?? 0} 笔）。
+        </div>
+      )}
+
+      {/* 主表格 */}
+      {loading ? <Spin /> : positions.length === 0 ? (
+        <Empty description={tab === 'open' ? '暂无开仓持仓' : tab === 'real' ? '尚未添加真实持仓' : '暂无离场记录'} />
+      ) : (
+        <Table
+          size="small"
+          scroll={{ x: 1300 }}
+          dataSource={enrichOpen(positions).map((p: any) => ({ ...p, key: p.id }))}
+          pagination={{ pageSize: 15, size: 'small' }}
+          columns={[
+            { title: '代码', dataIndex: 'code', width: 90, render: codeRender },
+            { title: '名称', dataIndex: 'name', width: 100, render: nameRender },
+            {
+              title: '类型',
+              dataIndex: 'is_real',
+              width: 70,
+              render: (v: any) => v ? <Tag color="red">真实</Tag> : <Tag>模拟</Tag>,
+            },
+            { title: '入场日', dataIndex: 'entry_date', width: 100 },
+            { title: '入场价', dataIndex: 'entry_price', width: 80, align: 'right' as const,
+              render: fmtPrice },
+            { title: '股数', dataIndex: 'shares', width: 80, align: 'right' as const,
+              render: (v: any) => v ? v.toLocaleString() : '—' },
+            { title: '持仓天数', dataIndex: 'days_held', width: 80, align: 'right' as const },
+            ...(tab === 'open' || tab === 'real' ? [
+              {
+                title: '现价 (今日)', dataIndex: 'current_price', width: 130, align: 'right' as const,
+                render: (_v: any, r: any) => {
+                  if (r.current_price == null) return '—';
+                  const dc = r.day_change;
+                  const dcColor = dc == null ? undefined : (dc >= 0 ? '#52c41a' : '#e74c3c');
+                  return (
+                    <span>
+                      {fmtPrice(r.current_price)}
+                      {dc != null && (
+                        <Text style={{ color: dcColor, fontSize: 11, marginLeft: 4 }}>
+                          ({(dc * 100).toFixed(2)}%)
+                        </Text>
+                      )}
+                    </span>
+                  );
+                },
+              },
+              {
+                title: '浮盈', dataIndex: 'unrealized_pnl_pct', width: 130, align: 'right' as const,
+                sorter: (a: any, b: any) => (a.unrealized_pnl_pct ?? -999) - (b.unrealized_pnl_pct ?? -999),
+                render: (v: any, r: any) => {
+                  if (v == null) return '—';
+                  const pct = parseFloat(v);
+                  const shares = r.shares ? parseInt(r.shares) : null;
+                  const ep = r.entry_price != null ? parseFloat(r.entry_price) : null;
+                  const cp = r.current_price != null ? parseFloat(r.current_price) : null;
+                  const amount = (shares && ep && cp) ? (cp - ep) * shares : null;
+                  const color = pct >= 0 ? '#52c41a' : '#e74c3c';
+                  return (
+                    <Text strong style={{ color }}>
+                      {pct >= 0 ? '+' : ''}{(pct * 100).toFixed(2)}%
+                      {amount != null && (
+                        <Text style={{ color, fontSize: 11, marginLeft: 4 }}>
+                          ({amount >= 0 ? '+' : ''}¥{amount.toFixed(0)})
+                        </Text>
+                      )}
+                    </Text>
+                  );
+                },
+              },
+              {
+                title: '峰值', dataIndex: 'highest_price', width: 90, align: 'right' as const,
+                render: (_v: any, r: any) => r.peak_pct != null
+                  ? <Text style={{ color: '#e74c3c' }}>+{(r.peak_pct * 100).toFixed(1)}%</Text>
+                  : '—',
+              },
+              {
+                title: '谷值', dataIndex: 'lowest_price', width: 90, align: 'right' as const,
+                render: (_v: any, r: any) => r.trough_pct != null
+                  ? <Text style={{ color: '#f59e0b' }}>{(r.trough_pct * 100).toFixed(1)}%</Text>
+                  : '—',
+              },
+            ] : [
+              {
+                title: '信号日', dataIndex: 'exit_date', width: 110,
+                sorter: (a: any, b: any) => String(a.exit_date || '').localeCompare(String(b.exit_date || '')),
+                defaultSortOrder: 'descend' as const,
+                render: (v: any) => (
+                  <span>
+                    {v}
+                    <Text type="secondary" style={{ fontSize: 10, marginLeft: 4 }}>close</Text>
+                  </span>
+                ),
+              },
+              {
+                title: '实际成交日', dataIndex: 'actual_exit_date', width: 120,
+                render: (v: any, r: any) => {
+                  if (r.actual_filled && v) {
+                    return (
+                      <span>
+                        {v}
+                        <Text type="secondary" style={{ fontSize: 10, marginLeft: 4 }}>open</Text>
+                      </span>
+                    );
+                  }
+                  return <Text type="warning" style={{ fontSize: 11 }}>待次日开盘</Text>;
+                },
+              },
+              {
+                title: '信号价 → 成交价', width: 150, align: 'right' as const,
+                render: (_v: any, r: any) => {
+                  const ep = r.exit_price != null ? `¥${parseFloat(r.exit_price).toFixed(2)}` : '—';
+                  if (r.actual_filled && r.actual_exit_price != null) {
+                    const ap = `¥${parseFloat(r.actual_exit_price).toFixed(2)}`;
+                    return (
+                      <span>
+                        <Text type="secondary" style={{ fontSize: 11 }}>{ep}</Text>
+                        <Text style={{ marginLeft: 4 }}>→</Text>
+                        <Text strong style={{ marginLeft: 4 }}>{ap}</Text>
+                      </span>
+                    );
+                  }
+                  return <Text strong>{ep}</Text>;
+                },
+              },
+              {
+                title: 'PnL', dataIndex: 'exit_pnl_pct', width: 100, align: 'right' as const,
+                sorter: (a: any, b: any) => (a.exit_pnl_pct ?? -999) - (b.exit_pnl_pct ?? -999),
+                render: (v: any, r: any) => v != null
+                  ? (
+                    <Tooltip title={r.actual_filled ? '基于次日开盘价' : '基于信号日收盘价（次日开盘价待填充）'}>
+                      <Text strong style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>
+                        {fmtPct(v)}
+                        {!r.actual_filled && <Text type="secondary" style={{ fontSize: 9, marginLeft: 2 }}>*</Text>}
+                      </Text>
+                    </Tooltip>
+                  )
+                  : '—',
+              },
+              {
+                title: '持仓天数', dataIndex: 'days_held', width: 90, align: 'right' as const,
+                sorter: (a: any, b: any) => (a.days_held ?? 0) - (b.days_held ?? 0),
+              },
+              { title: '触发', dataIndex: 'exit_reason', width: 240,
+                render: (v: any) => <Text style={{ fontSize: 11 }}>{v}</Text> },
+            ]),
+            {
+              title: '操作', width: 140,
+              render: (_v: any, r: any) => (
+                <Space>
+                  {!r.is_real && r.status === 'open' ? (
+                    <Button size="small" onClick={() => setMarkModal(r)}>标记真实</Button>
+                  ) : null}
+                  {r.is_real ? (
+                    <Button size="small" danger onClick={async () => {
+                      const ok = await apiFetch(`/api/position/unmark_real?position_id=${r.id}`, 'POST');
+                      if (ok?.ok) { message.success('已改回模拟'); reload(); }
+                    }}>改回模拟</Button>
+                  ) : null}
+                </Space>
+              ),
+            },
+          ]}
+        />
+      )}
+
+      {/* 添加真实持仓 Modal */}
+      <Modal title="添加真实持仓" open={addOpen} onOk={handleAdd} onCancel={() => setAddOpen(false)} okText="提交">
+        <Form form={form} layout="vertical" style={{ marginTop: 12 }}>
+          <Form.Item label="股票代码" name="code" rules={[{ required: true, message: '必填' }]}>
+            <Input placeholder="如 002371" />
+          </Form.Item>
+          <Form.Item label="股票名称（可选）" name="name">
+            <Input placeholder="留空自动取 code" />
+          </Form.Item>
+          <Form.Item label="入场日期 (YYYY-MM-DD)" name="entry_date" rules={[{ required: true }]}>
+            <Input placeholder="如 2026-05-15" />
+          </Form.Item>
+          <Form.Item label="入场价" name="entry_price" rules={[{ required: true }]}>
+            <InputNumber min={0.01} step={0.01} style={{ width: '100%' }} />
+          </Form.Item>
+          <Form.Item label="股数" name="shares" rules={[{ required: true }]}>
+            <InputNumber min={100} step={100} style={{ width: '100%' }} />
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      {/* 标记真实 Modal */}
+      <Modal title={`标记真实持仓: ${markModal?.name || ''} ${markModal?.code || ''}`}
+             open={!!markModal} onOk={() => {
+               const v = (document.getElementById('mark-shares') as HTMLInputElement)?.value;
+               handleMarkReal(markModal.id, parseInt(v) || 0);
+             }}
+             onCancel={() => setMarkModal(null)} okText="标记">
+        <p>把这笔模拟持仓改为真实持仓后，触发离场会通过企业微信推送。</p>
+        <Form layout="vertical">
+          <Form.Item label="实际买入股数">
+            <Input id="mark-shares" type="number" placeholder="如 1000" min={100} />
+          </Form.Item>
+        </Form>
+      </Modal>
+    </Card>
+  );
+}
+
+
+// ══════════════════════════════════════════════════════════════════
+// 历史命中表现 Panel — 显示 pattern_outcome 聚合统计 + 最近 BUY 明细
+// ══════════════════════════════════════════════════════════════════
+function PatternOutcomePanel({ strategy }: { strategy: string }) {
+  const [stats,   setStats]   = useState<any>(null);
+  const [events,  setEvents]  = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [tab,     setTab]     = useState<'BUY' | 'WATCH'>('BUY');
+
+  useEffect(() => {
+    if (strategy !== 'major_capital_accumulation') return;
+    setLoading(true);
+    Promise.all([
+      apiFetch(`/api/pattern_outcome/stats?strategy=${strategy}&signal_type=${tab}`).catch(() => null),
+      apiFetch(`/api/pattern_outcome/list?strategy=${strategy}&signal_type=${tab}&status=partial,completed&limit=50`).catch(() => []),
+    ])
+      .then(([s, l]) => { setStats(s); setEvents(l || []); })
+      .finally(() => setLoading(false));
+  }, [strategy, tab]);
+
+  if (strategy !== 'major_capital_accumulation') return null;
+
+  const fmt = (v: any, pct = true) => {
+    if (v === null || v === undefined) return '—';
+    const f = parseFloat(v);
+    if (Number.isNaN(f)) return '—';
+    return pct ? `${(f * 100).toFixed(2)}%` : f.toFixed(2);
+  };
+  const ov = stats?.overview;
+  const monthly = stats?.monthly || [];
+
+  return (
+    <Card
+      size="small"
+      style={{ marginTop: 16 }}
+      title={
+        <span>
+          📊 历史命中表现
+          <Text type="secondary" style={{ fontSize: 12, marginLeft: 8 }}>
+            （基于 historical_signal_scan 回溯 + 真实后续走势）
+          </Text>
+        </span>
+      }
+      extra={
+        <Radio.Group size="small" value={tab} onChange={e => setTab(e.target.value)}
+                      optionType="button" buttonStyle="solid">
+          <Radio.Button value="BUY">BUY 信号</Radio.Button>
+          <Radio.Button value="WATCH">WATCH 信号</Radio.Button>
+        </Radio.Group>
+      }
+    >
+      {loading ? <Spin /> : !ov || !ov.total ? (
+        <Empty description={`暂无 ${tab} 信号数据。请先运行 pattern_tracker。`} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+      ) : (
+        <>
+          {/* 4 卡片：总览 */}
+          <Row gutter={12}>
+            <Col span={6}>
+              <Statistic title={`${tab} 信号总样本`} value={ov.total} />
+            </Col>
+            <Col span={6}>
+              <Statistic
+                title="60 日胜率"
+                value={(ov.win_60d * 100).toFixed(1)}
+                suffix="%"
+                valueStyle={{ color: (ov.win_60d ?? 0) >= 0.55 ? '#52c41a' : '#f59e0b' }}
+              />
+            </Col>
+            <Col span={6}>
+              <Statistic
+                title="60日内 ≥ +10% 浮盈出现"
+                value={ov.total > 0 ? (ov.peak_ge_10pct / ov.total * 100).toFixed(1) : '0'}
+                suffix="%"
+                valueStyle={{ color: '#e74c3c' }}
+              />
+            </Col>
+            <Col span={6}>
+              <Statistic
+                title="60 日平均峰值"
+                value={(ov.avg_peak * 100).toFixed(2)}
+                suffix="%"
+                valueStyle={{ color: '#e74c3c' }}
+              />
+            </Col>
+          </Row>
+
+          <Divider style={{ margin: '12px 0 8px' }}>各时间窗口表现</Divider>
+          <Row gutter={12}>
+            {[
+              { lbl: '5 日', win: ov.win_5d, avg: ov.avg_5d },
+              { lbl: '10 日', win: ov.win_10d, avg: ov.avg_10d },
+              { lbl: '30 日', win: ov.win_30d, avg: ov.avg_30d },
+              { lbl: '60 日', win: ov.win_60d, avg: ov.avg_60d },
+            ].map(x => (
+              <Col span={6} key={x.lbl}>
+                <Card size="small" style={{ background: '#161d2a' }}>
+                  <Text strong>{x.lbl}</Text>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 4 }}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>胜率</Text>
+                    <Text style={{ color: x.win >= 0.5 ? '#52c41a' : '#f59e0b' }}>{fmt(x.win)}</Text>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Text type="secondary" style={{ fontSize: 12 }}>均收益</Text>
+                    <Text style={{ color: x.avg >= 0 ? '#52c41a' : '#e74c3c' }}>
+                      {x.avg >= 0 ? '+' : ''}{fmt(x.avg)}
+                    </Text>
+                  </div>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+
+          <Divider style={{ margin: '12px 0 8px' }}>峰值/谷值分布（60 日内）</Divider>
+          <Row gutter={8} style={{ fontSize: 12 }}>
+            <Col span={5}><Text type="secondary">峰值 ≥ +10%：</Text>
+              <Text strong style={{ color: '#e74c3c' }}>
+                {ov.peak_ge_10pct}（{(ov.peak_ge_10pct / ov.total * 100).toFixed(1)}%）
+              </Text>
+            </Col>
+            <Col span={5}><Text type="secondary">峰值 ≥ +20%：</Text>
+              <Text strong style={{ color: '#e74c3c' }}>
+                {ov.peak_ge_20pct}（{(ov.peak_ge_20pct / ov.total * 100).toFixed(1)}%）
+              </Text>
+            </Col>
+            <Col span={5}><Text type="secondary">峰值 ≥ +30%：</Text>
+              <Text strong style={{ color: '#e74c3c' }}>
+                {ov.peak_ge_30pct}（{(ov.peak_ge_30pct / ov.total * 100).toFixed(1)}%）
+              </Text>
+            </Col>
+            <Col span={5}><Text type="secondary">谷值 ≤ -5%：</Text>
+              <Text style={{ color: '#f59e0b' }}>
+                {ov.trough_le_5pct}（{(ov.trough_le_5pct / ov.total * 100).toFixed(1)}%）
+              </Text>
+            </Col>
+            <Col span={4}><Text type="secondary">谷值 ≤ -10%：</Text>
+              <Text style={{ color: '#f59e0b' }}>
+                {ov.trough_le_10pct}（{(ov.trough_le_10pct / ov.total * 100).toFixed(1)}%）
+              </Text>
+            </Col>
+          </Row>
+
+          {/* 按月统计 */}
+          <Divider style={{ margin: '12px 0 8px' }}>按月分布</Divider>
+          <Table
+            size="small"
+            dataSource={monthly.map((m: any, i: number) => ({ ...m, key: i }))}
+            pagination={{ pageSize: 12, size: 'small' }}
+            columns={[
+              { title: '月份', dataIndex: 'month', width: 90 },
+              { title: '命中数', dataIndex: 'n', width: 80, align: 'right' as const },
+              {
+                title: '30d 均收',
+                dataIndex: 'avg_30d',
+                align: 'right' as const,
+                render: (v: any) => (
+                  <Text style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>
+                    {v != null ? `${(v * 100).toFixed(2)}%` : '—'}
+                  </Text>
+                ),
+              },
+              {
+                title: '30d 胜率',
+                dataIndex: 'win_30d',
+                align: 'right' as const,
+                render: (v: any) => v != null ? `${(v * 100).toFixed(1)}%` : '—',
+              },
+              {
+                title: '60d 均峰',
+                dataIndex: 'avg_peak',
+                align: 'right' as const,
+                render: (v: any) => (
+                  <Text style={{ color: '#e74c3c' }}>
+                    {v != null ? `+${(v * 100).toFixed(2)}%` : '—'}
+                  </Text>
+                ),
+              },
+              {
+                title: '60d 均谷',
+                dataIndex: 'avg_trough',
+                align: 'right' as const,
+                render: (v: any) => (
+                  <Text style={{ color: '#f59e0b' }}>
+                    {v != null ? `${(v * 100).toFixed(2)}%` : '—'}
+                  </Text>
+                ),
+              },
+            ]}
+          />
+
+          {/* 最近事件明细 */}
+          <Divider style={{ margin: '12px 0 8px' }}>最近 {events.length} 笔 {tab} 命中</Divider>
+          <Table
+            size="small"
+            dataSource={events.map((e: any) => ({ ...e, key: e.id }))}
+            pagination={{ pageSize: 10, size: 'small' }}
+            scroll={{ x: 1200 }}
+            columns={[
+              { title: '日期', dataIndex: 'signal_date', width: 100 },
+              { title: '代码', dataIndex: 'code', width: 80 },
+              { title: '名称', dataIndex: 'name', width: 100 },
+              { title: '入场价', dataIndex: 'buy_price', width: 90, align: 'right' as const,
+                render: (v: any) => v != null ? `¥${parseFloat(v).toFixed(2)}` : '—' },
+              { title: '5d', dataIndex: 'ret_5d',  width: 80, align: 'right' as const,
+                render: (v: any) => v != null
+                  ? <Text style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>{(v * 100).toFixed(2)}%</Text>
+                  : '—' },
+              { title: '10d', dataIndex: 'ret_10d', width: 80, align: 'right' as const,
+                render: (v: any) => v != null
+                  ? <Text style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>{(v * 100).toFixed(2)}%</Text>
+                  : '—' },
+              { title: '30d', dataIndex: 'ret_30d', width: 80, align: 'right' as const,
+                render: (v: any) => v != null
+                  ? <Text style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>{(v * 100).toFixed(2)}%</Text>
+                  : '—' },
+              { title: '60d', dataIndex: 'ret_60d', width: 80, align: 'right' as const,
+                render: (v: any) => v != null
+                  ? <Text style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>{(v * 100).toFixed(2)}%</Text>
+                  : '—' },
+              { title: '峰值', dataIndex: 'peak_ret', width: 80, align: 'right' as const,
+                render: (v: any) => v != null
+                  ? <Text style={{ color: '#e74c3c' }}>+{(v * 100).toFixed(2)}%</Text>
+                  : '—' },
+              { title: '谷值', dataIndex: 'trough_ret', width: 80, align: 'right' as const,
+                render: (v: any) => v != null
+                  ? <Text style={{ color: '#f59e0b' }}>{(v * 100).toFixed(2)}%</Text>
+                  : '—' },
+              { title: '状态', dataIndex: 'status', width: 80,
+                render: (v: any) => <Tag color={v === 'completed' ? 'green' : v === 'partial' ? 'orange' : 'default'}>{v}</Tag> },
+            ]}
+          />
+        </>
+      )}
+    </Card>
   );
 }

@@ -546,6 +546,75 @@ class MultiChannelPusher:
             results["telegram"] = await self.telegram.send_message(f"⚠️ <b>选股异常</b>\n{error_msg[:300]}")
         return results
 
+    # ──────────────────────────────────────────────────────────
+    # 持仓离场推送（真实持仓 only） — 复用企业微信（Q3 决定）
+    # ──────────────────────────────────────────────────────────
+    async def send_exit_signal(self, pos: dict) -> dict:
+        """
+        发送单笔真实持仓离场通知。
+        pos 字段：code, name, entry_date, entry_price,
+                 exit_date (信号日), exit_price (信号日 close 参考),
+                 actual_exit_date, actual_exit_price (次日 open，可能为空),
+                 exit_reason, exit_pnl_pct (优先用 actual 算), days_held,
+                 highest_price, highest_date, lowest_price, lowest_date, shares
+        """
+        def _pct(v):  return 'N/A' if v is None else f'{float(v)*100:+.2f}%'
+        def _yuan(v): return '—'   if v is None else f'¥{float(v):.2f}'
+
+        pnl_pct = float(pos.get('exit_pnl_pct') or 0)
+        pnl_emoji = '🟢' if pnl_pct > 0 else ('🔴' if pnl_pct < 0 else '⚪')
+
+        # 真实金额（如登记了 shares）— 优先用 actual 价
+        shares = pos.get('shares')
+        exec_price = pos.get('actual_exit_price') or pos.get('exit_price')
+        pnl_amount_line = ''
+        if shares and pos.get('entry_price') and exec_price:
+            amount = (float(exec_price) - float(pos['entry_price'])) * int(shares)
+            pnl_amount_line = f"\n💰 预估盈亏: ¥{amount:+,.2f}（{shares}股）"
+
+        # 信号 vs 实际成交
+        actual_filled = pos.get('actual_filled')
+        if actual_filled and pos.get('actual_exit_price'):
+            exec_line = (f"📤 实际成交: {pos.get('actual_exit_date')} 开盘 @ "
+                         f"{_yuan(pos.get('actual_exit_price'))}")
+            action_hint = "已按次日开盘成交"
+        else:
+            exec_line = (f"📤 建议成交: 次交易日开盘卖出\n"
+                         f"     信号日收盘参考价 {_yuan(pos.get('exit_price'))}")
+            action_hint = "⚠️ 今日已收盘无法成交，请明日开盘挂单"
+
+        text_lines = [
+            f"【主力建仓 · 离场信号】{pnl_emoji}",
+            f"━━━━━━━━━━━━━━━━",
+            f"📌 {pos.get('name','')} {pos.get('code','')}",
+            f"📥 入场: {pos.get('entry_date')} @ {_yuan(pos.get('entry_price'))}",
+            f"🚦 信号触发日: {pos.get('exit_date')}",
+            exec_line,
+            f"⏱️ 持仓: {pos.get('days_held', 0)} 个交易日",
+            f"📊 PnL:  {_pct(pos.get('exit_pnl_pct'))}{pnl_amount_line}",
+            f"━━━━━━━━━━━━━━━━",
+            f"🚨 触发原因",
+            f"  {(pos.get('exit_reason') or '')[:80]}",
+            f"━━━━━━━━━━━━━━━━",
+            f"📈 持仓期峰值: {_yuan(pos.get('highest_price'))} ({pos.get('highest_date','—')})",
+            f"📉 持仓期谷值: {_yuan(pos.get('lowest_price'))} ({pos.get('lowest_date','—')})",
+            f"━━━━━━━━━━━━━━━━",
+            f"🎯 {action_hint}",
+        ]
+        msg = "\n".join(text_lines)
+
+        results = {}
+        if self.wecom.configured:
+            try:
+                results["wecom"] = await self.wecom.send_text(msg)
+            except Exception as e:
+                results["wecom"] = {"ok": False, "error": str(e)}
+        else:
+            logger.warning("[exit-push] WeCom 未配置，仅日志输出")
+            logger.info(msg)
+            results["log_only"] = {"ok": True}
+        return results
+
     async def test_all(self) -> dict:
         """测试所有已配置渠道"""
         results = {}

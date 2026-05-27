@@ -1129,6 +1129,307 @@ async def get_strategies():
     return strategies
 
 
+# ══════════════════════════════════════════════════════════
+# API: 形态命中追踪 (pattern_outcome)
+# ══════════════════════════════════════════════════════════
+
+@app.get("/api/pattern_outcome/list")
+async def get_pattern_outcome_list(
+    strategy: str = "major_capital_accumulation",
+    signal_type: str = "",          # "" / "BUY" / "WATCH"
+    status: str = "",               # "" / "partial,completed" 等
+    since_date: str = "",
+    limit: int = 200,
+):
+    """返回事件明细列表，倒序"""
+    from db.pattern_dao import list_events
+    statuses = [s.strip() for s in status.split(",") if s.strip()] if status else None
+    events = await list_events(strategy, status_in=statuses,
+                                signal_type=signal_type or None,
+                                since_date=since_date or None, limit=limit)
+    # 数值字段转 float（避免 Decimal 序列化问题）
+    out = []
+    for e in events:
+        ec = {}
+        for k, v in e.items():
+            if v is not None and not isinstance(v, (int, str, bool)):
+                try:
+                    if hasattr(v, 'isoformat'):
+                        ec[k] = v.isoformat()
+                    else:
+                        ec[k] = float(v)
+                except (TypeError, ValueError):
+                    ec[k] = str(v)
+            else:
+                ec[k] = v
+        out.append(ec)
+    return out
+
+
+@app.get("/api/pattern_outcome/stats")
+async def get_pattern_outcome_stats(
+    strategy: str = "major_capital_accumulation",
+    signal_type: str = "BUY",       # 默认仅看 BUY 信号
+    since_date: str = "",
+):
+    """
+    返回聚合统计：
+      total / win_5d / win_10d / win_30d / win_60d
+      avg_5d / avg_10d / avg_30d / avg_60d
+      peak_ge_10pct / peak_ge_20pct / peak_ge_30pct
+      trough_le_5pct / trough_le_10pct
+      monthly:[{month, n, avg_30d, win_30d, peak_avg}, ...]
+    """
+    from db.mysql_pool import get_pool
+    pool = await get_pool()
+    where = "strategy=%s AND status IN ('partial','completed')"
+    args: list = [strategy]
+    if signal_type:
+        where += " AND signal_type=%s"
+        args.append(signal_type)
+    if since_date:
+        where += " AND signal_date >= %s"
+        args.append(since_date)
+
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            # 总览
+            await cur.execute(f"""
+                SELECT COUNT(*),
+                       SUM(ret_5d>0)/SUM(ret_5d IS NOT NULL),  AVG(ret_5d),
+                       SUM(ret_10d>0)/SUM(ret_10d IS NOT NULL), AVG(ret_10d),
+                       SUM(ret_30d>0)/SUM(ret_30d IS NOT NULL), AVG(ret_30d),
+                       SUM(ret_60d>0)/SUM(ret_60d IS NOT NULL), AVG(ret_60d),
+                       AVG(peak_ret), AVG(trough_ret),
+                       SUM(peak_ret>=0.10), SUM(peak_ret>=0.20), SUM(peak_ret>=0.30),
+                       SUM(trough_ret<=-0.05), SUM(trough_ret<=-0.10)
+                FROM pattern_outcome
+                WHERE {where}
+            """, tuple(args))
+            r = await cur.fetchone()
+            total = r[0] or 0
+            def _f(v):
+                return None if v is None else float(v)
+            overview = {
+                "total":         total,
+                "win_5d":        _f(r[1]),  "avg_5d":  _f(r[2]),
+                "win_10d":       _f(r[3]),  "avg_10d": _f(r[4]),
+                "win_30d":       _f(r[5]),  "avg_30d": _f(r[6]),
+                "win_60d":       _f(r[7]),  "avg_60d": _f(r[8]),
+                "avg_peak":      _f(r[9]),
+                "avg_trough":    _f(r[10]),
+                "peak_ge_10pct": int(r[11] or 0),
+                "peak_ge_20pct": int(r[12] or 0),
+                "peak_ge_30pct": int(r[13] or 0),
+                "trough_le_5pct":  int(r[14] or 0),
+                "trough_le_10pct": int(r[15] or 0),
+            }
+            # 按月聚合
+            await cur.execute(f"""
+                SELECT DATE_FORMAT(signal_date, '%%Y-%%m') AS mon,
+                       COUNT(*),
+                       AVG(ret_30d), SUM(ret_30d>0)/SUM(ret_30d IS NOT NULL),
+                       AVG(ret_60d), SUM(ret_60d>0)/SUM(ret_60d IS NOT NULL),
+                       AVG(peak_ret), AVG(trough_ret)
+                FROM pattern_outcome
+                WHERE {where}
+                GROUP BY mon ORDER BY mon
+            """, tuple(args))
+            monthly = []
+            for mon, n, a30, w30, a60, w60, peak, trough in await cur.fetchall():
+                monthly.append({
+                    "month": mon, "n": int(n),
+                    "avg_30d": _f(a30), "win_30d": _f(w30),
+                    "avg_60d": _f(a60), "win_60d": _f(w60),
+                    "avg_peak": _f(peak), "avg_trough": _f(trough),
+                })
+    return {"overview": overview, "monthly": monthly}
+
+
+# ══════════════════════════════════════════════════════════
+# API: 持仓监控 (position_monitor) — 双轨：模拟 + 真实
+# ══════════════════════════════════════════════════════════
+
+@app.get("/api/position/list")
+async def position_list(
+    strategy: str = "major_capital_accumulation",
+    status: str = "open",         # "open" / "exited" / ""
+    is_real: int = -1,            # -1 全部，0 仅模拟，1 仅真实
+    limit: int = 200,
+):
+    """返回持仓列表。开仓中的会附 current_price + unrealized_pnl_pct（浮赢/浮亏）。"""
+    from db.position_dao import list_open, list_exited
+
+    is_real_arg = None if is_real == -1 else int(is_real)
+    if status == "open":
+        rows = await list_open(strategy, is_real=is_real_arg)
+    elif status == "exited":
+        rows = await list_exited(strategy, limit=limit, is_real=is_real_arg)
+    else:
+        rows = await list_open(strategy, is_real=is_real_arg)
+        rows += await list_exited(strategy, limit=limit, is_real=is_real_arg)
+
+    # ── 开仓持仓附加 current_price + unrealized_pnl_pct ──
+    open_codes = [r['code'] for r in rows if r.get('status') == 'open']
+    latest_map: dict[str, dict] = {}
+    if open_codes:
+        from db.mysql_pool import get_pool
+        pool = await get_pool()
+        placeholders = ",".join(["%s"] * len(open_codes))
+        async with pool.acquire() as conn:
+            async with conn.cursor() as cur:
+                # stock_snapshot 是每日最新快照（每只股票 1 行）
+                await cur.execute(
+                    f"SELECT code, price, trade_date, pct_change FROM stock_snapshot "
+                    f"WHERE code IN ({placeholders})",
+                    tuple(open_codes),
+                )
+                for r in await cur.fetchall():
+                    latest_map[r[0]] = {
+                        "price":      float(r[1]) if r[1] is not None else None,
+                        "trade_date": r[2].isoformat() if r[2] else None,
+                        "pct_change": float(r[3]) if r[3] is not None else None,
+                    }
+
+    # 数值字段标准化（Decimal/date → 可序列化）
+    out = []
+    for r in rows:
+        ec = {}
+        for k, v in r.items():
+            if v is None or isinstance(v, (int, str, bool)):
+                ec[k] = v
+            elif hasattr(v, 'isoformat'):
+                ec[k] = v.isoformat()
+            else:
+                try: ec[k] = float(v)
+                except (TypeError, ValueError): ec[k] = str(v)
+        # 附加：开仓中的当前价 + 浮赢
+        if ec.get('status') == 'open':
+            latest = latest_map.get(ec['code'])
+            if latest and latest['price']:
+                ec['current_price'] = latest['price']
+                ec['current_date']  = latest['trade_date']
+                # stock_snapshot.pct_change 单位是 %（如 4.52 = 4.52%），归一化到 fraction
+                if latest['pct_change'] is not None:
+                    ec['day_change'] = latest['pct_change'] / 100.0
+                ep = ec.get('entry_price')
+                if ep is not None:
+                    ec['unrealized_pnl_pct'] = latest['price'] / float(ep) - 1.0
+        out.append(ec)
+    return out
+
+
+@app.post("/api/position/add")
+async def position_add(
+    code: str,
+    entry_date: str,
+    entry_price: float,
+    shares: int,
+    name: str = "",
+    strategy: str = "major_capital_accumulation",
+):
+    """手动新增真实持仓（is_real=1）。signal_date 默认与 entry_date 相同。"""
+    from db.position_dao import upsert_position
+    if not code or not entry_date or entry_price <= 0 or shares <= 0:
+        return {"ok": False, "error": "参数缺失或非法"}
+    await upsert_position(
+        strategy=strategy, code=code, name=name or code,
+        signal_date=entry_date, entry_date=entry_date,
+        entry_price=entry_price, is_real=1, shares=shares,
+    )
+    return {"ok": True}
+
+
+@app.post("/api/position/mark_real")
+async def position_mark_real(position_id: int, shares: int):
+    """把模拟持仓标记为真实持仓（接收离场推送）"""
+    from db.position_dao import mark_as_real
+    if shares <= 0:
+        return {"ok": False, "error": "shares 必须 > 0"}
+    ok = await mark_as_real(position_id, shares)
+    return {"ok": ok}
+
+
+@app.post("/api/position/unmark_real")
+async def position_unmark_real(position_id: int):
+    """把真实持仓改回模拟（不再推送，但保留记录）"""
+    from db.mysql_pool import get_pool
+    pool = await get_pool()
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute(
+                "UPDATE position_monitor SET is_real=0, shares=NULL WHERE id=%s",
+                (position_id,),
+            )
+            return {"ok": cur.rowcount > 0}
+
+
+@app.post("/api/position/delete")
+async def position_delete(position_id: int):
+    """删除持仓记录（误录或重复时用）"""
+    from db.position_dao import delete_position
+    ok = await delete_position(position_id)
+    return {"ok": ok}
+
+
+@app.get("/api/position/stats")
+async def position_stats(
+    strategy: str = "major_capital_accumulation",
+    is_real: int = -1,
+):
+    """聚合统计：开仓中 / 已离场 / 各 exit_reason 分布 / PnL 桶"""
+    from db.mysql_pool import get_pool
+    pool = await get_pool()
+    real_clause = "" if is_real == -1 else f" AND is_real={int(is_real)}"
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute(f"""
+                SELECT
+                  SUM(status='open') AS n_open,
+                  SUM(status='exited') AS n_exited,
+                  AVG(CASE WHEN status='exited' THEN exit_pnl_pct END) AS avg_pnl,
+                  SUM(CASE WHEN status='exited' AND exit_pnl_pct > 0 THEN 1 ELSE 0 END) AS n_win,
+                  AVG(CASE WHEN status='exited' THEN days_held END) AS avg_days,
+                  MAX(exit_pnl_pct) AS max_pnl,
+                  MIN(exit_pnl_pct) AS min_pnl
+                FROM position_monitor
+                WHERE strategy=%s {real_clause}
+            """, (strategy,))
+            r = await cur.fetchone()
+            def f(v): return None if v is None else float(v)
+            overview = {
+                "n_open":   int(r[0] or 0),
+                "n_exited": int(r[1] or 0),
+                "avg_pnl":  f(r[2]),
+                "n_win":    int(r[3] or 0),
+                "win_rate": (int(r[3] or 0) / int(r[1] or 1)) if r[1] else 0,
+                "avg_days": f(r[4]),
+                "max_pnl":  f(r[5]),
+                "min_pnl":  f(r[6]),
+            }
+            # exit_reason 分布
+            await cur.execute(f"""
+                SELECT
+                  CASE
+                    WHEN exit_reason LIKE '%%硬止损%%' THEN '硬止损'
+                    WHEN exit_reason LIKE '%%stage1%%' THEN 'stage1(<5%%)'
+                    WHEN exit_reason LIKE '%%stage2%%' THEN 'stage2(5~15%%)'
+                    WHEN exit_reason LIKE '%%stage3%%' THEN 'stage3(≥15%%)'
+                    WHEN exit_reason LIKE '%%MA20%%' THEN '破MA20'
+                    ELSE 'other'
+                  END AS cat,
+                  COUNT(*), AVG(exit_pnl_pct), SUM(exit_pnl_pct > 0) / COUNT(*) AS win
+                FROM position_monitor
+                WHERE strategy=%s AND status='exited' {real_clause}
+                GROUP BY cat ORDER BY COUNT(*) DESC
+            """, (strategy,))
+            by_reason = [{
+                "reason": rr[0], "n": int(rr[1]),
+                "avg_pnl": f(rr[2]), "win_rate": f(rr[3]),
+            } for rr in await cur.fetchall()]
+    return {"overview": overview, "by_reason": by_reason}
+
+
 @app.get("/api/screen/presets")
 async def screen_presets():
     """返回选股预设列表"""
@@ -1788,3 +2089,28 @@ async def open_ths(req: dict):
     except Exception as e:
         logger.warning(f"[open-ths] 打开同花顺失败: {e}")
         return {"ok": False, "msg": str(e)}
+
+
+# ══════════════════════════════════════════════════════════
+# SPA 路由兜底：任何非 API、非静态资源、非 WS 的 GET 请求都返回 index.html
+# 让 React 前端通过 history API 处理客户端路由（/scan /backtest /equity 等）
+# 必须放在所有 @app.get 路由 *之后*，让 FastAPI 优先匹配明确的路由
+# ══════════════════════════════════════════════════════════
+
+@app.get("/{full_path:path}", response_class=HTMLResponse, include_in_schema=False)
+async def spa_catch_all(full_path: str):
+    # 仅排除明显的 API/资源前缀；不在白名单里的全部返回 SPA
+    if full_path.startswith(("api/", "static/", "ws", "favicon.ico", "icons.svg")):
+        # 不应走到这里——明确的 @app.get 路由已优先匹配；走到这里说明确实没找到
+        # 返回 404 让前端知道路径无效
+        from fastapi import HTTPException
+        raise HTTPException(status_code=404, detail="Not Found")
+
+    react_index = Path(__file__).parent / "static" / "dist" / "index.html"
+    if react_index.exists():
+        return HTMLResponse(
+            react_index.read_text(encoding="utf-8"),
+            headers={"Cache-Control": "no-cache, must-revalidate"},
+        )
+    html_path = Path(__file__).parent / "templates" / "index.html"
+    return HTMLResponse(html_path.read_text(encoding="utf-8"))

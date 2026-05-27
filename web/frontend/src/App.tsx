@@ -40,11 +40,39 @@ const menuItems = [
   ]},
 ];
 
+// 合法页面路径（与 menuItems 的 key 一一对应）
+const VALID_PAGES = new Set(['dashboard', 'scan', 'backtest', 'equity', 'compare', 'calendar', 'log']);
+
+function pageFromUrl(): string {
+  const path = window.location.pathname.replace(/^\/+/, '').split('/')[0] || 'dashboard';
+  return VALID_PAGES.has(path) ? path : 'dashboard';
+}
+
+function setUrl(page: string) {
+  const target = page === 'dashboard' ? '/' : `/${page}`;
+  if (window.location.pathname !== target) {
+    window.history.pushState({ page }, '', target);
+  }
+}
+
 export default function App() {
-  const [page, setPage] = useState('dashboard');
+  const [page, setPageRaw] = useState<string>(() => pageFromUrl());
   const [collapsed, setCollapsed] = useState(false);
   const [clock, setClock] = useState('');
   const ws = useWebSocket();
+
+  // 包装 setPage：同时更新 URL，使刷新/分享链接都能落到对应页面
+  const setPage = (next: string) => {
+    setPageRaw(next);
+    setUrl(next);
+  };
+
+  // 监听浏览器前进/后退按钮
+  useEffect(() => {
+    const onPop = () => setPageRaw(pageFromUrl());
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setClock(new Date().toLocaleTimeString('zh-CN', { hour12: false })), 1000);
@@ -73,7 +101,16 @@ export default function App() {
             collapsed={collapsed}
             onCollapse={setCollapsed}
             width={220}
-            style={{ borderRight: '1px solid rgba(255,255,255,0.06)' }}
+            style={{
+              borderRight: '1px solid rgba(255,255,255,0.06)',
+              position: 'fixed',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              height: '100vh',
+              overflow: 'auto',
+              zIndex: 100,
+            }}
           >
             <div style={{ padding: collapsed ? '16px 8px' : '20px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               {!collapsed && (
@@ -100,7 +137,7 @@ export default function App() {
               </div>
             )}
           </Sider>
-          <Layout>
+          <Layout style={{ marginLeft: collapsed ? 80 : 220, transition: 'margin-left 0.2s' }}>
             <Content style={{ padding: 24, overflow: 'auto', background: '#0d1117' }}>
               {renderPage()}
             </Content>

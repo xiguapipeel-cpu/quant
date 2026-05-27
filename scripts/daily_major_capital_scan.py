@@ -93,6 +93,54 @@ async def run_daily_scan(
         except Exception as e:
             logger.error(f"[日扫描] 推送异常: {e}")
 
+    # ── Step 3.5：BUY 信号自动登记到 position_monitor（is_real=0 模拟） ───
+    # 关键去重：若同一 code 已有 status='open' 的持仓，跳过（避免连续 BUY 信号产生重复记录）
+    if buy_stocks:
+        try:
+            from db.position_dao import upsert_position, list_open
+            from db.stock_dao import get_daily_history
+            from datetime import timedelta as _td
+            # 拉当前所有 open 持仓的 code，建立 set 用于去重
+            open_positions = await list_open('major_capital_accumulation')
+            open_codes = {p['code'] for p in open_positions}
+
+            n_added = n_skipped_open = 0
+            for s in buy_stocks:
+                code = s.get('code')
+                sd = s.get('signal_date')
+                if not code or not sd:
+                    continue
+                if code in open_codes:
+                    n_skipped_open += 1
+                    continue  # 已有未离场持仓，新 BUY 视为再确认
+
+                # 入场基线 = signal_date 次开盘价（如有数据），否则 signal_date close
+                rows = await get_daily_history(
+                    code, sd,
+                    (datetime.strptime(sd, "%Y-%m-%d") + _td(days=15)).strftime("%Y-%m-%d"),
+                )
+                entry_bar = next((r for r in rows if str(r['trade_date']) > sd), None)
+                if entry_bar:
+                    entry_date = str(entry_bar['trade_date'])
+                    entry_price = float(entry_bar['open_price'])
+                else:
+                    entry_date = sd
+                    entry_price = float(s.get('price') or 0)
+                if entry_price <= 0:
+                    continue
+                await upsert_position(
+                    strategy='major_capital_accumulation',
+                    code=code, name=s.get('name', code),
+                    signal_date=sd,
+                    entry_date=entry_date,
+                    entry_price=entry_price,
+                    is_real=0,
+                )
+                n_added += 1
+            logger.info(f"[日扫描] position_monitor 登记: 新增 {n_added} 笔，跳过 {n_skipped_open} 笔（已 open）")
+        except Exception as e:
+            logger.warning(f"[日扫描] position_monitor 登记失败: {e}")
+
     # ── Step 4：更新 Web 状态（增量合并，不丢失旧标的） ───
     if update_web_state:
         try:
