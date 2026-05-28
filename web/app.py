@@ -1258,16 +1258,19 @@ async def position_list(
     limit: int = 200,
 ):
     """返回持仓列表。开仓中的会附 current_price + unrealized_pnl_pct（浮赢/浮亏）。"""
-    from db.position_dao import list_open, list_exited
+    from db.position_dao import list_open, list_exited, list_skipped
 
     is_real_arg = None if is_real == -1 else int(is_real)
     if status == "open":
         rows = await list_open(strategy, is_real=is_real_arg)
     elif status == "exited":
         rows = await list_exited(strategy, limit=limit, is_real=is_real_arg)
+    elif status == "skipped":
+        rows = await list_skipped(strategy, limit=limit, is_real=is_real_arg)
     else:
         rows = await list_open(strategy, is_real=is_real_arg)
         rows += await list_exited(strategy, limit=limit, is_real=is_real_arg)
+        rows += await list_skipped(strategy, limit=limit, is_real=is_real_arg)
 
     # ── 开仓持仓附加 current_price + unrealized_pnl_pct ──
     open_codes = [r['code'] for r in rows if r.get('status') == 'open']
@@ -1372,6 +1375,39 @@ async def position_delete(position_id: int):
     return {"ok": ok}
 
 
+@app.post("/api/position/run_exit_scan")
+async def position_run_exit_scan(background_tasks: BackgroundTasks):
+    """手动触发一次持仓离场扫描。"""
+    if state.get("exit_scan_running"):
+        return JSONResponse({"ok": False, "error": "离场扫描正在运行"}, status_code=409)
+
+    async def _run():
+        state["exit_scan_running"] = True
+        try:
+            import sys
+            proc = await asyncio.create_subprocess_exec(
+                sys.executable, "-m", "scripts.daily_exit_scan",
+                cwd=str(Path(__file__).resolve().parent.parent),
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.STDOUT,
+            )
+            out, _ = await proc.communicate()
+            text = (out or b"").decode("utf-8", errors="replace")
+            logger.info(f"[Web] 离场扫描完成 rc={proc.returncode}\n{text[-4000:]}")
+            await ws_manager.broadcast({
+                "type": "exit_scan_done",
+                "data": {"returncode": proc.returncode, "tail": text[-4000:]},
+            })
+        except Exception as e:
+            logger.error(f"[Web] 离场扫描失败: {e}")
+            await ws_manager.broadcast({"type": "exit_scan_error", "data": str(e)})
+        finally:
+            state["exit_scan_running"] = False
+
+    background_tasks.add_task(_run)
+    return {"ok": True, "message": "离场扫描已启动"}
+
+
 @app.get("/api/position/stats")
 async def position_stats(
     strategy: str = "major_capital_accumulation",
@@ -1387,6 +1423,7 @@ async def position_stats(
                 SELECT
                   SUM(status='open') AS n_open,
                   SUM(status='exited') AS n_exited,
+                  SUM(status='skipped') AS n_skipped,
                   AVG(CASE WHEN status='exited' THEN exit_pnl_pct END) AS avg_pnl,
                   SUM(CASE WHEN status='exited' AND exit_pnl_pct > 0 THEN 1 ELSE 0 END) AS n_win,
                   AVG(CASE WHEN status='exited' THEN days_held END) AS avg_days,
@@ -1400,12 +1437,13 @@ async def position_stats(
             overview = {
                 "n_open":   int(r[0] or 0),
                 "n_exited": int(r[1] or 0),
-                "avg_pnl":  f(r[2]),
-                "n_win":    int(r[3] or 0),
-                "win_rate": (int(r[3] or 0) / int(r[1] or 1)) if r[1] else 0,
-                "avg_days": f(r[4]),
-                "max_pnl":  f(r[5]),
-                "min_pnl":  f(r[6]),
+                "n_skipped": int(r[2] or 0),
+                "avg_pnl":  f(r[3]),
+                "n_win":    int(r[4] or 0),
+                "win_rate": (int(r[4] or 0) / int(r[1] or 1)) if r[1] else 0,
+                "avg_days": f(r[5]),
+                "max_pnl":  f(r[6]),
+                "min_pnl":  f(r[7]),
             }
             # exit_reason 分布
             await cur.execute(f"""

@@ -178,6 +178,24 @@ async def list_exited(strategy: str, limit: int = 100, is_real: Optional[int] = 
     return [dict(zip(cols, r)) for r in rows]
 
 
+async def list_skipped(strategy: str, limit: int = 100, is_real: Optional[int] = None) -> list[dict]:
+    """执行层过滤掉的 BUY 信号。"""
+    pool = await get_pool()
+    sql = "SELECT * FROM position_monitor WHERE strategy=%s AND status='skipped'"
+    args = [strategy]
+    if is_real is not None:
+        sql += " AND is_real=%s"
+        args.append(is_real)
+    sql += " ORDER BY signal_date DESC, code ASC LIMIT %s"
+    args.append(limit)
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute(sql, tuple(args))
+            cols = [d[0] for d in cur.description]
+            rows = await cur.fetchall()
+    return [dict(zip(cols, r)) for r in rows]
+
+
 async def list_pending_push(strategy: str) -> list[dict]:
     """已离场但还没推送过的真实持仓（用于离场推送循环）"""
     pool = await get_pool()

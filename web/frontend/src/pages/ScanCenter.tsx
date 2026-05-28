@@ -915,10 +915,11 @@ export default function ScanCenter() {
 // 持仓监控 — 双轨（模拟 + 真实）+ 离场触发跟踪
 // ══════════════════════════════════════════════════════════════════
 function PositionMonitorPanel({ strategy }: { strategy: string }) {
-  const [tab,        setTab]        = useState<'open' | 'exited' | 'real'>('open');
+  const [tab,        setTab]        = useState<'open' | 'exited' | 'real' | 'skipped'>('open');
   const [positions,  setPositions]  = useState<any[]>([]);
   const [stats,      setStats]      = useState<any>(null);
   const [loading,    setLoading]    = useState(false);
+  const [scanLoading, setScanLoading] = useState(false);
   const [addOpen,    setAddOpen]    = useState(false);
   const [markModal,  setMarkModal]  = useState<any>(null);
   const [form]       = Form.useForm();
@@ -930,6 +931,7 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
     if (tab === 'open')       { params.set('status', 'open');   params.set('is_real', '-1'); }
     else if (tab === 'exited'){ params.set('status', 'exited'); params.set('is_real', '-1'); params.set('limit', '2000'); }
     else if (tab === 'real')  { params.set('status', '');       params.set('is_real', '1');  params.set('limit', '500'); }
+    else if (tab === 'skipped'){ params.set('status', 'skipped'); params.set('is_real', '-1'); params.set('limit', '1000'); }
     try {
       const [p, s] = await Promise.all([
         apiFetch(`/api/position/list?${params}`).catch(() => []),
@@ -988,6 +990,21 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
     else { message.error('标记失败'); }
   };
 
+  const runExitScan = async () => {
+    setScanLoading(true);
+    try {
+      const r = await apiFetch('/api/position/run_exit_scan', 'POST');
+      if (r?.ok) {
+        message.success('离场扫描已启动，稍后自动刷新');
+        setTimeout(reload, 3000);
+      } else {
+        message.error(r?.error || '启动失败');
+      }
+    } finally {
+      setScanLoading(false);
+    }
+  };
+
   const ov = stats?.overview;
   const by_reason = stats?.by_reason || [];
 
@@ -1021,8 +1038,10 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
                        optionType="button" buttonStyle="solid">
             <Radio.Button value="open">开仓中</Radio.Button>
             <Radio.Button value="real">仅真实</Radio.Button>
+            <Radio.Button value="skipped">执行过滤</Radio.Button>
             <Radio.Button value="exited">最近已离场</Radio.Button>
           </Radio.Group>
+          <Button size="small" onClick={runExitScan} loading={scanLoading}>运行离场扫描</Button>
           <Button size="small" type="primary" onClick={() => setAddOpen(true)}>+ 添加真实持仓</Button>
         </Space>
       }
@@ -1031,7 +1050,7 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
       {ov && (
         <>
           <div style={{ fontSize: 11, color: '#8892a4', marginBottom: 6 }}>
-            📊 统计基于<strong style={{ color: '#7eb6ff' }}>全部 {ov.n_exited} 笔已离场</strong>样本（不含 {ov.n_open} 笔开仓中浮赢）
+            📊 统计基于<strong style={{ color: '#7eb6ff' }}>全部 {ov.n_exited} 笔已离场</strong>样本（不含 {ov.n_open} 笔开仓中浮赢；执行过滤 {ov.n_skipped || 0} 笔）
           </div>
           <Row gutter={12} style={{ marginBottom: 12 }}>
             <Col span={4}>
@@ -1039,6 +1058,9 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
             </Col>
             <Col span={4}>
               <Statistic title="已离场" value={ov.n_exited} />
+            </Col>
+            <Col span={4}>
+              <Statistic title="执行过滤" value={ov.n_skipped || 0} />
             </Col>
             <Col span={4}>
               <Statistic
@@ -1116,7 +1138,7 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
 
       {/* 主表格 */}
       {loading ? <Spin /> : positions.length === 0 ? (
-        <Empty description={tab === 'open' ? '暂无开仓持仓' : tab === 'real' ? '尚未添加真实持仓' : '暂无离场记录'} />
+        <Empty description={tab === 'open' ? '暂无开仓持仓' : tab === 'real' ? '尚未添加真实持仓' : tab === 'skipped' ? '暂无执行过滤记录' : '暂无离场记录'} />
       ) : (
         <Table
           size="small"
@@ -1137,6 +1159,23 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
               render: fmtPrice },
             { title: '股数', dataIndex: 'shares', width: 80, align: 'right' as const,
               render: (v: any) => v ? v.toLocaleString() : '—' },
+            ...(tab === 'skipped' ? [
+              { title: '信号价', dataIndex: 'signal_price', width: 90, align: 'right' as const, render: fmtPrice },
+              { title: '次开价', dataIndex: 'entry_price', width: 90, align: 'right' as const, render: fmtPrice },
+              {
+                title: 'Gap', dataIndex: 'entry_gap_pct', width: 90, align: 'right' as const,
+                sorter: (a: any, b: any) => (a.entry_gap_pct ?? 0) - (b.entry_gap_pct ?? 0),
+                render: (v: any) => v == null ? '—' : (
+                  <Text style={{ color: v >= 0 ? '#52c41a' : '#e74c3c' }}>
+                    {(parseFloat(v) * 100).toFixed(2)}%
+                  </Text>
+                ),
+              },
+              {
+                title: '过滤原因', dataIndex: 'execution_reason', width: 280,
+                render: (v: any) => <Text style={{ fontSize: 11 }}>{v || '—'}</Text>,
+              },
+            ] : [
             { title: '持仓天数', dataIndex: 'days_held', width: 80, align: 'right' as const },
             ...(tab === 'open' || tab === 'real' ? [
               {
@@ -1255,6 +1294,7 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
               },
               { title: '触发', dataIndex: 'exit_reason', width: 240,
                 render: (v: any) => <Text style={{ fontSize: 11 }}>{v}</Text> },
+            ]),
             ]),
             {
               title: '操作', width: 140,
