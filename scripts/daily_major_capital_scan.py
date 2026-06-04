@@ -65,14 +65,18 @@ async def run_daily_scan(
         today_str=today_str,
     )
 
+    from config.execution_rules import rank_buy_signals, rank_score
+
     watch_stocks = [s for s in hit_stocks if s.get("signal_type") == "WATCH"]
     buy_stocks   = [s for s in hit_stocks if s.get("signal_type") == "BUY"]
-    buy_stocks.sort(key=lambda x: (x.get("signal_date", ""), x.get("confidence", 0)), reverse=True)
+    # 排序买入：多因子综合分（confidence/RSI/watch_days/yy_ratio/bb_narrow/突破强度/成交额）
+    buy_stocks   = rank_buy_signals(buy_stocks)
     watch_stocks.sort(key=lambda x: (x.get("signal_date", ""), x.get("confidence", 0)), reverse=True)
 
     logger.info(f"[日扫描] 命中 BUY={len(buy_stocks)} WATCH={len(watch_stocks)}")
     for s in buy_stocks[:5]:
-        logger.info(f"  BUY   {s['code']} {s['name']} 信号日={s['signal_date']} 置信={s.get('confidence',0):.2f}")
+        logger.info(f"  BUY   {s['code']} {s['name']} 信号日={s['signal_date']} "
+                    f"置信={s.get('confidence',0):.2f} 排序分={s.get('rank_score',0):.3f}")
     for s in watch_stocks[:5]:
         logger.info(f"  WATCH {s['code']} {s['name']} 信号日={s['signal_date']}")
 
@@ -124,13 +128,31 @@ async def run_daily_scan(
     except Exception as e:
         logger.warning(f"[日扫描] pattern_outcome 记录失败: {e}")
 
+    # ── Step 2.6：推送去重 —— 已持有 / 近期已离场的票不再推买入 ──────
+    # 仅影响推送内容；pattern_outcome（Step 2.5）与 scan_results（Step 4）仍记录全部。
+    push_buy_stocks = buy_stocks
+    try:
+        from db.position_dao import list_open, list_exited
+        from config.execution_rules import EXIT_COOLDOWN_DAYS
+        suppress = {p['code'] for p in await list_open('major_capital_accumulation')}
+        cutoff = (datetime.strptime(today_str, "%Y-%m-%d") - timedelta(days=EXIT_COOLDOWN_DAYS)).strftime("%Y-%m-%d")
+        for p in await list_exited('major_capital_accumulation', limit=3000):
+            if p.get('exit_date') and str(p['exit_date']) >= cutoff:
+                suppress.add(p['code'])
+        push_buy_stocks = [s for s in buy_stocks if s.get('code') not in suppress]
+        n_sup = len(buy_stocks) - len(push_buy_stocks)
+        if n_sup:
+            logger.info(f"[日扫描] 推送去重: 抑制 {n_sup} 只已持有/近{EXIT_COOLDOWN_DAYS}日离场的 BUY 票")
+    except Exception as e:
+        logger.warning(f"[日扫描] 推送去重失败（按全量推送）: {e}")
+
     # ── Step 3：多渠道推送 ─────────────────────────────────
     if notify_wechat:
         try:
             from notifications.push import pusher
             force = trigger in ("手动", "测试")
             result = await pusher.send_major_capital_scan(
-                buy_stocks, watch_stocks, scan_time, trigger, ignore_trading_day=force
+                push_buy_stocks, watch_stocks, scan_time, trigger, ignore_trading_day=force
             )
             if result.get("skipped"):
                 logger.info("[日扫描] 非交易日静音，跳过推送")
@@ -147,13 +169,20 @@ async def run_daily_scan(
         try:
             from db.position_dao import upsert_position, list_open
             from db.stock_dao import get_daily_history
-            from config.execution_rules import evaluate_next_open
+            from config.execution_rules import (
+                evaluate_next_open, MAX_NEW_ENTRIES_PER_DAY,
+                STAGED_ENTRY_ENABLED, FIRST_TRANCHE_PCT,
+            )
             from datetime import timedelta as _td
             # 拉当前所有 open 持仓的 code，建立 set 用于去重
             open_positions = await list_open('major_capital_accumulation')
             open_codes = {p['code'] for p in open_positions}
 
-            n_added = n_skipped_open = n_pending_entry = n_filtered = 0
+            # 排序买入：buy_stocks 已按多因子综合分降序。同一 signal_date 下
+            # 实际入场（status='open'）最多 MAX_NEW_ENTRIES_PER_DAY 笔，其余记为 skipped。
+            accepted_per_day: dict[str, int] = {}
+
+            n_added = n_skipped_open = n_pending_entry = n_filtered = n_rank_capped = 0
             for s in buy_stocks:
                 code = s.get('code')
                 sd = s.get('signal_date')
@@ -180,6 +209,23 @@ async def run_daily_scan(
                 if entry_price <= 0:
                     continue
                 allowed, exec_reason, gap_pct = evaluate_next_open(signal_price, entry_price)
+                # top-N 排序闸：执行过滤通过后，若当日已入满额，则降级为 skipped
+                if allowed:
+                    n_today = accepted_per_day.get(sd, 0)
+                    if n_today >= MAX_NEW_ENTRIES_PER_DAY:
+                        allowed = False
+                        exec_reason = (
+                            f"执行过滤: 当日新仓已满{MAX_NEW_ENTRIES_PER_DAY}笔, "
+                            f"排序分{s.get('rank_score',0):.3f}排名靠后"
+                        )
+                        n_rank_capped += 1
+                    else:
+                        accepted_per_day[sd] = n_today + 1
+                # 分批进场：通过的新仓先建半仓首批（stage=1），等待站稳突破位补满
+                if allowed and STAGED_ENTRY_ENABLED:
+                    entry_stage, position_pct = 1, FIRST_TRANCHE_PCT
+                else:
+                    entry_stage, position_pct = 2, 1.0
                 await upsert_position(
                     strategy='major_capital_accumulation',
                     code=code, name=s.get('name', code),
@@ -191,6 +237,8 @@ async def run_daily_scan(
                     entry_gap_pct=gap_pct,
                     execution_reason=exec_reason,
                     status='open' if allowed else 'skipped',
+                    entry_stage=entry_stage,
+                    position_pct=position_pct,
                 )
                 if allowed:
                     n_added += 1
@@ -198,8 +246,8 @@ async def run_daily_scan(
                     n_filtered += 1
             logger.info(
                 f"[日扫描] position_monitor 登记: 新增 {n_added} 笔, "
-                f"执行过滤 {n_filtered} 笔, 等待次开 {n_pending_entry} 笔, "
-                f"跳过 {n_skipped_open} 笔（已 open）"
+                f"执行过滤 {n_filtered} 笔（含排序超额 {n_rank_capped}）, "
+                f"等待次开 {n_pending_entry} 笔, 跳过 {n_skipped_open} 笔（已 open）"
             )
         except Exception as e:
             logger.warning(f"[日扫描] position_monitor 登记失败: {e}")

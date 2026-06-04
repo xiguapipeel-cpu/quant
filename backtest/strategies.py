@@ -14,7 +14,7 @@
 """
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional
 
 from utils.logger import setup_logger
@@ -31,6 +31,7 @@ class Signal:
     price:      float
     reason:     str
     confidence: float = 1.0
+    meta:       dict = field(default_factory=dict)   # 排序/执行层用的量化指标快照
 
 
 @dataclass
@@ -1394,12 +1395,25 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
             conf = min(conf, 1.0)
 
             sbv_tag = f" SBV={sbv_count}天" if sbv_count > 0 else ""
+            # 突破强度：今日相对昨收涨幅（排序用，越强排名越前）
+            _prev_close = closes[i - 1] if i > 0 and closes[i - 1] else None
+            breakout_strength = ((close - _prev_close) / _prev_close * 100.0
+                                 if _prev_close else None)
             signals.append(Signal(
                 dates[i], code, "BUY", close,
                 f"建仓完毕即将拉升: {trigger} | "
                 f"已建仓{accumulation_days}天 观察{watched_days}天 "
                 f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}{sbv_tag}",
                 confidence=conf,
+                meta={
+                    "rsi":               round(rsi, 1) if rsi is not None else None,
+                    "yy_ratio":          round(yy_ratio, 3) if yy_ratio is not None else None,
+                    "bb_narrow":         bool(bb_narrow),
+                    "accumulation_days": accumulation_days,
+                    "watch_days":        watched_days,
+                    "trigger_strength":  trigger_strength,
+                    "breakout_strength": round(breakout_strength, 2) if breakout_strength is not None else None,
+                },
             ))
             in_position = True
             buy_price = close

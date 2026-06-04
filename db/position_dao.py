@@ -19,8 +19,11 @@ async def upsert_position(
     entry_gap_pct: Optional[float] = None,
     execution_reason: str = '',
     status: str = 'open',
+    entry_stage: int = 2,
+    position_pct: float = 1.0,
 ) -> None:
-    """同 (strategy, code, signal_date) 视为同一笔。status 可为 open/skipped。"""
+    """同 (strategy, code, signal_date) 视为同一笔。status 可为 open/skipped。
+    entry_stage: 1=待补仓（半仓首批）, 2=已补满/全仓, 3=放弃补仓（维持半仓）。"""
     pool = await get_pool()
     async with pool.acquire() as conn:
         async with conn.cursor() as cur:
@@ -28,8 +31,9 @@ async def upsert_position(
                 INSERT INTO position_monitor
                   (strategy, code, name, signal_date, entry_date, entry_price,
                    signal_price, entry_gap_pct, execution_reason,
+                   entry_stage, position_pct,
                    is_real, shares, status)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON DUPLICATE KEY UPDATE
                   name = VALUES(name),
                   entry_date = VALUES(entry_date),
@@ -37,12 +41,58 @@ async def upsert_position(
                   signal_price = VALUES(signal_price),
                   entry_gap_pct = VALUES(entry_gap_pct),
                   execution_reason = VALUES(execution_reason),
+                  entry_stage = VALUES(entry_stage),
+                  position_pct = VALUES(position_pct),
                   is_real = GREATEST(is_real, VALUES(is_real)),
                   shares = COALESCE(VALUES(shares), shares),
                   status = VALUES(status)
             """, (strategy, code, name, signal_date, entry_date, entry_price,
                   signal_price, entry_gap_pct, execution_reason[:255] if execution_reason else None,
+                  entry_stage, position_pct,
                   is_real, shares, status))
+
+
+async def fill_second_half(
+    position_id: int,
+    add_date: str,
+    add_price: float,
+    avg_entry_price: float,
+) -> None:
+    """补满第二批半仓：记录补仓价、加权均价，仓位升至满仓，stage→2。"""
+    pool = await get_pool()
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute("""
+                UPDATE position_monitor SET
+                  entry_stage=2, position_pct=1.0,
+                  add_date=%s, add_price=%s, avg_entry_price=%s
+                WHERE id=%s
+            """, (add_date, add_price, avg_entry_price, position_id))
+
+
+async def give_up_second_half(position_id: int) -> None:
+    """补仓窗口内未站稳突破位 → 放弃补仓，维持半仓（stage→3，不再重复检查）。"""
+    pool = await get_pool()
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute(
+                "UPDATE position_monitor SET entry_stage=3 WHERE id=%s", (position_id,)
+            )
+
+
+async def list_pending_add(strategy: str) -> list[dict]:
+    """待补仓持仓（半仓首批，等待站稳突破位补第二批）。"""
+    pool = await get_pool()
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cur:
+            await cur.execute("""
+                SELECT * FROM position_monitor
+                WHERE strategy=%s AND status='open' AND entry_stage=1
+                ORDER BY entry_date ASC, code ASC
+            """, (strategy,))
+            cols = [d[0] for d in cur.description]
+            rows = await cur.fetchall()
+    return [dict(zip(cols, r)) for r in rows]
 
 
 async def mark_as_real(position_id: int, shares: int) -> bool:

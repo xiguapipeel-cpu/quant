@@ -546,6 +546,23 @@ class MultiChannelPusher:
             results["telegram"] = await self.telegram.send_message(f"⚠️ <b>选股异常</b>\n{error_msg[:300]}")
         return results
 
+    async def send_market_alert(self, reason: str, open_count: int = 0, real_count: int = 0) -> dict:
+        """大盘急跌/趋势走弱 → 减仓清仓提示（灾难止损执行层）"""
+        text = (
+            f"{reason}\n"
+            f"时间：{datetime.now().strftime('%Y-%m-%d %H:%M')}\n"
+            f"当前持仓：{open_count} 笔（真实 {real_count} 笔）\n"
+            f"建议：复核持仓，考虑减仓或清仓规避系统性风险。"
+        )
+        results = {}
+        if self.wecom.configured:
+            results["wecom"] = await self.wecom.send_text(text)
+        if self.telegram.configured:
+            results["telegram"] = await self.telegram.send_message(
+                f"⚠️ <b>大盘减仓提示</b>\n{reason}\n持仓 {open_count} 笔（真实 {real_count}）"
+            )
+        return results
+
     # ──────────────────────────────────────────────────────────
     # 持仓离场推送（真实持仓 only） — 复用企业微信（Q3 决定）
     # ──────────────────────────────────────────────────────────

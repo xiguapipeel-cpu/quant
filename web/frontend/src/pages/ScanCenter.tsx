@@ -451,12 +451,13 @@ export default function ScanCenter() {
   const [dataSource, setDataSource] = useState<'realtime' | 'local'>('realtime');
   const [warehouseStatus, setWarehouseStatus] = useState<any>(null);
   const [page, setPage] = useState(1);
+  const [listLoading, setListLoading] = useState(false);
   const PAGE_SIZE = 15;
   const { scanDone } = useContext(WsContext);
 
   const cfg = STRATEGY_CONFIG[strategy];
-  // 切换策略时重置信号过滤和分页
-  useEffect(() => { setSignalFilter('all'); setPage(1); }, [strategy]);
+  // 切换策略时重置信号过滤和分页，并立即清空旧标的池 + 进入加载态（避免残留上一策略内容）
+  useEffect(() => { setSignalFilter('all'); setPage(1); setStocks([]); setListLoading(true); }, [strategy]);
   // 切换信号过滤时重置分页
   useEffect(() => { setPage(1); }, [signalFilter]);
 
@@ -473,6 +474,7 @@ export default function ScanCenter() {
     if (info?.cache_count != null) setCacheCount(info.cache_count);
     if (api) setApiOk(api.realtime_ok);
     if (wh) setWarehouseStatus(wh);
+    setListLoading(false);
   };
 
   useEffect(() => { load(strategy); }, [scanDone, strategy]);
@@ -744,7 +746,9 @@ export default function ScanCenter() {
             </div>
           );
         })()}
-        {stocks.length === 0 ? (
+        {listLoading ? (
+          <div style={{ textAlign: 'center', padding: '48px 0' }}><Spin tip="加载标的池…" /></div>
+        ) : stocks.length === 0 ? (
           <Empty
             description={`暂无筛选结果。选择「${cfg.label}」策略后点击「立即筛选」。`}
             image={Empty.PRESENTED_IMAGE_SIMPLE}
@@ -932,10 +936,12 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
     else if (tab === 'exited'){ params.set('status', 'exited'); params.set('is_real', '-1'); params.set('limit', '2000'); }
     else if (tab === 'real')  { params.set('status', '');       params.set('is_real', '1');  params.set('limit', '500'); }
     else if (tab === 'skipped'){ params.set('status', 'skipped'); params.set('is_real', '-1'); params.set('limit', '1000'); }
+    // 统计与筛选 tab 关联：「仅真实」只统计真实持仓(is_real=1)，其余 tab 统计全部(模拟+真实)
+    const statsIsReal = tab === 'real' ? 1 : -1;
     try {
       const [p, s] = await Promise.all([
         apiFetch(`/api/position/list?${params}`).catch(() => []),
-        apiFetch(`/api/position/stats?strategy=${strategy}`).catch(() => null),
+        apiFetch(`/api/position/stats?strategy=${strategy}&is_real=${statsIsReal}`).catch(() => null),
       ]);
       setPositions(p || []);
       setStats(s);
@@ -1050,7 +1056,7 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
       {ov && (
         <>
           <div style={{ fontSize: 11, color: '#8892a4', marginBottom: 6 }}>
-            📊 统计基于<strong style={{ color: '#7eb6ff' }}>全部 {ov.n_exited} 笔已离场</strong>样本（不含 {ov.n_open} 笔开仓中浮赢；执行过滤 {ov.n_skipped || 0} 笔）
+            📊 {tab === 'real' ? '【仅真实持仓口径】' : '【全部：模拟+真实】'}统计基于<strong style={{ color: '#7eb6ff' }}>{ov.n_exited} 笔已离场</strong>样本（不含 {ov.n_open} 笔开仓中浮赢；执行过滤 {ov.n_skipped || 0} 笔）
           </div>
           <Row gutter={12} style={{ marginBottom: 12 }}>
             <Col span={4}>
@@ -1136,6 +1142,14 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
         </div>
       )}
 
+      {/* 复权口径说明（消除"入场价与行情不符"的困惑） */}
+      {positions.length > 0 && (
+        <div style={{ fontSize: 11, color: '#8892a4', marginBottom: 6 }}>
+          ℹ️ 价格为<strong style={{ color: '#7eb6ff' }}>前复权(qfq)</strong>口径：入场价 = 信号日次交易日开盘价。
+          与行情软件的前复权 K 线一致；若该股之后有分红/送转，会与你记忆中的「除权前实际成交价」或当前实时价不同，属正常。
+        </div>
+      )}
+
       {/* 主表格 */}
       {loading ? <Spin /> : positions.length === 0 ? (
         <Empty description={tab === 'open' ? '暂无开仓持仓' : tab === 'real' ? '尚未添加真实持仓' : tab === 'skipped' ? '暂无执行过滤记录' : '暂无离场记录'} />
@@ -1144,7 +1158,7 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
           size="small"
           scroll={{ x: 1300 }}
           dataSource={enrichOpen(positions).map((p: any) => ({ ...p, key: p.id }))}
-          pagination={{ pageSize: 15, size: 'small' }}
+          pagination={{ defaultPageSize: 10, showSizeChanger: true, pageSizeOptions: ['10', '20', '50', '100'], size: 'small' }}
           columns={[
             { title: '代码', dataIndex: 'code', width: 90, render: codeRender },
             { title: '名称', dataIndex: 'name', width: 100, render: nameRender },
@@ -1364,13 +1378,16 @@ function PatternOutcomePanel({ strategy }: { strategy: string }) {
   const [events,  setEvents]  = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [tab,     setTab]     = useState<'BUY' | 'WATCH'>('BUY');
+  const [dedup,   setDedup]   = useState(false);
 
   useEffect(() => {
     if (strategy !== 'major_capital_accumulation') return;
     setLoading(true);
     Promise.all([
       apiFetch(`/api/pattern_outcome/stats?strategy=${strategy}&signal_type=${tab}`).catch(() => null),
-      apiFetch(`/api/pattern_outcome/list?strategy=${strategy}&signal_type=${tab}&status=partial,completed&limit=50`).catch(() => []),
+      // 列表不限 status：含最新 pending（尚未满 5 个交易日的新命中），按信号日倒序展示最近命中。
+      // 聚合统计（上方卡片）仍只基于 partial/completed，互不影响。
+      apiFetch(`/api/pattern_outcome/list?strategy=${strategy}&signal_type=${tab}&limit=50`).catch(() => []),
     ])
       .then(([s, l]) => { setStats(s); setEvents(l || []); })
       .finally(() => setLoading(false));
@@ -1386,6 +1403,17 @@ function PatternOutcomePanel({ strategy }: { strategy: string }) {
   };
   const ov = stats?.overview;
   const monthly = stats?.monthly || [];
+
+  // 按股票去重：events 已按 signal_date 倒序，保留每只 code 最近一次命中
+  const displayEvents = (() => {
+    if (!dedup) return events;
+    const seen = new Set<string>();
+    const out: any[] = [];
+    for (const e of events) {
+      if (!seen.has(e.code)) { seen.add(e.code); out.push(e); }
+    }
+    return out;
+  })();
 
   return (
     <Card
@@ -1411,6 +1439,13 @@ function PatternOutcomePanel({ strategy }: { strategy: string }) {
         <Empty description={`暂无 ${tab} 信号数据。请先运行 pattern_tracker。`} image={Empty.PRESENTED_IMAGE_SIMPLE} />
       ) : (
         <>
+          <div style={{ fontSize: 11, color: '#8892a4', marginBottom: 10, lineHeight: 1.7 }}>
+            📌 <strong style={{ color: '#7eb6ff' }}>本模块 = 信号有效性追踪（信号轨）</strong>：记录策略历史上<strong>所有</strong> WATCH/BUY 命中事件，
+            及其信号日次开盘价后 5/10/30/60 日的真实走势，用来回答「形态命中后到底好不好」，<strong>与是否实际下单无关</strong>。
+            <br />
+            它与上方<strong>「持仓监控」（执行轨）</strong>不同：持仓监控对每只股票的首个未平仓 BUY <strong>去重登记一笔</strong>来跟踪 trail 离场。
+            因此这里不少命中（同一只股票的多个信号日、被执行规则过滤、或去重跳过的）在「持仓监控 - 已离场」中<strong>找不到对应记录，属正常</strong>。
+          </div>
           {/* 4 卡片：总览 */}
           <Row gutter={12}>
             <Col span={6}>
@@ -1501,7 +1536,9 @@ function PatternOutcomePanel({ strategy }: { strategy: string }) {
           <Divider style={{ margin: '12px 0 8px' }}>按月分布</Divider>
           <Table
             size="small"
-            dataSource={monthly.map((m: any, i: number) => ({ ...m, key: i }))}
+            dataSource={[...monthly]
+              .sort((a: any, b: any) => String(b.month).localeCompare(String(a.month)))
+              .map((m: any, i: number) => ({ ...m, key: i }))}
             pagination={{ pageSize: 12, size: 'small' }}
             columns={[
               { title: '月份', dataIndex: 'month', width: 90 },
@@ -1546,10 +1583,19 @@ function PatternOutcomePanel({ strategy }: { strategy: string }) {
           />
 
           {/* 最近事件明细 */}
-          <Divider style={{ margin: '12px 0 8px' }}>最近 {events.length} 笔 {tab} 命中</Divider>
+          <Divider style={{ margin: '12px 0 8px' }}>最近 {displayEvents.length} 笔 {tab} 命中</Divider>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6, gap: 12 }}>
+            <Text style={{ fontSize: 11, color: '#8892a4' }}>
+              含最新「跟踪中」命中（信号后不足 5 个交易日，收益列暂为「—」，后续由 pattern_tracker 自动补全）。
+            </Text>
+            <Space size={6} style={{ flex: '0 0 auto' }}>
+              <Text style={{ fontSize: 12, color: '#8892a4' }}>按股票去重（每只仅最近一次）</Text>
+              <Switch size="small" checked={dedup} onChange={setDedup} />
+            </Space>
+          </div>
           <Table
             size="small"
-            dataSource={events.map((e: any) => ({ ...e, key: e.id }))}
+            dataSource={displayEvents.map((e: any) => ({ ...e, key: e.id }))}
             pagination={{ pageSize: 10, size: 'small' }}
             scroll={{ x: 1200 }}
             columns={[
@@ -1582,8 +1628,12 @@ function PatternOutcomePanel({ strategy }: { strategy: string }) {
                 render: (v: any) => v != null
                   ? <Text style={{ color: '#f59e0b' }}>{(v * 100).toFixed(2)}%</Text>
                   : '—' },
-              { title: '状态', dataIndex: 'status', width: 80,
-                render: (v: any) => <Tag color={v === 'completed' ? 'green' : v === 'partial' ? 'orange' : 'default'}>{v}</Tag> },
+              { title: '状态', dataIndex: 'status', width: 90,
+                render: (v: any) => {
+                  const map: any = { completed: ['green', '已完成'], partial: ['orange', '部分'], pending: ['blue', '跟踪中'], no_data: ['default', '无数据'] };
+                  const [color, label] = map[v] || ['default', v];
+                  return <Tag color={color}>{label}</Tag>;
+                } },
             ]}
           />
         </>

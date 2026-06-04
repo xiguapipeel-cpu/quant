@@ -201,6 +201,12 @@ _DDL = [
         signal_price    DECIMAL(10,3) DEFAULT NULL,
         entry_gap_pct   DECIMAL(8,4) DEFAULT NULL,
         execution_reason VARCHAR(255) DEFAULT NULL,
+        -- 分批进场：1=待补仓（半仓首批）, 2=已补满, 3=放弃补仓（维持半仓）
+        entry_stage     TINYINT(1)   NOT NULL DEFAULT 2,
+        position_pct    DECIMAL(5,4) NOT NULL DEFAULT 1.0,  -- 当前仓位比例（0.5 半仓 / 1.0 满仓）
+        add_date        DATE         DEFAULT NULL,          -- 补半仓日
+        add_price       DECIMAL(10,3) DEFAULT NULL,         -- 补半仓价
+        avg_entry_price DECIMAL(10,3) DEFAULT NULL,         -- 两批加权均价（补满后）
         -- 双轨：is_real=0 模拟（BUY 信号自动登记，不推送），1 真实（手工标记，离场推送）
         is_real         TINYINT(1)   NOT NULL DEFAULT 0,
         shares          INT          DEFAULT NULL,            -- 仅真实持仓有意义
@@ -371,6 +377,11 @@ async def _ensure_tables():
                 ("signal_price", "DECIMAL(10,3) DEFAULT NULL AFTER entry_price"),
                 ("entry_gap_pct", "DECIMAL(8,4) DEFAULT NULL AFTER signal_price"),
                 ("execution_reason", "VARCHAR(255) DEFAULT NULL AFTER entry_gap_pct"),
+                ("entry_stage", "TINYINT(1) NOT NULL DEFAULT 2 AFTER execution_reason"),
+                ("position_pct", "DECIMAL(5,4) NOT NULL DEFAULT 1.0 AFTER entry_stage"),
+                ("add_date", "DATE DEFAULT NULL AFTER position_pct"),
+                ("add_price", "DECIMAL(10,3) DEFAULT NULL AFTER add_date"),
+                ("avg_entry_price", "DECIMAL(10,3) DEFAULT NULL AFTER add_price"),
             ]
             for col_name, col_def in position_cols:
                 await cur.execute(

@@ -161,6 +161,7 @@ async def _analyze_one(
             "confidence":    latest.confidence,
             "signal_dates":  signal_dates,
             "match_score":   match_score,
+            "buy_meta":      getattr(latest, "meta", {}) or {},
         }
 
 

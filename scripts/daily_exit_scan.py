@@ -34,13 +34,18 @@ from db.position_dao import (
     list_open, update_trail_state, mark_exited,
     list_pending_push, mark_notified,
     list_pending_actual_fill, fill_actual_exit,
+    list_pending_add, fill_second_half, give_up_second_half,
 )
-from config.execution_rules import MAX_SINGLE_LOSS_PCT
+from config.execution_rules import (
+    MAX_SINGLE_LOSS_PCT, evaluate_market_regime,
+    evaluate_second_half, ADD_WINDOW_DAYS, FIRST_TRANCHE_PCT,
+)
 from utils.logger import setup_logger
 
 logger = setup_logger("exit_scan")
 
 STRATEGY_ID = "major_capital_accumulation"
+MARKET_CODE = "idx_sh"   # 大盘基准（与策略 market_code 一致）
 
 # tight_trail 配方（与 bt_major_capital.py 默认一致）
 ATR_STOP_K        = 2.0
@@ -159,7 +164,8 @@ async def scan_one_position(pos: dict) -> Optional[dict]:
     """对一笔持仓跑离场检查；返回 None 表示无触发，否则返回 {exit_*} dict"""
     code = pos['code']
     entry_date = str(pos['entry_date'])
-    entry_price = float(pos['entry_price'])
+    # 分批补满后用加权均价做止损/盈亏基准；半仓或全仓未补则用首批 entry_price
+    entry_price = float(pos['avg_entry_price']) if pos.get('avg_entry_price') else float(pos['entry_price'])
 
     # 拉数据：入场前 60 自然日 ~ 今日
     start = (date.fromisoformat(entry_date) - timedelta(days=60)).isoformat()
@@ -229,8 +235,70 @@ async def scan_one_position(pos: dict) -> Optional[dict]:
     }
 
 
+async def process_staged_entries() -> tuple[int, int, int]:
+    """分批进场：对 entry_stage=1（半仓首批）的持仓检查是否补第二批。
+
+    规则：首批入场后 ADD_WINDOW_DAYS 个交易日内，任一日收盘站稳突破位（或继续放量）
+    则补满半仓（加权均价写入 avg_entry_price）；窗口内始终未站稳则放弃补仓维持半仓。
+    返回 (added, gave_up, still_pending)。
+    """
+    pending = await list_pending_add(STRATEGY_ID)
+    added = gave_up = still_pending = 0
+    for pos in pending:
+        code = pos['code']
+        entry_date = str(pos['entry_date'])
+        entry_price = float(pos['entry_price'])
+        signal_price = float(pos['signal_price']) if pos.get('signal_price') else entry_price
+
+        start = (date.fromisoformat(entry_date) - timedelta(days=10)).isoformat()
+        end = date.today().isoformat()
+        rows = await get_daily_history(code, start, end)
+        bars_since = [b for b in rows if str(b['trade_date']) >= entry_date]
+        if not bars_since:
+            still_pending += 1
+            continue
+
+        entry_volume = float(bars_since[0].get('volume') or 0)
+        # 补仓窗口：首批入场日（含）起 ADD_WINDOW_DAYS 个交易日
+        window = bars_since[:ADD_WINDOW_DAYS]
+        filled = False
+        for bar in window:
+            should_add, reason = evaluate_second_half(
+                signal_price=signal_price,
+                entry_date_close=float(bars_since[0]['close']),
+                bar_close=float(bar['close']),
+                bar_volume=float(bar.get('volume') or 0),
+                entry_volume=entry_volume,
+            )
+            if should_add:
+                add_price = float(bar['close'])
+                avg_price = entry_price * FIRST_TRANCHE_PCT + add_price * (1 - FIRST_TRANCHE_PCT)
+                await fill_second_half(pos['id'], str(bar['trade_date']), add_price, avg_price)
+                added += 1
+                filled = True
+                logger.info(f"  ➕ 补半仓 {code} {pos['name']} @{add_price:.2f} "
+                            f"均价{avg_price:.2f} | {reason}")
+                break
+        if filled:
+            continue
+        # 窗口已走完仍未站稳 → 放弃补仓；窗口未满则继续等待
+        if len(bars_since) >= ADD_WINDOW_DAYS:
+            await give_up_second_half(pos['id'])
+            gave_up += 1
+            logger.info(f"  ⊘ 放弃补仓 {code} {pos['name']} 窗口内未站稳突破位，维持半仓")
+        else:
+            still_pending += 1
+    if pending:
+        logger.info(f"[exit-scan] 分批进场: 补满 {added} 笔, 放弃 {gave_up} 笔, 待定 {still_pending} 笔")
+    return added, gave_up, still_pending
+
+
 async def main(args):
     logger.info(f"[exit-scan] 开始扫描 status='open' 持仓")
+
+    # ── 分批进场：先处理待补仓的半仓首批（站稳突破位则补满）──
+    await process_staged_entries()
+
     open_positions = await list_open(STRATEGY_ID)
     logger.info(f"[exit-scan] 开仓中: {len(open_positions)} 笔（{sum(1 for p in open_positions if p['is_real']==1)} 真实）")
 
@@ -274,6 +342,33 @@ async def main(args):
                 logger.debug(f"  ⚪ 模拟持仓离场: {pos['code']} pnl={result['exit_pnl_pct']:+.2%}")
 
     logger.info(f"[exit-scan] 完成: 离场 {exited_count} 笔, 仍开仓 {still_open_count} 笔")
+
+    # ── 灾难止损：大盘急跌 / 趋势走弱 → 减仓清仓提示 ──
+    try:
+        still_open = await list_open(STRATEGY_ID)
+        if still_open:
+            # 先刷新上证综指日线，避免用陈旧数据误判 regime
+            try:
+                from scripts.update_idx_sh import update_idx_sh
+                _, _latest = await update_idx_sh()
+                logger.info(f"[exit-scan] 指数 idx_sh 已更新至 {_latest}")
+            except Exception as _ie:
+                logger.warning(f"[exit-scan] 指数更新失败（沿用现有数据 + 过期保护）: {_ie}")
+
+            end = date.today().isoformat()
+            start = (date.today() - timedelta(days=180)).isoformat()
+            idx_bars = await get_daily_history(MARKET_CODE, start, end)
+            warn, reason = evaluate_market_regime(idx_bars or [], as_of_date=date.today())
+            if warn:
+                real_cnt = sum(1 for p in still_open if p['is_real'] == 1)
+                logger.warning(f"[exit-scan] {reason} | 持仓 {len(still_open)} 笔（真实 {real_cnt}）")
+                from notifications.push import pusher
+                res = await pusher.send_market_alert(reason, len(still_open), real_cnt)
+                logger.info(f"[exit-scan] 大盘减仓提示推送: {res}")
+            else:
+                logger.info(f"[exit-scan] {reason}")
+    except Exception as e:
+        logger.warning(f"[exit-scan] 大盘 regime 检查失败: {e}")
 
     # ── 用次日 open 填充实际成交价（方案 C 核心逻辑） ──
     pending_actual = await list_pending_actual_fill(STRATEGY_ID)

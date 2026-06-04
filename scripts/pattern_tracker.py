@@ -193,9 +193,12 @@ async def refresh_outcome_for_event(event: dict) -> None:
                          bars_seen=bars_seen, status=status)
 
 
-async def refresh_all_pending(strategy: str, batch_size: int = 10000) -> tuple[int, int]:
+async def refresh_all_pending(strategy: str, batch_size: int = 200000) -> tuple[int, int]:
     """循环处理直到所有 pending/partial 事件都被处理过一次。
-    用 seen 集合避免同一事件因状态保持 pending/partial 而被重复处理。"""
+    用 seen 集合避免同一事件因状态保持 pending/partial 而被重复处理。
+    注意：batch_size 必须 ≥ 当前 pending+partial 总数，否则 list_pending 的
+    `ORDER BY signal_date ASC LIMIT` 会让最新的事件长期排在窗口外而被「饿死」
+    （表现为最近命中的 buy_price/收益迟迟不更新）。故取一个足够大的上限。"""
     seen: set = set()
     total_done = 0
     round_no = 0

@@ -6,6 +6,8 @@ FastAPI Web看板 - 主应用
 
 import asyncio
 import json
+import re
+import sys
 from contextlib import asynccontextmanager
 from datetime import datetime
 from pathlib import Path
@@ -103,7 +105,16 @@ async def _save_schedule_config(cfg: dict):
 async def _scheduler_loop():
     """后台调度循环：到设定时间自动触发选股 + 微信推送"""
     logger.info("[调度器] 启动")
+    # 从 DB 的 last_run 恢复"今天是否已执行"，避免 Web 重启后丢失状态导致重复/漏跑
     last_run_date = None
+    try:
+        _cfg0 = await _load_schedule_config()
+        _lr = _cfg0.get("last_run")
+        if _lr:
+            last_run_date = datetime.strptime(str(_lr)[:10], "%Y-%m-%d").date()
+            logger.info(f"[调度器] 从 DB 恢复上次执行日期: {last_run_date}")
+    except Exception as _e:
+        logger.debug(f"[调度器] 恢复 last_run 失败: {_e}")
 
     while True:
         try:
@@ -125,13 +136,15 @@ async def _scheduler_loop():
             except Exception:
                 is_trading = now.weekday() < 5
 
-            # 到时间且今天未运行且是交易日
-            if (is_trading
-                    and now.hour == target_h
-                    and now.minute == target_m
-                    and last_run_date != today):
+            # 到点窗口触发：到达设定时间后 3 小时内（含因重启/卡顿错过精确分钟的补触发），
+            # 今天尚未执行且为交易日。避免旧逻辑「分钟必须精确==target_m」错过一次即整天不跑；
+            # 同时限制 3 小时窗口，避免深夜启动 Web 触发盘后乱跑 + 误推送。
+            target_minutes = target_h * 60 + target_m
+            now_minutes = now.hour * 60 + now.minute
+            reached = 0 <= (now_minutes - target_minutes) <= 180
+            if is_trading and reached and last_run_date != today:
                 last_run_date = today
-                logger.info(f"[调度器] 触发主力拉升选股 {now.strftime('%H:%M')}")
+                logger.info(f"[调度器] 触发主力建仓选股 {now.strftime('%H:%M')}")
                 await _save_schedule_config({"last_run": now.strftime("%Y-%m-%d %H:%M"), "last_status": "running"})
 
                 try:
@@ -146,6 +159,27 @@ async def _scheduler_loop():
                         "type": "scan_done",
                         "data": state.get("scan_results", []),
                     })
+
+                    # 选股登记后，依次跑：① 离场扫描（统一扫描模拟+真实持仓退出 /
+                    # 分批补仓 / 大盘减仓提示）② pattern_tracker --update（刷新所有命中事件的
+                    # 5/10/30/60 日收益 + 峰值/谷值）。用子进程避免其 close_pool 影响本进程连接池。
+                    async def _run_step(label: str, *module_args: str):
+                        try:
+                            import sys as _sys
+                            _proc = await asyncio.create_subprocess_exec(
+                                _sys.executable, "-m", *module_args,
+                                cwd=str(Path(__file__).resolve().parent.parent),
+                                stdout=asyncio.subprocess.PIPE,
+                                stderr=asyncio.subprocess.STDOUT,
+                            )
+                            _out, _ = await _proc.communicate()
+                            logger.info(f"[调度器] {label}完成 rc={_proc.returncode}\n"
+                                        f"{(_out or b'').decode('utf-8', errors='replace')[-2000:]}")
+                        except Exception as _ee:
+                            logger.error(f"[调度器] {label}失败: {_ee}")
+
+                    await _run_step("离场扫描", "scripts.daily_exit_scan")
+                    await _run_step("形态走势更新", "scripts.pattern_tracker", "--update")
                 except Exception as e:
                     logger.error(f"[调度器] 执行异常: {e}")
                     await _save_schedule_config({"last_status": f"异常: {str(e)[:60]}"})
@@ -1932,6 +1966,14 @@ async def schedule_run_now(background_tasks: BackgroundTasks, strategy: str = "m
                 preset = STRATEGY_PRESET_MAP.get(strategy, "default")
                 state["scan_preset"] = preset
                 await _do_screen("手动", preset, strategy)
+            # 手动执行也更新"上次执行时间"，与定时任务面板保持一致
+            try:
+                await _save_schedule_config({
+                    "last_run": datetime.now().strftime("%Y-%m-%d %H:%M"),
+                    "last_status": f"手动完成 | {label}",
+                })
+            except Exception:
+                pass
             await ws_manager.broadcast({
                 "type": "scan_done",
                 "data": state.get("scan_results", []),
@@ -2127,6 +2169,102 @@ async def open_ths(req: dict):
     except Exception as e:
         logger.warning(f"[open-ths] 打开同花顺失败: {e}")
         return {"ok": False, "msg": str(e)}
+
+
+# ══════════════════════════════════════════════════════════
+# API + 专题页：复盘报告（双轨执行复盘 / 月度 Outcome）
+# ══════════════════════════════════════════════════════════
+_REPORT_DEFS = {
+    "dual_track": {
+        "module": "scripts.dual_track_review",
+        "prefix": "dual_track_review_",
+        "title": "双轨执行复盘",
+    },
+    "monthly": {
+        "module": "scripts.monthly_outcome_report",
+        "prefix": "monthly_outcome_",
+        "title": "月度 Outcome 报告",
+    },
+}
+
+
+@app.get("/api/reports/archives")
+async def reports_archives():
+    """列出 logs/ 下已存档的报告文件（两类）。"""
+    log_dir = Path(__file__).resolve().parent.parent / "logs"
+    items = []
+    if log_dir.exists():
+        for rtype, d in _REPORT_DEFS.items():
+            for f in sorted(log_dir.glob(f"{d['prefix']}*.md"), reverse=True):
+                st = f.stat()
+                items.append({
+                    "type": rtype, "title": d["title"], "name": f.name,
+                    "size": st.st_size,
+                    "mtime": datetime.fromtimestamp(st.st_mtime).strftime("%Y-%m-%d %H:%M"),
+                })
+    return items
+
+
+@app.get("/api/reports/archive")
+async def reports_archive(name: str):
+    """读取某个已存档报告内容（防目录穿越）。"""
+    if "/" in name or ".." in name or not name.endswith(".md"):
+        return JSONResponse({"ok": False, "error": "非法文件名"}, status_code=400)
+    if not any(name.startswith(d["prefix"]) for d in _REPORT_DEFS.values()):
+        return JSONResponse({"ok": False, "error": "未知报告类型"}, status_code=400)
+    fp = Path(__file__).resolve().parent.parent / "logs" / name
+    if not fp.exists():
+        return JSONResponse({"ok": False, "error": "文件不存在"}, status_code=404)
+    return {"ok": True, "name": name, "markdown": fp.read_text(encoding="utf-8")}
+
+
+@app.post("/api/reports/generate")
+async def reports_generate(type: str, scope: str = "weeks", value: str = "6"):
+    """实时运行报告脚本并返回 markdown。
+    type: dual_track / monthly
+    scope: weeks / month / all  (month 仅 monthly 适用)
+    value: 周数 或 YYYY-MM
+    """
+    d = _REPORT_DEFS.get(type)
+    if not d:
+        return JSONResponse({"ok": False, "error": "未知报告类型"}, status_code=400)
+
+    args = [sys.executable, "-m", d["module"]]
+    if scope == "all":
+        args.append("--all")
+    elif scope == "month" and type == "monthly":
+        if not re.match(r"^\d{4}-\d{2}$", value or ""):
+            return JSONResponse({"ok": False, "error": "月份格式应为 YYYY-MM"}, status_code=400)
+        args += ["--month", value]
+    else:  # weeks
+        if not (value or "").isdigit():
+            return JSONResponse({"ok": False, "error": "周数应为整数"}, status_code=400)
+        args += ["--weeks", value]
+    args.append("--save")
+
+    try:
+        proc = await asyncio.create_subprocess_exec(
+            *args,
+            cwd=str(Path(__file__).resolve().parent.parent),
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        out, err = await asyncio.wait_for(proc.communicate(), timeout=240)
+        md = (out or b"").decode("utf-8", errors="replace").strip()
+        # 去掉报告正文前可能混入的日志行：从第一个一级标题 "# " 处截断
+        m = re.search(r"(?m)^# ", md)
+        if m:
+            md = md[m.start():]
+        if proc.returncode != 0 or not md:
+            tail = (err or b"").decode("utf-8", errors="replace")[-500:]
+            return JSONResponse({"ok": False, "error": f"脚本异常 rc={proc.returncode}: {tail}"},
+                                status_code=500)
+        return {"ok": True, "markdown": md}
+    except asyncio.TimeoutError:
+        return JSONResponse({"ok": False, "error": "报告生成超时（>240s）"}, status_code=504)
+    except Exception as e:
+        return JSONResponse({"ok": False, "error": str(e)}, status_code=500)
+
 
 
 # ══════════════════════════════════════════════════════════

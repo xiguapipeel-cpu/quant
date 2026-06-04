@@ -3,7 +3,7 @@ import { ConfigProvider, Layout, Menu, Typography, Badge } from 'antd';
 import {
   DashboardOutlined, SearchOutlined,
   ExperimentOutlined, LineChartOutlined, BarChartOutlined,
-  CalendarOutlined, CodeOutlined,
+  CalendarOutlined, CodeOutlined, FileTextOutlined,
 } from '@ant-design/icons';
 import darkTheme from './theme';
 import { useWebSocket, type LogEntry } from './hooks/useWebSocket';
@@ -14,6 +14,7 @@ import EquityCurve from './pages/EquityCurve';
 import StrategyCompare from './pages/StrategyCompare';
 import TradingCalendar from './pages/TradingCalendar';
 import LiveLog from './pages/LiveLog';
+import ReviewReports from './pages/ReviewReports';
 
 const { Sider, Content } = Layout;
 const { Title, Text } = Typography;
@@ -32,6 +33,9 @@ const menuItems = [
     { key: 'equity',   icon: <LineChartOutlined />,  label: '净值曲线' },
     { key: 'compare',  icon: <BarChartOutlined />,   label: '策略对比' },
   ]},
+  { type: 'group' as const, label: '复盘', children: [
+    { key: 'reports', icon: <FileTextOutlined />, label: '复盘报告' },
+  ]},
   { type: 'group' as const, label: '工具', children: [
     { key: 'calendar', icon: <CalendarOutlined />, label: '交易日历' },
   ]},
@@ -41,7 +45,7 @@ const menuItems = [
 ];
 
 // 合法页面路径（与 menuItems 的 key 一一对应）
-const VALID_PAGES = new Set(['dashboard', 'scan', 'backtest', 'equity', 'compare', 'calendar', 'log']);
+const VALID_PAGES = new Set(['dashboard', 'scan', 'backtest', 'equity', 'compare', 'reports', 'calendar', 'log']);
 
 function pageFromUrl(): string {
   const path = window.location.pathname.replace(/^\/+/, '').split('/')[0] || 'dashboard';
@@ -86,6 +90,7 @@ export default function App() {
       case 'backtest':  return <BacktestCenter />;
       case 'equity':    return <EquityCurve />;
       case 'compare':   return <StrategyCompare />;
+      case 'reports':   return <ReviewReports />;
       case 'calendar':  return <TradingCalendar />;
       case 'log':       return <LiveLog />;
       default:          return <Dashboard />;
