@@ -1,0 +1,29 @@
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ── 虚拟环境 ──
+venv/
+.venv/
+env/
+
+# ── 运行产物 / 缓存 / 日志 ──
+logs/
+backtest_cache/
+backtest_reports/
+reports_output/
+*.log
+*.json.bak
+
+# ── 系统 / 编辑器 ──
+.DS_Store
+.idea/
+.vscode/
+
+# ── Claude 工具 ──
+.claude/worktrees/
+
+# ── 前端依赖（构建产物 web/static/dist 仍纳入版本库用于部署）──
+web/frontend/node_modules/
