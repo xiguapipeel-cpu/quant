@@ -105,16 +105,6 @@ async def _save_schedule_config(cfg: dict):
 async def _scheduler_loop():
     """后台调度循环：到设定时间自动触发选股 + 微信推送"""
     logger.info("[调度器] 启动")
-    # 从 DB 的 last_run 恢复"今天是否已执行"，避免 Web 重启后丢失状态导致重复/漏跑
-    last_run_date = None
-    try:
-        _cfg0 = await _load_schedule_config()
-        _lr = _cfg0.get("last_run")
-        if _lr:
-            last_run_date = datetime.strptime(str(_lr)[:10], "%Y-%m-%d").date()
-            logger.info(f"[调度器] 从 DB 恢复上次执行日期: {last_run_date}")
-    except Exception as _e:
-        logger.debug(f"[调度器] 恢复 last_run 失败: {_e}")
 
     while True:
         try:
@@ -142,27 +132,16 @@ async def _scheduler_loop():
             target_minutes = target_h * 60 + target_m
             now_minutes = now.hour * 60 + now.minute
             reached = 0 <= (now_minutes - target_minutes) <= 180
-            if is_trading and reached and last_run_date != today:
-                last_run_date = today
+            # 直接以 DB 的 last_run 判断当天是否已执行（不依赖内存状态）：
+            # 无论 Web 重启多少次，只要当天已推送过，last_run 已是今天 → 绝不重复触发。
+            _lr = cfg.get("last_run")
+            already_today = bool(_lr) and str(_lr)[:10] == today.isoformat()
+            if is_trading and reached and not already_today:
                 logger.info(f"[调度器] 触发主力建仓选股 {now.strftime('%H:%M')}")
                 await _save_schedule_config({"last_run": now.strftime("%Y-%m-%d %H:%M"), "last_status": "running"})
 
                 try:
-                    from scripts.daily_major_capital_scan import run_daily_scan
-                    results = await run_daily_scan(
-                        trigger="定时",
-                        notify_wechat=cfg.get("notify_wechat", True),
-                        update_web_state=True,
-                    )
-                    await _save_schedule_config({"last_status": f"完成 | {len(results)}只信号"})
-                    await ws_manager.broadcast({
-                        "type": "scan_done",
-                        "data": state.get("scan_results", []),
-                    })
-
-                    # 选股登记后，依次跑：① 离场扫描（统一扫描模拟+真实持仓退出 /
-                    # 分批补仓 / 大盘减仓提示）② pattern_tracker --update（刷新所有命中事件的
-                    # 5/10/30/60 日收益 + 峰值/谷值）。用子进程避免其 close_pool 影响本进程连接池。
+                    # 子进程跑某步骤（避免其 close_pool 影响本进程连接池）
                     async def _run_step(label: str, *module_args: str):
                         try:
                             import sys as _sys
@@ -178,8 +157,29 @@ async def _scheduler_loop():
                         except Exception as _ee:
                             logger.error(f"[调度器] {label}失败: {_ee}")
 
+                    # ① 收盘后先更新全市场行情（K线 + stock_snapshot 快照），
+                    #    确保后续选股 + 标的池现价/涨幅都是当日最新。
+                    await _save_schedule_config({"last_status": "更新行情数据中…"})
+                    await _run_step("行情数据更新", "scripts.daily_data_update")
+
+                    # ② 选股 + 登记
+                    from scripts.daily_major_capital_scan import run_daily_scan
+                    results = await run_daily_scan(
+                        trigger="定时",
+                        notify_wechat=cfg.get("notify_wechat", True),
+                        update_web_state=True,
+                    )
+                    await _save_schedule_config({"last_status": f"完成 | 当日命中 {len(results)} 只"})
+                    await ws_manager.broadcast({
+                        "type": "scan_done",
+                        "data": state.get("scan_results", []),
+                    })
+
+                    # ③ 离场扫描（trail/止损/分批补仓/大盘减仓）④ 形态走势更新（5/10/30/60 日收益）
                     await _run_step("离场扫描", "scripts.daily_exit_scan")
                     await _run_step("形态走势更新", "scripts.pattern_tracker", "--update")
+                    # ⑤ 回踩确认买点「影子信号」前向跟踪（只记录+跟踪，不交易、不进标的池、不推送）
+                    await _run_step("回踩影子信号", "scripts.shadow_pullback_scan", "--days", "7")
                 except Exception as e:
                     logger.error(f"[调度器] 执行异常: {e}")
                     await _save_schedule_config({"last_status": f"异常: {str(e)[:60]}"})
@@ -446,11 +446,52 @@ async def _do_screen(scan_type: str, preset_name: str = "default", strategy_name
 
 @app.get("/api/scan/results")
 async def get_scan_results(strategy: str = ""):
-    """返回筛选结果。strategy 参数指定策略名时从 MySQL 查询该策略的结果"""
+    """返回筛选结果。strategy 参数指定策略名时从 MySQL 查询该策略的结果。
+    用 stock_snapshot 的最新行情覆盖 price/pct_change，避免标的池显示扫描时的陈旧价。"""
     if strategy:
         from db.scan_dao import load_scan
-        return await load_scan(strategy)
-    return state["scan_results"] or []
+        rows = await load_scan(strategy)
+    else:
+        rows = state["scan_results"] or []
+    if not rows:
+        return rows
+
+    # 注入最新现价/涨幅（stock_snapshot 每日最新快照）
+    try:
+        from db.mysql_pool import get_pool
+        codes = [r.get("code") for r in rows if r.get("code")]
+        if codes:
+            pool = await get_pool()
+            placeholders = ",".join(["%s"] * len(codes))
+            async with pool.acquire() as conn:
+                async with conn.cursor() as cur:
+                    await cur.execute(
+                        f"SELECT code, price, pct_change, trade_date FROM stock_snapshot "
+                        f"WHERE code IN ({placeholders})", tuple(codes))
+                    snap = {x[0]: x for x in await cur.fetchall()}
+                    # 持仓状态（position_monitor 最新一笔）：让标的池标注已持有/已离场的票
+                    pos = {}
+                    if strategy:
+                        await cur.execute(
+                            f"SELECT code, status, exit_date FROM position_monitor "
+                            f"WHERE strategy=%s AND code IN ({placeholders}) "
+                            f"ORDER BY signal_date ASC", (strategy, *codes))
+                        for x in await cur.fetchall():
+                            pos[x[0]] = (x[1], x[2])   # ASC → 最后写入=最新一笔
+            for r in rows:
+                s = snap.get(r.get("code"))
+                if s and s[1] is not None:
+                    r["price"] = float(s[1])
+                    if s[2] is not None:
+                        r["pct_change"] = float(s[2])
+                    r["quote_date"] = s[3].isoformat() if s[3] else None
+                p = pos.get(r.get("code"))
+                if p:
+                    r["position_status"] = p[0]
+                    r["position_exit_date"] = p[1].isoformat() if p[1] else None
+    except Exception as e:
+        logger.debug(f"[scan/results] 注入最新行情/持仓状态失败: {e}")
+    return rows
 
 
 # ══════════════════════════════════════════════════════════

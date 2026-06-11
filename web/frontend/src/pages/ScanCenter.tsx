@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import {
   Card, Row, Col, Button, Typography, Steps, Empty, Statistic, Tooltip,
-  Select, Tag, message, Switch, InputNumber, Form, Alert, Input, Modal, Space, Radio, Pagination,
+  Select, Tag, message, Switch, InputNumber, Form, Alert, Input, Modal, Space, Radio,
   Divider, Table, Spin,
 } from 'antd';
 import {
@@ -157,6 +157,7 @@ function SchedulePanel({ strategy, strategyCfg }: { strategy: string; strategyCf
   const [modal,    setModal]    = useState<string | null>(null);  // channel name
   const [formVals, setFormVals] = useState<Record<string, string>>({});
   const [savingCh, setSavingCh] = useState(false);
+  const { scanDone } = useContext(WsContext);
 
   const load = async () => {
     const [s, p] = await Promise.all([
@@ -167,7 +168,8 @@ function SchedulePanel({ strategy, strategyCfg }: { strategy: string; strategyCf
     if (p) setPushCfg(p);
   };
 
-  useEffect(() => { load(); }, []);
+  // mount 时加载；每次扫描完成(scanDone)后刷新，使「上次执行」时间实时更新
+  useEffect(() => { load(); }, [scanDone]);
 
   const saveSchedule = async (patch: any) => {
     const next = { ...cfg, ...patch };
@@ -450,16 +452,12 @@ export default function ScanCenter() {
   const [signalFilter, setSignalFilter] = useState<'all' | 'BUY' | 'WATCH'>('all');
   const [dataSource, setDataSource] = useState<'realtime' | 'local'>('realtime');
   const [warehouseStatus, setWarehouseStatus] = useState<any>(null);
-  const [page, setPage] = useState(1);
   const [listLoading, setListLoading] = useState(false);
-  const PAGE_SIZE = 15;
   const { scanDone } = useContext(WsContext);
 
   const cfg = STRATEGY_CONFIG[strategy];
-  // 切换策略时重置信号过滤和分页，并立即清空旧标的池 + 进入加载态（避免残留上一策略内容）
-  useEffect(() => { setSignalFilter('all'); setPage(1); setStocks([]); setListLoading(true); }, [strategy]);
-  // 切换信号过滤时重置分页
-  useEffect(() => { setPage(1); }, [signalFilter]);
+  // 切换策略时重置信号过滤，并立即清空旧标的池 + 进入加载态（避免残留上一策略内容）
+  useEffect(() => { setSignalFilter('all'); setStocks([]); setListLoading(true); }, [strategy]);
 
   const load = async (strat: string = strategy) => {
     const [res, st, info, api, wh] = await Promise.all([
@@ -469,7 +467,7 @@ export default function ScanCenter() {
       apiFetch('/api/system/api_status').catch(() => null),
       apiFetch('/api/market/status').catch(() => null),
     ]);
-    setStocks(res || []); setPage(1);
+    setStocks(res || []);
     setStatus(st);
     if (info?.cache_count != null) setCacheCount(info.cache_count);
     if (api) setApiOk(api.realtime_ok);
@@ -490,7 +488,7 @@ export default function ScanCenter() {
           `/api/market/screen?preset=${preset}&with_signals=true&strategy=${strategy}`,
           'POST'
         );
-        setStocks(res?.stocks || []); setPage(1);
+        setStocks(res?.stocks || []);
         const hint = res?.with_signals ? `含策略信号分析` : `仅基础筛选`;
         message.success(`本地筛选完成，共 ${res?.count ?? 0} 只（${hint}）`);
         setScanning(false);
@@ -514,6 +512,20 @@ export default function ScanCenter() {
 
   // 结果是否来自当前策略（有结果即视为匹配）
   const presetMatch = stocks.length > 0 || !status?.last_scan_time;
+
+  // 标的池：剔除「已离场那一轮的旧信号」（最新信号日 ≤ 离场日）；离场后重新贴合的新信号保留。
+  // tab 计数与表格都基于 poolStocks，保证数量一致。
+  const inPool = (s: any) => {
+    if (s.position_status === 'exited' && s.position_exit_date) {
+      const dates: string[] = Array.isArray(s.signal_dates) && s.signal_dates.length
+        ? s.signal_dates.map((d: any) => d.date)
+        : (s.signal_date ? [s.signal_date] : []);
+      const latestSig = dates.length ? dates.reduce((a, b) => (a > b ? a : b)) : '';
+      if (latestSig && latestSig <= s.position_exit_date) return false;
+    }
+    return true;
+  };
+  const poolStocks = stocks.filter(inPool);
 
   return (
     <div>
@@ -705,13 +717,13 @@ export default function ScanCenter() {
             </Tag>
           </span>
         }
-        extra={<Text type="secondary">{stocks.length ? `共 ${stocks.length} 只` : '尚未筛选'}</Text>}
+        extra={<Text type="secondary">{poolStocks.length ? `共 ${poolStocks.length} 只` : '尚未筛选'}</Text>}
         style={{ marginBottom: 16 }}
       >
         {/* 信号过滤栏（主力建仓策略专属） */}
-        {strategy === 'major_capital_accumulation' && stocks.length > 0 && (() => {
-          const buyCount   = stocks.filter(s => s.signal_type === 'BUY').length;
-          const watchCount = stocks.filter(s => s.signal_type === 'WATCH').length;
+        {strategy === 'major_capital_accumulation' && poolStocks.length > 0 && (() => {
+          const buyCount   = poolStocks.filter(s => s.signal_type === 'BUY').length;
+          const watchCount = poolStocks.filter(s => s.signal_type === 'WATCH').length;
           return (
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>
               <Radio.Group
@@ -721,7 +733,7 @@ export default function ScanCenter() {
                 optionType="button"
                 buttonStyle="solid"
               >
-                <Radio.Button value="all">全部 {stocks.length}</Radio.Button>
+                <Radio.Button value="all">全部 {poolStocks.length}</Radio.Button>
                 <Radio.Button value="BUY">
                   <span style={{ color: signalFilter === 'BUY' ? '#fff' : '#e74c3c' }}>
                     🔴 可入场 {buyCount}
@@ -729,7 +741,7 @@ export default function ScanCenter() {
                 </Radio.Button>
                 <Radio.Button value="WATCH">
                   <span style={{ color: signalFilter === 'WATCH' ? '#fff' : '#f39c12' }}>
-                    🟡 建仓中 {watchCount}
+                    🟡 观察 {watchCount}
                   </span>
                 </Radio.Button>
               </Radio.Group>
@@ -740,7 +752,7 @@ export default function ScanCenter() {
               )}
               {watchCount > 0 && signalFilter === 'WATCH' && (
                 <Text type="secondary" style={{ fontSize: 11 }}>
-                  🟡 建仓中：主力吸筹未完毕，加入观察
+                  🟡 观察：主力吸筹未完毕，加入观察
                 </Text>
               )}
             </div>
@@ -774,132 +786,104 @@ export default function ScanCenter() {
             </div>
           )}
           {(() => {
-            const filtered = stocks.filter(s =>
+            // poolStocks 已剔除「已离场旧信号」；此处只按 signalFilter(all/BUY/WATCH) 再过滤
+            const filtered = poolStocks.filter(s =>
               signalFilter === 'all' || s.signal_type === signalFilter || !s.signal_type
             ).sort((a: any, b: any) => {
               const sa = typeof a.match_score === 'object' ? (a.match_score?.total ?? 0) : (a.match_score ?? 0);
               const sb = typeof b.match_score === 'object' ? (b.match_score?.total ?? 0) : (b.match_score ?? 0);
               return sb - sa;
             });
-            const pageStocks = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+            const openThs = (code: string) => {
+              apiFetch('/api/open-ths', 'POST', { code })
+                .then((r: any) => {
+                  if (r.ok) message.success(r.auto_paste ? `已在同花顺中打开 ${code}` : `已打开同花顺，${code} 已复制到剪贴板，⌘V 粘贴`);
+                  else message.error(r.msg || '打开失败');
+                })
+                .catch(() => message.error('请求失败'));
+            };
+            const getScoreObj = (s: any) => typeof s.match_score === 'object' ? (s.match_score || {}) : { total: s.match_score || 0 };
             return (<>
-          <Row gutter={[10, 10]}>
-            {pageStocks.map((s: any) => {
-              const pct = s.pct_change;
-              const hasSignal = !!s.signal_date;
-              const isBuy = s.signal_type === 'BUY';
-              const isWatch = s.signal_type === 'WATCH';
-              // 策略贴合度评分（兼容旧 int 和新 object 格式）
-              const scoreObj = typeof s.match_score === 'object' ? (s.match_score || {}) : { total: s.match_score || 0 };
-              const score = scoreObj.total ?? 0;
-              const scoreColor = score >= 70 ? '#e74c3c' : score >= 50 ? '#f39c12' : '#8892a4';
-              // 全部信号日时间线（按日期升序）
-              const allDates: { date: string; type: string; reason?: string }[] =
-                Array.isArray(s.signal_dates) && s.signal_dates.length > 0
-                  ? [...s.signal_dates].sort((a: any, b: any) => a.date.localeCompare(b.date))
-                  : hasSignal ? [{ date: s.signal_date, type: s.signal_type }] : [];
-              return (
-                <Col xs={12} sm={12} md={8} lg={24/5} xl={24/5} key={s.code}
-                     style={{ maxWidth: '20%', flex: '0 0 20%' }}>
-                  <Card
-                    size="small"
-                    hoverable
-                    onClick={() => {
-                      apiFetch('/api/open-ths', 'POST', { code: s.code })
-                        .then((r: any) => {
-                          if (r.ok) {
-                            message.success(r.auto_paste ? `已在同花顺中打开 ${s.code}` : `已打开同花顺，${s.code} 已复制到剪贴板，⌘V 粘贴`);
-                          } else {
-                            message.error(r.msg || '打开失败');
-                          }
-                        })
-                        .catch(() => message.error('请求失败'));
-                    }}
-                    style={{ background: '#1e2535', border: `1px solid ${isBuy ? '#e74c3c80' : isWatch ? '#f39c1260' : cfg.color + '40'}`, cursor: 'pointer' }}
-                    bodyStyle={{ padding: '10px 12px' }}
-                  >
-                    {/* 第一行：涨幅（最醒目，独占一行） */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
-                      {pct != null ? (
-                        <Text style={{ color: pct >= 0 ? '#e74c3c' : '#27ae60', fontWeight: 700, fontSize: 14 }}>
-                          {pct >= 0 ? '+' : ''}{pct.toFixed(2)}%
-                        </Text>
-                      ) : <span />}
-                      {score > 0 && (
-                        <Tooltip
-                          title={
-                            <div style={{ fontSize: 12, lineHeight: '22px' }}>
-                              <div style={{ fontWeight: 600, marginBottom: 4, fontSize: 13 }}>策略贴合度 {score} 分</div>
-                              {[['信号密度', scoreObj.density, 25], ['策略置信度', scoreObj.confidence, 30], ['当前状态', scoreObj.status, 20], ['信号时效', scoreObj.recency, 25]].map(([label, val, max]) => (
-                                <div key={label as string} style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                                  <span>{label}</span>
-                                  <span style={{ fontWeight: 600 }}>{val ?? '-'}<span style={{ opacity: 0.5 }}>/{max}</span></span>
-                                </div>
-                              ))}
-                              <div style={{ marginTop: 4, opacity: 0.6, fontSize: 11 }}>≥70 高贴合 · ≥50 中等 · &lt;50 偏弱</div>
-                            </div>
-                          }
-                          placement="left"
-                        >
-                          <span style={{ fontSize: 11, fontWeight: 700, color: scoreColor, cursor: 'help' }}>
-                            {score}<span style={{ fontSize: 9, fontWeight: 400, opacity: 0.6 }}>分</span>
-                          </span>
-                        </Tooltip>
-                      )}
-                    </div>
-                    {/* 第二行：股票名称 + 代码（独占一行，保证可见） */}
-                    <div style={{ marginBottom: 4, overflow: 'hidden' }}>
-                      <Text strong style={{ fontSize: 12, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block', lineHeight: '18px' }}>
-                        {s.name}
-                      </Text>
-                      <Text type="secondary" style={{ fontSize: 10, display: 'block' }}>{s.code}</Text>
-                    </div>
-                    {/* 第三行：价格 / 市值 / PE（两种模式完全相同）*/}
-                    <div style={{ fontSize: 11, color: '#8892a4', display: 'flex', gap: 6 }}>
-                      {s.price > 0 && <span>¥{Number(s.price).toFixed(2)}</span>}
-                      {s.cap_yi > 0 && <span>{Number(s.cap_yi).toFixed(0)}亿</span>}
-                      {s.pe != null && s.pe > 0 && <span>PE {Number(s.pe).toFixed(1)}</span>}
-                    </div>
-                    {/* 第四行：信号时间线 */}
-                    {allDates.length > 0 && (
-                        <div style={{ marginTop: 6, display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-                          {allDates.map((d, idx) => {
-                            const dIsBuy = d.type === 'BUY';
-                            const dColor = dIsBuy ? '#e74c3c' : '#f39c12';
-                            const dLabel = dIsBuy ? '▲' : '●';
-                            return (
-                              <Tag
-                                key={idx}
-                                style={{
-                                  fontSize: 10, lineHeight: '16px', padding: '0 4px',
-                                  background: `${dColor}15`, borderColor: `${dColor}50`, color: dColor,
-                                  cursor: d.reason ? 'help' : 'default',
-                                }}
-                                title={d.reason || ''}
-                              >
-                                {dLabel} {d.date}
-                              </Tag>
-                            );
-                          })}
-                        </div>
-                    )}
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
-          {filtered.length > PAGE_SIZE && (
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16 }}>
-              <Pagination
-                current={page}
-                pageSize={PAGE_SIZE}
-                total={filtered.length}
-                onChange={(p) => setPage(p)}
-                showTotal={(total) => `共 ${total} 只`}
-                size="small"
-              />
-            </div>
-          )}
+          <Table
+            size="small"
+            rowKey="code"
+            dataSource={filtered}
+            scroll={{ x: 950 }}
+            pagination={{ defaultPageSize: 10, showSizeChanger: true, pageSizeOptions: ['10', '20', '50', '100'], size: 'small', showTotal: (t) => `共 ${t} 只` }}
+            columns={[
+              { title: '代码', dataIndex: 'code', width: 80,
+                render: (v: string) => <a style={{ color: '#7eb6ff' }} onClick={() => openThs(v)}>{v}</a> },
+              { title: '名称', dataIndex: 'name', width: 110,
+                render: (v: string, s: any) => <a style={{ color: '#7eb6ff' }} onClick={() => openThs(s.code)}>{v || s.code}</a> },
+              { title: '类型', dataIndex: 'signal_type', width: 70,
+                render: (v: string) => v === 'BUY' ? <Tag color="red">BUY</Tag> : v === 'WATCH' ? <Tag color="orange">WATCH</Tag> : <Tag>—</Tag> },
+              { title: '持仓', dataIndex: 'position_status', width: 70,
+                render: (v: any) => v === 'open'
+                  ? <Tooltip title="持有中"><Tag color="blue">持有</Tag></Tooltip>
+                  : <Text type="secondary">—</Text> },
+              { title: '涨幅', dataIndex: 'pct_change', width: 80, align: 'right' as const,
+                sorter: (a: any, b: any) => (a.pct_change ?? -999) - (b.pct_change ?? -999),
+                render: (v: any) => v == null ? '—' :
+                  <Text style={{ color: v >= 0 ? '#e74c3c' : '#27ae60', fontWeight: 600 }}>{v >= 0 ? '+' : ''}{v.toFixed(2)}%</Text> },
+              { title: '现价', dataIndex: 'price', width: 80, align: 'right' as const,
+                render: (v: any) => v > 0 ? `¥${Number(v).toFixed(2)}` : '—' },
+              { title: '市值', dataIndex: 'cap_yi', width: 80, align: 'right' as const,
+                sorter: (a: any, b: any) => (a.cap_yi ?? 0) - (b.cap_yi ?? 0),
+                render: (v: any) => v > 0 ? `${Number(v).toFixed(0)}亿` : '—' },
+              { title: 'PE', dataIndex: 'pe', width: 70, align: 'right' as const,
+                render: (v: any) => (v != null && v > 0) ? Number(v).toFixed(1) : '—' },
+              { title: '贴合度', dataIndex: 'match_score', width: 90, align: 'right' as const,
+                defaultSortOrder: 'descend' as const,
+                sorter: (a: any, b: any) => (getScoreObj(a).total ?? 0) - (getScoreObj(b).total ?? 0),
+                render: (_v: any, s: any) => {
+                  const o = getScoreObj(s); const score = o.total ?? 0;
+                  const color = score >= 70 ? '#e74c3c' : score >= 50 ? '#f39c12' : '#8892a4';
+                  if (!score) return '—';
+                  return (
+                    <Tooltip placement="left" title={
+                      <div style={{ fontSize: 12, lineHeight: '22px' }}>
+                        <div style={{ fontWeight: 600, marginBottom: 4 }}>策略贴合度 {score} 分</div>
+                        {[['信号密度', o.density, 25], ['策略置信度', o.confidence, 30], ['当前状态', o.status, 20], ['信号时效', o.recency, 25]].map(([label, val, max]) => (
+                          <div key={label as string} style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
+                            <span>{label}</span><span style={{ fontWeight: 600 }}>{(val as any) ?? '-'}<span style={{ opacity: 0.5 }}>/{max}</span></span>
+                          </div>
+                        ))}
+                        <div style={{ marginTop: 4, opacity: 0.6, fontSize: 11 }}>≥70 高贴合 · ≥50 中等 · &lt;50 偏弱</div>
+                      </div>
+                    }>
+                      <span style={{ fontWeight: 700, color, cursor: 'help' }}>{score}<span style={{ fontSize: 9, opacity: 0.6 }}>分</span></span>
+                    </Tooltip>
+                  );
+                } },
+              { title: '信号日期（最近优先）', dataIndex: 'signal_dates', width: 240,
+                render: (_v: any, s: any) => {
+                  const all: { date: string; type: string; reason?: string }[] =
+                    Array.isArray(s.signal_dates) && s.signal_dates.length > 0
+                      ? [...s.signal_dates].sort((a: any, b: any) => b.date.localeCompare(a.date))
+                      : s.signal_date ? [{ date: s.signal_date, type: s.signal_type }] : [];
+                  if (!all.length) return '—';
+                  const shown = all.slice(0, 3);
+                  const tagOf = (d: any, idx: number) => {
+                    const isB = d.type === 'BUY'; const c = isB ? '#e74c3c' : '#f39c12';
+                    return <Tag key={idx} style={{ fontSize: 10, lineHeight: '16px', padding: '0 4px', background: `${c}15`, borderColor: `${c}50`, color: c }}>{isB ? '▲' : '●'} {d.date}</Tag>;
+                  };
+                  return (
+                    <Tooltip placement="topLeft" title={
+                      <div style={{ fontSize: 12, lineHeight: '20px', maxHeight: 300, overflow: 'auto' }}>
+                        {all.map((d, i) => (
+                          <div key={i}>{d.type === 'BUY' ? '▲' : '●'} {d.date}{d.reason ? ` — ${d.reason}` : ''}</div>
+                        ))}
+                      </div>
+                    }>
+                      <span style={{ display: 'inline-flex', flexWrap: 'wrap', gap: 3, cursor: 'help' }}>
+                        {shown.map(tagOf)}
+                        {all.length > 3 && <Tag style={{ fontSize: 10, lineHeight: '16px', padding: '0 4px' }}>+{all.length - 3}</Tag>}
+                      </span>
+                    </Tooltip>
+                  );
+                } },
+            ]}
+          />
           </>); })()}
         </>)}
       </Card>
@@ -1025,6 +1009,45 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
       trough_pct: l && e ? (l / e - 1) : null,
     };
   });
+
+  // 操作时间线（按发生顺序的全部操作 + 当前待办，每条带日期），不覆盖
+  const buildOps = (r: any): { date: string; text: string; color: string }[] => {
+    const f = (v: any) => (v != null ? parseFloat(v) : null);
+    const yuan = (v: any) => { const n = f(v); return n != null ? `¥${n.toFixed(2)}` : '—'; };
+    const ep = f(r.entry_price);
+    const sig = f(r.signal_price);
+    const cur = f(r.current_price);
+    const pnl = f(r.unrealized_pnl_pct);
+    const ops: { date: string; text: string; color: string }[] = [];
+
+    // ① 进半仓（首批）
+    if (r.entry_date)
+      ops.push({ date: String(r.entry_date), text: `进半仓 @${yuan(ep)}`, color: 'gold' });
+
+    // ② 补满 / 待补 / 放弃补仓
+    if (r.add_date) {
+      const avg = f(r.avg_entry_price);
+      ops.push({ date: String(r.add_date), text: `补满另一半 @${yuan(r.add_price)}${avg != null ? `（均价¥${avg.toFixed(2)}）` : ''}`, color: 'green' });
+    } else if (r.entry_stage === 1 && r.status === 'open') {
+      if (cur != null && sig != null && cur >= sig)
+        ops.push({ date: '待办', text: `🟢 已站稳突破位${sig != null ? '¥' + sig.toFixed(2) : ''} → 可补满另一半`, color: 'green' });
+      else
+        ops.push({ date: '待办', text: `⏳ 待收盘站稳突破位${sig != null ? '¥' + sig.toFixed(2) : ''}再补满`, color: 'gold' });
+    } else if (r.entry_stage === 3) {
+      ops.push({ date: '—', text: `补仓窗口内未站稳，维持半仓`, color: 'blue' });
+    }
+
+    // ③ 离场 / 持有中 / 接近止损预警
+    if (r.status === 'exited' && r.exit_date) {
+      ops.push({ date: String(r.exit_date), text: `离场 @${yuan(r.exit_price)}：${r.exit_reason || ''}`, color: 'default' });
+    } else if (r.status === 'open') {
+      if (pnl != null && pnl <= -0.08)
+        ops.push({ date: '待办', text: `⚠️ 浮亏${(pnl * 100).toFixed(1)}%，逼近 -10% 硬止损 → 准备离场`, color: 'red' });
+      else if (r.add_date || r.entry_stage === 2)
+        ops.push({ date: '持有', text: `满仓持有，跟随移动止损`, color: 'blue' });
+    }
+    return ops;
+  };
 
   return (
     <Card
@@ -1190,8 +1213,26 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
                 render: (v: any) => <Text style={{ fontSize: 11 }}>{v || '—'}</Text>,
               },
             ] : [
-            { title: '持仓天数', dataIndex: 'days_held', width: 80, align: 'right' as const },
+            { title: '持仓天数', dataIndex: 'days_held', width: 80, align: 'right' as const,
+              sorter: (a: any, b: any) => (a.days_held ?? 0) - (b.days_held ?? 0) },
             ...(tab === 'open' || tab === 'real' ? [
+              {
+                title: '操作建议（时间线）', dataIndex: 'action', width: 300, fixed: 'left' as const,
+                render: (_v: any, r: any) => {
+                  const ops = buildOps(r);
+                  if (!ops.length) return '—';
+                  return (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                      {ops.map((o, i) => (
+                        <div key={i} style={{ fontSize: 11, lineHeight: '15px' }}>
+                          <span style={{ color: '#8892a4', marginRight: 4 }}>{o.date}</span>
+                          <Tag color={o.color} style={{ whiteSpace: 'normal', margin: 0 }}>{o.text}</Tag>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                },
+              },
               {
                 title: '现价 (今日)', dataIndex: 'current_price', width: 130, align: 'right' as const,
                 render: (_v: any, r: any) => {
@@ -1301,10 +1342,6 @@ function PositionMonitorPanel({ strategy }: { strategy: string }) {
                     </Tooltip>
                   )
                   : '—',
-              },
-              {
-                title: '持仓天数', dataIndex: 'days_held', width: 90, align: 'right' as const,
-                sorter: (a: any, b: any) => (a.days_held ?? 0) - (b.days_held ?? 0),
               },
               { title: '触发', dataIndex: 'exit_reason', width: 240,
                 render: (v: any) => <Text style={{ fontSize: 11 }}>{v}</Text> },

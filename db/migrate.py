@@ -148,14 +148,13 @@ async def _migrate_schedule_config(pool):
 
     async with pool.acquire() as conn:
         async with conn.cursor() as cur:
+            # INSERT IGNORE：仅当 schedule_config 尚无记录时用 schedule.json 初始化。
+            # 表已有记录则完全不动——避免每次启动用陈旧 json 覆盖运行时状态(last_run/last_status)
+            # 及用户在 UI 改过的配置，那会导致调度器误判"今天未执行"而重复推送。
             await cur.execute(
                 """
-                INSERT INTO schedule_config (id, enabled, hour, minute, notify_wechat, last_run, last_status)
+                INSERT IGNORE INTO schedule_config (id, enabled, hour, minute, notify_wechat, last_run, last_status)
                 VALUES (1, %s, %s, %s, %s, %s, %s)
-                ON DUPLICATE KEY UPDATE
-                    enabled=VALUES(enabled), hour=VALUES(hour), minute=VALUES(minute),
-                    notify_wechat=VALUES(notify_wechat), last_run=VALUES(last_run),
-                    last_status=VALUES(last_status)
                 """,
                 (
                     int(bool(cfg.get("enabled", False))),

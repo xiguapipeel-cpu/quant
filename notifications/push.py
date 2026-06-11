@@ -125,14 +125,46 @@ class WeCom:
     def configured(self) -> bool:
         return bool(self.webhook)
 
+    @staticmethod
+    def _split_by_bytes(text: str, max_bytes: int) -> list[str]:
+        """按行累加切分，使每段 UTF-8 字节数不超过 max_bytes（中文每字 3 字节）。"""
+        chunks: list[str] = []
+        cur: list[str] = []
+        cur_len = 0
+        for ln in text.split("\n"):
+            lb = len(ln.encode("utf-8")) + 1
+            if cur_len + lb > max_bytes and cur:
+                chunks.append("\n".join(cur))
+                cur, cur_len = [ln], lb
+            else:
+                cur.append(ln)
+                cur_len += lb
+        if cur:
+            chunks.append("\n".join(cur))
+        return chunks or [text]
+
     async def send_markdown(self, content: str) -> dict:
         if not self.configured:
             return {"error": "WECOM_WEBHOOK 未配置"}
-        payload = {"msgtype": "markdown", "markdown": {"content": content}}
-        result = await _http_post(self.webhook, payload)
-        ok = result.get("errcode") == 0
-        logger.info(f"[企业微信] {'成功' if ok else '失败'}: {result}")
-        return result
+        # 企业微信单条 markdown 上限 4096 字节，留余量按 3600 切分；超长则分多条发送
+        chunks = self._split_by_bytes(content, 3600)
+        if len(chunks) == 1:
+            payload = {"msgtype": "markdown", "markdown": {"content": content}}
+            result = await _http_post(self.webhook, payload)
+            ok = result.get("errcode") == 0
+            logger.info(f"[企业微信] {'成功' if ok else '失败'}: {result}")
+            return result
+        # 多段：逐条发送（首行加分页标记）
+        last: dict = {}
+        for i, ch in enumerate(chunks, 1):
+            body = f"（{i}/{len(chunks)}）\n{ch}"
+            last = await _http_post(self.webhook, {"msgtype": "markdown", "markdown": {"content": body}})
+            if last.get("errcode") != 0:
+                logger.warning(f"[企业微信] 第{i}/{len(chunks)}段失败: {last}")
+            await asyncio.sleep(0.3)   # 避免触发频率限制
+        ok = last.get("errcode") == 0
+        logger.info(f"[企业微信] 分 {len(chunks)} 段发送完成（末段{'成功' if ok else '失败'}）")
+        return last
 
     async def send_text(self, content: str, mentioned_list: list[str] | None = None) -> dict:
         if not self.configured:
@@ -561,6 +593,17 @@ class MultiChannelPusher:
             results["telegram"] = await self.telegram.send_message(
                 f"⚠️ <b>大盘减仓提示</b>\n{reason}\n持仓 {open_count} 笔（真实 {real_count}）"
             )
+        return results
+
+    async def send_action_alert(self, title: str, lines: list[str]) -> dict:
+        """持仓操作提醒（真实持仓人工指引：补仓/接近止损等）。"""
+        text = title + "\n时间：" + datetime.now().strftime("%Y-%m-%d %H:%M") + "\n" + "\n".join(lines)
+        results = {}
+        if self.wecom.configured:
+            results["wecom"] = await self.wecom.send_text(text)
+        if self.telegram.configured:
+            results["telegram"] = await self.telegram.send_message(
+                f"📌 <b>{title}</b>\n" + "\n".join(lines))
         return results
 
     # ──────────────────────────────────────────────────────────

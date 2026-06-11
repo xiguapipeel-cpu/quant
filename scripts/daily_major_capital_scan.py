@@ -128,31 +128,66 @@ async def run_daily_scan(
     except Exception as e:
         logger.warning(f"[日扫描] pattern_outcome 记录失败: {e}")
 
-    # ── Step 2.6：推送去重 —— 已持有 / 近期已离场的票不再推买入 ──────
-    # 仅影响推送内容；pattern_outcome（Step 2.5）与 scan_results（Step 4）仍记录全部。
-    push_buy_stocks = buy_stocks
-    try:
-        from db.position_dao import list_open, list_exited
-        from config.execution_rules import EXIT_COOLDOWN_DAYS
-        suppress = {p['code'] for p in await list_open('major_capital_accumulation')}
-        cutoff = (datetime.strptime(today_str, "%Y-%m-%d") - timedelta(days=EXIT_COOLDOWN_DAYS)).strftime("%Y-%m-%d")
-        for p in await list_exited('major_capital_accumulation', limit=3000):
-            if p.get('exit_date') and str(p['exit_date']) >= cutoff:
-                suppress.add(p['code'])
-        push_buy_stocks = [s for s in buy_stocks if s.get('code') not in suppress]
-        n_sup = len(buy_stocks) - len(push_buy_stocks)
-        if n_sup:
-            logger.info(f"[日扫描] 推送去重: 抑制 {n_sup} 只已持有/近{EXIT_COOLDOWN_DAYS}日离场的 BUY 票")
-    except Exception as e:
-        logger.warning(f"[日扫描] 推送去重失败（按全量推送）: {e}")
-
     # ── Step 3：多渠道推送 ─────────────────────────────────
+    # 推送 = 看板【当前标的池】全量：当日命中 + 近 RETAIN_DAYS 天保留的旧标的，剔除已离场。
+    # 这样每天推送都能看到完整在手标的，不必记得昨天推过什么。
     if notify_wechat:
         try:
             from notifications.push import pusher
+            from db.scan_dao import load_scan
             force = trigger in ("手动", "测试")
+            # 展示顺序与看板一致：按贴合度评分 match_score.total 降序
+            def _ms(s):
+                m = s.get("match_score")
+                return m.get("total", 0) if isinstance(m, dict) else (m or 0)
+
+            # 合并保留池：当日 hit_stocks + DB 中近 7 天仍有效的旧标的
+            RETAIN_DAYS = 7
+            cutoff = (datetime.strptime(today_str, "%Y-%m-%d") - timedelta(days=RETAIN_DAYS)).strftime("%Y-%m-%d")
+            pool_map = {s.get("code"): s for s in hit_stocks if s.get("code")}
+            try:
+                for o in await load_scan("major_capital_accumulation"):
+                    c = o.get("code")
+                    if c and c not in pool_map and str(o.get("scan_time", ""))[:10] >= cutoff:
+                        pool_map[c] = o
+            except Exception as _e:
+                logger.debug(f"[日扫描] 合并保留池失败: {_e}")
+
+            # 剔除「已离场那一轮的旧信号」（与看板 poolStocks 同口径）
+            try:
+                from db.mysql_pool import get_pool as _gp
+                codes = list(pool_map.keys())
+                if codes:
+                    ph = ",".join(["%s"] * len(codes))
+                    posmap: dict = {}
+                    _p = await _gp()
+                    async with _p.acquire() as conn:
+                        async with conn.cursor() as cur:
+                            await cur.execute(
+                                f"SELECT code,status,exit_date FROM position_monitor "
+                                f"WHERE strategy='major_capital_accumulation' AND code IN ({ph}) "
+                                f"ORDER BY signal_date ASC", tuple(codes))
+                            for x in await cur.fetchall():
+                                posmap[x[0]] = (x[1], x[2])
+                    def _keep(s):
+                        p = posmap.get(s.get("code"))
+                        if p and p[0] == "exited" and p[1]:
+                            dts = [d.get("date") for d in (s.get("signal_dates") or [])] \
+                                  or ([s.get("signal_date")] if s.get("signal_date") else [])
+                            latest = max([d for d in dts if d], default="")
+                            if latest and latest <= str(p[1]):
+                                return False
+                        return True
+                    pool_map = {c: s for c, s in pool_map.items() if _keep(s)}
+            except Exception as _e:
+                logger.debug(f"[日扫描] 剔除已离场失败: {_e}")
+
+            pool = list(pool_map.values())
+            push_buy = sorted([s for s in pool if s.get("signal_type") == "BUY"], key=_ms, reverse=True)
+            push_watch = sorted([s for s in pool if s.get("signal_type") == "WATCH"], key=_ms, reverse=True)
+            logger.info(f"[日扫描] 推送标的池全量: BUY={len(push_buy)} WATCH={len(push_watch)}（含保留池，剔除已离场）")
             result = await pusher.send_major_capital_scan(
-                push_buy_stocks, watch_stocks, scan_time, trigger, ignore_trading_day=force
+                push_buy, push_watch, scan_time, trigger, ignore_trading_day=force
             )
             if result.get("skipped"):
                 logger.info("[日扫描] 非交易日静音，跳过推送")

@@ -191,6 +191,31 @@ Fold 1 砍掉了 4-7 关税单，Fold 2 闭仓胜率从 58% 飙至 83.3%，Fold 
 
 **数据**：`logs/p7_*` 诊断脚本 `backtest/p7_dead_zone_diag.py`
 
+### P8 — 「放量跌破建仓平台下沿」候选离场规则（验证后否决）
+**来源**：外部专业投资者建议——放量跌破均线粘合区下沿（生命线）= 变盘向下，应止损。
+
+**验证**：对 position_monitor 已离场样本重放持仓期，对比候选规则「收盘放量跌破 MA(平台下沿) 」与现有 `max(ATR trail, ATR 硬止损, MA20) + -10% 硬止损` 的触发时机与收益。脚本 `backtest/p8_volbreak_stop.py`。
+
+**3 参数变体结果（一致）**：
+| 变体 | 触发率 | 早于现有 | 候选 vs 现有均 PnL |
+|------|--------|---------|-------------------|
+| MA60 + 放量1.5x | 37.7% | 26.9% | +0.46% vs +2.46% = **-2.00pp** |
+| MA60 + 放量2.5x | 5.1% | 3.0% | +1.59% vs +1.88% = **-0.29pp** |
+| MA30 + 放量1.5x | 26.8% | 13.0% | -0.44% vs -0.23% = **-0.21pp** |
+
+**关键发现**：
+- **未被包络**（不同于 P0#2 lock_floor 的 0 触发）——候选确实会触发且 27% 真早于现有离场。所以"包络"不是问题。
+- 但「更早触发」在该形态上**恰是坏事**：放量跌破均线后主力建仓股多数回踩再续涨，过早离场**砍掉少数大赢家**（更优笔数占 51~67%，但金额上一致更差），躲掉的下跌幅度有限——"砍了赢家、只躲了小亏"。
+
+**决策：不采纳。** 现有离场体系（P0#1 tight_trail 已调校到位）给了趋势必要的容忍空间，再紧（放量跌破生命线）即过度。脚本保留，样本变化后可重跑。
+
+### 回踩确认买点（建议2）— 影子信号前向跟踪中（未纳入）
+**来源**：外部专业建议——突破后缩量回踩不破核心均线，是成本更优的二次买点。现有策略缺此买点（仅突破当日右侧单一买点）。
+
+**做法**：作为「影子信号」只跟踪不交易（`scripts/shadow_pullback_scan.py`，独立命名空间 `major_capital_pullback_shadow`，写 pattern_outcome 跟踪后续走势，**完全不影响现有交易**），已接入每日调度前向跟踪。
+
+**带二次确认定义**（突破→缩量回踩不破 MA30→重新放量阳线转强）历史回填基线（180 天、样本 34）：5 日 62.5%/+0.75%，30 日 31%/-1.65%，60 日 22%/-7.48%。短期有效、中长期偏弱（疑似短线买点，与中长线定位不符）。**待攒 1-2 个月前向真实样本后再判断是否纳入。** `python -m scripts.shadow_pullback_scan --report` 查最新。
+
 ### 策略定位（固化 — P9/P9b 后修正）
 **本策略是「主力建仓形态扫描器」**，不是连续交易策略。
 
@@ -247,8 +272,64 @@ Fold 1 砍掉了 4-7 关税单，Fold 2 闭仓胜率从 58% 飙至 83.3%，Fold 
 ## 实盘前必做
 
 - 小资金（1-2 万）跑 4-8 周，对比纸面回测
-- 加固单笔最大亏损硬限（如 -10%）防 gap-down
-- 加 idx_sh 5 日跳水检测（P2-B，未实施）
+- ✅ 加固单笔最大亏损硬限（-10%）防 gap-down — 已实现（`config/execution_rules.py` `MAX_SINGLE_LOSS_PCT`，`daily_exit_scan.check_exit`）
+- ✅ 加 idx_sh 5 日跳水检测（P2-B）— 已实现（`evaluate_market_regime`：5 日跌幅 ≤ -5% 或 MA20<MA60 → 减仓清仓推送，`daily_exit_scan.main`）
+
+## 执行层优化（阶段 3，2026-06 实现）
+
+> 均在 `config/execution_rules.py` 集中配置，不改变 WATCH/BUY 形态定义。
+
+| 子项 | 实现 | 配置 |
+|------|------|------|
+| 次日高开过大不追 | `evaluate_next_open` gap>5% → status='skipped' | `NEXT_OPEN_MAX_GAP_UP_PCT=0.05` |
+| 跌回信号价下方不买 | `evaluate_next_open` | `NEXT_OPEN_REQUIRE_ABOVE_SIGNAL_PRICE` |
+| 排序买入 + top-N | `rank_buy_signals`/`rank_score` 多因子综合分（confidence/RSI/watch_days/yy_ratio/bb_narrow/突破强度/成交额），同日只入排名前 N | `MAX_NEW_ENTRIES_PER_DAY=3`、`RANK_WEIGHTS` |
+| 分批进场 | 次日半仓首批（entry_stage=1）→ N 日内收盘站稳突破位/继续放量补满（stage=2，写 avg_entry_price）；窗口内未站稳放弃（stage=3 维持半仓） | `STAGED_ENTRY_ENABLED`、`FIRST_TRANCHE_PCT=0.5`、`ADD_WINDOW_DAYS=5` |
+| 单笔 -10% 硬止损 | `check_exit` 收盘亏损 ≥ 10% 强制离场 | `MAX_SINGLE_LOSS_PCT=0.10` |
+| 大盘急跌/趋势走弱减仓提示 | `evaluate_market_regime` + `pusher.send_market_alert` | `MARKET_5D_DROP_PCT=-0.05`、`MARKET_MA_FAST/SLOW=20/60` |
+
+## 实盘/模拟双轨验证（2026-06 实现）
+
+> 目标：用真实成交对照模拟信号，验证「信号是否有效 / 执行规则是否减少亏损 / 是否错过大赢家」，并据此**只调执行规则、不调形态参数**。
+
+| 环节 | 实现 |
+|------|------|
+| BUY 自动登记模拟持仓 | `daily_major_capital_scan` Step 3.5 → `position_monitor`（`is_real=0`，附 signal_price/次开/执行过滤/分批 stage） |
+| 人工确认买入标记真实 | Web `/api/position/mark_real`（或 `/api/position/add` 直接录真实持仓 `is_real=1`） |
+| 每日统一离场扫描 | `scripts.daily_exit_scan` 扫所有 `status='open'`（模拟+真实），跑 trail/硬止损/MA20/分批补仓/大盘 regime；**已接入调度器**：每日 BUY 选股后以子进程自动连跑（`web/app.py _scheduler_loop`） |
+| 逐笔记录字段 | `position_monitor`：信号日收盘价(`signal_price`)、次日开盘价(`entry_price`)、实际成交价(`actual_exit_price`)、最高浮盈(`highest_price`)、最大浮亏(`lowest_price`)、回测退出价(`exit_price`)、实盘退出价(`actual_exit_price`)；信号后续走势在 `pattern_outcome`(5/10/30/60 日 + peak/trough) |
+| 4-8 周复盘 | `python -m scripts.dual_track_review [--weeks N \| --since DATE \| --all] [--save]` —— 串联两表回答 4 问，输出逐笔明细 + 执行规则调整建议 |
+
+**复盘脚本 4 问对应数据源**：
+1. 信号是否有效？→ `pattern_outcome` 命中后 5/10/30/60 日胜率 + 平均收益 + 峰值
+2. 执行规则是否减少亏损？→ 进场单 PnL/硬止损次数/skipped 拦截结构/实盘 vs 回测退出滑点/真实 vs 模拟对比
+3. 是否错过大赢家？→ skipped 与 放弃补仓(stage=3) 的票 join `pattern_outcome.peak_ret`（峰值≥15% = 错过；谷值≤-8% = 成功避开）
+4. 是否需调整执行规则？→ 基于以上指标启发式生成建议（**强调调执行层，不回到形态参数过拟合**）
+
+## 月度 Outcome 报告（样本外信号追踪，2026-06 实现）
+
+> 目标：对**全部信号（即使没交易也记录）**做样本外效力跟踪，与执行轨复盘互补。
+
+**每日 cron 链**（已接入调度器 `web/app.py _scheduler_loop`，选股触发后自动依次跑）：
+1. `scripts.daily_major_capital_scan` —— 选股 + 所有 WATCH/BUY 写入 `pattern_outcome`（Step 2.5，不交易也记录）
+2. `scripts.daily_exit_scan` —— 统一扫描模拟+真实持仓退出
+3. `scripts.pattern_tracker --update` —— 刷新每个事件的 5/10/30/60 日收益、峰值(peak_ret)、谷值(trough_ret)
+
+**周/月报告**（按需运行）：
+```bash
+python -m scripts.monthly_outcome_report --month 2025-09   # 指定月
+python -m scripts.monthly_outcome_report --weeks 4         # 近 4 周
+python -m scripts.monthly_outcome_report --all --save      # 全历史并存档
+```
+报告内容：BUY 数量、5/10/30/60 日胜率、平均收益、平均最大浮盈(peak)、平均最大浮亏(trough)、
+**跳空亏损案例**（次日跳空低开 ≤ -2% 且 30 日实亏）、**未买入但后续大涨/大跌案例**
+（执行层未建仓的 BUY 信号 join `pattern_outcome`：峰值≥15% 错过 / 谷值≤-10% 避开）。
+
+**两份报告分工**：
+| 报告 | 数据源 | 回答 |
+|------|--------|------|
+| `dual_track_review` | position_monitor（执行轨） | 已建仓单的执行规则效果、真实 vs 模拟、退出滑点 |
+| `monthly_outcome_report` | pattern_outcome（信号轨） | 全信号样本外效力、含没买的、跳空/错过案例 |
 
 ## 下一步建议（按"形态扫描器"定位重组）
 

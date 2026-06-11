@@ -278,6 +278,17 @@ async def process_staged_entries() -> tuple[int, int, int]:
                 filled = True
                 logger.info(f"  ➕ 补半仓 {code} {pos['name']} @{add_price:.2f} "
                             f"均价{avg_price:.2f} | {reason}")
+                # 真实持仓：补仓点企微提醒（提示人工补满另一半）
+                if pos.get('is_real') == 1:
+                    try:
+                        from notifications.push import pusher
+                        await pusher.send_action_alert(
+                            f"🟢 补仓提醒：{code} {pos['name']}",
+                            [f"已站稳突破位，建议**补满另一半仓**",
+                             f"补仓参考价 ¥{add_price:.2f}（补满后均价约 ¥{avg_price:.2f}）",
+                             reason])
+                    except Exception as _pe:
+                        logger.warning(f"  补仓提醒推送失败: {_pe}")
                 break
         if filled:
             continue
@@ -415,8 +426,18 @@ async def _push_exit(pusher, pos: dict) -> bool:
     """推送单笔真实持仓离场（pusher.send_exit_signal 处理具体渠道）"""
     try:
         res = await pusher.send_exit_signal(pos)
-        ok = any(v.get('ok') for v in res.values() if isinstance(v, dict))
-        logger.info(f"[push] {pos['code']} {pos['name']} 离场推送: {res}")
+        # 各渠道返回格式不同：企业微信/钉钉是 {'errcode':0}，telegram 是 {'ok':True}，
+        # Server酱是 {'errno':0}。旧逻辑只认 'ok' 键 → 企业微信永远判失败 → notified 不置位 → 重复推送。
+        def _ch_ok(name, r):
+            if not isinstance(r, dict):
+                return False
+            if name in ('wecom', 'dingtalk'):
+                return r.get('errcode') == 0
+            if name == 'serverchan':
+                return r.get('errno') == 0 or r.get('data', {}).get('errno') == 0
+            return r.get('ok') is True
+        ok = any(_ch_ok(name, r) for name, r in res.items())
+        logger.info(f"[push] {pos['code']} {pos['name']} 离场推送: {res} | ok={ok}")
         return ok
     except Exception as e:
         logger.warning(f"[push] {pos['code']} 失败: {e}")
