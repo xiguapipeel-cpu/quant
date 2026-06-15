@@ -115,20 +115,51 @@ class TrendFollowBT(_BTStrategyBase):
         max_positions=5,
         position_pct=0.20,
         trade_start_date=None,
+        # ── 大盘 regime 过滤（默认关，ablation 时 extra_params 打开）──
+        market_filter=False,
+        market_code='idx_sh',
+        market_ma_fast=20,
+        market_ma_slow=60,
+        # ── 流动性股票池过滤：20日均成交额下限(万元)，0=关 ──
+        min_turnover_wan=0.0,
+        # ── 入场信号模式：'ema_cross'(EMA金叉,默认) | 'donchian'(N日新高突破,海龟) ──
+        entry_mode='ema_cross',
+        donchian_n=20,
+        # ── intrabar 挂单止损：True 时硬止损+追踪止损改用 broker OCO 挂单
+        #    (Stop + StopTrail，当根触及即成交，跳空按开盘价)，杜绝次开市价的滑点击穿 ──
+        intrabar_stop=False,
     )
 
     def __init__(self):
         self._base_init()
         self.indicators = {}
         self.stock_state = {}
+        self.hard_stops = {}   # name -> 挂单硬止损 order（intrabar_stop 模式）
+
+        # ── 大盘指数 data feed（不参与个股交易，仅作 regime 基准）──
+        self._market_ma_fast = None
+        self._market_ma_slow = None
+        for d in self.datas:
+            if d._name == self.p.market_code:
+                self._market_ma_fast = bt.indicators.SMA(
+                    d.close, period=self.p.market_ma_fast)
+                self._market_ma_slow = bt.indicators.SMA(
+                    d.close, period=self.p.market_ma_slow)
+                break
 
         for d in self.datas:
+            if d._name == self.p.market_code:
+                continue   # 指数不参与个股逻辑
             self.indicators[d._name] = {
                 'ema_fast':  bt.indicators.EMA(d.close, period=self.p.fast),
                 'ema_slow':  bt.indicators.EMA(d.close, period=self.p.slow),
                 'ema_trend': bt.indicators.EMA(d.close, period=self.p.trend),
                 'rsi':       WilderRSI(d.close, period=14),
                 'vol_ma':    bt.indicators.SMA(d.volume, period=20),
+                # 20日均成交额(元) = 均(close×volume)，/1e4 得万元
+                'turnover_ma': bt.indicators.SMA(d.close * d.volume, period=20),
+                # Donchian 上轨：N 日最高价（取 [-1] 得"前 N 日"高点，排除当日）
+                'dc_high': bt.indicators.Highest(d.high, period=self.p.donchian_n),
             }
             self.stock_state[d._name] = {
                 'in_position': False,
@@ -145,8 +176,18 @@ class TrendFollowBT(_BTStrategyBase):
         buy_signals = []
         cur_bar = len(self)
 
+        # ── 大盘 regime：快线 > 慢线才允许新开仓（不影响已持仓卖出）──
+        market_ok = True
+        if self.p.market_filter and self._market_ma_fast is not None:
+            mf = float(self._market_ma_fast[0])
+            ms = float(self._market_ma_slow[0])
+            if mf == mf and ms == ms:   # 非 NaN
+                market_ok = mf > ms
+
         for d in self.datas:
             name = d._name
+            if name == self.p.market_code:
+                continue   # 指数不参与个股交易
             if name in self.order_dict:
                 continue
             ind = self.indicators[name]
@@ -171,18 +212,23 @@ class TrendFollowBT(_BTStrategyBase):
             if state['in_position']:
                 state['highest_since_buy'] = max(state['highest_since_buy'], close)
 
-                # 硬止损
-                hard_loss = (state['buy_price'] - close) / state['buy_price']
-                if hard_loss >= self.p.hard_stop_pct:
-                    sell_signals.append((d,
-                        f"硬止损 买入{state['buy_price']:.2f}→{close:.2f} "
-                        f"亏损{hard_loss:.1%}"))
-                    state['last_sell_bar'] = cur_bar
-                    continue
+                # 硬止损：intrabar 模式由 buy 成交时挂出的 Stop 单(broker端)负责，
+                # 当根触及 -hard_stop_pct 即成交、跳空按开盘价，避免次开市价滑点击穿。
+                # close-based 模式仍用次开市价。
+                if not self.p.intrabar_stop:
+                    hard_loss = (state['buy_price'] - close) / state['buy_price']
+                    if hard_loss >= self.p.hard_stop_pct:
+                        sell_signals.append((d,
+                            f"硬止损 买入{state['buy_price']:.2f}→{close:.2f} "
+                            f"亏损{hard_loss:.1%}"))
+                        state['last_sell_bar'] = cur_bar
+                        continue
 
-                # 追踪止损
+                # 追踪止损：始终 close-based（盘中插针不洗盘，让赢家奔跑到收盘）。
+                # intrabar 模式下触发时先撤掉挂单硬止损，再下次开市价卖单，防双卖做空。
                 drawdown = (state['highest_since_buy'] - close) / state['highest_since_buy']
                 if drawdown >= self.p.trailing_pct:
+                    self._cancel_hard_stop(name)
                     sell_signals.append((d,
                         f"追踪止损 最高{state['highest_since_buy']:.2f}→{close:.2f} "
                         f"回撤{drawdown:.1%}"))
@@ -191,6 +237,7 @@ class TrendFollowBT(_BTStrategyBase):
 
                 # 死叉卖出
                 if ef0 > es0 and ef1 <= es1:
+                    self._cancel_hard_stop(name)
                     sell_signals.append((d,
                         f"EMA{self.p.fast}下穿EMA{self.p.slow} 趋势转弱"))
                     state['last_sell_bar'] = cur_bar
@@ -202,16 +249,68 @@ class TrendFollowBT(_BTStrategyBase):
                 # 成交量过滤
                 vol_ok = (vma != vma or vma < 1e-9) or (vol >= vma * self.p.vol_ratio)
 
-                if (ef0 <= es0 and ef1 > es1
+                # 流动性股票池过滤：20日均成交额(万元) ≥ 阈值
+                turnover_ok = True
+                if self.p.min_turnover_wan > 0:
+                    tov = float(ind['turnover_ma'][0])
+                    turnover_ok = (tov == tov) and (tov / 1e4 >= self.p.min_turnover_wan)
+
+                # ── 入场触发：EMA金叉 or Donchian N日新高突破 ──
+                if self.p.entry_mode == 'donchian':
+                    dc = float(ind['dc_high'][-1])   # 前 N 日最高价（排除当日）
+                    trigger = (dc == dc) and (close > dc)
+                    entry_desc = f"突破{self.p.donchian_n}日新高 {dc:.2f}→{close:.2f}"
+                else:
+                    trigger = (ef0 <= es0 and ef1 > es1)
+                    entry_desc = f"EMA{self.p.fast}上穿EMA{self.p.slow}"
+
+                if (market_ok
+                        and trigger
                         and close > et
                         and rsi >= self.p.rsi_min
-                        and vol_ok):
+                        and vol_ok
+                        and turnover_ok):
                     buy_signals.append((d,
-                        f"EMA{self.p.fast}上穿EMA{self.p.slow} "
-                        f"RSI={rsi:.1f} 量比{vol/(vma or 1):.1f}x",
+                        f"{entry_desc} RSI={rsi:.1f} 量比{vol/(vma or 1):.1f}x",
                         0.5 + min(rsi - 50, 20) / 100))
 
         self._execute_signals(sell_signals, buy_signals)
+
+    def _cancel_hard_stop(self, name):
+        """撤销某股残留的挂单硬止损（在 close-based 出场触发前调用，防双卖做空）。"""
+        so = self.hard_stops.pop(name, None)
+        if so is not None and so.alive():
+            self.cancel(so)
+
+    def notify_order(self, order):
+        """intrabar_stop 模式：买入成交后挂出单个 Stop 硬止损单（broker 端撮合）。
+
+        只挂硬止损一单（追踪止损仍走 next() 的 close-based 逻辑）。防做空靠两点：
+        ① close-based 出场触发时先 _cancel_hard_stop 撤掉挂单（撤单在下一 bar 撮合前生效）；
+        ② self.close() 是 size-aware 的，持仓已被挂单平掉后再 close 不会反向开空。
+        挂单填充后于此清理 hard_stops 记录。
+        """
+        if self.p.intrabar_stop and order.status == order.Completed:
+            name = order.data._name
+            if order.isbuy():
+                super().notify_order(order)   # 记 BUY、置 in_position
+                sz = order.executed.size
+                px = order.executed.price
+                stop_px = px * (1 - self.p.hard_stop_pct)
+                so = self.sell(data=order.data, size=sz,
+                               exectype=bt.Order.Stop, price=stop_px)
+                so._reason = (f"硬止损(挂单@{stop_px:.2f}) 买入{px:.2f}")
+                self.hard_stops[name] = so
+                return
+            if order.issell():
+                # 出场成交（挂单硬止损 or close-based 卖单）：清理记录、记冷静期
+                so = self.hard_stops.pop(name, None)
+                if so is not None and so is not order and so.alive():
+                    self.cancel(so)
+                self.stock_state[name]['last_sell_bar'] = len(self)
+                super().notify_order(order)
+                return
+        super().notify_order(order)
 
 
 # ══════════════════════════════════════════════════════════════
@@ -545,11 +644,293 @@ class MajorCapitalPumpBT(_BTStrategyBase):
 
 
 # ══════════════════════════════════════════════════════════════
+# 策略5：趋势跟踪2 (确认上升趋势中的缩量回踩转强)
+# ══════════════════════════════════════════════════════════════
+
+class TrendFollowV2BT(_BTStrategyBase):
+    """
+    趋势跟踪2 — 推翻 EMA 金叉/突破入场，改买「确认上升趋势中的缩量回踩转强」。
+
+    设计依据（全部来自旧 trend_follow 的 5 轮 ablation 证伪结论）：
+      1. A 股日线突破失败率恒为 ~51%（信号层无解）→ 不在信号层硬刚，
+         改从结构层降低失败【成本】：买在 MA20 支撑而非阻力突破，止损天然近。
+      2. 右尾是唯一 alpha，砍右尾必亏（铁律）→ 出场端宽松吊灯、不锁利、
+         不固定止盈、不死叉砍单、close-based 不插针。
+      3. 指数 MA 门控是毒药（砍早期反转右尾）→ 绝不用大盘过滤；
+         但个股自身趋势确认（MA20>MA60）非元凶，保留并作为入场前提。
+
+    入场（4 条全满足）:
+      A 趋势确认: MA20>MA60 且 MA60 上升 且 close>MA60
+      B 前期动量: 近 prior_high_recent 日内创过 prior_high_n 日新高（确认有一条腿）
+      C 缩量回踩: 近 pullback_lookback 日内 low 触及 MA20 且 close 仍站上 MA20，
+                  且回踩期缩量（vol_ma5 < vol_ma20）
+      D 转强确认: close>MA10 且 close>昨高（右侧确认，不接飞刀）
+
+    出场:
+      - 初始硬止损 = min(近 stop_struct_lookback 日最低, MA60) - stop_atr_buf×ATR，
+        用 broker Stop 挂单（intrabar，跳空按开盘成交，抓住已验证对的那一半修复）
+      - 保本: 浮盈达 +1R 后，close-based 止损上移到买入价
+      - 吊灯追踪: trail = highest_since_buy - chandelier_k×ATR，close-based（不插针），
+        k 保持宽松不收紧（让右尾奔跑）
+
+    仓位: 按固定风险 R 下注 shares=(equity×risk_pct)/(entry-stop)，
+          每笔最大亏损恒定，止损近的多买、远的少买，压低回撤。单票上限 max_pos_pct。
+    """
+    params = dict(
+        ma_fast=10, ma_mid=20, ma_trend=60,
+        atr_period=14,
+        prior_high_n=60,          # B: 前高回看窗口
+        prior_high_recent=15,     # B: 前高须发生在近 N 日内
+        pullback_lookback=4,      # C: 回踩触及 MA20 的回看窗口
+        pullback_touch_buf=0.01,  # C: low ≤ MA20×(1+buf) 算触及
+        require_vol_contract=True,# C: 回踩须缩量
+        stop_struct_lookback=5,   # 止损: 结构低点回看
+        stop_atr_buf=0.5,         # 止损: 结构低点再下 buf×ATR
+        max_entry_risk_pct=0.06,  # 止损: 止损距离 > 此值则放弃（清晰回踩本应贴近支撑）
+        risk_pct=0.0075,          # 仓位: 单笔风险敞口（账户净值的 0.75%）
+        max_pos_pct=0.30,         # 仓位: 单票市值上限（止损极近时防过度下注）
+        breakeven_R=1.0,          # 出场: 浮盈达 N×R 后止损移到保本
+        chandelier_k=3.0,         # 出场: 吊灯追踪 ATR 倍数（宽松，不收紧）
+        cool_days=5,
+        max_positions=5,
+        position_pct=0.20,        # 兼容 runner 注入，本策略用 risk_pct 定量
+        trade_start_date=None,
+    )
+
+    def __init__(self):
+        self._base_init()
+        self.indicators = {}
+        self.stock_state = {}
+        self.hard_stops = {}   # name -> broker Stop 挂单
+
+        for d in self.datas:
+            if d._name == 'idx_sh':
+                continue   # 大盘指数不参与（本策略不做大盘过滤）
+            self.indicators[d._name] = {
+                'ma_fast':  bt.indicators.SMA(d.close, period=self.p.ma_fast),
+                'ma_mid':   bt.indicators.SMA(d.close, period=self.p.ma_mid),
+                'ma_trend': bt.indicators.SMA(d.close, period=self.p.ma_trend),
+                'atr':      bt.indicators.ATR(d, period=self.p.atr_period),
+                'hi_n':     bt.indicators.Highest(d.high, period=self.p.prior_high_n),
+                'hi_recent':bt.indicators.Highest(d.high, period=self.p.prior_high_recent),
+                'lo_pull':  bt.indicators.Lowest(d.low, period=self.p.pullback_lookback),
+                'lo_stop':  bt.indicators.Lowest(d.low, period=self.p.stop_struct_lookback),
+                'vol_ma5':  bt.indicators.SMA(d.volume, period=5),
+                'vol_ma20': bt.indicators.SMA(d.volume, period=20),
+            }
+            self.stock_state[d._name] = {
+                'in_position': False,
+                'buy_price': 0.0,
+                'stop_price': 0.0,        # 初始结构止损线
+                'risk_per_share': 0.0,    # 1R
+                'highest_since_buy': 0.0,
+                'breakeven_armed': False, # 浮盈达 +1R 后置 True
+                'last_sell_bar': -999,
+            }
+
+    def next(self):
+        if self._before_trade_start():
+            return
+
+        sell_signals = []
+        buy_plans = []   # (data, reason, conf, stop_price)
+        cur_bar = len(self)
+
+        for d in self.datas:
+            name = d._name
+            if name == 'idx_sh':
+                continue
+            if name in self.order_dict:
+                continue
+            ind = self.indicators[name]
+            state = self.stock_state[name]
+
+            if len(d) < self.p.ma_trend + 2:
+                continue
+
+            ma_fast = float(ind['ma_fast'][0])
+            ma_mid  = float(ind['ma_mid'][0])
+            ma_trend0 = float(ind['ma_trend'][0])
+            ma_trend_prev = float(ind['ma_trend'][-self.p.ma_mid])
+            atr = float(ind['atr'][0])
+            close = float(d.close[0])
+
+            if any(v != v for v in [ma_fast, ma_mid, ma_trend0, ma_trend_prev, atr]):
+                continue
+
+            # ───────────── 持仓中：出场判断 ─────────────
+            if state['in_position']:
+                state['highest_since_buy'] = max(state['highest_since_buy'], close)
+                bp = state['buy_price']
+                r = state['risk_per_share']
+
+                # 保本闸：浮盈达 +breakeven_R×R 后武装
+                if not state['breakeven_armed'] and r > 0 \
+                        and close >= bp + self.p.breakeven_R * r:
+                    state['breakeven_armed'] = True
+
+                # close-based 止损线（初始硬止损由 broker 挂单负责 intrabar）
+                trail_line = state['highest_since_buy'] - self.p.chandelier_k * atr
+                floor_line = bp if state['breakeven_armed'] else state['stop_price']
+                stop_line = max(trail_line, floor_line)
+
+                if close <= stop_line:
+                    self._cancel_hard_stop(name)
+                    gain = (close - bp) / bp if bp > 0 else 0
+                    if state['breakeven_armed']:
+                        dd = (state['highest_since_buy'] - close) / state['highest_since_buy']
+                        tag = f"吊灯追踪止损(k={self.p.chandelier_k}) 回撤{dd:.1%} 收益{gain:+.1%}"
+                    else:
+                        tag = f"保本前止损 买入{bp:.2f}→{close:.2f} {gain:+.1%}"
+                    sell_signals.append((d, tag))
+                    state['last_sell_bar'] = cur_bar
+                continue
+
+            # ───────────── 空仓：入场判断 ─────────────
+            if cur_bar - state['last_sell_bar'] < self.p.cool_days:
+                continue
+
+            hi_n     = float(ind['hi_n'][0])
+            hi_recent= float(ind['hi_recent'][0])
+            lo_pull  = float(ind['lo_pull'][0])
+            lo_stop  = float(ind['lo_stop'][0])
+            vol_ma5  = float(ind['vol_ma5'][0])
+            vol_ma20 = float(ind['vol_ma20'][0])
+            prev_high= float(d.high[-1])
+            if any(v != v for v in [hi_n, hi_recent, lo_pull, lo_stop, vol_ma5, vol_ma20]):
+                continue
+
+            # A 趋势确认
+            cond_trend = (ma_mid > ma_trend0) and (ma_trend0 > ma_trend_prev) \
+                and (close > ma_trend0)
+            # B 前期动量：60 日高点发生在近 prior_high_recent 日内
+            cond_momentum = hi_recent >= hi_n * 0.999
+            # C 缩量回踩到 MA20：近 N 日 low 触及 MA20，今日 close 站上 MA20
+            cond_touch = (lo_pull <= ma_mid * (1 + self.p.pullback_touch_buf)) \
+                and (close > ma_mid)
+            cond_vol = (not self.p.require_vol_contract) or (vol_ma5 < vol_ma20)
+            # D 转强确认：今 close 站上 MA10 且 收在昨高之上
+            cond_strength = (close > ma_fast) and (close > prev_high)
+
+            if not (cond_trend and cond_momentum and cond_touch and cond_vol
+                    and cond_strength):
+                continue
+
+            # 初始结构止损线 = 回踩 swing low 下方（贴近支撑，止损极紧）。
+            # 不用 MA60：上升趋势中 MA60 常在下方 8~15%，会把止损放太远。
+            stop_price = lo_stop - self.p.stop_atr_buf * atr
+            if stop_price >= close:
+                continue   # 止损无效（结构低点已在现价之上）
+            risk_ps = close - stop_price
+            if risk_ps / close > self.p.max_entry_risk_pct:
+                continue   # 止损太远 = 不是贴支撑的干净回踩，放弃
+            conf = min(1.0, (close - ma_mid) / (close * 0.05 + 1e-9))  # 越接近 MA20 越优
+            buy_plans.append((d,
+                f"回踩MA20转强 close{close:.2f}>MA10 止损{stop_price:.2f} "
+                f"R={risk_ps/close:.1%} 量缩{vol_ma5/(vol_ma20 or 1):.2f}",
+                conf, stop_price))
+
+        self._execute_signals_risk(sell_signals, buy_plans)
+
+    # ── 按风险 R 定量下单（取代基类固定金额 _execute_signals）──
+    def _execute_signals_risk(self, sell_signals, buy_plans):
+        for d, reason in sell_signals:
+            o = self.close(data=d)
+            o._reason = reason
+            self.order_dict[d._name] = o
+
+        buy_plans.sort(key=lambda x: -x[2])
+        n_held = self._n_positions()
+        available = self.p.max_positions - n_held + len(sell_signals)
+
+        for d, reason, conf, stop_price in buy_plans:
+            if available <= 0:
+                break
+            name = d._name
+            if name in self.order_dict:
+                continue
+            price = float(d.close[0])
+            risk_ps = price - stop_price
+            if risk_ps <= 0:
+                continue
+            equity = self.broker.getvalue()
+            cash = self.broker.getcash()
+            # 按风险定股数
+            risk_shares = (equity * self.p.risk_pct) / risk_ps
+            # 单票市值上限 + 可用现金双重封顶
+            cap_amount = min(equity * self.p.max_pos_pct, cash)
+            cap_shares = cap_amount / price
+            shares = int(min(risk_shares, cap_shares) / 100) * 100
+            if shares < 100:
+                continue
+            # 记录待入场的止损线，notify_order 成交后用
+            self.stock_state[name]['stop_price'] = stop_price
+            self.stock_state[name]['risk_per_share'] = risk_ps
+            o = self.buy(data=d, size=shares)
+            o._reason = reason
+            self.order_dict[name] = o
+            available -= 1
+
+    def _cancel_hard_stop(self, name):
+        so = self.hard_stops.pop(name, None)
+        if so is not None and so.alive():
+            self.cancel(so)
+
+    def notify_order(self, order):
+        """成交回调：买入后挂出 broker Stop 硬止损（intrabar 抓跳空）；
+        close-based 出场成交时清理挂单。防反向开空靠 _cancel_hard_stop +
+        size-aware self.close()（同 TrendFollowBT intrabar 模式的已验证实现）。"""
+        if order.status == order.Completed:
+            name = order.data._name
+            state = self.stock_state[name]
+            if order.isbuy():
+                state['in_position'] = True
+                state['buy_price'] = order.executed.price
+                state['highest_since_buy'] = order.executed.price
+                state['breakeven_armed'] = False
+                # 用实际成交价重算止损保持 R 一致性（成交价偏离信号价时）
+                # stop_price/risk_per_share 已在下单前写入，这里保留信号价口径止损线
+                self.trade_log.append({
+                    'date': self.datetime.date(0).isoformat(),
+                    'code': name, 'action': 'BUY',
+                    'price': order.executed.price,
+                    'size': order.executed.size,
+                    'reason': getattr(order, '_reason', ''),
+                })
+                sz = order.executed.size
+                stop_px = state['stop_price']
+                so = self.sell(data=order.data, size=sz,
+                               exectype=bt.Order.Stop, price=stop_px)
+                so._reason = f"硬止损(挂单@{stop_px:.2f})"
+                self.hard_stops[name] = so
+                self.order_dict.pop(name, None)
+                return
+            else:
+                state['in_position'] = False
+                so = self.hard_stops.pop(name, None)
+                if so is not None and so is not order and so.alive():
+                    self.cancel(so)
+                state['last_sell_bar'] = len(self)
+                self.trade_log.append({
+                    'date': self.datetime.date(0).isoformat(),
+                    'code': name, 'action': 'SELL',
+                    'price': order.executed.price,
+                    'size': abs(order.executed.size),
+                    'reason': getattr(order, '_reason', ''),
+                })
+                self.order_dict.pop(name, None)
+                return
+        elif order.status in [order.Canceled, order.Margin, order.Rejected]:
+            self.order_dict.pop(order.data._name, None)
+
+
+# ══════════════════════════════════════════════════════════════
 # 策略注册表（Backtrader 版本）
 # ══════════════════════════════════════════════════════════════
 
 BT_STRATEGY_MAP = {
     "trend_follow":       TrendFollowBT,
+    "trend_follow_v2":    TrendFollowV2BT,
     "rsi_reversal":       RSIReversalBT,
     "bollinger_revert":   BollingerRevertBT,
     "major_capital_pump": MajorCapitalPumpBT,
