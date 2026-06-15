@@ -140,9 +140,11 @@ async def _analyze_one(
 
         signal_dates = sorted(
             [{"date": s.date, "type": "WATCH", "reason": s.reason or "",
-              "price": s.price, "confidence": s.confidence} for s in all_watch]
+              "price": s.price, "confidence": s.confidence,
+              "meta": getattr(s, "meta", {}) or {}} for s in all_watch]
             + [{"date": s.date, "type": "BUY", "reason": s.reason or "",
-                "price": s.price, "confidence": s.confidence} for s in all_buys],
+                "price": s.price, "confidence": s.confidence,
+                "meta": getattr(s, "meta", {}) or {}} for s in all_buys],
             key=lambda x: x["date"],
         )
 

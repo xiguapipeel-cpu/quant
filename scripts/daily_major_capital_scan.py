@@ -118,6 +118,10 @@ async def run_daily_scan(
                         "market": s.get("market", "SZ"),
                         "cap_yi": s.get("cap_yi"),
                         "amount_wan": s.get("amount_wan"),
+                        # ── 逐事件 buy_meta：rank_score 选股质量审计所需 ──
+                        # (rsi/yy_ratio/bb_narrow/watch_days/accumulation_days/
+                        #  trigger_strength/breakout_strength)，WATCH 事件为空 dict。
+                        **(ev.get("meta") or {}),
                     },
                 )
                 n_events += 1

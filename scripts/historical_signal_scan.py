@@ -89,6 +89,12 @@ async def scan_one_stock(stock: dict, start: str, end: str, sem: asyncio.Semapho
             logger.debug(f"  {code} 信号生成失败: {e}")
             return code, 0
 
+        # 预计算每交易日 20 日均成交额(万元)，作为 signal_meta.amount_wan（rank 因子之一）
+        _amt_wan_by_date = {}
+        for _i, b in enumerate(norm_bars):
+            _w = [x['amount'] for x in norm_bars[max(0, _i - 19):_i + 1]]
+            _amt_wan_by_date[b['date']] = round(sum(_w) / len(_w) / 1e4, 0) if _w else 0
+
         # 过滤到 [start, end] 内
         n_inserted = 0
         for s in signals:
@@ -105,6 +111,13 @@ async def scan_one_stock(stock: dict, start: str, end: str, sem: asyncio.Semapho
                     signal_type=s.action,
                     signal_reason=(s.reason or '')[:255],
                     confidence=float(getattr(s, 'confidence', 0) or 0),
+                    # 逐事件 buy_meta（rsi/yy_ratio/bb_narrow/watch_days/breakout_strength…）
+                    # + amount_wan，供 rank_score 选股质量审计。WATCH 事件 meta 为空 dict。
+                    signal_meta={
+                        **(getattr(s, 'meta', {}) or {}),
+                        "amount_wan": _amt_wan_by_date.get(s.date),
+                        "source": "historical_signal_scan",
+                    },
                 )
                 n_inserted += 1
             except Exception as e:
