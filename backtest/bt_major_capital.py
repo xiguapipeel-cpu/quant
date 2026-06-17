@@ -158,6 +158,9 @@ class MajorCapitalBT(bt.Strategy):
         # ── 仓位 ──
         max_positions=5,
         position_pct=0.20,
+        # 选股填槽模式：'confidence'(按置信度降序,默认/baseline) |
+        #   'neutral'(中性稳定伪随机,不按动量——审计证 rank_score 反向有害后的落地选股)
+        select_mode='confidence',
         # ── 内部选股参数（主力建仓预设） ──
         screen_enabled=True,           # 是否启用策略内选股
         screen_min_price=2.0,
@@ -1261,8 +1264,15 @@ class MajorCapitalBT(bt.Strategy):
             o._is_pyramid = True
             self.order_dict[name] = o
 
-        # ── Phase 3：执行 BUY（按信心降序，受仓位限制） ──
-        buy_signals.sort(key=lambda x: -x[2])
+        # ── Phase 3：执行 BUY（受仓位限制） ──
+        # confidence: 按置信度降序（baseline）；neutral: 稳定伪随机填槽（不按动量，
+        # 审计证 rank_score 动量排序在当日内反向有害 -3.68pp）。
+        if self.p.select_mode == 'neutral':
+            import zlib
+            _d = self.datetime.date(0).isoformat()
+            buy_signals.sort(key=lambda x: zlib.crc32(f"{x[0]._name}{_d}".encode()))
+        else:
+            buy_signals.sort(key=lambda x: -x[2])
 
         n_held = self._n_positions()
         # 加上即将释放的仓位
