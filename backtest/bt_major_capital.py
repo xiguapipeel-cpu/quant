@@ -23,6 +23,8 @@ import backtrader as bt
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from backtest import major_capital_rules as mc_rules  # 公共信号核(与实时扫描共用)
+
 CACHE_DIR = ROOT / "backtest_cache"
 _NAME_CACHE_FILE = CACHE_DIR / "stock_names.json"
 _NAME_CACHE_TTL  = 86400  # 24 小时
@@ -853,6 +855,35 @@ class MajorCapitalBT(bt.Strategy):
 
         return None
 
+    def _build_mc_params(self) -> "mc_rules.MajorCapitalParams":
+        """从 backtrader params 映射到公共信号核参数(单一来源)。"""
+        p = self.p
+        return mc_rules.MajorCapitalParams(
+            low_lookback=p.low_lookback, max_above_low_pct=p.max_above_low_pct,
+            high_lookback=p.high_lookback, min_below_high_pct=p.min_below_high_pct,
+            ma_converge_pct=p.ma_converge_pct, ma_slope_max=p.ma_slope_max,
+            vol_yang_yin_min=p.vol_yang_yin_min, vol_lookback=p.vol_lookback,
+            rsi_watch_min=p.rsi_watch_min, rsi_watch_max=p.rsi_watch_max,
+            vol_compression_max=p.vol_compression_max,
+            vol_compression_short=p.vol_compression_short,
+            vol_compression_long=p.vol_compression_long,
+            watch_rolling_window=p.watch_rolling_window, min_watch_days=p.min_watch_days,
+            enable_signal_a=p.enable_signal_a, enable_signal_f=p.enable_signal_f,
+            breakout_max_pct=p.breakout_max_pct, rsi_buy_max=p.rsi_buy_max,
+            trend_filter=p.trend_filter, signal_a_min_rsi=p.signal_a_min_rsi,
+            signal_a_break_high_lookback=p.signal_a_break_high_lookback,
+            breakout_atr_k=p.breakout_atr_k, vol_raw_percentile=p.vol_raw_percentile,
+            atr_period=p.atr_period, adaptive_lookback=p.adaptive_lookback,
+            vol_ratio_percentile=p.vol_ratio_percentile, vol_ratio_min=p.vol_ratio_min,
+            breakout_pct_percentile=p.breakout_pct_percentile,
+            breakout_pct_min=p.breakout_pct_min,
+            vol_shrink_days=p.vol_shrink_days, vol_expand_days=p.vol_expand_days,
+            vol_shrink_max_ratio=p.vol_shrink_max_ratio,
+            vol_expand_min_ratio=p.vol_expand_min_ratio,
+            vol_expand_max_ratio=p.vol_expand_max_ratio,
+            bb_narrow_ratio=p.bb_narrow_ratio, ma_diverge_lookback=p.ma_diverge_lookback,
+        )
+
     def _check_buy(self, d, state, ind):
         """
         检查两阶段买入信号，返回 (trigger, confidence) 或 (None, 0)。
@@ -885,214 +916,46 @@ class MajorCapitalBT(bt.Strategy):
             except Exception:
                 pass
 
-        close = float(d.close[0])
-        open_ = float(d.open[0])
-        rsi = float(ind['rsi'][0])
-        dif = float(ind['macd'].macd[0])
-        dea = float(ind['macd'].signal[0])
-        ma20_val = float(ind['ma20'][0])
-
-        if any(v != v for v in [rsi, dif, dea, ma20_val]):
+        # ── 公共信号核：构造窗口数组 + 指标值，调 evaluate_bar ──
+        # (WATCH 状态机 + 信号A/F + P2-A/P4 过滤 + 信心/meta 全在 mc_rules)
+        if not hasattr(self, '_mc_params'):
+            self._mc_params = self._build_mc_params()
+        W = min(len(d), 200)
+        o   = list(d.open.get(size=W))
+        h   = list(d.high.get(size=W))
+        l   = list(d.low.get(size=W))
+        c   = list(d.close.get(size=W))
+        vol = list(d.volume.get(size=W))
+        if not c:
             return None, 0, {}
-
-        is_bull = close >= open_
-
-        # ── 检测建仓中条件 ──
-        near_low = self._near_low(d, self.p.low_lookback)
-        below_high = self._below_high(d, self.p.high_lookback)
-        conv = self._ma_convergence(ind)
-        slope = self._ma_slope(ind['ma20'], 5)
-        yy_ratio = self._yang_yin_vol_ratio(d, self.p.vol_lookback)
-
-        # ── 量能维度：地量特征（主力低位吸筹的量能标志） ──
-        vol_comp = self._volume_compression(d)
-
-        is_accumulating = (
-            near_low is not None and near_low <= self.p.max_above_low_pct
-            and below_high is not None and below_high >= self.p.min_below_high_pct
-            and conv is not None and conv <= self.p.ma_converge_pct
-            and (slope is None or abs(slope) <= self.p.ma_slope_max)
-            and self.p.rsi_watch_min <= rsi <= self.p.rsi_watch_max
-            and yy_ratio is not None and yy_ratio >= self.p.vol_yang_yin_min
-            and vol_comp is not None and vol_comp <= self.p.vol_compression_max
-        )
-
-        # 阶段1：WATCH — 滚动窗口计数法（替代"中途断档清零"）
-        # 过去 watch_rolling_window 天内满足 ≥ min_watch_days 天即确认建仓
-        # 允许主力洗盘期间条件短暂失效（真实建仓少有 20 天连续完美）
-        state['watch_history'].append(bool(is_accumulating))
-        if len(state['watch_history']) > self.p.watch_rolling_window:
-            state['watch_history'] = state['watch_history'][-self.p.watch_rolling_window:]
-
-        window_hits = sum(1 for x in state['watch_history'] if x)
-        state['accumulation_days'] = window_hits   # 语义：滚动窗口内命中天数
-
-        if is_accumulating:
-            if state['watch_start'] is None:
-                state['watch_start'] = len(d)
-            today_iso = self.datetime.date(0).isoformat()
-            if not state['watch_signal_dates'] or state['watch_signal_dates'][-1] != today_iso:
-                state['watch_signal_dates'].append(today_iso)
-                if len(state['watch_signal_dates']) > 60:
-                    state['watch_signal_dates'] = state['watch_signal_dates'][-60:]
-
-        # 阶段2：BUY — 滚动窗口内命中天数不足时不触发
-        if window_hits < self.p.min_watch_days:
+        ind_arr = {
+            'rsi':      list(ind['rsi'].get(size=W)),
+            'atr':      list(ind['atr'].get(size=W)),
+            'ma5':      list(ind['ma5'].get(size=W)),
+            'ma10':     list(ind['ma10'].get(size=W)),
+            'ma20':     list(ind['ma20'].get(size=W)),
+            'ma60':     list(ind['ma60'].get(size=W)),
+            'bb_top':   list(ind['bb'].top.get(size=W)),
+            'bb_bot':   list(ind['bb'].bot.get(size=W)),
+            'bb_mid':   list(ind['bb'].mid.get(size=W)),
+            'macd_dif': list(ind['macd'].macd.get(size=W)),
+            'macd_dea': list(ind['macd'].signal.get(size=W)),
+        }
+        i = len(c) - 1
+        date_iso = self.datetime.date(0).isoformat()
+        dec = mc_rules.evaluate_bar(o, h, l, c, vol, ind_arr, i,
+                                    self._mc_params, state, date_iso)
+        if dec.buy is None:
             return None, 0, {}
-        if state['watch_start'] is None:
-            state['watch_start'] = len(d)
+        reason, conf, meta = dec.buy
 
-        # ════════════════════════════════════════════════════════
-        # 方案 B：仅保留信号 A (放量突破) + F (量萎缩放大)
-        # 删除：B/C/D/E/G（过拟合痕迹明显）
-        # 删除：所有趋势过滤 bypass 规则（旁路就是过拟合补丁）
-        # ════════════════════════════════════════════════════════
-        trigger = ''
-        trigger_strength = 0
-
-        # ── 自适应阈值 ──
-        # 旧版：percentile 涨幅 + 5日量比分位（默认仍在用，向后兼容）
-        # P5 新版：>0 启用 ATR 倍数涨幅 + 原始量分位（更适应不同股票波动率/流动性）
-        adaptive_vol_thr = self._adaptive_vol_threshold(d)
-        adaptive_pct_thr = self._adaptive_breakout_pct(d)
-        atr_val = float(ind['atr'][0])
-
-        # 信号A：放量大阳线突破
-        if self.p.enable_signal_a:
-            prev_close = float(d.close[-1]) if len(d) > 1 else close
-            pct_chg = (close - prev_close) / prev_close * 100 if prev_close > 0 else 0
-            vr = self._vol_ratio(d, 5)
-            _high = float(d.high[0])
-            _low = float(d.low[0])
-            _close_pct_of_range = ((close - _low) / (_high - _low)) if _high > _low else 1.0
-
-            # 涨幅检查：P5 ATR 倍数 优先于旧 percentile 涨幅
-            if self.p.breakout_atr_k > 0:
-                _pct_pass = (atr_val == atr_val and atr_val > 0
-                             and (close - prev_close) >= self.p.breakout_atr_k * atr_val)
-                _pct_desc = f"涨{(close - prev_close):.2f}≥{self.p.breakout_atr_k}×ATR({atr_val:.2f})"
-            else:
-                _pct_pass = pct_chg >= adaptive_pct_thr
-                _pct_desc = f"涨+{pct_chg:.1f}%(阈{adaptive_pct_thr:.1f}%)"
-
-            # 量比检查：P5 原始量分位 优先于旧 5日量比分位
-            if self.p.vol_raw_percentile > 0:
-                _vol_q = self._vol_raw_threshold(d)
-                _today_vol = float(d.volume[0])
-                _vol_pass = _vol_q is not None and _today_vol > _vol_q
-                _vol_desc = f"量{_today_vol:.0f}>Q{int(self.p.vol_raw_percentile*100)}({_vol_q:.0f})" if _vol_q else "量分位数据不足"
-            else:
-                _vol_pass = vr is not None and vr >= adaptive_vol_thr
-                _vol_desc = f"量比{vr:.1f}x(阈{adaptive_vol_thr:.1f}x)" if vr else "量比数据不足"
-
-            if (is_bull and _pct_pass and _vol_pass and _close_pct_of_range >= 0.5):
-                # P2-A 信号 A 质量过滤：rsi ≥ signal_a_min_rsi（默认 55）
-                _qa_ok = self.p.signal_a_min_rsi <= 0 or rsi >= self.p.signal_a_min_rsi
-                # P4 突破需"close > 前 N 日最高价"（默认 off）
-                _break_high = None
-                if _qa_ok and self.p.signal_a_break_high_lookback > 0:
-                    lb = self.p.signal_a_break_high_lookback
-                    if len(d) >= lb + 1:
-                        try:
-                            _break_high = max(float(d.high[-j]) for j in range(1, lb + 1))
-                            if close <= _break_high:
-                                _qa_ok = False
-                        except Exception:
-                            pass
-                if _qa_ok:
-                    _bh_part = f" 破{self.p.signal_a_break_high_lookback}日高{_break_high:.2f}" if _break_high is not None else ""
-                    trigger = f"突破 {_pct_desc} {_vol_desc}{_bh_part}"
-                    trigger_strength = 3
-
-        # 信号F：横盘整理尾端量先萎缩后温和放大
-        # 保留"建仓区间内"前提（与策略立意一致，不是补丁）
-        if self.p.enable_signal_f and not trigger:
-            _in_range = near_low is not None and near_low <= self.p.max_above_low_pct * 1.5
-            if _in_range:
-                vsb_ok, vsb_desc = self._check_vol_shrink_expand(d)
-                if vsb_ok:
-                    trigger = vsb_desc
-                    trigger_strength = 3
-
-        if not trigger:
-            return None, 0, {}
-
-        # ── 统一入场过滤（保留以防极端情况，但不再有策略特例 bypass） ──
-        # RSI 上限：避免超买追高
-        if rsi > self.p.rsi_buy_max:
-            return None, 0, {}
-
-        # 单日涨幅上限：避免追涨停
-        prev_close_x = float(d.close[-1]) if len(d) > 1 else close
-        day_pct = (close - prev_close_x) / prev_close_x * 100 if prev_close_x > 0 else 0
-        if day_pct > self.p.breakout_max_pct:
-            return None, 0, {}
-
-        # 趋势过滤：MA20 > MA60（严格，无 bypass）
-        if self.p.trend_filter:
-            ma60_val = float(ind['ma60'][0])
-            if ma60_val == ma60_val and ma20_val <= ma60_val:
-                return None, 0, {}
-
-        # ── 资金流二次确认（可选） ──
-        ff_meta = {}
+        # ── 资金流二次确认(后置门，需 DB；不进公共核) ──
         if self.p.fund_flow_enabled:
             ff_pass, ff_reason, ff_meta = self._check_fund_flow(d._name)
             if not ff_pass:
                 return None, 0, {}
-
-        # ── 计算信心 ──
-        conf = 0.3 + trigger_strength * 0.1
-        if state['accumulation_days'] >= 30:
-            conf += 0.15
-        elif state['accumulation_days'] >= 20:
-            conf += 0.10
-        if yy_ratio and yy_ratio >= 1.10:
-            conf += 0.10
-
-        bw = self._bb_bandwidth(ind)
-        bb_narrow = self._is_bb_narrow(state, bw) or any(
-            self._is_bb_narrow(state, state['bb_bw_history'][-j])
-            for j in range(1, min(11, len(state['bb_bw_history'])))
-            if state['bb_bw_history'][-j] is not None
-        ) if state['bb_bw_history'] else False
-        if bb_narrow:
-            conf += 0.10
-        conf = min(conf, 1.0)
-
-        reason = (
-            f"建仓完毕: {trigger} | "
-            f"累计{state['accumulation_days']}天 "
-            f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}"
-        )
-        # 补充新信号的量化指标（用于报告溯源）
-        _ma5_v  = float(ind['ma5'][0])
-        _ma20_v = float(ind['ma20'][0])
-        _lb = self.p.ma_diverge_lookback
-        try:
-            _ma5_prev  = float(ind['ma5'][-_lb])
-            _ma20_prev = float(ind['ma20'][-_lb])
-            _ma_diverge_pct = round((_ma5_v - _ma20_v) / _ma20_v * 100, 2) if _ma20_v > 0 else None
-            _ma_diverge_prev_pct = round((_ma5_prev - _ma20_prev) / _ma20_prev * 100, 2) if _ma20_prev > 0 else None
-        except Exception:
-            _ma_diverge_pct = _ma_diverge_prev_pct = None
-
-        meta = {
-            'trigger':              trigger,
-            'accumulation_days':    state['accumulation_days'],
-            'watch_signal_dates':   list(state['watch_signal_dates']),
-            'confidence':           round(conf, 3),
-            'rsi':                  round(rsi, 1),
-            'near_low_pct':         round(near_low, 1) if near_low is not None else None,
-            'ma_converge_pct':      round(conv, 2) if conv is not None else None,
-            'yy_ratio':             round(yy_ratio, 2) if yy_ratio is not None else None,
-            'bb_narrow':            bb_narrow,
-            # 信号E 指标
-            'ma_diverge_pct':       _ma_diverge_pct,
-            'ma_diverge_prev_pct':  _ma_diverge_prev_pct,
-        }
-        if ff_meta:
-            meta.update(ff_meta)
+            if ff_meta:
+                meta.update(ff_meta)
         return reason, conf, meta
 
     # ══════════════════════════════════════════════════════════

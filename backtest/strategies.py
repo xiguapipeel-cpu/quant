@@ -18,6 +18,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from utils.logger import setup_logger
+from backtest import major_capital_rules as mc_rules  # 主力建仓公共信号核(与 bt_major_capital 同源)
 
 logger = setup_logger("strategies")
 
@@ -1075,6 +1076,21 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
         dif_arr, dea_arr = self._macd(closes)
         bb_upper, bb_mid, bb_lower, bb_bw = self._bollinger(closes, self.bb_period)
 
+        # ── 主力建仓公共信号核：与 bt_major_capital 同源(P 系列验证默认值) ──
+        # 旧 __init__ 调参不再驱动信号判定；核用固化 MajorCapitalParams 默认值，
+        # 确保「实时扫描/回填 == 验证过的回测策略」(2026-06 修复两套实现脱节)。
+        mc_params = mc_rules.MajorCapitalParams()
+        mc_state = mc_rules.new_state()
+        _nn = lambda a: [(x if x is not None else float('nan')) for x in a]
+        atr_arr = self._atr(bars, mc_params.atr_period)
+        mc_ind = {
+            'rsi':      _nn(rsi_arr),  'atr':      _nn(atr_arr),
+            'ma5':      _nn(ma5),      'ma10':     _nn(ma10),
+            'ma20':     _nn(ma20),     'ma60':     _nn(ma60),
+            'bb_top':   _nn(bb_upper), 'bb_bot':   _nn(bb_lower), 'bb_mid': _nn(bb_mid),
+            'macd_dif': _nn(dif_arr),  'macd_dea': _nn(dea_arr),
+        }
+
         signals = []
         in_position = False
         buy_price = 0.0
@@ -1100,6 +1116,10 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
             rsi   = rsi_arr[i]
             dif   = dif_arr[i]
             dea   = dea_arr[i]
+
+            # 维护 BB 带宽历史(每根 bar，供公共核 bb_narrow；对应 bt next() 的 bb_bw append)
+            mc_state['bb_bw_history'].append(
+                mc_rules._bb_bandwidth(mc_ind['bb_top'], mc_ind['bb_bot'], mc_ind['bb_mid'], i))
 
             if None in (rsi, dif, dea, ma20[i], bb_mid[i]):
                 continue
@@ -1239,191 +1259,32 @@ class MajorCapitalAccumulationStrategy(BaseStrategy):
                 continue
 
             # ════════════════════════════════════════════
-            # 未持仓 → 两阶段检测
+            # 未持仓 → 公共信号核(与 bt_major_capital 同源)判定 WATCH/BUY
             # ════════════════════════════════════════════
-
-            # ── 缩幅放量检测（每日独立，不依赖 is_accumulating） ──
-            if self._check_sbv(closes, opens, volumes, i):
-                sbv_count += 1
-
-            # ── 检测当前是否满足"建仓中"条件 ──
-            near_low = self._near_low(closes, i, self.low_lookback)
-            conv = self._ma_convergence(ma5, ma10, ma20, i)
-            slope = self._ma_slope(ma20, i, 5)
-            yy_ratio = self._yang_yin_vol_ratio(closes, opens, volumes, i, self.vol_lookback)
-
-            is_accumulating = (
-                near_low is not None and near_low <= self.max_above_low_pct
-                and conv is not None and conv <= self.ma_converge_pct
-                and (slope is None or abs(slope) <= self.ma_slope_max)
-                and self.rsi_watch_min <= rsi <= self.rsi_watch_max
-                and yy_ratio is not None and yy_ratio >= self.vol_yang_yin_min
+            dec = mc_rules.evaluate_bar(
+                opens, highs, lows, closes, volumes, mc_ind, i,
+                mc_params, mc_state, dates[i],
             )
-
-            # ── 阶段1：发现建仓迹象 → WATCH ──
-            if is_accumulating:
-                accumulation_days += 1
-
-                if watch_start_idx is None:
-                    # 首次发现建仓迹象
-                    watch_start_idx = i
-                    bb_narrow = self._is_bb_narrow(bb_bw, i)
-                    signals.append(Signal(
-                        dates[i], code, "WATCH", close,
-                        f"发现建仓迹象: 距底{near_low:.0f}% 均线粘合{conv:.1f}% "
-                        f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f} "
-                        f"{'布林收窄' if bb_narrow else ''}",
-                        confidence=0.3,
-                    ))
-            else:
-                # 不再满足建仓条件：如果已经累计了足够天数，保留状态等待突破
-                # 如果累计天数不够，重置
-                if accumulation_days < self.min_watch_days:
-                    watch_start_idx = None
-                    accumulation_days = 0
-                    sbv_count = 0  # 重置缩幅放量计数
-
-            # ── 阶段2：建仓完毕临界信号 → BUY ──
-            # ★ v3优化：缩幅放量充分时，缩短最小观察天数（20→12）
-            effective_min_days = self.min_watch_days
-            if sbv_count >= self.sbv_min_count:
-                effective_min_days = max(12, self.min_watch_days - 8)
-            # 前提：已观察到足够长的建仓期
-            if watch_start_idx is None or accumulation_days < effective_min_days:
-                continue
-
-            watched_days = i - watch_start_idx
-            trigger = ""
-            trigger_strength = 0
-
-            # 信号A：长期横盘后放量大阳线突破
-            pct_chg = (close - closes[i - 1]) / closes[i - 1] * 100 if i > 0 else 0
-            vr = self._vol_ratio(volumes, i, 5)
-            if (is_bull and pct_chg >= self.breakout_pct
-                    and vr is not None and vr >= self.breakout_vol_ratio):
-                trigger = f"放量突破+{pct_chg:.1f}% 量比{vr:.1f}x"
-                trigger_strength = 3
-
-            # 信号B：价格突破布林上轨（从收窄状态爆发）
-            if not trigger and bb_upper[i] is not None:
-                was_narrow = any(self._is_bb_narrow(bb_bw, j)
-                                 for j in range(max(min_len, i - 10), i))
-                if close > bb_upper[i] and was_narrow:
-                    trigger = f"突破布林上轨{bb_upper[i]:.2f}"
-                    trigger_strength = 3
-
-            # ────────────────────────────────────────────────────────
-            # 信号优先级：A(放量突破) > B(布林上轨) >
-            #             E(三线发散) > F(量萎缩放大) >   ← 建仓末期主信号
-            #             C(均线转正) > D(MACD金叉) > G(均匀买单)
-            # E/F 是用户明确指出的三大建仓完毕信号中最核心的两个，
-            # 置于 C/D 之前，确保在"无大涨、无布林突破"的温和启动行情中能触发。
-            # ────────────────────────────────────────────────────────
-
-            # 信号E：三线多头排列持续向上发散（形态修复，拉升前兆）
-            # ★ 追高门槛：价格需仍在建仓区间内（距60日低点 ≤ max_above_low_pct×1.5）
-            if not trigger:
-                _near_low_e = self._near_low(closes, i, self.low_lookback)
-                if (_near_low_e is not None
-                        and _near_low_e <= self.max_above_low_pct * 1.5):
-                    div_ok, s5, s10, s20 = self._check_ma_diverge(ma5, ma10, ma20, i)
-                    if div_ok:
-                        trigger = f"三线多头发散加速 斜率{s5:.4f}>{s10:.4f}>{s20:.4f}"
-                        trigger_strength = 3
-
-            # 信号F：横盘整理尾端量先萎缩后温和放大（建仓完毕诱多信号）
-            # ★ 同样加近低门槛
-            if not trigger:
-                _near_low_f = self._near_low(closes, i, self.low_lookback)
-                if (_near_low_f is not None
-                        and _near_low_f <= self.max_above_low_pct * 1.5):
-                    vsb_ok, shrink_r, expand_r = self._check_vol_shrink_expand(volumes, i)
-                    if vsb_ok:
-                        trigger = f"量先萎缩后温和放大 缩量比{shrink_r:.2f} 扩量比{expand_r:.2f}"
-                        trigger_strength = 3
-
-            # 信号C：均线多头发散 + MA20 斜率转正
-            if not trigger:
-                ma20_slope = self._ma_slope(ma20, i, 5)
-                if (ma5[i] is not None and ma10[i] is not None and ma20[i] is not None
-                        and ma5[i] > ma10[i] > ma20[i]
-                        and ma20_slope is not None
-                        and ma20_slope >= self.ma_slope_up_min):
-                    # 确认 MA20 斜率从平走转为向上
-                    prev_slope = self._ma_slope(ma20, i - 5, 5) if i >= 10 else None
-                    if prev_slope is not None and prev_slope < self.ma_slope_up_min:
-                        trigger = f"均线多头发散 MA20↑{ma20_slope:.4f}"
-                        trigger_strength = 2
-
-            # 信号D：MACD零轴上方金叉（建仓完毕后的金叉更有意义）
-            if not trigger:
-                prev_dif = dif_arr[i - 1] if i > 0 else None
-                prev_dea = dea_arr[i - 1] if i > 0 else None
-                if (prev_dif is not None and prev_dea is not None
-                        and prev_dif <= prev_dea and dif > dea
-                        and dif >= 0):  # 零轴上方金叉
-                    trigger = "MACD零轴上方金叉"
-                    trigger_strength = 2
-
-            # 信号G：持续均匀大买单
-            # ★ 回测验证：G 单独作为 BUY 触发时胜率过低，暂停纳入入场决策链
-            # if not trigger:
-            #     of_ok, bull_r, vol_cv = self._check_orderflow(closes, opens, volumes, i)
-            #     if of_ok:
-            #         trigger = f"持续均匀买单 阳线{bull_r:.0%} 量均匀CV={vol_cv:.2f}"
-            #         trigger_strength = 2
-
-            if not trigger:
-                continue
-
-            # ── 计算信心 ─────────────────────────────
-            conf = 0.3 + trigger_strength * 0.1
-            if accumulation_days >= 30:
-                conf += 0.15   # 建仓期越长，信号越可靠
-            elif accumulation_days >= 20:
-                conf += 0.10
-            if yy_ratio and yy_ratio >= 1.10:
-                conf += 0.10
-            bb_narrow = self._is_bb_narrow(bb_bw, i) or any(
-                self._is_bb_narrow(bb_bw, j) for j in range(max(min_len, i - 10), i))
-            if bb_narrow:
-                conf += 0.10
-            # ★ v3新增：缩幅放量信心加分
-            has_sbv = sbv_count >= self.sbv_min_count
-            if has_sbv:
-                conf += self.sbv_confidence_boost
-            conf = min(conf, 1.0)
-
-            sbv_tag = f" SBV={sbv_count}天" if sbv_count > 0 else ""
-            # 突破强度：今日相对昨收涨幅（排序用，越强排名越前）
-            _prev_close = closes[i - 1] if i > 0 and closes[i - 1] else None
-            breakout_strength = ((close - _prev_close) / _prev_close * 100.0
-                                 if _prev_close else None)
-            signals.append(Signal(
-                dates[i], code, "BUY", close,
-                f"建仓完毕即将拉升: {trigger} | "
-                f"已建仓{accumulation_days}天 观察{watched_days}天 "
-                f"阳阴量比{yy_ratio:.2f} RSI={rsi:.0f}{sbv_tag}",
-                confidence=conf,
-                meta={
-                    "rsi":               round(rsi, 1) if rsi is not None else None,
-                    "yy_ratio":          round(yy_ratio, 3) if yy_ratio is not None else None,
-                    "bb_narrow":         bool(bb_narrow),
-                    "accumulation_days": accumulation_days,
-                    "watch_days":        watched_days,
-                    "trigger_strength":  trigger_strength,
-                    "breakout_strength": round(breakout_strength, 2) if breakout_strength is not None else None,
-                },
-            ))
-            in_position = True
-            buy_price = close
-            highest_since_buy = close
-            days_below_ma = days_since_buy = 0
-            rsi_peaked = False
-            # 重置观察状态
-            watch_start_idx = None
-            accumulation_days = 0
-            sbv_count = 0
+            if dec.is_accumulating and dec.watch_reason:
+                signals.append(Signal(
+                    dates[i], code, "WATCH", close, dec.watch_reason,
+                    confidence=0.3,
+                ))
+            if dec.buy is not None:
+                reason, conf, meta = dec.buy
+                signals.append(Signal(
+                    dates[i], code, "BUY", close, reason,
+                    confidence=conf, meta=meta,
+                ))
+                in_position = True
+                buy_price = close
+                highest_since_buy = close
+                days_below_ma = days_since_buy = 0
+                rsi_peaked = False
+                mc_state['watch_start'] = None
+                mc_state['accumulation_days'] = 0
+                mc_state['watch_history'] = []
+                mc_state['watch_signal_dates'] = []
 
         return signals
 

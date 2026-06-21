@@ -19,6 +19,9 @@ logger = setup_logger("strategy_analyzer")
 
 # ── 常量 ──────────────────────────────────────────────────────
 LOOKBACK_DAYS      = 120   # 拉取多少天历史日线
+#   ⚠️ 注意：WATCH→BUY 状态机路径依赖，窗口长度会改变 BUY 落点（非单调）。
+#   改此值前必须用「与 bt_major_capital 全历史回测的 BUY 日期对齐」来标定，
+#   不能凭"越长越多信号"直觉调（实测 300790 在 120d 有近期 BUY、300d 反而消失）。
 SIGNAL_WINDOW_DAYS = 10    # 近期信号窗口（超出此范围视为无信号）
 MAX_CONCURRENT     = 8     # 最大并发分析数
 
@@ -80,13 +83,31 @@ def calc_match_score(signal_dates: list[dict], latest, signal_type: str, today_s
 
 
 async def _fetch_bars(code: str, market: str, end_date: str) -> list[dict] | None:
-    """拉取单只股票近 LOOKBACK_DAYS 天日线（优先读本地缓存/MySQL）"""
-    from backtest.data_loader import BacktestDataLoader
+    """
+    拉取单只股票近 LOOKBACK_DAYS 天日线 —— **统一走 local_db(stock_daily)**，
+    与回测 bt_major_capital.load_all_db_data 同源(同一张表、同字段口径)。
+    历史教训(2026-06)：曾用 BacktestDataLoader(akshare→腾讯)，与回测 local_db 不同源，
+    qfq 微差致同逻辑下边际信号漂移。stock_daily 由 daily_data_update 每日刷新保持最新。
+    """
     start_date = (
         datetime.strptime(end_date, "%Y-%m-%d") - timedelta(days=LOOKBACK_DAYS)
     ).strftime("%Y-%m-%d")
-    loader = BacktestDataLoader()
-    return await loader.load_daily_bars(code, market, start_date, end_date, adjust="qfq")
+    from db.stock_dao import get_daily_history
+    rows = await get_daily_history(code, start_date, end_date)
+    if rows:
+        return [{
+            'date':   str(r['trade_date']),
+            'open':   float(r['open_price']),
+            'high':   float(r['high']),
+            'low':    float(r['low']),
+            'close':  float(r['close']),
+            'volume': float(r['volume'] or 0),
+            'amount': float(r.get('amount') or 0),
+        } for r in rows if r.get('open_price') is not None]
+    # 兜底：local_db 无该股(如极新 IPO 未入库)时退回联网加载，并告警(非同源)
+    logger.warning(f"[分析] {code} local_db 无数据，退回 BacktestDataLoader(非回测同源)")
+    from backtest.data_loader import BacktestDataLoader
+    return await BacktestDataLoader().load_daily_bars(code, market, start_date, end_date, adjust="qfq")
 
 
 async def _analyze_one(
